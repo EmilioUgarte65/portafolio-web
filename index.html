@@ -101,6 +101,10 @@
     .card p { color: var(--muted); font-size: 0.93rem; flex: 1; }
     .card .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
     .chip { font-size: 0.76rem; background: var(--bg-soft); border: 1px solid var(--border); color: var(--muted); padding: 4px 10px; border-radius: 8px; }
+    a.card { position: relative; }
+    a.card .go { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
+    a.card:hover .go { gap: 10px; }
+    .card .live { position: absolute; top: 18px; right: 18px; font-size: 0.68rem; font-weight: 600; color: var(--accent-2); background: rgba(89,230,195,0.1); border: 1px solid rgba(89,230,195,0.3); padding: 3px 9px; border-radius: 999px; }
 
     /* SKILLS */
     .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
@@ -151,41 +155,79 @@
         <p>Una muestra de sistemas que he diseñado y construido. Varios son privados por contener lógica de negocio, pero aquí va el panorama.</p>
       </div>
       <div class="grid">
-        <article class="card">
-          <span class="tag">Asistente IA · Mensajería</span>
+        <a class="card" href="https://emiliougarte65.github.io/cora-showcase/" target="_blank" rel="noopener">
+          <span class="live">● Showcase</span>
+          <span class="tag">Asistente IA · Multimodal</span>
           <h3>Asistente conversacional</h3>
-          <p>Chatbot con IA que atiende clientes en lenguaje natural, responde dudas y deriva a una persona cuando la conversación lo requiere. Diseñado para integrarse con sistemas de negocio vía API.</p>
-          <div class="stack"><span class="chip">Node.js</span><span class="chip">IA generativa</span><span class="chip">API mensajería</span></div>
+          <p>Chatbot con IA que atiende clientes por mensajería: entiende texto, notas de voz e imágenes, busca en catálogo y deriva a una persona cuando hace falta.</p>
+          <div class="stack"><span class="chip">IA generativa</span><span class="chip">Voz + Imagen</span><span class="chip">API</span></div>
+          <span class="go">Ver showcase →</span>
+        </a>
+        <article class="card">
+          <span class="tag">Inteligencia de negocio</span>
+          <h3>BI conversacional</h3>
+          <p>Plataforma para "hablar con tus datos": preguntas en lenguaje natural o por voz que se traducen a consultas SQL, se ejecutan y se devuelven narradas como un reporte.</p>
+          <div class="stack"><span class="chip">IA + SQL</span><span class="chip">Voz</span><span class="chip">Dashboards</span></div>
         </article>
+        <article class="card">
+          <span class="tag">Sistema empresarial</span>
+          <h3>ERP serverless</h3>
+          <p>Sistema ERP full-stack sin servidores propios: agenda, recursos y operación en tiempo real, con sincronización bidireccional de calendario.</p>
+          <div class="stack"><span class="chip">React</span><span class="chip">Firebase</span><span class="chip">Serverless</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">Full-stack · PWA</span>
+          <h3>App de gestión full-stack</h3>
+          <p>Aplicación completa de extremo a extremo: frontend en React, backend en FastAPI, base PostgreSQL y Docker. Funciona offline y con autenticación segura por tokens.</p>
+          <div class="stack"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">E-commerce</span>
+          <h3>Plataforma de tienda en línea</h3>
+          <p>E-commerce con catálogo dinámico por categorías, carrito con cálculo automático de descuentos, indicadores de stock y búsqueda en tiempo real.</p>
+          <div class="stack"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">E-commerce</span></div>
+        </article>
+        <a class="card" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">
+          <span class="live">● Público</span>
+          <span class="tag">Machine Learning</span>
+          <h3>IA que aprende a jugar</h3>
+          <p>Agente que aprende solo a jugar el dino de Chrome mediante aprendizaje por refuerzo (PPO / Stable-Baselines3) y visión por computadora con OpenCV.</p>
+          <div class="stack"><span class="chip">Python</span><span class="chip">Reinforcement Learning</span><span class="chip">OpenCV</span></div>
+          <span class="go">Ver código →</span>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/JukeRun/" target="_blank" rel="noopener">
+          <span class="live">● Jugable</span>
+          <span class="tag">Game dev</span>
+          <h3>Juego arcade</h3>
+          <p>Shooter arcade tipo survivor hecho con JavaScript puro: oleadas de enemigos, vehículos y mecánicas originales. Se juega directo en el navegador.</p>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Vite</span><span class="chip">Canvas</span></div>
+          <span class="go">Jugar ahora →</span>
+        </a>
         <article class="card">
           <span class="tag">PWA · Offline-first</span>
           <h3>Encuestas de satisfacción</h3>
           <p>Aplicación PWA offline-first para capturar encuestas en campo sin conexión, con sincronización automática cuando vuelve el internet.</p>
           <div class="stack"><span class="chip">TypeScript</span><span class="chip">PWA</span><span class="chip">Offline-first</span></div>
         </article>
+        <a class="card" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">
+          <span class="live">● Público</span>
+          <span class="tag">Plataforma · IA</span>
+          <h3>Marketplace de agentes IA</h3>
+          <p>Ecosistema de skills para agentes de IA configurables, con instalador multiplataforma. Arquitectura de agentes, extensibilidad y publicación de plugins.</p>
+          <div class="stack"><span class="chip">Python</span><span class="chip">Agentes IA</span></div>
+          <span class="go">Ver código →</span>
+        </a>
+        <article class="card">
+          <span class="tag">Automatización</span>
+          <h3>Bot de cumpleaños</h3>
+          <p>Servicio 24/7 que felicita cumpleaños por mensajería con una imagen personalizada generada al momento, leyendo los datos desde una hoja de cálculo.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">Automatización</span></div>
+        </article>
         <article class="card">
           <span class="tag">App · Multiplataforma</span>
           <h3>App de totem interactivo</h3>
           <p>Aplicación de totem con app móvil y backend en la nube, con autenticación y panel de administración para gestión de contenido.</p>
           <div class="stack"><span class="chip">React Native</span><span class="chip">Firebase</span></div>
-        </article>
-        <article class="card">
-          <span class="tag">Automatización</span>
-          <h3>Generador de cotizaciones</h3>
-          <p>Motor que arma y envía cotizaciones de forma automática a partir de un catálogo, ahorrando trabajo manual al equipo comercial.</p>
-          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Automatización</span><span class="chip">API mensajería</span></div>
-        </article>
-        <article class="card">
-          <span class="tag">Plataforma · IA</span>
-          <h3>Marketplace de agentes IA</h3>
-          <p>Ecosistema de skills para agentes de IA configurables. Trabajo sobre arquitectura de agentes, extensibilidad y publicación de plugins.</p>
-          <div class="stack"><span class="chip">Python</span><span class="chip">Agentes IA</span></div>
-        </article>
-        <article class="card">
-          <span class="tag">Herramientas internas</span>
-          <h3>Suite de productividad comercial</h3>
-          <p>Conjunto de utilidades web para equipos de ventas: seguimiento de prospectos, reportes y tableros operativos.</p>
-          <div class="stack"><span class="chip">HTML</span><span class="chip">JavaScript</span></div>
         </article>
       </div>
     </div>
@@ -199,7 +241,8 @@
       </div>
       <div class="skills">
         <div class="skill"><h4>IA & Asistentes</h4><p>Integración con Claude y OpenAI, diseño de prompts, agentes y flujos conversacionales.</p></div>
-        <div class="skill"><h4>Backend</h4><p>Node.js, Python, APIs REST e integraciones con sistemas empresariales.</p></div>
+        <div class="skill"><h4>Machine Learning</h4><p>Aprendizaje por refuerzo y visión por computadora (OpenCV) para automatización inteligente.</p></div>
+        <div class="skill"><h4>Backend & Datos</h4><p>Node.js, Python, FastAPI, PostgreSQL e integraciones con sistemas empresariales.</p></div>
         <div class="skill"><h4>Frontend & PWA</h4><p>TypeScript, HTML/CSS, aplicaciones web y PWA offline-first.</p></div>
         <div class="skill"><h4>Móvil</h4><p>React Native y Firebase para apps multiplataforma.</p></div>
         <div class="skill"><h4>Mensajería</h4><p>Automatización de canales de mensajería para atención y ventas.</p></div>
