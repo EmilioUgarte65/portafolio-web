@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emilio — Desarrollo & Automatización con IA</title>
+  <meta name="description" content="Portafolio: desarrollo de software, asistentes con IA, automatización por mensajería y aplicaciones a medida." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --bg-soft: #121722;
+      --card: #161c2a;
+      --border: #232c3d;
+      --text: #e6e9f0;
+      --muted: #98a2b8;
+      --accent: #6ea8fe;
+      --accent-2: #59e6c3;
+      --radius: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,14,20,0.7);
+      border-bottom: 1px solid var(--border);
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 1.05rem; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero { padding: 96px 0 72px; position: relative; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; top: -200px; right: -150px;
+      width: 480px; height: 480px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(110,168,254,0.18), transparent 70%);
+      pointer-events: none;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--bg-soft); border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 999px; font-size: 0.82rem; color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 8px var(--accent-2); }
+    .hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.08; margin-bottom: 20px;
+    }
+    .hero h1 .grad {
+      background: linear-gradient(120deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 620px; margin-bottom: 32px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+      transition: transform .15s, box-shadow .2s, background .2s; cursor: pointer;
+    }
+    .btn-primary { background: var(--accent); color: #07101f; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(110,168,254,0.3); }
+    .btn-ghost { background: transparent; border: 1px solid var(--border); color: var(--text); }
+    .btn-ghost:hover { background: var(--bg-soft); border-color: var(--accent); }
+
+    /* SECTIONS */
+    section { padding: 72px 0; }
+    .section-head { margin-bottom: 44px; }
+    .section-head .eyebrow { color: var(--accent-2); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .section-head h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; margin-top: 8px; }
+    .section-head p { color: var(--muted); margin-top: 10px; max-width: 600px; }
+
+    /* PROJECT GRID */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 26px; transition: transform .2s, border-color .2s; display: flex; flex-direction: column;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card .tag { font-size: 0.75rem; color: var(--accent-2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+    .card h3 { font-size: 1.2rem; font-weight: 700; margin: 10px 0 8px; }
+    .card p { color: var(--muted); font-size: 0.93rem; flex: 1; }
+    .card .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .chip { font-size: 0.76rem; background: var(--bg-soft); border: 1px solid var(--border); color: var(--muted); padding: 4px 10px; border-radius: 8px; }
+
+    /* SKILLS */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+    .skill { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+    .skill h4 { font-size: 0.95rem; margin-bottom: 6px; }
+    .skill p { color: var(--muted); font-size: 0.85rem; }
+
+    /* CONTACT */
+    .contact-card {
+      background: linear-gradient(135deg, var(--bg-soft), var(--card));
+      border: 1px solid var(--border); border-radius: 20px; padding: 48px; text-align: center;
+    }
+    .contact-card h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 700; margin-bottom: 12px; }
+    .contact-card p { color: var(--muted); margin-bottom: 28px; }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 0; text-align: center; color: var(--muted); font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">Emilio<span>.</span>dev</div>
+      <div class="nav-links">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="badge"><span class="dot"></span> Disponible para nuevos proyectos</div>
+      <h1>Construyo <span class="grad">asistentes con IA</span> y automatización para negocios reales.</h1>
+      <p class="lead">Desarrollador enfocado en soluciones a medida: chatbots con IA, aplicaciones web/PWA y automatización de procesos. Convierto operaciones manuales en sistemas que trabajan solos.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-ghost" href="https://github.com/EmilioUgarte65" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="proyectos">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Trabajo seleccionado</div>
+        <h2>Proyectos destacados</h2>
+        <p>Una muestra de sistemas que he diseñado y construido. Varios son privados por contener lógica de negocio, pero aquí va el panorama.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="tag">Asistente IA · Mensajería</span>
+          <h3>Asistente conversacional</h3>
+          <p>Chatbot con IA que atiende clientes en lenguaje natural, responde dudas y deriva a una persona cuando la conversación lo requiere. Diseñado para integrarse con sistemas de negocio vía API.</p>
+          <div class="stack"><span class="chip">Node.js</span><span class="chip">IA generativa</span><span class="chip">API mensajería</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">PWA · Offline-first</span>
+          <h3>Encuestas de satisfacción</h3>
+          <p>Aplicación PWA offline-first para capturar encuestas en campo sin conexión, con sincronización automática cuando vuelve el internet.</p>
+          <div class="stack"><span class="chip">TypeScript</span><span class="chip">PWA</span><span class="chip">Offline-first</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">App · Multiplataforma</span>
+          <h3>App de totem interactivo</h3>
+          <p>Aplicación de totem con app móvil y backend en la nube, con autenticación y panel de administración para gestión de contenido.</p>
+          <div class="stack"><span class="chip">React Native</span><span class="chip">Firebase</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">Automatización</span>
+          <h3>Generador de cotizaciones</h3>
+          <p>Motor que arma y envía cotizaciones de forma automática a partir de un catálogo, ahorrando trabajo manual al equipo comercial.</p>
+          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Automatización</span><span class="chip">API mensajería</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">Plataforma · IA</span>
+          <h3>Marketplace de agentes IA</h3>
+          <p>Ecosistema de skills para agentes de IA configurables. Trabajo sobre arquitectura de agentes, extensibilidad y publicación de plugins.</p>
+          <div class="stack"><span class="chip">Python</span><span class="chip">Agentes IA</span></div>
+        </article>
+        <article class="card">
+          <span class="tag">Herramientas internas</span>
+          <h3>Suite de productividad comercial</h3>
+          <p>Conjunto de utilidades web para equipos de ventas: seguimiento de prospectos, reportes y tableros operativos.</p>
+          <div class="stack"><span class="chip">HTML</span><span class="chip">JavaScript</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Stack</div>
+        <h2>Lo que uso para construir</h2>
+      </div>
+      <div class="skills">
+        <div class="skill"><h4>IA & Asistentes</h4><p>Integración con Claude y OpenAI, diseño de prompts, agentes y flujos conversacionales.</p></div>
+        <div class="skill"><h4>Backend</h4><p>Node.js, Python, APIs REST e integraciones con sistemas empresariales.</p></div>
+        <div class="skill"><h4>Frontend & PWA</h4><p>TypeScript, HTML/CSS, aplicaciones web y PWA offline-first.</p></div>
+        <div class="skill"><h4>Móvil</h4><p>React Native y Firebase para apps multiplataforma.</p></div>
+        <div class="skill"><h4>Mensajería</h4><p>Automatización de canales de mensajería para atención y ventas.</p></div>
+        <div class="skill"><h4>Infraestructura</h4><p>Docker, despliegues y automatización de procesos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-card">
+        <h2>¿Tienes una idea en mente?</h2>
+        <p>Hablemos sobre cómo automatizar o construir tu próximo proyecto.</p>
+        <div class="cta-row" style="justify-content: center;">
+          <a class="btn btn-primary" href="mailto:tu-correo@ejemplo.com">Escríbeme</a>
+          <a class="btn btn-ghost" href="https://github.com/EmilioUgarte65" target="_blank" rel="noopener">Ver GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Emilio · Hecho con GitHub Pages</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
