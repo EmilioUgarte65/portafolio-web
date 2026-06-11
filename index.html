@@ -108,11 +108,18 @@
     a.card .go { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
     a.card:hover .go { gap: 10px; }
     .card .live { position: absolute; top: 14px; right: 14px; z-index: 2; font-size: 0.68rem; font-weight: 600; color: #07101f; background: var(--accent-2); padding: 4px 11px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
-    .anim-pulse { animation: cardpulse 2s ease-in-out infinite; transform-origin: center; }
+    /* Motion: en reposo nada se anima (1-2 elementos por vista). Solo el mockup de la tarjeta activa cobra vida. */
+    .anim-pulse, .anim-move { animation: none; transform-origin: center; }
+    .card:hover .anim-pulse, .card:focus-within .anim-pulse { animation: cardpulse 2s ease-in-out infinite; }
+    .card:hover .anim-move, .card:focus-within .anim-move { animation: cardmove 2.4s ease-in-out infinite; }
     @keyframes cardpulse { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
-    .anim-move { animation: cardmove 2.4s ease-in-out infinite; }
     @keyframes cardmove { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-12px); } }
-    @media (prefers-reduced-motion: reduce) { .anim-pulse, .anim-move, .card:hover .preview svg { animation: none !important; transform: none !important; } }
+    /* Estados de foco visibles para navegación con teclado */
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+    .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    /* Que los anclajes no queden ocultos bajo el nav fijo */
+    section[id], header[id] { scroll-margin-top: 84px; }
+    @media (prefers-reduced-motion: reduce) { .anim-pulse, .anim-move, .card:hover .preview svg, .orb { animation: none !important; transform: none !important; } }
 
     /* SKILLS */
     .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
@@ -166,7 +173,7 @@
         <a class="card" href="https://emiliougarte65.github.io/cora-showcase/" target="_blank" rel="noopener">
           <span class="live">● Showcase</span>
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <rect x="0" y="0" width="320" height="32" fill="#151d2f"/>
               <circle cx="22" cy="16" r="9" fill="#6ea8fe"/><text x="22" y="20" font-size="10" fill="#07101f" text-anchor="middle" font-family="sans-serif" font-weight="700">C</text>
@@ -193,7 +200,7 @@
 
         <article class="card">
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <rect x="20" y="16" width="280" height="28" rx="9" fill="#1b2334" stroke="#2e3a52"/>
               <circle cx="38" cy="30" r="6" fill="none" stroke="#59e6c3" stroke-width="2"/><line x1="42" y1="34" x2="47" y2="39" stroke="#59e6c3" stroke-width="2"/>
@@ -222,7 +229,7 @@
 
         <article class="card">
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <rect x="24" y="18" width="272" height="132" rx="12" fill="#151d2f" stroke="#2e3a52"/>
               <rect x="24" y="18" width="272" height="26" rx="12" fill="#1b2540"/>
@@ -252,7 +259,7 @@
 
         <article class="card">
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <rect x="22" y="18" width="276" height="132" rx="12" fill="#151d2f" stroke="#2e3a52"/>
               <rect x="22" y="18" width="276" height="22" rx="12" fill="#1b2540"/>
@@ -276,7 +283,7 @@
 
         <article class="card">
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <rect x="20" y="16" width="220" height="22" rx="8" fill="#1b2334" stroke="#2e3a52"/><rect x="32" y="24" width="120" height="6" rx="3" fill="#3a4663"/>
               <circle cx="270" cy="27" r="13" fill="#1b2540"/><path d="M263 23 h12 l-2 9 h-8 z" fill="none" stroke="#59e6c3" stroke-width="1.6"/><circle cx="265" cy="35" r="1.6" fill="#59e6c3"/><circle cx="272" cy="35" r="1.6" fill="#59e6c3"/>
@@ -305,7 +312,7 @@
         <a class="card" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">
           <span class="live">● Público</span>
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <text x="20" y="30" font-size="11" fill="#a78bfa" font-family="monospace">PPO · reward ↑</text>
               <polyline points="20,72 50,70 80,62 110,58 140,46 170,44 200,34 230,30 260,22 290,20" fill="none" stroke="#59e6c3" stroke-width="2"/>
@@ -333,7 +340,7 @@
         <a class="card" href="https://emiliougarte65.github.io/JukeRun/" target="_blank" rel="noopener">
           <span class="live">● Jugable</span>
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0c1018"/>
               <rect x="0" y="0" width="320" height="168" fill="#10151f"/>
               <line x1="160" y1="0" x2="160" y2="168" stroke="#1c2740" stroke-width="2" stroke-dasharray="10 12"/>
@@ -368,7 +375,7 @@
 
         <article class="card">
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <rect x="46" y="20" width="228" height="128" rx="12" fill="#151d2f" stroke="#2e3a52"/>
               <rect x="62" y="36" width="120" height="7" rx="3" fill="#54607c"/>
@@ -398,7 +405,7 @@
         <a class="card" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">
           <span class="live">● Público</span>
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <text x="20" y="28" font-size="11" fill="#8a96ad" font-family="monospace">44+ skills</text>
               <g>
@@ -422,7 +429,7 @@
 
         <article class="card">
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <!-- confetti -->
               <rect x="40" y="24" width="6" height="6" rx="1" fill="#6ea8fe" transform="rotate(20 43 27)"/>
@@ -458,7 +465,7 @@
 
         <article class="card">
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
               <!-- totem body -->
               <rect x="120" y="14" width="80" height="124" rx="12" fill="#151d2f" stroke="#2e3a52"/>
