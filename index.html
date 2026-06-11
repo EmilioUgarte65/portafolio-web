@@ -90,21 +90,29 @@
     .section-head p { color: var(--muted); margin-top: 10px; max-width: 600px; }
 
     /* PROJECT GRID */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
     .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 26px; transition: transform .2s, border-color .2s; display: flex; flex-direction: column;
+      position: relative; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; transition: transform .2s, border-color .2s, box-shadow .2s; display: flex; flex-direction: column;
     }
-    .card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 20px 44px rgba(0,0,0,0.35); }
+    .card .preview { height: 168px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border); background: #0d1320; }
+    .card .preview svg { width: 100%; height: 100%; display: block; }
+    .card:hover .preview svg { transform: scale(1.03); transition: transform .4s ease; }
+    .card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
     .card .tag { font-size: 0.75rem; color: var(--accent-2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-    .card h3 { font-size: 1.2rem; font-weight: 700; margin: 10px 0 8px; }
+    .card h3 { font-size: 1.2rem; font-weight: 700; margin: 8px 0 8px; }
     .card p { color: var(--muted); font-size: 0.93rem; flex: 1; }
     .card .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
     .chip { font-size: 0.76rem; background: var(--bg-soft); border: 1px solid var(--border); color: var(--muted); padding: 4px 10px; border-radius: 8px; }
-    a.card { position: relative; }
     a.card .go { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.82rem; font-weight: 600; color: var(--accent); }
     a.card:hover .go { gap: 10px; }
-    .card .live { position: absolute; top: 18px; right: 18px; font-size: 0.68rem; font-weight: 600; color: var(--accent-2); background: rgba(89,230,195,0.1); border: 1px solid rgba(89,230,195,0.3); padding: 3px 9px; border-radius: 999px; }
+    .card .live { position: absolute; top: 14px; right: 14px; z-index: 2; font-size: 0.68rem; font-weight: 600; color: #07101f; background: var(--accent-2); padding: 4px 11px; border-radius: 999px; box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+    .anim-pulse { animation: cardpulse 2s ease-in-out infinite; transform-origin: center; }
+    @keyframes cardpulse { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+    .anim-move { animation: cardmove 2.4s ease-in-out infinite; }
+    @keyframes cardmove { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-12px); } }
+    @media (prefers-reduced-motion: reduce) { .anim-pulse, .anim-move, .card:hover .preview svg { animation: none !important; transform: none !important; } }
 
     /* SKILLS */
     .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
@@ -157,77 +165,323 @@
       <div class="grid">
         <a class="card" href="https://emiliougarte65.github.io/cora-showcase/" target="_blank" rel="noopener">
           <span class="live">● Showcase</span>
-          <span class="tag">Asistente IA · Multimodal</span>
-          <h3>Asistente conversacional</h3>
-          <p>Chatbot con IA que atiende clientes por mensajería: entiende texto, notas de voz e imágenes, busca en catálogo y deriva a una persona cuando hace falta.</p>
-          <div class="stack"><span class="chip">IA generativa</span><span class="chip">Voz + Imagen</span><span class="chip">API</span></div>
-          <span class="go">Ver showcase →</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="0" y="0" width="320" height="32" fill="#151d2f"/>
+              <circle cx="22" cy="16" r="9" fill="#6ea8fe"/><text x="22" y="20" font-size="10" fill="#07101f" text-anchor="middle" font-family="sans-serif" font-weight="700">C</text>
+              <rect x="40" y="12" width="74" height="7" rx="3" fill="#3a4663"/>
+              <rect x="20" y="46" width="158" height="28" rx="11" fill="#1f2940"/>
+              <rect x="32" y="56" width="120" height="6" rx="3" fill="#54607c"/>
+              <rect x="124" y="86" width="176" height="38" rx="11" fill="#6ea8fe"/>
+              <rect x="136" y="96" width="120" height="6" rx="3" fill="#dceaff"/>
+              <rect x="136" y="108" width="80" height="6" rx="3" fill="#dceaff" opacity=".7"/>
+              <rect x="20" y="132" width="58" height="24" rx="11" fill="#1f2940"/>
+              <circle class="anim-pulse" cx="36" cy="144" r="4" fill="#59e6c3"/>
+              <circle class="anim-pulse" cx="49" cy="144" r="4" fill="#59e6c3" style="animation-delay:.3s"/>
+              <circle class="anim-pulse" cx="62" cy="144" r="4" fill="#59e6c3" style="animation-delay:.6s"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Asistente IA · Multimodal</span>
+            <h3>CORA · Asistente conversacional</h3>
+            <p>Atiende clientes por mensajería entendiendo texto, notas de voz e imágenes. Busca en catálogo, asesora como experto y deriva a un humano cuando hace falta.</p>
+            <div class="stack"><span class="chip">IA generativa</span><span class="chip">Voz + Imagen</span><span class="chip">API</span></div>
+            <span class="go">Ver showcase →</span>
+          </div>
         </a>
+
         <article class="card">
-          <span class="tag">Inteligencia de negocio</span>
-          <h3>BI conversacional</h3>
-          <p>Plataforma para "hablar con tus datos": preguntas en lenguaje natural o por voz que se traducen a consultas SQL, se ejecutan y se devuelven narradas como un reporte.</p>
-          <div class="stack"><span class="chip">IA + SQL</span><span class="chip">Voz</span><span class="chip">Dashboards</span></div>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="20" y="16" width="280" height="28" rx="9" fill="#1b2334" stroke="#2e3a52"/>
+              <circle cx="38" cy="30" r="6" fill="none" stroke="#59e6c3" stroke-width="2"/><line x1="42" y1="34" x2="47" y2="39" stroke="#59e6c3" stroke-width="2"/>
+              <rect x="56" y="27" width="150" height="6" rx="3" fill="#54607c"/>
+              <text x="288" y="34" font-size="13" fill="#a78bfa" text-anchor="middle" font-family="monospace">SQL</text>
+              <g>
+                <rect x="40"  y="120" width="20" height="32" rx="3" fill="#3a4663"/>
+                <rect x="72"  y="96"  width="20" height="56" rx="3" fill="#6ea8fe"/>
+                <rect x="104" y="108" width="20" height="44" rx="3" fill="#3a4663"/>
+                <rect x="136" y="80"  width="20" height="72" rx="3" fill="#6ea8fe"/>
+                <rect x="168" y="100" width="20" height="52" rx="3" fill="#3a4663"/>
+                <rect class="anim-pulse" x="200" y="64" width="20" height="88" rx="3" fill="#59e6c3"/>
+                <rect x="232" y="92"  width="20" height="60" rx="3" fill="#3a4663"/>
+                <rect x="264" y="76"  width="20" height="76" rx="3" fill="#6ea8fe"/>
+              </g>
+              <polyline points="50,112 82,92 114,100 146,72 178,94 210,60 242,84 274,70" fill="none" stroke="#e6e9f0" stroke-width="2" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Inteligencia de negocio</span>
+            <h3>Lumen · BI conversacional</h3>
+            <p>Habla con tus datos: preguntas en lenguaje natural o por voz que se traducen a consultas SQL, se ejecutan y regresan narradas como un reporte listo para leer.</p>
+            <div class="stack"><span class="chip">IA + SQL</span><span class="chip">Voz</span><span class="chip">Dashboards</span></div>
+          </div>
         </article>
+
         <article class="card">
-          <span class="tag">Sistema empresarial</span>
-          <h3>ERP serverless</h3>
-          <p>Sistema ERP full-stack sin servidores propios: agenda, recursos y operación en tiempo real, con sincronización bidireccional de calendario.</p>
-          <div class="stack"><span class="chip">React</span><span class="chip">Firebase</span><span class="chip">Serverless</span></div>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="24" y="18" width="272" height="132" rx="12" fill="#151d2f" stroke="#2e3a52"/>
+              <rect x="24" y="18" width="272" height="26" rx="12" fill="#1b2540"/>
+              <circle cx="42" cy="31" r="5" fill="#59e6c3"/><rect x="54" y="28" width="90" height="6" rx="3" fill="#3a4663"/>
+              <path d="M250 25 a8 8 0 1 1 -6 13" fill="none" stroke="#6ea8fe" stroke-width="2"/><path d="M250 25 l4 -3 l1 5 z" fill="#6ea8fe"/>
+              <path d="M276 38 a8 8 0 1 1 6 -13" fill="none" stroke="#6ea8fe" stroke-width="2"/><path d="M276 38 l-4 3 l-1 -5 z" fill="#6ea8fe"/>
+              <g>
+                <!-- calendar cells 7x3 -->
+                <g fill="#1f2940">
+                  <rect x="36"  y="56" width="32" height="24" rx="4"/><rect x="74"  y="56" width="32" height="24" rx="4"/><rect x="112" y="56" width="32" height="24" rx="4"/><rect x="150" y="56" width="32" height="24" rx="4"/><rect x="188" y="56" width="32" height="24" rx="4"/><rect x="226" y="56" width="32" height="24" rx="4"/><rect x="264" y="56" width="20" height="24" rx="4"/>
+                  <rect x="36"  y="86" width="32" height="24" rx="4"/><rect x="74"  y="86" width="32" height="24" rx="4"/><rect x="112" y="86" width="32" height="24" rx="4"/><rect x="150" y="86" width="32" height="24" rx="4"/><rect x="188" y="86" width="32" height="24" rx="4"/><rect x="226" y="86" width="32" height="24" rx="4"/><rect x="264" y="86" width="20" height="24" rx="4"/>
+                  <rect x="36"  y="116" width="32" height="24" rx="4"/><rect x="74"  y="116" width="32" height="24" rx="4"/><rect x="112" y="116" width="32" height="24" rx="4"/><rect x="150" y="116" width="32" height="24" rx="4"/><rect x="188" y="116" width="32" height="24" rx="4"/><rect x="226" y="116" width="32" height="24" rx="4"/><rect x="264" y="116" width="20" height="24" rx="4"/>
+                </g>
+                <rect x="112" y="56" width="32" height="24" rx="4" fill="#6ea8fe"/>
+                <rect class="anim-pulse" x="188" y="86" width="32" height="24" rx="4" fill="#59e6c3"/>
+                <rect x="74" y="116" width="32" height="24" rx="4" fill="#a78bfa"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Sistema empresarial</span>
+            <h3>Núcleo · ERP serverless</h3>
+            <p>ERP completo sin servidores propios: agenda, recursos y operación en tiempo real, con sincronización bidireccional de calendario. Toda la infraestructura, gestionada sola.</p>
+            <div class="stack"><span class="chip">React</span><span class="chip">Firebase</span><span class="chip">Serverless</span></div>
+          </div>
         </article>
+
         <article class="card">
-          <span class="tag">Full-stack · PWA</span>
-          <h3>App de gestión full-stack</h3>
-          <p>Aplicación completa de extremo a extremo: frontend en React, backend en FastAPI, base PostgreSQL y Docker. Funciona offline y con autenticación segura por tokens.</p>
-          <div class="stack"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span></div>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="22" y="18" width="276" height="132" rx="12" fill="#151d2f" stroke="#2e3a52"/>
+              <rect x="22" y="18" width="276" height="22" rx="12" fill="#1b2540"/>
+              <circle cx="36" cy="29" r="4" fill="#ff6b6b"/><circle cx="50" cy="29" r="4" fill="#ffd166"/><circle cx="64" cy="29" r="4" fill="#59e6c3"/>
+              <rect x="34" y="52" width="58" height="86" rx="8" fill="#1b2540"/>
+              <rect x="44" y="64" width="38" height="6" rx="3" fill="#3a4663"/><rect x="44" y="78" width="30" height="6" rx="3" fill="#3a4663"/><rect x="44" y="92" width="38" height="6" rx="3" fill="#6ea8fe"/><rect x="44" y="106" width="26" height="6" rx="3" fill="#3a4663"/>
+              <rect x="104" y="52" width="86" height="40" rx="8" fill="#1f2940"/><rect x="114" y="64" width="60" height="6" rx="3" fill="#54607c"/><rect x="114" y="76" width="40" height="6" rx="3" fill="#3a4663"/>
+              <rect x="104" y="100" width="86" height="38" rx="8" fill="#1f2940"/><rect x="114" y="112" width="50" height="6" rx="3" fill="#54607c"/>
+              <rect x="202" y="52" width="84" height="22" rx="11" fill="none" stroke="#6ea8fe" stroke-width="1.5"/><text x="244" y="67" font-size="11" fill="#6ea8fe" text-anchor="middle" font-family="monospace">FastAPI</text>
+              <path d="M214 92 h60 v22 a30 8 0 0 1 -60 0 z" fill="#1f2940" stroke="#59e6c3" stroke-width="1.5"/><ellipse cx="244" cy="92" rx="30" ry="8" fill="#243049" stroke="#59e6c3" stroke-width="1.5"/>
+              <text x="244" y="132" font-size="10" fill="#8a96ad" text-anchor="middle" font-family="monospace">PostgreSQL</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Full-stack · PWA</span>
+            <h3>Vértice · Plataforma full-stack</h3>
+            <p>Aplicación de extremo a extremo: frontend React, backend FastAPI, base PostgreSQL y Docker. Funciona offline y con autenticación segura por tokens. Ingeniería completa.</p>
+            <div class="stack"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span></div>
+          </div>
         </article>
+
         <article class="card">
-          <span class="tag">E-commerce</span>
-          <h3>Plataforma de tienda en línea</h3>
-          <p>E-commerce con catálogo dinámico por categorías, carrito con cálculo automático de descuentos, indicadores de stock y búsqueda en tiempo real.</p>
-          <div class="stack"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">E-commerce</span></div>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="20" y="16" width="220" height="22" rx="8" fill="#1b2334" stroke="#2e3a52"/><rect x="32" y="24" width="120" height="6" rx="3" fill="#3a4663"/>
+              <circle cx="270" cy="27" r="13" fill="#1b2540"/><path d="M263 23 h12 l-2 9 h-8 z" fill="none" stroke="#59e6c3" stroke-width="1.6"/><circle cx="265" cy="35" r="1.6" fill="#59e6c3"/><circle cx="272" cy="35" r="1.6" fill="#59e6c3"/>
+              <g>
+                <rect x="20"  y="52" width="86" height="98" rx="10" fill="#151d2f" stroke="#2e3a52"/>
+                <rect x="20"  y="52" width="86" height="52" rx="10" fill="#22304d"/><rect x="20" y="92" width="86" height="12" fill="#22304d"/>
+                <rect x="32"  y="116" width="50" height="6" rx="3" fill="#54607c"/><text x="32" y="140" font-size="13" fill="#59e6c3" font-family="monospace" font-weight="700">$248</text>
+                <rect x="117" y="52" width="86" height="98" rx="10" fill="#151d2f" stroke="#2e3a52"/>
+                <rect x="117" y="52" width="86" height="52" rx="10" fill="#2a2350"/><rect x="117" y="92" width="86" height="12" fill="#2a2350"/>
+                <rect x="150" y="44" width="40" height="16" rx="8" fill="#ff6b6b"/><text x="170" y="56" font-size="9" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="700">-20%</text>
+                <rect x="129" y="116" width="50" height="6" rx="3" fill="#54607c"/><text x="129" y="140" font-size="13" fill="#59e6c3" font-family="monospace" font-weight="700">$99</text>
+                <rect x="214" y="52" width="86" height="98" rx="10" fill="#151d2f" stroke="#2e3a52"/>
+                <rect x="214" y="52" width="86" height="52" rx="10" fill="#1d3a3a"/><rect x="214" y="92" width="86" height="12" fill="#1d3a3a"/>
+                <rect x="226" y="116" width="50" height="6" rx="3" fill="#54607c"/><text x="226" y="140" font-size="13" fill="#59e6c3" font-family="monospace" font-weight="700">$540</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">E-commerce</span>
+            <h3>Vitrina · Tienda en línea</h3>
+            <p>Plataforma de e-commerce con catálogo dinámico por categorías, carrito con descuentos automáticos, indicadores de stock, insignias de producto y búsqueda en tiempo real.</p>
+            <div class="stack"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">E-commerce</span></div>
+          </div>
         </article>
+
         <a class="card" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">
           <span class="live">● Público</span>
-          <span class="tag">Machine Learning</span>
-          <h3>IA que aprende a jugar</h3>
-          <p>Agente que aprende solo a jugar el dino de Chrome mediante aprendizaje por refuerzo (PPO / Stable-Baselines3) y visión por computadora con OpenCV.</p>
-          <div class="stack"><span class="chip">Python</span><span class="chip">Reinforcement Learning</span><span class="chip">OpenCV</span></div>
-          <span class="go">Ver código →</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <text x="20" y="30" font-size="11" fill="#a78bfa" font-family="monospace">PPO · reward ↑</text>
+              <polyline points="20,72 50,70 80,62 110,58 140,46 170,44 200,34 230,30 260,22 290,20" fill="none" stroke="#59e6c3" stroke-width="2"/>
+              <line x1="20" y1="124" x2="300" y2="124" stroke="#3a4663" stroke-width="2"/>
+              <!-- dino -->
+              <g fill="#6ea8fe">
+                <rect x="46" y="96" width="20" height="22" rx="2"/><rect x="60" y="90" width="14" height="14" rx="2"/><rect x="72" y="94" width="5" height="4"/>
+                <rect x="48" y="118" width="5" height="8"/><rect x="58" y="118" width="5" height="8"/>
+              </g>
+              <!-- detection box -->
+              <rect class="anim-pulse" x="216" y="92" width="34" height="34" rx="2" fill="none" stroke="#ff6b6b" stroke-width="1.6" stroke-dasharray="4 3"/>
+              <!-- cactus -->
+              <g class="anim-move" fill="#59e6c3"><rect x="226" y="96" width="8" height="28" rx="2"/><rect x="220" y="104" width="6" height="10" rx="2"/><rect x="234" y="100" width="6" height="12" rx="2"/></g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Machine Learning</span>
+            <h3>Dino AI · Aprende a jugar solo</h3>
+            <p>Agente que aprende a jugar el dino de Chrome con aprendizaje por refuerzo (PPO / Stable-Baselines3) y visión por computadora con OpenCV. Dos enfoques: red neuronal y reglas.</p>
+            <div class="stack"><span class="chip">Python</span><span class="chip">Reinforcement Learning</span><span class="chip">OpenCV</span></div>
+            <span class="go">Ver código →</span>
+          </div>
         </a>
+
         <a class="card" href="https://emiliougarte65.github.io/JukeRun/" target="_blank" rel="noopener">
           <span class="live">● Jugable</span>
-          <span class="tag">Game dev</span>
-          <h3>Juego arcade</h3>
-          <p>Shooter arcade tipo survivor hecho con JavaScript puro: oleadas de enemigos, vehículos y mecánicas originales. Se juega directo en el navegador.</p>
-          <div class="stack"><span class="chip">JavaScript</span><span class="chip">Vite</span><span class="chip">Canvas</span></div>
-          <span class="go">Jugar ahora →</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0c1018"/>
+              <rect x="0" y="0" width="320" height="168" fill="#10151f"/>
+              <line x1="160" y1="0" x2="160" y2="168" stroke="#1c2740" stroke-width="2" stroke-dasharray="10 12"/>
+              <rect x="0" y="0" width="320" height="22" fill="#0a0e16"/>
+              <text x="14" y="16" font-size="11" fill="#ffd166" font-family="monospace">SCORE 04820</text>
+              <text x="250" y="16" font-size="11" fill="#59e6c3" font-family="monospace">♥ ♥ ♥</text>
+              <!-- enemies -->
+              <circle class="anim-pulse" cx="70" cy="60" r="7" fill="#ff6b6b"/>
+              <circle class="anim-pulse" cx="248" cy="48" r="7" fill="#ff6b6b" style="animation-delay:.4s"/>
+              <circle class="anim-pulse" cx="220" cy="118" r="7" fill="#ff6b6b" style="animation-delay:.7s"/>
+              <circle class="anim-pulse" cx="96" cy="128" r="7" fill="#ff6b6b" style="animation-delay:.2s"/>
+              <!-- coin -->
+              <circle cx="190" cy="80" r="8" fill="#ffd166"/><text x="190" y="84" font-size="9" fill="#7a5b00" text-anchor="middle" font-family="sans-serif" font-weight="700">$</text>
+              <!-- car -->
+              <g transform="translate(146,76)">
+                <rect x="0" y="0" width="28" height="42" rx="6" fill="#6ea8fe"/>
+                <rect x="5" y="6" width="18" height="12" rx="3" fill="#bcd6ff"/>
+                <rect x="5" y="26" width="18" height="10" rx="3" fill="#2a4a80"/>
+                <rect x="-3" y="6" width="4" height="10" rx="2" fill="#243049"/><rect x="27" y="6" width="4" height="10" rx="2" fill="#243049"/>
+                <rect x="-3" y="28" width="4" height="10" rx="2" fill="#243049"/><rect x="27" y="28" width="4" height="10" rx="2" fill="#243049"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Game dev</span>
+            <h3>JukeRun · Juego arcade</h3>
+            <p>Shooter arcade tipo survivor con vehículos y mecánicas originales, hecho en JavaScript puro. Oleadas de enemigos, power-ups y acción sin parar. Se juega directo en el navegador.</p>
+            <div class="stack"><span class="chip">JavaScript</span><span class="chip">Vite</span><span class="chip">Canvas</span></div>
+            <span class="go">Jugar ahora →</span>
+          </div>
         </a>
+
         <article class="card">
-          <span class="tag">PWA · Offline-first</span>
-          <h3>Encuestas de satisfacción</h3>
-          <p>Aplicación PWA offline-first para capturar encuestas en campo sin conexión, con sincronización automática cuando vuelve el internet.</p>
-          <div class="stack"><span class="chip">TypeScript</span><span class="chip">PWA</span><span class="chip">Offline-first</span></div>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="46" y="20" width="228" height="128" rx="12" fill="#151d2f" stroke="#2e3a52"/>
+              <rect x="62" y="36" width="120" height="7" rx="3" fill="#54607c"/>
+              <rect x="62" y="52" width="180" height="6" rx="3" fill="#2e3a52"/>
+              <!-- stars -->
+              <g transform="translate(62,76)">
+                <path class="star" d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#59e6c3"/>
+                <g transform="translate(34,0)"><path d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#59e6c3"/></g>
+                <g transform="translate(68,0)"><path d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#59e6c3"/></g>
+                <g transform="translate(102,0)"><path d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#2e3a52"/></g>
+                <g transform="translate(136,0)"><path d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#2e3a52"/></g>
+              </g>
+              <rect x="62" y="112" width="150" height="22" rx="6" fill="#1f2940"/><rect x="72" y="120" width="80" height="6" rx="3" fill="#54607c"/>
+              <circle cx="236" cy="123" r="13" fill="#6ea8fe"/><path d="M230 123 l4 4 l8 -8" fill="none" stroke="#07101f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- offline cloud badge -->
+              <g class="anim-pulse" transform="translate(232,28)"><path d="M6 10 a6 6 0 0 1 11 -2 a5 5 0 0 1 1 10 h-12 a4.5 4.5 0 0 1 0 -8 z" fill="#243049" stroke="#59e6c3" stroke-width="1.4"/></g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">PWA · Offline-first</span>
+            <h3>Pulso · Encuestas offline</h3>
+            <p>App PWA para capturar encuestas de satisfacción en campo aunque no haya internet, con sincronización automática en cuanto vuelve la conexión. Pensada para usarse en sucursal.</p>
+            <div class="stack"><span class="chip">TypeScript</span><span class="chip">PWA</span><span class="chip">Offline-first</span></div>
+          </div>
         </article>
+
         <a class="card" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">
           <span class="live">● Público</span>
-          <span class="tag">Plataforma · IA</span>
-          <h3>Marketplace de agentes IA</h3>
-          <p>Ecosistema de skills para agentes de IA configurables, con instalador multiplataforma. Arquitectura de agentes, extensibilidad y publicación de plugins.</p>
-          <div class="stack"><span class="chip">Python</span><span class="chip">Agentes IA</span></div>
-          <span class="go">Ver código →</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <text x="20" y="28" font-size="11" fill="#8a96ad" font-family="monospace">44+ skills</text>
+              <g>
+                <g transform="translate(20,40)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#6ea8fe"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(118,40)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#59e6c3"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(216,40)"><rect class="anim-pulse" width="84" height="50" rx="9" fill="#1a2238" stroke="#6ea8fe"/><circle cx="20" cy="20" r="9" fill="#a78bfa"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(20,100)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#ffd166"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(118,100)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#ff6b6b"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(216,100)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#6ea8fe"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Plataforma · IA</span>
+            <h3>Dexter · Marketplace de agentes IA</h3>
+            <p>Ecosistema de skills para agentes de IA configurables, con instalador multiplataforma y más de 44 habilidades. Arquitectura de agentes, extensibilidad y publicación de plugins.</p>
+            <div class="stack"><span class="chip">Python</span><span class="chip">Agentes IA</span></div>
+            <span class="go">Ver código →</span>
+          </div>
         </a>
+
         <article class="card">
-          <span class="tag">Automatización</span>
-          <h3>Bot de cumpleaños</h3>
-          <p>Servicio 24/7 que felicita cumpleaños por mensajería con una imagen personalizada generada al momento, leyendo los datos desde una hoja de cálculo.</p>
-          <div class="stack"><span class="chip">Node.js</span><span class="chip">Automatización</span></div>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <!-- confetti -->
+              <rect x="40" y="24" width="6" height="6" rx="1" fill="#6ea8fe" transform="rotate(20 43 27)"/>
+              <rect x="120" y="18" width="6" height="6" rx="1" fill="#59e6c3" transform="rotate(-15 123 21)"/>
+              <rect x="250" y="30" width="6" height="6" rx="1" fill="#ffd166" transform="rotate(35 253 33)"/>
+              <rect x="280" y="60" width="6" height="6" rx="1" fill="#ff6b6b" transform="rotate(10 283 63)"/>
+              <rect x="22" y="70" width="6" height="6" rx="1" fill="#a78bfa" transform="rotate(25 25 73)"/>
+              <!-- chat bubble -->
+              <rect x="40" y="44" width="240" height="96" rx="14" fill="#1f2940"/>
+              <path d="M58 140 l0 18 l18 -18 z" fill="#1f2940"/>
+              <!-- generated image frame: cake -->
+              <rect x="56" y="60" width="80" height="64" rx="8" fill="#11182a" stroke="#2e3a52"/>
+              <g transform="translate(72,74)">
+                <rect x="0" y="20" width="48" height="24" rx="4" fill="#a78bfa"/>
+                <rect x="0" y="30" width="48" height="14" fill="#8b6df0"/>
+                <rect x="6" y="14" width="36" height="8" rx="3" fill="#dbe9ff"/>
+                <rect x="22" y="2" width="4" height="12" fill="#ffd166"/>
+                <circle class="anim-pulse" cx="24" cy="0" r="3" fill="#ff9f43"/>
+              </g>
+              <rect x="150" y="72" width="116" height="7" rx="3" fill="#54607c"/>
+              <rect x="150" y="88" width="96" height="6" rx="3" fill="#3a4663"/>
+              <rect x="150" y="102" width="104" height="6" rx="3" fill="#3a4663"/>
+              <text x="150" y="126" font-size="12" fill="#59e6c3" font-family="monospace">🎉 ¡Feliz cumpleaños!</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Automatización</span>
+            <h3>Festo · Bot de cumpleaños</h3>
+            <p>Servicio 24/7 que felicita cumpleaños por mensajería con una imagen personalizada generada al momento. Detecta solo a quién le toca ese día y envía el mensaje automáticamente.</p>
+            <div class="stack"><span class="chip">Node.js</span><span class="chip">Automatización</span></div>
+          </div>
         </article>
+
         <article class="card">
-          <span class="tag">App · Multiplataforma</span>
-          <h3>App de totem interactivo</h3>
-          <p>Aplicación de totem con app móvil y backend en la nube, con autenticación y panel de administración para gestión de contenido.</p>
-          <div class="stack"><span class="chip">React Native</span><span class="chip">Firebase</span></div>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <!-- totem body -->
+              <rect x="120" y="14" width="80" height="124" rx="12" fill="#151d2f" stroke="#2e3a52"/>
+              <rect x="150" y="138" width="20" height="14" fill="#1b2540"/>
+              <rect x="132" y="150" width="56" height="8" rx="3" fill="#22304d"/>
+              <!-- screen -->
+              <rect x="130" y="24" width="60" height="104" rx="6" fill="#0c1018"/>
+              <rect x="138" y="32" width="44" height="22" rx="4" fill="#6ea8fe"/>
+              <rect x="138" y="60" width="20" height="20" rx="4" fill="#59e6c3"/>
+              <rect x="162" y="60" width="20" height="20" rx="4" fill="#a78bfa"/>
+              <rect x="138" y="86" width="20" height="20" rx="4" fill="#ffd166"/>
+              <rect x="162" y="86" width="20" height="20" rx="4" fill="#22304d"/>
+              <!-- touch ring -->
+              <circle class="anim-pulse" cx="172" cy="96" r="14" fill="none" stroke="#fff" stroke-width="1.6" opacity=".6"/>
+              <circle cx="172" cy="96" r="4" fill="#fff" opacity=".8"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">App · Multiplataforma</span>
+            <h3>Totem · Kiosko interactivo</h3>
+            <p>Totem de autoservicio con app móvil y backend en la nube, autenticación y panel de administración para gestionar el contenido que se muestra en pantalla.</p>
+            <div class="stack"><span class="chip">React Native</span><span class="chip">Firebase</span></div>
+          </div>
         </article>
       </div>
     </div>
