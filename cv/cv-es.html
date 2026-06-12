@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  html,body { font-family:'Inter',system-ui,sans-serif; color:#1A2433; }
+  .page { width:210mm; min-height:297mm; display:grid; grid-template-columns:67mm 1fr; }
+  .side { background:#0E2A4E; color:#eaf1fb; padding:22px 20px; }
+  .name { font-size:25px; font-weight:800; letter-spacing:-.02em; line-height:1.05; }
+  .role { font-size:12.5px; font-weight:600; color:#8fb4e8; margin-top:4px; }
+  .side h3 { font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:#9cc0f0; margin:22px 0 9px; border-bottom:1px solid rgba(255,255,255,.16); padding-bottom:6px; }
+  .ci { display:flex; gap:8px; font-size:11px; margin-bottom:7px; align-items:flex-start; line-height:1.35; word-break:break-word; }
+  .ci .ic { width:13px; flex:none; color:#7fb0ef; font-weight:700; }
+  .side a { color:#dbe8fb; text-decoration:none; }
+  .grp { margin-bottom:10px; }
+  .grp .t { font-size:11px; font-weight:700; color:#bcd5f5; margin-bottom:2px; }
+  .grp .v { font-size:10.7px; color:#c9d8ec; line-height:1.5; }
+  .lang { display:flex; justify-content:space-between; font-size:11px; margin-bottom:5px; }
+  .lang b { font-weight:600; } .lang span { color:#9fb6d4; }
+  .main { padding:24px 26px; }
+  .main h2 { font-size:15px; font-weight:800; color:#0E2A4E; letter-spacing:-.01em; margin:0 0 9px; }
+  .sec { margin-bottom:16px; }
+  .summary { font-size:11.3px; line-height:1.6; color:#33404f; }
+  .summary a { color:#2563EB; font-weight:600; text-decoration:none; }
+  .job { margin-bottom:11px; }
+  .h { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .ti { font-size:12.5px; font-weight:700; color:#16263c; }
+  .when { font-size:10px; color:#8493a6; font-weight:600; white-space:nowrap; }
+  .stack { font-size:9.5px; color:#8493a6; margin:1px 0 5px; letter-spacing:.01em; }
+  .job ul { list-style:none; }
+  .job li { font-size:10.8px; line-height:1.5; color:#3a4757; padding-left:14px; position:relative; margin-bottom:3px; }
+  .job li::before { content:""; position:absolute; left:2px; top:6px; width:5px; height:5px; border-radius:50%; background:#2563EB; }
+  .edu .ti { font-size:12px; }
+  .edu .su { font-size:10.6px; color:#5b6b82; }
+  .certs { font-size:10.7px; line-height:1.6; color:#3a4757; }
+  .certs b { color:#16263c; }
+  .hl li { font-size:10.8px; line-height:1.45; color:#3a4757; padding-left:14px; position:relative; margin-bottom:4px; list-style:none; }
+  .hl li::before { content:"▹"; position:absolute; left:0; color:#2563EB; }
+  .hl b { color:#16263c; }
+</style>
+</head>
+<body>
+<div class="page">
+  <aside class="side">
+    <div class="name">Emilio<br>Fonseca</div>
+    <div class="role">Desarrollador Full-Stack</div>
+
+    <h3>Contacto</h3>
+    <div class="ci"><span class="ic">▌</span><span>833 681 78 86</span></div>
+    <div class="ci"><span class="ic">✉</span><a href="mailto:emilio656565@outlook.com">emilio656565@outlook.com</a></div>
+    <div class="ci"><span class="ic">in</span><a href="https://www.linkedin.com/in/emilio-fonseca65">linkedin.com/in/emilio-fonseca65</a></div>
+    <div class="ci"><span class="ic">○</span><a href="https://github.com/EmilioUgarte65">github.com/EmilioUgarte65</a></div>
+    <div class="ci"><span class="ic">◆</span><a href="https://emiliougarte65.github.io/portafolio-web/"><b>Portafolio y demos en vivo →</b></a></div>
+
+    <h3>Habilidades</h3>
+    <div class="grp"><div class="t">Lenguajes</div><div class="v">Python, TypeScript, JavaScript, SQL, C#</div></div>
+    <div class="grp"><div class="t">Frontend &amp; PWA</div><div class="v">React, TypeScript, Vite, Tailwind, PWA, offline-first</div></div>
+    <div class="grp"><div class="t">Backend</div><div class="v">Node.js, Express, FastAPI, REST, JWT, OAuth</div></div>
+    <div class="grp"><div class="t">Datos &amp; DevOps</div><div class="v">PostgreSQL, SQL Server, Firebase, Docker, Git, Linux, CI/CD</div></div>
+    <div class="grp"><div class="t">IA &amp; LLMs</div><div class="v">GPT-4o, Claude, Whisper, RAG, prompt engineering, tool calling, MCP</div></div>
+
+    <h3>Idiomas</h3>
+    <div class="lang"><b>Español</b><span>Nativo</span></div>
+    <div class="lang"><b>Inglés</b><span>B2 · Intermedio-Avanzado</span></div>
+  </aside>
+
+  <main class="main">
+    <div class="sec">
+      <h2>Resumen profesional</h2>
+      <p class="summary">Desarrollador Full-Stack que construye software en producción de extremo a extremo — apps web (ERP, e-commerce, herramientas de gestión), datos &amp; BI e IA aplicada. Integro APIs REST con Python (FastAPI) y Node.js, conectando la WhatsApp Business API y Microsoft Dynamics 365 Business Central, y convierto operaciones manuales en software que trabaja solo. Actualmente trabajando y desplegando a producción. Explora mi trabajo y demos en vivo: <a href="https://emiliougarte65.github.io/portafolio-web/">emiliougarte65.github.io/portafolio-web</a>.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Experiencia y proyectos</h2>
+      <div class="job">
+        <div class="h"><span class="ti">Suite de IA y automatización — cadena de materiales (Tamaulipas, MX)</span><span class="when">2025 – actual</span></div>
+        <div class="stack">Node.js · Express · React · Electron · SQL Server · Firebase · Docker · REST API</div>
+        <ul>
+          <li>BI conversacional sobre Microsoft Business Central: el equipo contable consulta datos en lenguaje natural — sin SQL — escribiendo o por voz.</li>
+          <li>Bot de reportes 24/7 que procesa <b>300–500 cotizaciones diarias</b>; los vendedores reciben resúmenes por WhatsApp y el supervisor una vista consolidada.</li>
+          <li>Digital signage exterior con scheduler y transmisiones de Facebook, más una PWA offline-first para satisfacción del cliente en sucursal.</li>
+        </ul>
+      </div>
+      <div class="job">
+        <div class="h"><span class="ti">Dexter — plataforma open-source de agentes de IA</span><span class="when">Apache 2.0</span></div>
+        <div class="stack">Python · Go (TUI) · SQLite (FTS5) · MCP · multi-LLM</div>
+        <ul>
+          <li>Configurador que potencia agentes de IA con <b>46+ skills lazy-loaded</b> y memoria persistente (Engram, SQLite FTS5). 6 plataformas, 99 tests.</li>
+          <li>Router multi-LLM con fallback (Anthropic, OpenAI, Google, Ollama); auto-responder de WhatsApp, control de GUI (computer use) y servidores MCP.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Educación</h2>
+      <div class="edu">
+        <div class="h"><span class="ti">Ingeniería en Sistemas Computacionales</span><span class="when">2020 – 2025</span></div>
+        <div class="su">Universidad Autónoma de Tamaulipas</div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Certificaciones</h2>
+      <p class="certs"><b>Desarrollo con IA de 0 a producción</b> — BIG School (2026) &nbsp;·&nbsp; <b>Aspectos básicos de Datos</b> — Google / Coursera (2026) &nbsp;·&nbsp; más credenciales de Coursera y certificados de Mastermind en desarrollo, ciberseguridad y videojuegos.</p>
+    </div>
+
+    <div class="sec">
+      <h2>Logros</h2>
+      <ul class="hl">
+        <li><b>ICPC Gran Premio de México 2022</b> — resolución de problemas algorítmicos bajo presión.</li>
+        <li><b>Producción a escala</b> — un bot 24/7 procesa 300–500 cotizaciones diarias; el BI conversacional lo usan a diario los equipos contable y de ventas.</li>
+      </ul>
+    </div>
+  </main>
+</div>
+</body>
+</html>
