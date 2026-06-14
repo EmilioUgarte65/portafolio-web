@@ -70,6 +70,28 @@
       --radius: 18px;
       --grad: linear-gradient(115deg, #6ea8fe, #59e6c3 52%, #a78bfa);
     }
+    [data-theme="light"]{
+      --bg:#f5f7fc; --bg-soft:#eef2fa; --card:#ffffff; --card-2:#f7f9fe;
+      --border:#dfe6f3; --border-soft:#e7edf8; --text:#0e1726; --muted:#566179;
+    }
+    [data-theme="light"] nav{ background:rgba(245,247,252,.80); }
+    [data-theme="light"] body::after{
+      background-image:
+        linear-gradient(rgba(20,30,50,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(20,30,50,.05) 1px,transparent 1px);
+    }
+    [data-theme="light"] .badge,
+    [data-theme="light"] .chip{ background:rgba(20,30,50,.04); }
+    [data-theme="light"] .btn-ghost{ background:rgba(20,30,50,.03); }
+    [data-theme="light"] .btn-ghost:hover{ background:rgba(20,30,50,.06); }
+    body{ transition:background .4s,color .4s; }
+    .theme-toggle{
+      background:none; border:1px solid var(--border); color:var(--text);
+      width:34px; height:34px; border-radius:999px; cursor:pointer; padding:0;
+      font-size:.95rem; line-height:1; display:inline-flex; align-items:center; justify-content:center;
+      transition:border-color .2s,transform .15s;
+    }
+    .theme-toggle:hover{ border-color:var(--accent); transform:translateY(-1px); }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -112,12 +134,12 @@
     nav .container { display: flex; align-items: center; justify-content: space-between; height: 66px; }
     .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 1.08rem; }
     .logo span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .nav-links { display: flex; gap: 30px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; transition: color .2s; position: relative; }
     .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -7px; height: 2px; width: 0; background: var(--grad); border-radius: 2px; transition: width .25s; }
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { width: 100%; }
-    @media (max-width: 640px) { .nav-links { display: none; } }
+    @media (max-width: 640px) { .nav-links a[href^="#"] { display: none; } }
 
     /* HERO */
     .hero { padding: 112px 0 84px; position: relative; }
@@ -215,6 +237,19 @@
 
     footer { border-top: 1px solid var(--border-soft); padding: 36px 0; text-align: center; color: var(--muted); font-size: 0.88rem; }
   </style>
+  <script>
+    (function(){
+      try{ if(localStorage.getItem('site-theme')==='light') document.documentElement.setAttribute('data-theme','light'); }catch(e){}
+      document.addEventListener('DOMContentLoaded',function(){
+        var b=document.getElementById('themeToggle'); if(!b) return;
+        b.addEventListener('click',function(){
+          var light=document.documentElement.getAttribute('data-theme')==='light';
+          if(light){document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('site-theme','dark')}catch(e){}}
+          else{document.documentElement.setAttribute('data-theme','light');try{localStorage.setItem('site-theme','light')}catch(e){}}
+        });
+      });
+    })();
+  </script>
 </head>
 <body>
   <nav>
@@ -226,6 +261,7 @@
         <a href="#certs">Certifications</a>
         <a href="#contacto">Contact</a>
         <a href="../" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle light or dark mode">◐</button>
       </div>
     </div>
   </nav>
