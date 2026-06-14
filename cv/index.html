@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emilio Fonseca — Desarrollador Full-Stack · CV interactivo</title>
+  <meta name="description" content="CV interactivo de Emilio Fonseca — Desarrollador Full-Stack. Aplicaciones web, datos & BI e IA aplicada, con demos en vivo. Descarga el PDF." />
+  <meta name="author" content="Emilio Fonseca" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#070a11" />
+  <link rel="canonical" href="https://emiliougarte65.github.io/portafolio-web/cv/" />
+  <link rel="alternate" hreflang="es" href="https://emiliougarte65.github.io/portafolio-web/cv/" />
+  <link rel="alternate" hreflang="en" href="https://emiliougarte65.github.io/portafolio-web/cv/en/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236ea8fe'/%3E%3Ctext x='50' y='72' font-size='54' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Emilio Fonseca — Desarrollador Full-Stack · CV" />
+  <meta property="og:description" content="Aplicaciones web, datos & BI e IA aplicada — con demos en vivo. Descarga el PDF." />
+  <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/cv/" />
+  <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#070a11; --bg-soft:#0d1320; --card:#121a2b; --card-2:#0f1626;
+      --border:#1f2940; --border-soft:#18203450; --text:#eaf0fb; --muted:#93a2bd;
+      --accent:#6ea8fe; --accent-2:#59e6c3; --accent-3:#a78bfa; --radius:16px;
+      --grad:linear-gradient(115deg,#6ea8fe,#59e6c3 52%,#a78bfa);
+    }
+    [data-theme="light"]{
+      --bg:#f5f7fc; --bg-soft:#eef2fa; --card:#ffffff; --card-2:#f7f9fe;
+      --border:#dfe6f3; --border-soft:#e7edf8; --text:#0e1726; --muted:#566179;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);
+      line-height:1.6;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden;transition:background .4s,color .4s}
+    body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;
+      background:radial-gradient(48% 38% at 82% -6%,rgba(110,168,254,.16),transparent 60%),
+      radial-gradient(42% 38% at -4% 14%,rgba(89,230,195,.10),transparent 60%),
+      radial-gradient(46% 50% at 50% 116%,rgba(167,139,250,.13),transparent 62%)}
+    a{color:inherit;text-decoration:none}
+    ::selection{background:rgba(110,168,254,.3);color:#fff}
+    .wrap{width:100%;max-width:880px;margin:0 auto;padding:0 22px}
+
+    nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px) saturate(140%);
+      background:color-mix(in srgb,var(--bg) 72%,transparent);border-bottom:1px solid var(--border-soft)}
+    nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
+    .brand{font-family:'Sora',sans-serif;font-weight:800;letter-spacing:-.02em;font-size:1.02rem}
+    .brand span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .nav-actions{display:flex;align-items:center;gap:10px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;font-weight:600;
+      font-size:.85rem;padding:9px 16px;cursor:pointer;border:1px solid var(--border);
+      background:var(--card);color:var(--text);transition:transform .15s,border-color .2s,background .2s}
+    .btn:hover{transform:translateY(-1px);border-color:var(--accent)}
+    .btn-primary{background:var(--grad);color:#06223f;border:none;font-weight:700;box-shadow:0 8px 22px rgba(110,168,254,.28)}
+    .btn-primary:hover{box-shadow:0 12px 30px rgba(110,168,254,.4)}
+    .ico{width:34px;height:34px;padding:0;justify-content:center;font-size:.9rem}
+    @media(max-width:560px){.lbl{display:none}.btn{padding:9px 12px}}
+
+    header.hero{padding:64px 0 30px}
+    .badge{display:inline-flex;align-items:center;gap:9px;background:color-mix(in srgb,var(--card) 70%,transparent);
+      border:1px solid var(--border);padding:7px 15px;border-radius:999px;font-size:.8rem;color:var(--muted);margin-bottom:22px}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 0 rgba(89,230,195,.5);animation:ping 2.6s infinite}
+    @keyframes ping{0%{box-shadow:0 0 0 0 rgba(89,230,195,.5)}70%,100%{box-shadow:0 0 0 9px rgba(89,230,195,0)}}
+    h1{font-family:'Sora',sans-serif;font-size:clamp(2.1rem,6vw,3.2rem);font-weight:800;letter-spacing:-.035em;line-height:1.05}
+    h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .role{font-size:clamp(1rem,2.6vw,1.2rem);color:var(--muted);font-weight:600;margin-top:8px}
+    .contact{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+    .chip{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:var(--text);
+      background:var(--card);border:1px solid var(--border);padding:8px 13px;border-radius:11px;transition:border-color .2s,transform .15s}
+    .chip:hover{border-color:var(--accent);transform:translateY(-1px)}
+    .chip svg{width:15px;height:15px;opacity:.85}
+
+    section{padding:26px 0}
+    .sec-h{font-family:'Sora',sans-serif;font-size:.82rem;font-weight:700;letter-spacing:.16em;
+      text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+    .sec-h::after{content:"";flex:1;height:1px;background:var(--border)}
+    .lead{font-size:1.05rem;color:var(--muted);max-width:70ch}
+    .lead b{color:var(--text);font-weight:600}
+
+    .card{background:linear-gradient(180deg,var(--card),var(--card-2));border:1px solid var(--border);
+      border-radius:var(--radius);padding:22px;margin-bottom:16px;transition:border-color .25s,transform .25s,box-shadow .25s}
+    .card:hover{border-color:color-mix(in srgb,var(--accent) 55%,var(--border));transform:translateY(-2px);box-shadow:0 16px 40px rgba(0,0,0,.18)}
+    .c-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+    .c-title{font-weight:700;font-size:1.06rem}
+    .c-when{font-size:.82rem;color:var(--muted);white-space:nowrap}
+    .c-sub{font-size:.85rem;color:var(--accent-2);font-weight:500;margin-top:3px}
+    ul.bul{list-style:none;margin-top:12px;display:grid;gap:8px}
+    ul.bul li{position:relative;padding-left:20px;color:var(--muted);font-size:.94rem}
+    ul.bul li b{color:var(--text);font-weight:600}
+    ul.bul li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--grad)}
+    .c-links{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+    .tag{font-size:.76rem;color:var(--accent);border:1px solid var(--border);border-radius:999px;padding:5px 12px}
+
+    .skills{display:grid;gap:12px}
+    .skill{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px}
+    .skill h4{font-size:.82rem;color:var(--muted);font-weight:600;margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em}
+    .pills{display:flex;flex-wrap:wrap;gap:8px}
+    .pill{font-size:.84rem;background:color-mix(in srgb,var(--accent) 12%,transparent);
+      border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);color:var(--text);padding:6px 12px;border-radius:9px}
+
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    @media(max-width:680px){.two{grid-template-columns:1fr}}
+    .mini{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px}
+    .mini h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+    .mini p{font-size:.9rem;color:var(--muted)}
+
+    footer{padding:40px 0 60px;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border-soft);margin-top:24px}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.dot{animation:none}}
+  </style>
+</head>
+<body>
+  <nav><div class="wrap">
+    <div class="brand"><span>Emilio Fonseca</span> · CV</div>
+    <div class="nav-actions">
+      <a class="btn ico" href="en/" title="View in English" aria-label="English">EN</a>
+      <button class="btn ico" id="theme" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
+      <a class="btn" href="../" title="Volver al portafolio"><span class="lbl">Portafolio</span></a>
+      <a class="btn btn-primary" href="Emilio-Fonseca-CV-ES.pdf" download>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
+        <span class="lbl">Descargar PDF</span>
+      </a>
+    </div>
+  </div></nav>
+
+  <header class="hero"><div class="wrap reveal">
+    <span class="badge"><span class="dot"></span> Disponible para nuevas oportunidades · Desarrollador Full-Stack</span>
+    <h1>Emilio <span class="grad">Fonseca</span></h1>
+    <div class="role">Desarrollador Full-Stack — apps web, datos &amp; BI, IA aplicada</div>
+    <div class="contact">
+      <a class="chip" href="https://wa.link/pt5q5t"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 .9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.2.1.3 0 .5l-.4.6c-.2.2-.3.4-.1.7.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.6-.1l.7-.9c.2-.2.4-.2.6-.1l1.8.9c.3.1.4.2.5.3.1.2.1.7-.1 1.2z"/></svg> WhatsApp</a>
+      <a class="chip" href="mailto:emilio656565@outlook.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> emilio656565@outlook.com</a>
+      <a class="chip" href="https://www.linkedin.com/in/emilio-fonseca65"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 5.9V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21H9z"/></svg> LinkedIn</a>
+      <a class="chip" href="https://github.com/EmilioUgarte65"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 8.8 21.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.3-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7 0-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.8-4.6 5 .3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg> GitHub</a>
+      <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.6-7-11a7 7 0 0 1 14 0c0 5.4-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Tamaulipas, México</span>
+    </div>
+  </div></header>
+
+  <section><div class="wrap reveal">
+    <div class="sec-h">Perfil</div>
+    <p class="lead">Desarrollador Full-Stack que construye <b>software de principio a fin</b> — aplicaciones web (ERP, e-commerce, herramientas de gestión), datos &amp; BI e inteligencia artificial aplicada. Integro APIs REST con <b>Python (FastAPI)</b> y <b>Node.js</b> y convierto operaciones manuales en software que funciona solo. Actualmente desplegando a producción, con un portafolio de <b>demos en vivo y explorables</b>.</p>
+  </div></section>
+
+  <section><div class="wrap reveal">
+    <div class="sec-h">Experiencia</div>
+    <div class="card">
+      <div class="c-top"><span class="c-title">Desarrollador Full-Stack — MN del Golfo</span><span class="c-when">2025 – Actualidad</span></div>
+      <div class="c-sub">Cadena de retail de materiales · Tamaulipas, MX</div>
+      <ul class="bul">
+        <li>Despliego <b>software interno en producción</b> —apps web, dashboards y automatizaciones— usado <b>a diario en las sucursales</b>, reemplazando procesos manuales por herramientas que corren solas.</li>
+        <li>Construí <b>asistentes con IA sobre la API oficial de WhatsApp Business</b> (texto, voz e imagen) que resuelven consultas rutinarias <b>24/7</b> y ahorran horas de trabajo manual cada semana.</li>
+        <li>Integré sistemas de extremo a extremo con Node.js, React, SQL Server, Firebase y Docker — incluyendo el <b>ERP (Dynamics 365 Business Central)</b> — para que los datos fluyan solos en vez de capturarse a mano.</li>
+      </ul>
+    </div>
+  </div></section>
+
+  <section><div class="wrap reveal">
+    <div class="sec-h">Proyectos destacados</div>
+    <div class="card">
+      <div class="c-top"><span class="c-title">Dexter — Plataforma open-source de agentes de IA</span><span class="c-when">Apache 2.0</span></div>
+      <div class="c-sub">Python · Go (TUI) · SQLite (FTS5) · MCP · multi-LLM</div>
+      <ul class="bul">
+        <li>Construí un configurador que dota a los agentes de IA de <b>46+ skills bajo demanda</b> y memoria persistente (Engram) en <b>6 plataformas</b>, respaldado por <b>99 pruebas automatizadas</b>.</li>
+        <li>Implementé un enrutador multi-LLM con respaldo entre <b>4 proveedores</b>, auto-respuesta por WhatsApp, control de GUI por computer-use y <b>112+ flujos comunitarios importables</b>.</li>
+      </ul>
+      <div class="c-links"><a class="tag" href="https://github.com/EmilioUgarte65/Dexter">GitHub ↗</a></div>
+    </div>
+    <div class="card">
+      <div class="c-top"><span class="c-title">Vértice — App full-stack de gestión de trabajo</span><span class="c-when">React · FastAPI</span></div>
+      <div class="c-sub">TypeScript · PostgreSQL · Docker · PWA offline-first</div>
+      <ul class="bul">
+        <li>Desarrollé una <b>PWA offline-first</b> para gestionar proyectos, cotizaciones y pagos de extremo a extremo, con autenticación JWT segura y backend Dockerizado en FastAPI + PostgreSQL.</li>
+      </ul>
+      <div class="c-links"><a class="tag" href="https://emiliougarte65.github.io/vertice-demo/">Demo en vivo ↗</a></div>
+    </div>
+    <div class="card">
+      <div class="c-top"><span class="c-title">Vitrina — Tienda en línea e-commerce</span><span class="c-when">React · Vite</span></div>
+      <div class="c-sub">UI responsiva · carrito · búsqueda</div>
+      <ul class="bul">
+        <li>Construí una tienda en línea <b>totalmente responsiva</b> con catálogo por categorías, carrito con promociones, alertas de stock y búsqueda instantánea de productos.</li>
+      </ul>
+      <div class="c-links"><a class="tag" href="https://emiliougarte65.github.io/vitrina-demo/">Demo en vivo ↗</a></div>
+    </div>
+    <div class="card">
+      <div class="c-top"><span class="c-title">Dino AI — Agente de juego por aprendizaje por refuerzo</span><span class="c-when">Python · PPO</span></div>
+      <div class="c-sub">Stable-Baselines3 · OpenCV · PyTorch</div>
+      <ul class="bul">
+        <li>Entrené un <b>agente de aprendizaje por refuerzo (PPO)</b> que aprende solo a jugar el juego del dinosaurio de Chrome a partir de los píxeles en pantalla con visión por computadora.</li>
+      </ul>
+      <div class="c-links"><a class="tag" href="https://github.com/EmilioUgarte65/DinoGameRES">GitHub ↗</a></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap reveal">
+    <div class="sec-h">Habilidades técnicas</div>
+    <div class="skills">
+      <div class="skill"><h4>Lenguajes</h4><div class="pills"><span class="pill">Python</span><span class="pill">TypeScript</span><span class="pill">JavaScript</span><span class="pill">SQL</span><span class="pill">C#</span></div></div>
+      <div class="skill"><h4>Frontend</h4><div class="pills"><span class="pill">React</span><span class="pill">Vite</span><span class="pill">Tailwind</span><span class="pill">PWA / offline-first</span></div></div>
+      <div class="skill"><h4>Backend</h4><div class="pills"><span class="pill">Node.js</span><span class="pill">Express</span><span class="pill">FastAPI</span><span class="pill">REST</span><span class="pill">JWT</span><span class="pill">OAuth</span></div></div>
+      <div class="skill"><h4>Datos &amp; DevOps</h4><div class="pills"><span class="pill">PostgreSQL</span><span class="pill">SQL Server</span><span class="pill">Firebase</span><span class="pill">Docker</span><span class="pill">Git</span><span class="pill">Linux</span><span class="pill">CI/CD</span></div></div>
+      <div class="skill"><h4>IA &amp; LLMs</h4><div class="pills"><span class="pill">GPT-4o</span><span class="pill">Claude</span><span class="pill">Whisper</span><span class="pill">RAG</span><span class="pill">Prompt engineering</span><span class="pill">Tool calling</span><span class="pill">MCP</span></div></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap reveal">
+    <div class="sec-h">Educación &amp; Certificaciones</div>
+    <div class="two">
+      <div class="mini"><h3>Ing. en Sistemas Computacionales</h3><p>Universidad Autónoma de Tamaulipas · 2020 – 2025</p></div>
+      <div class="mini"><h3>Certificaciones</h3><p>IA de Cero a Producción — BIG School (2026); Fundamentos de Datos — Google / Coursera (2026); credenciales adicionales de Coursera y Mastermind (desarrollo, ciberseguridad, videojuegos).</p></div>
+    </div>
+  </div></section>
+
+  <section><div class="wrap reveal">
+    <div class="sec-h">Reconocimientos &amp; Idiomas</div>
+    <div class="two">
+      <div class="mini"><h3>ICPC Mexico Grand Prix 2022</h3><p>Resolución competitiva de problemas algorítmicos.</p></div>
+      <div class="mini"><h3>Idiomas</h3><p>Español (Nativo) · Inglés (B2, Intermedio-Avanzado)</p></div>
+    </div>
+  </div></section>
+
+  <footer><div class="wrap">
+    © <span id="yr"></span> Emilio Fonseca — Desarrollador Full-Stack ·
+    <a href="Emilio-Fonseca-CV-ES.pdf" download style="color:var(--accent)">Descargar PDF</a> ·
+    <a href="../" style="color:var(--accent)">Portafolio</a>
+  </div></footer>
+
+  <script>
+    document.getElementById('yr').textContent = '2026';
+    const io = new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    const t = document.getElementById('theme');
+    const saved = localStorage.getItem('cv-theme');
+    if(saved==='light') document.documentElement.setAttribute('data-theme','light');
+    t.addEventListener('click',()=>{
+      const cur = document.documentElement.getAttribute('data-theme')==='light';
+      if(cur){document.documentElement.removeAttribute('data-theme');localStorage.setItem('cv-theme','dark');}
+      else{document.documentElement.setAttribute('data-theme','light');localStorage.setItem('cv-theme','light');}
+    });
+  </script>
+</body>
+</html>
