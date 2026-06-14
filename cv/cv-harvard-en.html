@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  @page { size: Letter; margin: 0.55in 0.7in; }
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: Georgia, 'Times New Roman', serif; color: #111; font-size: 10.3px; line-height: 1.4; }
+  a { color: #111; text-decoration: none; }
+  .name { text-align: center; font-size: 23px; font-weight: 700; letter-spacing: 0.5px; }
+  .role { text-align: center; font-size: 11px; font-weight: 700; margin-top: 2px; letter-spacing: .3px; }
+  .contact { text-align: center; font-size: 9.6px; margin-top: 5px; color: #1a1a1a; }
+  .contact a { border-bottom: 0.5px solid #999; }
+  .contact .sep { color: #888; padding: 0 5px; }
+  h2 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; border-bottom: 1px solid #111; padding-bottom: 2px; margin: 13px 0 6px; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+  .ti { font-weight: 700; font-size: 10.8px; }
+  .when { font-size: 9.6px; font-style: italic; white-space: nowrap; }
+  .sub { font-size: 9.8px; font-style: italic; color: #333; margin-bottom: 2px; }
+  ul { list-style: none; margin: 2px 0 0; }
+  li { font-size: 10.2px; line-height: 1.4; padding-left: 13px; position: relative; margin-bottom: 1.5px; }
+  li::before { content: "•"; position: absolute; left: 2px; }
+  .entry { margin-bottom: 7px; }
+  .summary { font-size: 10.3px; line-height: 1.45; text-align: justify; }
+  .kv { font-size: 10.2px; line-height: 1.5; }
+  .kv b { font-weight: 700; }
+  p.tight { font-size: 10.2px; line-height: 1.45; }
+</style>
+</head>
+<body>
+  <div class="name">EMILIO FONSECA</div>
+  <div class="role">Full-Stack Developer</div>
+  <div class="contact">
+    Tamaulipas, México <span class="sep">|</span>
+    <a href="https://wa.link/6bxc6d">+52 833 681 7886</a> <span class="sep">|</span>
+    <a href="mailto:emilio656565@outlook.com">emilio656565@outlook.com</a> <span class="sep">|</span>
+    <a href="https://www.linkedin.com/in/emilio-fonseca65">linkedin.com/in/emilio-fonseca65</a> <span class="sep">|</span>
+    <a href="https://github.com/EmilioUgarte65">github.com/EmilioUgarte65</a> <span class="sep">|</span>
+    <a href="https://emiliougarte65.github.io/portafolio-web/en/">Portfolio</a>
+  </div>
+
+  <h2>Summary</h2>
+  <p class="summary">Full-Stack Developer who builds production software end to end — web apps (ERP, e-commerce, management tools), data &amp; BI, and applied AI. I integrate REST APIs with Python (FastAPI) and Node.js and turn manual operations into software that runs itself. Currently shipping to production; portfolio with live, explorable demos available.</p>
+
+  <h2>Experience</h2>
+  <div class="entry">
+    <div class="row"><span class="ti">Full-Stack Developer — MN del Golfo</span><span class="when">2025 – Present</span></div>
+    <div class="sub">Materials retail chain · Tamaulipas, MX</div>
+    <ul>
+      <li>Develop and ship internal production software (web apps, dashboards, integrations and automations) used daily across the company’s branches.</li>
+      <li>Build AI-powered automations and tools that reduce operational workload and improve access to information for internal teams.</li>
+      <li>Work across the full stack with Node.js, React, SQL Server, Firebase and Docker, including ERP and messaging integrations.</li>
+    </ul>
+  </div>
+
+  <h2>Projects</h2>
+  <div class="entry">
+    <div class="row"><span class="ti">Dexter — Open-source AI agent platform</span><span class="when">Apache 2.0</span></div>
+    <div class="sub">Python · Go (TUI) · SQLite (FTS5) · MCP · multi-LLM</div>
+    <ul>
+      <li>Built a configurator that extends AI agents with 46+ lazy-loaded skills and persistent memory (Engram, SQLite FTS5); 6 platforms, 99 tests.</li>
+      <li>Implemented a multi-LLM router with fallback (Anthropic, OpenAI, Google, Ollama), a WhatsApp auto-responder and computer-use GUI control.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="ti">Vértice — Full-stack work-management app</span><span class="when"><a href="https://emiliougarte65.github.io/vertice-demo/">Live demo</a></span></div>
+    <div class="sub">React · TypeScript · FastAPI · PostgreSQL · Docker · offline-first PWA</div>
+    <ul>
+      <li>Developed an offline-first PWA to manage projects, quotes and payments end to end, with secure authentication.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="ti">Vitrina — E-commerce storefront</span><span class="when"><a href="https://emiliougarte65.github.io/vitrina-demo/">Live demo</a></span></div>
+    <div class="sub">React · Vite · responsive UI</div>
+    <ul>
+      <li>Built a responsive online store with category catalog, cart with promotions, stock alerts and instant product search.</li>
+    </ul>
+  </div>
+  <div class="entry">
+    <div class="row"><span class="ti">Dino AI — Reinforcement-learning game agent</span><span class="when"><a href="https://github.com/EmilioUgarte65/DinoGameRES">GitHub</a></span></div>
+    <div class="sub">Python · Stable-Baselines3 (PPO) · OpenCV · PyTorch</div>
+    <ul>
+      <li>Trained an agent that learns to play Chrome’s dinosaur game on its own using reinforcement learning and computer vision.</li>
+    </ul>
+  </div>
+
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="row"><span class="ti">B.Sc. in Computer Systems Engineering</span><span class="when">2020 – 2025</span></div>
+    <div class="sub">Universidad Autónoma de Tamaulipas</div>
+  </div>
+
+  <h2>Technical Skills</h2>
+  <p class="kv"><b>Languages:</b> Python, TypeScript, JavaScript, SQL, C# &nbsp;&middot;&nbsp; <b>Frontend:</b> React, TypeScript, Vite, Tailwind, PWA / offline-first &nbsp;&middot;&nbsp; <b>Backend:</b> Node.js, Express, FastAPI, REST, JWT, OAuth &nbsp;&middot;&nbsp; <b>Data &amp; DevOps:</b> PostgreSQL, SQL Server, Firebase, Docker, Git, Linux, CI/CD &nbsp;&middot;&nbsp; <b>AI &amp; LLMs:</b> GPT-4o, Claude, Whisper, RAG, prompt engineering, tool calling, MCP</p>
+
+  <h2>Certifications</h2>
+  <p class="tight">AI from Zero to Production — BIG School (2026); Data Fundamentals — Google / Coursera (2026); additional Coursera credentials, and Mastermind certificates in development, cybersecurity and game development.</p>
+
+  <h2>Honors &amp; Languages</h2>
+  <p class="tight"><b>ICPC Mexico Grand Prix 2022</b> — competitive algorithmic problem solving. &nbsp;&middot;&nbsp; <b>Languages:</b> Spanish (Native), English (B2, Intermediate-Advanced).</p>
+</body>
+</html>
