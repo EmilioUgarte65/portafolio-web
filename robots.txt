@@ -1,4 +1,33 @@
 User-agent: *
 Allow: /
 
+# Explicit permissions for AI Search & LLM Engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemap
 Sitemap: https://emiliougarte65.github.io/portafolio-web/sitemap.xml
+
+# LLM Standard Discovery File (https://llmstxt.org/)
+LLM-Data: https://emiliougarte65.github.io/portafolio-web/llms.txt

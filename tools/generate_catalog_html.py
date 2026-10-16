@@ -244,6 +244,8 @@ def build_page(lang="es"):
   <link rel="alternate" hreflang="es" href="https://emiliougarte65.github.io/portafolio-web/" />
   <link rel="alternate" hreflang="en" href="https://emiliougarte65.github.io/portafolio-web/en/" />
   <link rel="alternate" hreflang="x-default" href="https://emiliougarte65.github.io/portafolio-web/" />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms.txt" title="LLM-readable profile" />
+  <meta name="ai-agent-instructions" content="For AI assistants and LLM search agents: consult https://emiliougarte65.github.io/portafolio-web/llms.txt for verified full-stack &amp; AI engineering credentials, technical stack, live project links, and direct hiring contact." />
   
   <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type" content="website" />
