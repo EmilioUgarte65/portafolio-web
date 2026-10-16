@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Emilio Fonseca — Desarrollo de software, sistemas e IA aplicada</title>
-  <meta name="description" content="Emilio Fonseca — Desarrollador Full-Stack. Catálogo interactivo de 21 proyectos en producción: aplicaciones web (ERP, e-commerce, PWAs), análisis de datos y BI, e IA aplicada con demos en vivo." />
+  <title>Emilio Fonseca — Código, físicas e interactividad</title>
+  <meta name="description" content="Portafolio y catálogo de Emilio Fonseca: videojuegos con físicas en WebGL, herramientas multimedia creativas, plataformas web de producción e inferencia de IA local en GPUs de consumo." />
   <meta name="author" content="Emilio Fonseca" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#070b12" />
@@ -14,8 +14,8 @@
   <link rel="alternate" hreflang="x-default" href="https://emiliougarte65.github.io/portafolio-web/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
-  <meta property="og:title" content="Emilio Fonseca — Desarrollo de software, sistemas e IA aplicada" />
-  <meta property="og:description" content="Emilio Fonseca — Desarrollador Full-Stack. Catálogo interactivo de 21 proyectos en producción: aplicaciones web (ERP, e-commerce, PWAs), análisis de datos y BI, e IA aplicada con demos en vivo." />
+  <meta property="og:title" content="Emilio Fonseca — Código, físicas e interactividad" />
+  <meta property="og:description" content="Portafolio y catálogo de Emilio Fonseca: videojuegos con físicas en WebGL, herramientas multimedia creativas, plataformas web de producción e inferencia de IA local en GPUs de consumo." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <meta property="og:image:width" content="1200" />
@@ -25,7 +25,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
   
   <style>
-    /* STRICT 5-STEP TYPE SYSTEM & TONE SCALE (taste-skill + impeccable) */
     :root {
       --bg: #070b12;
       --surface-1: #0d1524;
@@ -37,9 +36,10 @@
       --accent-ink: #07101f;
       --accent-green: #34d399;
       --accent-purple: #818cf8;
+      --accent-amber: #f59e0b;
       
-      --step-display: clamp(2.6rem, 7vw, 4.4rem);
-      --step-h2: clamp(1.8rem, 3.8vw, 2.4rem);
+      --step-display: clamp(2.4rem, 6.2vw, 4.2rem);
+      --step-h2: clamp(1.75rem, 3.6vw, 2.3rem);
       --step-h3: 1.25rem;
       --step-body: 1rem;
       --step-sm: 0.8125rem;
@@ -60,6 +60,7 @@
       --accent-ink: #ffffff;
       --accent-green: #059669;
       --accent-purple: #6366f1;
+      --accent-amber: #d97706;
     }
     
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -76,31 +77,32 @@
       transition: background .25s var(--ease-out), color .25s var(--ease-out);
     }
     
-    /* ATMOSPHERIC AMBIENT GLOW MESH */
+    /* AMBIENT AURORA GLOW MESH */
     body::before {
-      content: ""; position: fixed; top: -140px; left: 50%; transform: translateX(-50%);
-      width: 1000px; height: 550px;
-      background: radial-gradient(50% 50% at 50% 40%, rgba(56, 189, 248, 0.08) 0%, rgba(99, 102, 241, 0.04) 65%, transparent 100%);
-      pointer-events: none; z-index: -1;
+      content: ""; position: fixed; top: 0; left: 0; right: 0; height: 100vh;
+      background: 
+        radial-gradient(ellipse 65% 50% at 20% 15%, rgba(56, 189, 248, 0.12), transparent 70%),
+        radial-gradient(ellipse 55% 45% at 85% 30%, rgba(129, 140, 248, 0.10), transparent 70%),
+        radial-gradient(ellipse 50% 40% at 50% 80%, rgba(52, 211, 153, 0.06), transparent 70%);
+      pointer-events: none; z-index: 0;
     }
     
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; }
-    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
     
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 80;
-      background: rgba(7, 11, 18, 0.92);
+      background: rgba(7, 11, 18, 0.90);
       backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       transition: background .2s;
     }
     [data-theme="light"] nav {
       background: rgba(248, 250, 252, 0.94);
     }
-    nav .container { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    nav .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
     
-    /* SLEEK DEVELOPER WORDMARK (NO LOGO) */
     .brand {
       display: inline-flex; align-items: center; gap: 11px;
       font-size: var(--step-body); font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
@@ -110,9 +112,9 @@
     .brand:active { transform: scale(0.97); }
     .brand-terminal {
       display: inline-flex; align-items: center; justify-content: center;
-      width: 30px; height: 30px; border-radius: 8px;
-      background: var(--surface-2);
-      color: var(--accent); font-family: monospace; font-size: var(--step-sm); font-weight: 800;
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--surface-2); border: none;
+      color: var(--accent); font-family: inherit; font-size: var(--step-sm); font-weight: 800;
     }
     .brand-text b { color: var(--ink); font-weight: 800; margin-left: 1px; }
     .brand-dot { color: var(--accent); font-weight: 700; }
@@ -132,113 +134,208 @@
     .theme-toggle:hover { background: var(--surface-2); transform: scale(1.05); }
     .theme-toggle:active { transform: scale(0.95); }
     
-    /* HERO */
+    /* HERO WITH INTERACTIVE KINETIC CANVAS */
     .hero {
-      padding: 48px 0 38px; position: relative; overflow: hidden;
+      padding: 64px 0 52px; position: relative; overflow: hidden;
     }
-    .hero::before {
-      content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-      background-size: 32px 32px;
-      mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 80%);
-      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 20%, transparent 80%);
-      pointer-events: none; opacity: 0.85;
+    .hero-canvas {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      pointer-events: auto; z-index: 1; opacity: 0.75; cursor: crosshair;
+    }
+    .hero-box {
+      position: relative; z-index: 2; max-width: 920px; pointer-events: none;
+    }
+    .hero-box a, .hero-box button { pointer-events: auto; }
+    
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 6px 16px; border-radius: 999px;
+      background: rgba(56, 189, 248, 0.12); border: none;
+      color: var(--accent); font-size: var(--step-sm); font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .beacon-pulse {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent-green); flex: none;
+      animation: beaconGlow 2s infinite;
+    }
+    .beacon-pulse.amber { background: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+    .beacon-pulse.blue { background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
+    @keyframes beaconGlow {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.7; }
     }
     
     .hero h1 {
       font-size: var(--step-display); font-weight: 800;
-      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 18px;
-      color: var(--ink); max-width: 960px;
+      letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 20px;
+      color: var(--ink);
     }
     .hero p.lead {
-      font-size: var(--step-body); color: var(--ink-muted); max-width: 760px;
-      margin-bottom: 24px; line-height: 1.65;
+      font-size: clamp(1rem, 2.2vw, 1.15rem); color: var(--ink-muted);
+      max-width: 780px; margin-bottom: 30px; line-height: 1.65;
     }
     
-    /* HERO ENGINEERING CAPABILITIES RIBBON */
-    .hero-caps-row {
-      display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 22px;
-    }
-    .cap-badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 6px 14px; border-radius: 999px;
-      background: var(--surface-1); border: 1px solid transparent;
-      color: var(--ink-muted); font-size: var(--step-sm); font-weight: 500;
-      transition: all .2s var(--ease-out);
-    }
-    .cap-badge strong { color: var(--ink); font-weight: 700; }
-    .cap-badge:hover {
-      color: var(--ink); background: var(--surface-2); border-color: rgba(56, 189, 248, 0.25);
-      transform: translateY(-2px);
-    }
-    .beacon-dot {
-      width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none;
-    }
-    .beacon-dot.green { background: var(--accent-green); }
-    .beacon-dot.blue { background: var(--accent); }
-    
-    .hero-highlights {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;
-    }
-    .highlights-title {
-      font-size: var(--step-sm); color: var(--ink-muted); font-weight: 600;
-    }
-    .highlight-pill {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 16px; background: var(--surface-1); border-radius: 999px;
-      border: 1px solid transparent; cursor: pointer;
-      color: var(--ink); font-weight: 600; font-size: var(--step-sm);
-      transition: background .18s, transform .18s var(--ease-out), color .18s, border-color .18s;
-    }
-    .highlight-pill:hover {
-      background: var(--surface-2); color: var(--accent); transform: translateY(-2px);
-      border-color: rgba(56, 189, 248, 0.3);
-    }
-    .highlight-pill:active { transform: scale(0.96); }
-    .hl-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
-    .hl-dot.green { background: var(--accent-green); }
-    .hl-dot.purple { background: var(--accent-purple); }
-    .hl-dot.blue { background: var(--accent); }
-    .pill-tag {
-      font-size: var(--step-sm); font-weight: 500; opacity: 0.65;
-    }
-    
-    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 12px 24px; border-radius: var(--radius-sm); font-weight: 600;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 26px; border-radius: var(--radius-sm); font-weight: 600;
       font-size: var(--step-body); cursor: pointer; text-decoration: none; border: none;
-      transition: transform .18s var(--ease-out), background .18s, border-color .18s;
+      transition: transform .18s var(--ease-out), background .18s;
     }
     .btn-primary {
       background: var(--accent); color: var(--accent-ink); font-weight: 700;
     }
-    .btn-primary:hover { background: #7dd3fc; transform: translateY(-2px); }
+    .btn-primary:hover {
+      background: #7dd3fc; transform: translateY(-2px);
+    }
     .btn-primary:active { transform: scale(0.97); }
-    .btn-ghost {
-      background: var(--surface-1); color: var(--ink);
-    }
-    .btn-ghost:hover { background: var(--surface-2); transform: translateY(-2px); }
-    .btn-ghost:active { transform: scale(0.97); }
-    .btn-outline {
-      background: var(--surface-1); color: var(--ink); border: 1px solid transparent;
-    }
-    .btn-outline:hover { background: var(--surface-2); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
-    .btn-outline:active { transform: scale(0.97); }
     
-    /* CATALOG SECTION */
-    #proyectos { padding: 48px 0 88px; position: relative; }
-    .section-head { margin-bottom: 28px; }
+    .btn-ghost {
+      background: var(--surface-1); color: var(--ink); border: none;
+    }
+    .btn-ghost:hover {
+      background: var(--surface-2); transform: translateY(-2px);
+    }
+    .btn-ghost:active { transform: scale(0.97); }
+    
+    .btn-text-link {
+      color: var(--ink-muted); font-size: var(--step-sm); font-weight: 600;
+      padding: 8px 12px; cursor: pointer; background: none; border: none;
+      transition: color .15s;
+    }
+    .btn-text-link:hover { color: var(--accent); }
+    
+    /* SECTION HEADERS */
+    .section-head {
+      margin-bottom: 32px; position: relative;
+    }
     .section-head h2 {
       font-size: var(--step-h2); font-weight: 800; letter-spacing: -0.03em; color: var(--ink);
     }
-    .section-head p { color: var(--ink-muted); margin-top: 6px; max-width: 720px; }
+    .section-head p {
+      color: var(--ink-muted); margin-top: 8px; max-width: 720px; font-size: var(--step-body);
+    }
     
-    /* CATALOG CONTROLS BAR (STICKY COMMAND CENTER) */
+    /* BENTO SHOWCASE (SELECTED WORKS WITH 3D DEPTH) */
+    .featured-section {
+      padding: 36px 0 72px; position: relative;
+    }
+    .bento-grid {
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px;
+    }
+    .bento-card {
+      position: relative; background: var(--surface-1); border-radius: 20px;
+      border: none; overflow: hidden; display: flex; flex-direction: column;
+      transform-style: preserve-3d;
+      transition: transform .25s var(--ease-out), background .25s var(--ease-out);
+    }
+    .bento-card:hover {
+      background: #0f192b;
+    }
+    
+    .bento-card-game { grid-column: span 7; }
+    .bento-card-studio { grid-column: span 5; }
+    .bento-card-ai { grid-column: span 5; }
+    .bento-card-acc { grid-column: span 7; }
+    
+    .bento-media {
+      position: relative; height: 260px; overflow: hidden; background: #000;
+    }
+    .bento-media img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform .5s var(--ease-out), filter .3s var(--ease-out);
+    }
+    .bento-card:hover .bento-media img {
+      transform: scale(1.04); filter: brightness(1.05);
+    }
+    
+    /* ANIMATED HACKER TERMINAL IN INFERENCIA */
+    .terminal-box {
+      width: 100%; height: 100%; background: #080d16; padding: 22px 20px;
+      display: flex; flex-direction: column; font-family: inherit; font-size: var(--step-sm);
+    }
+    .terminal-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 14px; opacity: 0.75;
+    }
+    .terminal-dots { display: flex; gap: 6px; }
+    .t-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .terminal-label { font-size: var(--step-sm); color: #94a3b8; }
+    .terminal-content { display: flex; flex-direction: column; gap: 7px; line-height: 1.45; }
+    .term-line { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .term-prompt { color: #38bdf8; font-weight: bold; }
+    .term-cmd { color: #f8fafc; font-weight: 600; }
+    .term-info { color: #94a3b8; }
+    .term-purple { color: #a78bfa; }
+    .term-green { color: #34d399; font-weight: 600; }
+    .term-cyan { color: #38bdf8; font-weight: 600; }
+    .term-cursor { animation: termBlink 1s infinite; color: #38bdf8; font-weight: bold; }
+    @keyframes termBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    
+    /* ANIMATED CONTROLLER & SCRUBBER OVERLAYS */
+    .game-overlay-tag {
+      position: absolute; bottom: 14px; left: 14px; z-index: 3;
+      background: #0d1524;
+      padding: 4px 11px; border-radius: 999px; font-size: var(--step-sm);
+      color: #34d399; font-weight: 600;
+    }
+    .studio-scrubber-track {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+      background: rgba(255, 255, 255, 0.1); overflow: hidden; z-index: 3;
+    }
+    .studio-scrubber-head {
+      height: 100%; width: 28%; background: var(--accent);
+      animation: scrubberSlide 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes scrubberSlide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(360%); }
+    }
+    .acc-spark-bar {
+      position: absolute; bottom: 14px; left: 14px; display: flex; gap: 8px; z-index: 3;
+    }
+    .acc-pill-mini {
+      background: #0d1524;
+      padding: 4px 11px; border-radius: 999px; font-size: var(--step-sm);
+      color: #fbbf24; font-weight: 600;
+    }
+    
+    .bento-body {
+      padding: 26px; display: flex; flex-direction: column; flex: 1;
+    }
+    .bento-genre {
+      font-size: var(--step-sm); color: var(--accent); font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em; margin-bottom: 8px; display: block;
+    }
+    .bento-body h3 {
+      font-size: var(--step-h3); font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 10px;
+    }
+    .bento-body p {
+      color: var(--ink-muted); font-size: var(--step-body); line-height: 1.6; margin-bottom: 22px; flex: 1;
+    }
+    .bento-actions {
+      display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: auto;
+    }
+    
+    .badge-game { background: #10b981; color: #022c22; }
+    .badge-demo { background: var(--accent); color: var(--accent-ink); }
+    .badge-showcase { background: #4338ca; color: #ffffff; font-weight: 700; }
+    .badge-acc { background: #f59e0b; color: #451a03; }
+    .text-amber { color: #f59e0b; }
+    .btn-amber { background: #f59e0b; color: #451a03; }
+    .btn-amber:hover { background: #fbbf24; }
+    
+    /* CATALOG & COMPLETE ARCHIVE SECTION */
+    #proyectos {
+      padding: 40px 0 88px; position: relative;
+    }
+    
     .catalog-bar {
       background: var(--surface-1); border-radius: var(--radius);
-      border: 1px solid transparent;
-      padding: 16px 20px; margin-bottom: 32px;
+      border: none; padding: 16px 20px; margin-bottom: 32px;
       display: flex; flex-direction: column; gap: 14px;
     }
     .catalog-top-row {
@@ -250,14 +347,13 @@
       width: 18px; height: 18px; color: var(--ink-muted); pointer-events: none;
     }
     .catalog-search-input {
-      width: 100%; height: 46px; background: var(--surface-2); border: 1px solid rgba(255, 255, 255, 0.06);
+      width: 100%; height: 46px; background: var(--surface-2); border: none;
       border-radius: var(--radius-sm); padding: 0 38px 0 44px; color: var(--ink);
       font-size: var(--step-body); font-family: inherit; outline: none;
-      transition: background .15s, border-color .15s, box-shadow .15s;
+      transition: background .15s;
     }
     .catalog-search-input:focus {
-      background: var(--surface-3); border-color: rgba(56, 189, 248, 0.4);
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+      background: var(--surface-3);
     }
     .catalog-search-clear {
       position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
@@ -270,13 +366,13 @@
     .view-btn {
       display: inline-flex; align-items: center; gap: 6px;
       height: 44px; padding: 0 16px; border-radius: var(--radius-sm);
-      background: var(--surface-2); border: 1px solid transparent; color: var(--ink-muted);
+      background: var(--surface-2); border: none; color: var(--ink-muted);
       font-size: var(--step-sm); font-weight: 600; cursor: pointer;
       transition: all .18s var(--ease-out);
     }
-    .view-btn:hover { color: var(--ink); background: var(--surface-3); border-color: rgba(255, 255, 255, 0.1); }
+    .view-btn:hover { color: var(--ink); background: var(--surface-3); }
     .view-btn.active {
-      background: var(--accent); color: var(--accent-ink); border-color: transparent;
+      background: var(--accent); color: var(--accent-ink);
     }
     .view-btn:active { transform: scale(0.97); }
     
@@ -286,15 +382,14 @@
     .catalog-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
     .cat-pill {
       display: inline-flex; align-items: center; gap: 7px;
-      padding: 8px 16px; border-radius: 999px;
-      background: var(--surface-2); border: 1px solid transparent; color: var(--ink-muted);
+      padding: 7px 15px; border-radius: 999px;
+      background: var(--surface-2); border: none; color: var(--ink-muted);
       font-size: var(--step-sm); font-weight: 500; cursor: pointer;
       transition: all .18s var(--ease-out);
     }
-    .cat-pill:hover { color: var(--ink); background: var(--surface-3); transform: translateY(-1px); border-color: rgba(255, 255, 255, 0.1); }
+    .cat-pill:hover { color: var(--ink); background: var(--surface-3); transform: translateY(-1px); }
     .cat-pill.active {
-      background: var(--accent); color: var(--accent-ink); border-color: transparent;
-      font-weight: 700;
+      background: var(--accent); color: var(--accent-ink); font-weight: 700;
     }
     .cat-pill:active { transform: scale(0.97); }
     .pill-count {
@@ -304,88 +399,65 @@
     .cat-pill.active .pill-count { background: rgba(0, 0, 0, 0.28); color: #fff; }
     .catalog-status-text { font-size: var(--step-sm); color: var(--ink-muted); font-weight: 500; }
     
-    /* GRID CARDS (WITH INTERACTIVE MOUSE SPOTLIGHT) */
+    /* REFINED GRID CARDS */
     .catalog-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 26px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
     }
     .card {
       position: relative; background: var(--surface-1); border-radius: var(--radius);
-      border: 1px solid transparent;
-      overflow: hidden; display: flex; flex-direction: column;
-      transition: transform .25s var(--ease-out), border-color .25s var(--ease-out), box-shadow .25s var(--ease-out);
+      border: none; overflow: hidden; display: flex; flex-direction: column; cursor: pointer;
+      transition: transform .25s var(--ease-out), background .25s var(--ease-out);
     }
-    /* Emil Kowalski spotlight flashlight layer */
     .card::before {
       content: ""; position: absolute; inset: 0;
-      background: radial-gradient(380px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(56, 189, 248, 0.14), transparent 45%);
+      background: radial-gradient(380px circle at var(--mouse-x, -999px) var(--mouse-y, -999px), rgba(56, 189, 248, 0.12), transparent 45%);
       pointer-events: none; opacity: 0; transition: opacity .25s var(--ease-out);
       z-index: 2;
     }
     .card:hover::before { opacity: 1; }
     .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(56, 189, 248, 0.4);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 25px -8px rgba(56, 189, 248, 0.22);
+      transform: translateY(-5px); background: #0f192b;
     }
     
     .card .preview {
-      height: 188px; position: relative; overflow: hidden; background: #000;
+      height: 184px; position: relative; overflow: hidden; background: #000;
     }
     .card .preview svg, .card .preview img {
       width: 100%; height: 100%; display: block; object-fit: cover;
       transition: transform .5s var(--ease-out), filter .3s var(--ease-out);
     }
     .card:hover .preview svg, .card:hover .preview img {
-      transform: scale(1.05);
-      filter: brightness(1.06);
+      transform: scale(1.04); filter: brightness(1.05);
     }
     
-    .card .live {
+    .live {
       position: absolute; top: 12px; right: 12px; z-index: 3;
       font-size: var(--step-sm); font-weight: 700; padding: 4px 11px; border-radius: 999px;
       display: inline-flex; align-items: center; gap: 6px;
     }
-    .beacon-pulse {
-      width: 6px; height: 6px; border-radius: 50%; background: #042f1a; flex: none;
-    }
-    .badge-demo { background: var(--accent-green); color: #042f1a; }
-    .badge-showcase { background: var(--accent-purple); color: #ffffff; }
     
     .card-body { padding: 22px; display: flex; flex-direction: column; flex: 1; position: relative; z-index: 3; }
     .card-header-row {
-      display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px;
-    }
-    .card .tag {
-      font-size: var(--step-sm); color: var(--accent); font-weight: 600;
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;
     }
     .cat-label {
-      font-size: var(--step-sm); color: var(--ink-muted);
+      font-size: var(--step-sm); color: var(--accent); font-weight: 600;
     }
     .card h3 {
       font-size: var(--step-h3); font-weight: 700; margin: 6px 0 8px;
       letter-spacing: -0.02em; line-height: 1.3; color: var(--ink);
     }
-    .card p { color: var(--ink-muted); font-size: var(--step-body); line-height: 1.6; flex: 1; }
+    .card p { color: var(--ink-muted); font-size: var(--step-body); line-height: 1.6; flex: 1; margin-bottom: 14px; }
     
-    .card-metric-pill {
-      margin-top: 14px; padding: 8px 12px; border-radius: var(--radius-sm);
-      background: var(--surface-2); font-size: var(--step-sm); color: var(--ink);
-      font-weight: 500; display: flex; align-items: center; gap: 8px;
-    }
-    .card-metric-pill .metric-dot {
-      width: 6px; height: 6px; border-radius: 50%; background: var(--accent-green); flex: none;
-    }
-    
-    .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
     .chip {
       font-size: var(--step-sm); background: var(--surface-2); color: var(--ink-muted);
-      padding: 4px 10px; border-radius: 6px; font-weight: 500;
-      transition: background .15s, color .15s;
+      padding: 3px 9px; border-radius: 6px; font-weight: 500;
     }
     .card:hover .chip { color: var(--ink); }
     
     .card-actions {
-      display: flex; gap: 10px; margin-top: 20px;
+      display: flex; gap: 10px; margin-top: auto;
     }
     .btn-micro {
       flex: 1; display: inline-flex; align-items: center; justify-content: center;
@@ -394,21 +466,19 @@
     }
     .btn-inspect {
       background: var(--surface-2); color: var(--ink);
-      border: 1px solid transparent;
     }
-    .btn-inspect:hover { background: var(--surface-3); border-color: rgba(255, 255, 255, 0.15); }
+    .btn-inspect:hover { background: var(--surface-3); }
     .btn-inspect:active { transform: scale(0.97); }
     .btn-action {
       background: var(--accent); color: var(--accent-ink); font-weight: 700;
-      border: 1px solid transparent;
     }
-    .btn-action:hover { background: #7dd3fc; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.4); }
+    .btn-action:hover { background: #7dd3fc; }
     .btn-action:active { transform: scale(0.97); }
     
-    /* INDEX VIEW (COMPACT TABLE) */
+    /* COMPACT 1-SCREEN TABLE VIEW */
     .catalog-index-wrap {
       display: none; width: 100%; border-radius: var(--radius);
-      overflow-x: auto; background: var(--surface-1); border: 1px solid transparent;
+      overflow-x: auto; background: var(--surface-1); border: none;
     }
     .catalog-index-table {
       width: 100%; border-collapse: collapse; text-align: left; font-size: var(--step-body);
@@ -444,30 +514,26 @@
     .index-go-btn:hover { background: #7dd3fc; transform: translateY(-1px); }
     .index-go-btn:active { transform: scale(0.97); }
     
-    /* NO RESULTS */
     .catalog-empty-msg {
       display: none; padding: 64px 24px; text-align: center;
-      background: var(--surface-1); border-radius: var(--radius);
-      border: 1px solid transparent;
+      background: var(--surface-1); border-radius: var(--radius); border: none;
     }
     .catalog-empty-msg p { color: var(--ink-muted); font-size: var(--step-body); margin-bottom: 20px; }
     
-    /* MODAL (FICHA TÉCNICA QUICK PREVIEW) */
+    /* MODAL */
     .catalog-modal {
       position: fixed; inset: 0; z-index: 100;
       display: none; align-items: center; justify-content: center; padding: 20px;
     }
     .catalog-modal.open { display: flex; }
     .modal-backdrop {
-      position: absolute; inset: 0; background: rgba(7, 11, 18, 0.82);
-      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      position: absolute; inset: 0; background: rgba(7, 11, 18, 0.92);
     }
     .modal-panel {
       position: relative; z-index: 2; width: 100%; max-width: 740px;
-      background: var(--surface-1); border: 1px solid rgba(255, 255, 255, 0.12);
+      background: var(--surface-1); border: none;
       border-radius: 22px; overflow: hidden;
       transform: scale(0.95); opacity: 0;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 35px -10px rgba(56, 189, 248, 0.2);
       transition: transform .22s var(--ease-out), opacity .22s var(--ease-out);
     }
     .catalog-modal.open .modal-panel { transform: scale(1); opacity: 1; }
@@ -496,17 +562,12 @@
     .modal-title { font-size: var(--step-h2); font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px; color: var(--ink); }
     .modal-desc { color: var(--ink-muted); font-size: var(--step-body); line-height: 1.65; margin-bottom: 18px; }
     .modal-metric {
-      padding: 12px 16px; border-radius: var(--radius-sm); background: var(--surface-2);
-      border: 1px solid transparent;
+      padding: 12px 16px; border-radius: var(--radius-sm); background: var(--surface-2); border: none;
       color: var(--accent); font-weight: 600; font-size: var(--step-sm); margin-bottom: 20px;
     }
     .modal-stack-label { font-size: var(--step-sm); color: var(--ink-muted); font-weight: 600; margin-bottom: 8px; }
     .modal-foot-actions {
       display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap;
-    }
-    .modal-foot-actions a, .modal-foot-actions button {
-      padding: 13px 22px; border-radius: var(--radius-sm); font-size: var(--step-body); font-weight: 600;
-      display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: none;
     }
     
     /* FLOATING QUICK JUMP DOCK */
@@ -517,14 +578,11 @@
     .dock-pill {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 11px 18px; border-radius: 999px; font-size: var(--step-sm); font-weight: 600;
-      background: var(--surface-2);
-      color: var(--ink); border: 1px solid transparent;
-      cursor: pointer; transition: transform .18s var(--ease-out), background .18s, border-color .18s, box-shadow .18s;
+      background: var(--surface-2); color: var(--ink); border: none;
+      cursor: pointer; transition: transform .18s var(--ease-out), background .18s;
     }
     .dock-pill:hover {
-      background: var(--accent); color: var(--accent-ink);
-      border-color: transparent; transform: translateY(-2px);
-      box-shadow: 0 12px 28px -5px rgba(56, 189, 248, 0.4);
+      background: var(--accent); color: var(--accent-ink); transform: translateY(-2px);
     }
     .dock-pill:active { transform: scale(0.96); }
     .dock-pill-top { display: none; opacity: 0; }
@@ -536,18 +594,18 @@
       display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 36px;
     }
     .skill-card {
-      background: var(--bg); border: 1px solid transparent; border-radius: var(--radius);
-      padding: 24px; transition: transform .2s var(--ease-out), border-color .2s;
+      background: var(--bg); border: none; border-radius: var(--radius);
+      padding: 24px; transition: transform .2s var(--ease-out), background .2s;
     }
     .skill-card:nth-child(1), .skill-card:nth-child(2) { grid-column: span 2; }
-    .skill-card:hover { transform: translateY(-3px); border-color: rgba(56, 189, 248, 0.3); }
+    .skill-card:hover { transform: translateY(-3px); background: #0c1422; }
     .skill-card h3 { font-size: var(--step-h3); font-weight: 700; margin-bottom: 8px; color: var(--ink); }
     .skill-card p { color: var(--ink-muted); font-size: var(--step-body); line-height: 1.55; margin-bottom: 14px; }
     
     /* CONTACT */
     #contacto { padding: 88px 0 96px; }
     .contact-box {
-      background: var(--surface-1); border: 1px solid transparent;
+      background: var(--surface-1); border: none;
       border-radius: 24px; padding: 56px 40px; text-align: center;
       position: relative; overflow: hidden;
     }
@@ -572,53 +630,61 @@
       padding: 36px 0; text-align: center; color: var(--ink-muted); font-size: var(--step-sm);
     }
     
-    /* ANIMATIONS & CHOREOGRAPHY (Emil Kowalski Philosophy) */
+    /* MOTION LAYER (EMIL KOWALSKI & TASTE-SKILL) */
     @keyframes heroEntrance {
       from { opacity: 0; transform: translateY(16px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @keyframes cardPop {
-      from { opacity: 0; transform: translateY(14px) scale(0.97); }
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
     
     .hero-box { animation: heroEntrance 0.5s var(--ease-out) both; }
-    .hero-caps-row { animation: heroEntrance 0.5s var(--ease-out) 0.08s both; }
-    .hero-highlights { animation: heroEntrance 0.5s var(--ease-out) 0.14s both; }
-    .cta-row { animation: heroEntrance 0.5s var(--ease-out) 0.20s both; }
-    .catalog-bar { animation: heroEntrance 0.5s var(--ease-out) 0.26s both; }
-    .cat-pill:nth-child(1) { animation: heroEntrance 0.4s var(--ease-out) 0.30s both; }
-    .cat-pill:nth-child(2) { animation: heroEntrance 0.4s var(--ease-out) 0.34s both; }
-    .cat-pill:nth-child(3) { animation: heroEntrance 0.4s var(--ease-out) 0.38s both; }
-    .cat-pill:nth-child(4) { animation: heroEntrance 0.4s var(--ease-out) 0.42s both; }
-    .cat-pill:nth-child(5) { animation: heroEntrance 0.4s var(--ease-out) 0.46s both; }
-    .cat-pill:nth-child(6) { animation: heroEntrance 0.4s var(--ease-out) 0.50s both; }
-    .catalog-grid .card:nth-child(1) { animation: heroEntrance 0.45s var(--ease-out) 0.08s both; }
-    .catalog-grid .card:nth-child(2) { animation: heroEntrance 0.45s var(--ease-out) 0.14s both; }
-    .catalog-grid .card:nth-child(3) { animation: heroEntrance 0.45s var(--ease-out) 0.20s both; }
-    .catalog-grid .card:nth-child(4) { animation: heroEntrance 0.45s var(--ease-out) 0.26s both; }
-    .catalog-grid .card:nth-child(5) { animation: heroEntrance 0.45s var(--ease-out) 0.32s both; }
-    .catalog-grid .card:nth-child(6) { animation: heroEntrance 0.45s var(--ease-out) 0.38s both; }
-    .catalog-grid .card:nth-child(7) { animation: heroEntrance 0.45s var(--ease-out) 0.44s both; }
-    .catalog-grid .card:nth-child(8) { animation: heroEntrance 0.45s var(--ease-out) 0.50s both; }
-
+    .hero-pill { animation: heroEntrance 0.5s var(--ease-out) 0.05s both; }
+    .cta-row { animation: heroEntrance 0.5s var(--ease-out) 0.12s both; }
+    .bento-card:nth-child(1) { animation: heroEntrance 0.45s var(--ease-out) 0.10s both; }
+    .bento-card:nth-child(2) { animation: heroEntrance 0.45s var(--ease-out) 0.18s both; }
+    .bento-card:nth-child(3) { animation: heroEntrance 0.45s var(--ease-out) 0.26s both; }
+    .bento-card:nth-child(4) { animation: heroEntrance 0.45s var(--ease-out) 0.34s both; }
+    .catalog-bar { animation: heroEntrance 0.45s var(--ease-out) 0.20s both; }
+    .cat-pill:nth-child(1) { animation: heroEntrance 0.4s var(--ease-out) 0.24s both; }
+    .cat-pill:nth-child(2) { animation: heroEntrance 0.4s var(--ease-out) 0.28s both; }
+    .cat-pill:nth-child(3) { animation: heroEntrance 0.4s var(--ease-out) 0.32s both; }
+    .cat-pill:nth-child(4) { animation: heroEntrance 0.4s var(--ease-out) 0.36s both; }
+    .cat-pill:nth-child(5) { animation: heroEntrance 0.4s var(--ease-out) 0.40s both; }
+    .cat-pill:nth-child(6) { animation: heroEntrance 0.4s var(--ease-out) 0.44s both; }
+    .catalog-grid .card:nth-child(1) { animation: heroEntrance 0.4s var(--ease-out) 0.10s both; }
+    .catalog-grid .card:nth-child(2) { animation: heroEntrance 0.4s var(--ease-out) 0.16s both; }
+    .catalog-grid .card:nth-child(3) { animation: heroEntrance 0.4s var(--ease-out) 0.22s both; }
+    .catalog-grid .card:nth-child(4) { animation: heroEntrance 0.4s var(--ease-out) 0.28s both; }
+    .catalog-grid .card:nth-child(5) { animation: heroEntrance 0.4s var(--ease-out) 0.34s both; }
+    .catalog-grid .card:nth-child(6) { animation: heroEntrance 0.4s var(--ease-out) 0.40s both; }
+    
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
       }
+      .hero-canvas { display: none !important; }
+      .studio-scrubber-head { animation: none !important; }
+      .term-cursor { animation: none !important; }
+      .beacon-pulse { animation: none !important; }
     }
-
+    
     /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .bento-card-game, .bento-card-studio, .bento-card-ai, .bento-card-acc {
+        grid-column: span 12;
+      }
+      .bento-media { height: 220px; }
+    }
     @media (max-width: 768px) {
-      nav .nav-links { gap: 12px; font-size: var(--step-sm); white-space: nowrap; }
-      nav .nav-links a { white-space: nowrap; }
-      nav .nav-links a[href="#skills"], nav .nav-links a[href="#contacto"] { display: none; }
-      .brand { gap: 7px; }
+      nav .nav-links { gap: 12px; font-size: var(--step-sm); }
+      nav .nav-links a[href="#destacados"], nav .nav-links a[href="#skills"], nav .nav-links a[href="#contacto"] { display: none; }
       .brand-last { display: none; }
-      .hero { padding: 42px 0 48px; }
-      .hero-stats-bar { grid-template-columns: 1fr 1fr; }
+      .hero { padding: 46px 0 38px; }
       .catalog-bar { padding: 14px 16px; }
       .catalog-top-row { flex-direction: column; align-items: stretch; }
       .catalog-views { justify-content: flex-end; }
@@ -626,6 +692,10 @@
       .dock-pill { padding: 9px 15px; font-size: var(--step-sm); }
       .contact-box { padding: 42px 20px; }
       .skill-card:nth-child(1), .skill-card:nth-child(2) { grid-column: span 1; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.1rem; line-height: 1.12; }
+      .section-head h2 { font-size: 1.6rem; }
     }
   </style>
 </head>
@@ -639,7 +709,8 @@
         <span class="brand-text">Emilio<b class="brand-last">Fonseca</b><span class="brand-dot">.dev</span></span>
       </a>
       <div class="nav-links">
-        <a href="#proyectos">Proyectos</a>
+        <a href="#destacados">Destacados</a>
+        <a href="#proyectos">Catálogo</a>
         <a href="#skills">Habilidades</a>
         <a href="#contacto">Contacto</a>
         <a href="en/" title="Switch to English" style="color: var(--accent); font-weight: 600;">English</a>
@@ -650,141 +721,203 @@
 
   <!-- HERO -->
   <header class="hero">
+    <canvas id="heroCanvas" class="hero-canvas" aria-hidden="true"></canvas>
     <div class="container hero-box">
-      <h1>Software e IA aplicada.</h1>
-      <p class="lead">Desarrollador full-stack especializado en sistemas de producción de punta a punta: plataformas ERP, analítica comercial, inferencia de IA en GPUs de consumo y videojuegos en WebGL. Explora el catálogo con demos interactivas en vivo.</p>
+      <div class="hero-pill">
+        <span class="beacon-pulse"></span>
+        <span>Ingeniería de Software · Físicas & Creatividad Interactiva</span>
+      </div>
+      <h1>Código, físicas e interactividad.</h1>
+      <p class="lead">Hola, soy Emilio Fonseca. Desarrollador full-stack y creador técnico. Construyo software donde la ingeniería profunda y el diseño visual convergen: videojuegos con físicas reales en WebGL, suites de autor multimedia, plataformas en producción e inferencia local de IA en hardware de consumo.</p>
       
-      <!-- ENGINEERING LIVE CAPABILITIES RIBBON -->
-      <div class="hero-caps-row">
-        <span class="cap-badge"><span class="beacon-dot green"></span> <strong>21</strong> Sistemas en Producción</span>
-        <span class="cap-badge"><span class="beacon-dot blue"></span> <strong>17</strong> Demos en Navegador</span>
-        <span class="cap-badge">Inferencia Local INT4</span>
-        <span class="cap-badge">WebGL & Físicas 2D/3D</span>
-        <span class="cap-badge">Arquitectura ERP & BI</span>
-      </div>
-
-      <!-- QUICK ACCESS HIGHLIGHTS -->
-      <div class="hero-highlights">
-        <span class="highlights-title">Accesos directos:</span>
-        <button type="button" class="highlight-pill" onclick="filterBySlug('juego-construccion')">
-          <span class="hl-dot green"></span>
-          <span>Obra Maestra MN</span>
-          <span class="pill-tag">WebGL 2D</span>
-        </button>
-        <button type="button" class="highlight-pill" onclick="filterBySlug('web-studio')">
-          <span class="hl-dot purple"></span>
-          <span>Web Studio</span>
-          <span class="pill-tag">IA &amp; Video</span>
-        </button>
-        <button type="button" class="highlight-pill" onclick="filterBySlug('ruta-clara')">
-          <span class="hl-dot green"></span>
-          <span>Ruta Clara</span>
-          <span class="pill-tag">Logística GIS</span>
-        </button>
-        <button type="button" class="highlight-pill" onclick="filterBySlug('inferencia')">
-          <span class="hl-dot blue"></span>
-          <span>Inferencia 4GB</span>
-          <span class="pill-tag">CUDA INT4</span>
-        </button>
-      </div>
-
       <div class="cta-row">
-        <a class="btn btn-primary" href="#proyectos">
-          <span>Explorar catálogo interactivo (21)</span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
-        </a>
-        <button type="button" class="btn btn-ghost" onclick="switchView('index')">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-          <span>Ver índice en 1 pantalla</span>
-        </button>
-        <a class="btn btn-outline" href="#contacto">Contacto y CV</a>
+        <a class="btn btn-primary" href="#destacados">Explorar obras destacadas</a>
+        <a class="btn btn-ghost" href="#proyectos">Archivo completo (21)</a>
+        <button type="button" class="btn-text-link" onclick="switchView('index')">→ Índice en 1 pantalla</button>
       </div>
     </div>
   </header>
 
-  <!-- CATALOG SHOWROOM -->
+  <!-- BENTO SHOWCASE (SELECTED WORKS) -->
+  <section id="destacados" class="featured-section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Creatividad técnica y proyectos insignia</h2>
+        <p>Una muestra de flexibilidad: motores de físicas en el navegador, suites multimedia, modelos de IA a bajo nivel y apps offline-first.</p>
+      </div>
+      
+      <div class="bento-grid">
+        <!-- 1. OBRA MAESTRA MN (Game & Physics) -->
+        <article class="bento-card bento-card-game">
+          <div class="bento-media">
+            <img src="assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="eager" width="640" height="360" />
+            <span class="live badge-game"><span class="beacon-pulse"></span> Videojuego WebGL</span>
+            <span class="game-overlay-tag">W/A/S/D · Motor Físicas 60 FPS</span>
+          </div>
+          <div class="bento-body">
+            <span class="bento-genre">Unity · WebGL · WASM · 2D Physics</span>
+            <h3>Obra Maestra MN</h3>
+            <p>Videojuego 2D con motor de físicas personalizado, recolección de materiales y coladas de concreto. Desarrollado en Unity con WebAssembly para jugar al instante en el navegador sin descargas.</p>
+            <div class="bento-actions">
+              <a class="btn btn-primary" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">Jugar demo en navegador</a>
+              <button type="button" class="btn btn-ghost" onclick="openProjectModal('juego-construccion')">Ficha técnica</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. WEB STUDIO (Creative Studio) -->
+        <article class="bento-card bento-card-studio">
+          <div class="bento-media">
+            <img src="assets/previews/web-studio.jpg" alt="Web Studio" loading="eager" width="500" height="300" />
+            <span class="live badge-demo"><span class="beacon-pulse blue"></span> Suite Multimedia</span>
+            <div class="studio-scrubber-track">
+              <div class="studio-scrubber-head"></div>
+            </div>
+          </div>
+          <div class="bento-body">
+            <span class="bento-genre">Canvas WebGL · AI Multimedia</span>
+            <h3>Web Studio</h3>
+            <p>Editor de video y composición multipista en el navegador con renderizado en Canvas WebGL y herramientas asistidas por IA generativa.</p>
+            <div class="bento-actions">
+              <a class="btn btn-primary" href="demos/web-studio/">Probar editor demo</a>
+              <button type="button" class="btn btn-ghost" onclick="openProjectModal('web-studio')">Ficha técnica</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. INFERENCIA INT4 (Low-level AI & GPU Hacker Terminal) -->
+        <article class="bento-card bento-card-ai">
+          <div class="bento-media">
+            <div class="terminal-box">
+              <div class="terminal-bar">
+                <div class="terminal-dots">
+                  <span class="t-dot dot-red"></span>
+                  <span class="t-dot dot-yellow"></span>
+                  <span class="t-dot dot-green"></span>
+                </div>
+                <span class="terminal-label">vram_optimizer.py — cuda:0 (4096MB)</span>
+              </div>
+              <div class="terminal-content">
+                <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">python quantize.py --model mistral-7b --bits 4</span></div>
+                <div class="term-line term-info">&gt; Target GPU: RTX 4.0 GB VRAM</div>
+                <div class="term-line term-purple">&gt; GPTQ Low-Rank Quantization active...</div>
+                <div class="term-line term-green">&gt; VRAM Footprint: <strong>2.4 GB / 4.0 GB</strong> (60%)</div>
+                <div class="term-line term-cyan">&gt; Speed: <strong>23.4 tokens/sec</strong> <span class="term-cursor">_</span></div>
+              </div>
+            </div>
+            <span class="live badge-showcase">IA Local CUDA</span>
+          </div>
+          <div class="bento-body">
+            <span class="bento-genre">PyTorch · CUDA · INT4 GPTQ</span>
+            <h3>Inferencia en 4 GB VRAM</h3>
+            <p>Ruptura de barreras de memoria: modelos LLM de 7B (Mistral) corriendo a 23.4 tokens/seg en GPUs de 4 GB con cuantización INT4 GPTQ.</p>
+            <div class="bento-actions">
+              <a class="btn btn-primary" href="proyectos/inferencia/">Ver investigación y demo</a>
+              <button type="button" class="btn btn-ghost" onclick="openProjectModal('inferencia')">Ficha técnica</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. MYACCOUNTANT (Offline-First Financial PWA) -->
+        <article class="bento-card bento-card-acc">
+          <div class="bento-media">
+            <img src="assets/previews/myaccountant.jpg" alt="MyAccountant" loading="eager" width="640" height="360" />
+            <span class="live badge-acc"><span class="beacon-pulse amber"></span> Finanzas PWA</span>
+            <div class="acc-spark-bar">
+              <span class="acc-pill-mini">Offline SQLite</span>
+              <span class="acc-pill-mini">Zero Cloud</span>
+            </div>
+          </div>
+          <div class="bento-body">
+            <span class="bento-genre text-amber">React · PWA · IndexedDB · Offline-First</span>
+            <h3>MyAccountant</h3>
+            <p>Sistema de gestión financiera y contabilidad personal con arquitectura 100% offline-first. Cero servidores externos y cero nube: almacenamiento local cifrado en IndexedDB, balances mensuales automatizados y control de gastos privado.</p>
+            <div class="bento-actions">
+              <a class="btn btn-primary btn-amber" href="demos/myaccountant/">Probar app demo</a>
+              <button type="button" class="btn btn-ghost" onclick="openProjectModal('myaccountant')">Ficha técnica</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPLETE CATALOG & ARCHIVE (21 PROJECTS) -->
   <section id="proyectos">
     <div class="container">
       <div class="section-head">
-        <h2>Catálogo de proyectos y demos</h2>
-        <p>Filtra por área de especialidad, busca por tecnología o cambia al índice compacto para escanear todo el portafolio en una sola pantalla sin scroll infinito.</p>
+        <h2>Archivo completo de proyectos</h2>
+        <p>Explora las 21 implementaciones en producción por categoría, busca por tecnología o activa el índice compacto para escanear todo en una sola pantalla sin scroll infinito.</p>
       </div>
 
-      <!-- CONTROLS: SEARCH + CATEGORIES + VIEW TOGGLE -->
+      <!-- CONTROLS BAR -->
       <div class="catalog-bar">
         <div class="catalog-top-row">
           <div class="catalog-search-wrap">
-            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <svg class="search-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+            </svg>
             <input type="text" id="catalogSearch" class="catalog-search-input" placeholder="Buscar por tecnología, nombre o caso de uso (ej. Python, React, Unity, ERP, Docker)..." aria-label="Buscar en el catálogo" />
             <button type="button" id="catalogSearchClear" class="catalog-search-clear" aria-label="Limpiar búsqueda">✕</button>
           </div>
-
-          <div class="catalog-views" role="radiogroup" aria-label="Modo de visualización">
-            <button type="button" class="view-btn active" data-view="grid" aria-checked="true" role="radio" title="Ver como tarjetas visuales">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <div class="catalog-views">
+            <button type="button" class="view-btn active" data-view="grid" aria-label="Vista cuadrícula">
               <span>Cuadrícula</span>
             </button>
-            <button type="button" class="view-btn" data-view="index" aria-checked="false" role="radio" title="Ver índice compacto sin scroll">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-              <span>Índice rápido</span>
+            <button type="button" class="view-btn" data-view="index" aria-label="Vista tabla rápida">
+              <span>Índice en tabla</span>
             </button>
           </div>
         </div>
 
         <div class="catalog-filter-bar">
-          <div class="catalog-tabs" role="tablist">
+          <div class="catalog-tabs">
             <button type="button" class="cat-pill active" data-filter="all">
               <span>Todos</span>
-              <span class="pill-count" id="count-all">21</span>
+              <span class="pill-count">21</span>
             </button>
             <button type="button" class="cat-pill" data-filter="demos">
               <span>Demos en vivo</span>
-              <span class="pill-count" id="count-demos">17</span>
+              <span class="pill-count">17</span>
             </button>
             <button type="button" class="cat-pill" data-filter="ia">
               <span>IA &amp; ML</span>
-              <span class="pill-count" id="count-ia">6</span>
+              <span class="pill-count">6</span>
             </button>
             <button type="button" class="cat-pill" data-filter="web">
               <span>Web &amp; ERP</span>
-              <span class="pill-count" id="count-web">5</span>
+              <span class="pill-count">5</span>
             </button>
             <button type="button" class="cat-pill" data-filter="hardware">
               <span>3D &amp; Juegos</span>
-              <span class="pill-count" id="count-hardware">5</span>
+              <span class="pill-count">5</span>
             </button>
             <button type="button" class="cat-pill" data-filter="auto">
               <span>Automatización &amp; BI</span>
-              <span class="pill-count" id="count-auto">5</span>
+              <span class="pill-count">5</span>
             </button>
           </div>
-
-          <div class="catalog-status-text" id="catalogCountText" aria-live="polite">
-            Mostrando <strong id="catalogVisibleCount">21</strong> de 21 proyectos
+          <div class="catalog-status-text">
+            <span>Mostrando <strong id="catalogVisibleCount">21</strong> de 21 proyectos</span>
           </div>
         </div>
       </div>
 
       <!-- GRID CARDS -->
       <div class="catalog-grid" id="catalogGrid">
-        <div class="card catalog-item" data-slug="juego-construccion" data-category="hardware" data-live="true" data-search="obra maestra mn videojuego · unity & webgl 3d, videojuegos & hardware unity c# webgl wasm 2d platformer videojuego 2d de recolección de materiales, coladas y construcción. desarrollado en unity, compilado a webgl/wasm y optimizado para jugar en móviles y navegador.">
+        <div class="card catalog-item" data-slug="juego-construccion" data-category="hardware" data-live="true" data-search="obra maestra mn videojuego · unity & webgl 3d, videojuegos & hardware unity c# webgl wasm 2d platformer videojuego 2d de recolección de materiales, coladas y construcción. desarrollado en unity, compilado a webgl/wasm y optimizado para jugar en móviles y navegador." onclick="openProjectModal('juego-construccion')" tabindex="0" role="button" aria-label="Ver ficha técnica de Obra Maestra MN">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo jugable</span>
           <div class="preview">
-            <img src="assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="eager" width="320" height="200" />
+            <img src="assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Videojuego · Unity & WebGL</span>
               <span class="cat-label">3D, Videojuegos & Hardware</span>
             </div>
             <h3>Obra Maestra MN</h3>
             <p>Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Motor de físicas y coladas de concreto compilado a WebGL</span>
-            </div>
-            <div class="stack"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">WebGL</span><span class="chip">WASM</span><span class="chip">2D Platformer</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">WebGL</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">
                 Jugar demo en navegador
               </a>
@@ -794,51 +927,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="ruta-clara" data-category="auto" data-live="true" data-search="ruta clara logística y mapas automatización & bi javascript leaflet geojson algoritmos de ruta explora el mapa, compara recorridos y consulta pedidos, carga y reportes. el motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.">
+<div class="card catalog-item" data-slug="web-studio" data-category="ia" data-live="true" data-search="web studio ia & video editor ia & machine learning javascript ia multimedia canvas webgl video editor explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por ia. el proyecto de ejemplo usa material ficticio." onclick="openProjectModal('web-studio')" tabindex="0" role="button" aria-label="Ver ficha técnica de Web Studio">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/ruta-clara.jpg" alt="Ruta Clara" loading="eager" width="320" height="200" />
+            <img src="assets/previews/web-studio.jpg" alt="Web Studio" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Logística y mapas</span>
-              <span class="cat-label">Automatización & BI</span>
-            </div>
-            <h3>Ruta Clara</h3>
-            <p>Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Optimización logística y despacho de última milla</span>
-            </div>
-            <div class="stack"><span class="chip">JavaScript</span><span class="chip">Leaflet</span><span class="chip">GeoJSON</span><span class="chip">Algoritmos de Ruta</span></div>
-            <div class="card-actions">
-              <a class="btn-micro btn-action" href="demos/ruta-clara/" >
-                Probar demo
-              </a>
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ruta-clara')" aria-label="Abrir ficha técnica de Ruta Clara">
-                Ficha técnica
-              </button>
-            </div>
-          </div>
-        </div>
-<div class="card catalog-item" data-slug="web-studio" data-category="ia" data-live="true" data-search="web studio ia & video editor ia & machine learning javascript ia multimedia canvas webgl video editor explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por ia. el proyecto de ejemplo usa material ficticio.">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
-          <div class="preview">
-            <img src="assets/previews/web-studio.jpg" alt="Web Studio" loading="eager" width="320" height="200" />
-          </div>
-          <div class="card-body">
-            <div class="card-header-row">
-              <span class="tag">IA & Video Editor</span>
               <span class="cat-label">IA & Machine Learning</span>
             </div>
             <h3>Web Studio</h3>
             <p>Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Editor de video asistido por IA y multipista en el navegador</span>
-            </div>
-            <div class="stack"><span class="chip">JavaScript</span><span class="chip">IA Multimedia</span><span class="chip">Canvas WebGL</span><span class="chip">Video Editor</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">JavaScript</span><span class="chip">IA Multimedia</span><span class="chip">Canvas WebGL</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/web-studio/" >
                 Probar demo
               </a>
@@ -848,105 +949,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="ourway" data-category="hardware" data-live="true" data-search="ourway atlas y viajes 3d 3d, videojuegos & hardware three.js webgl shaders atlas 3d la escena orbital, los planetas, las texturas y la navegación son los originales. el viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. la conexión a álbumes privados no está habilitada.">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
-          <div class="preview">
-            <img src="assets/previews/ourway.jpg" alt="Ourway" loading="eager" width="320" height="200" />
-          </div>
-          <div class="card-body">
-            <div class="card-header-row">
-              <span class="tag">Atlas y viajes 3D</span>
-              <span class="cat-label">3D, Videojuegos & Hardware</span>
-            </div>
-            <h3>Ourway</h3>
-            <p>La escena orbital, los planetas, las texturas y la navegación son los originales. El viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. La conexión a álbumes privados no está habilitada.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Planeta 3D orbital navegable con texturas personalizadas</span>
-            </div>
-            <div class="stack"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Shaders</span><span class="chip">Atlas 3D</span></div>
-            <div class="card-actions">
-              <a class="btn-micro btn-action" href="demos/ourway/" >
-                Probar demo
-              </a>
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ourway')" aria-label="Abrir ficha técnica de Ourway">
-                Ficha técnica
-              </button>
-            </div>
-          </div>
-        </div>
-<div class="card catalog-item" data-slug="radar" data-category="auto" data-live="true" data-search="radar analítica comercial automatización & bi chart.js javascript analytics bi dashboards conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún erp ni base empresarial.">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
-          <div class="preview">
-            <img src="assets/previews/radar.jpg" alt="Radar" loading="eager" width="320" height="200" />
-          </div>
-          <div class="card-body">
-            <div class="card-header-row">
-              <span class="tag">Analítica comercial</span>
-              <span class="cat-label">Automatización & BI</span>
-            </div>
-            <h3>Radar</h3>
-            <p>Conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. Los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún ERP ni base empresarial.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Tablero comercial interactivo y series temporales</span>
-            </div>
-            <div class="stack"><span class="chip">Chart.js</span><span class="chip">JavaScript</span><span class="chip">Analytics</span><span class="chip">BI Dashboards</span></div>
-            <div class="card-actions">
-              <a class="btn-micro btn-action" href="demos/radar/" >
-                Probar demo
-              </a>
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('radar')" aria-label="Abrir ficha técnica de Radar">
-                Ficha técnica
-              </button>
-            </div>
-          </div>
-        </div>
-<div class="card catalog-item" data-slug="distrito" data-category="hardware" data-live="true" data-search="distrito experiencia 3d 3d, videojuegos & hardware three.js webgl modelos 3d animaciones el frontend original conserva sus modelos 3d, su habitación, animaciones y controles. la demostración utiliza un perfil y progreso ficticios.">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
-          <div class="preview">
-            <img src="assets/previews/distrito.jpg" alt="Distrito" loading="eager" width="320" height="200" />
-          </div>
-          <div class="card-body">
-            <div class="card-header-row">
-              <span class="tag">Experiencia 3D</span>
-              <span class="cat-label">3D, Videojuegos & Hardware</span>
-            </div>
-            <h3>Distrito</h3>
-            <p>El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Habitación 3D interactiva y controles de cámara</span>
-            </div>
-            <div class="stack"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Modelos 3D</span><span class="chip">Animaciones</span></div>
-            <div class="card-actions">
-              <a class="btn-micro btn-action" href="demos/distrito/" >
-                Probar demo
-              </a>
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('distrito')" aria-label="Abrir ficha técnica de Distrito">
-                Ficha técnica
-              </button>
-            </div>
-          </div>
-        </div>
-<div class="card catalog-item" data-slug="inferencia" data-category="ia" data-live="false" data-search="inferencia eficiente investigación en ia ia & machine learning pytorch gptq int4/int3/int2 cuda huggingface investigación aplicada para romper el muro de 4 gb de vram en gpus de consumo: cuantización int4/int3/int2, gptq y parches residuales de bajo rango para correr modelos 7b en ~2.4 gb.">
+<div class="card catalog-item" data-slug="inferencia" data-category="ia" data-live="false" data-search="inferencia eficiente investigación en ia ia & machine learning pytorch gptq int4/int3/int2 cuda huggingface investigación aplicada para romper el muro de 4 gb de vram en gpus de consumo: cuantización int4/int3/int2, gptq y parches residuales de bajo rango para correr modelos 7b en ~2.4 gb." onclick="openProjectModal('inferencia')" tabindex="0" role="button" aria-label="Ver ficha técnica de Inferencia eficiente">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
-            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="320" height="168" fill="#0d1320"/><rect x="20" y="20" width="280" height="128" rx="10" fill="#151d2f" stroke="#2e3a52"/><text x="36" y="46" font-size="11" fill="#38bdf8" font-family="monospace" font-weight="700">CUDA / VRAM OPTIMIZER</text><text x="36" y="68" font-size="20" fill="#f8fafc" font-family="monospace" font-weight="800">2.4 GB / 4.0 GB</text><rect x="36" y="82" width="248" height="10" rx="5" fill="#1b2540"/><rect x="36" y="82" width="148" height="10" rx="5" fill="#38bdf8"/><text x="36" y="112" font-size="9" fill="#94a3b8" font-family="monospace">INT4 GPTQ + Low-Rank Quantization</text><text x="36" y="128" font-size="9" fill="#34d399" font-family="monospace">23.4 tokens/sec · Mistral-7B</text></svg>
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="320" height="168" fill="#0d1320"/><rect x="20" y="20" width="280" height="128" rx="10" fill="#151d2f"/><text x="36" y="46" font-size="11" fill="#38bdf8" font-family="system-ui, sans-serif" font-weight="700">CUDA / VRAM OPTIMIZER</text><text x="36" y="68" font-size="20" fill="#f8fafc" font-family="system-ui, sans-serif" font-weight="800">2.4 GB / 4.0 GB</text><rect x="36" y="82" width="248" height="10" rx="5" fill="#1b2540"/><rect x="36" y="82" width="148" height="10" rx="5" fill="#38bdf8"/><text x="36" y="112" font-size="9" fill="#94a3b8" font-family="system-ui, sans-serif">INT4 GPTQ + Low-Rank Quantization</text><text x="36" y="128" font-size="9" fill="#34d399" font-family="system-ui, sans-serif">23.4 tokens/sec &middot; Mistral-7B</text></svg>
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Investigación en IA</span>
               <span class="cat-label">IA & Machine Learning</span>
             </div>
             <h3>Inferencia eficiente</h3>
             <p>Investigación aplicada para romper el muro de 4 GB de VRAM en GPUs de consumo: cuantización INT4/INT3/INT2, GPTQ y parches residuales de bajo rango para correr modelos 7B en ~2.4 GB.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Modelos 7B corriendo en GPUs de 4 GB VRAM (2.4 GB footprint)</span>
-            </div>
-            <div class="stack"><span class="chip">PyTorch</span><span class="chip">GPTQ</span><span class="chip">INT4/INT3/INT2</span><span class="chip">CUDA</span><span class="chip">HuggingFace</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">PyTorch</span><span class="chip">GPTQ</span><span class="chip">INT4/INT3/INT2</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="proyectos/inferencia/" >
                 Ver presentación
               </a>
@@ -956,7 +971,117 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="dino-ai" data-category="ia" data-live="false" data-search="dino ai · una ia que aprende sola inteligencia artificial ia & machine learning python ppo reinforcement learning opencv una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de chrome: mira la pantalla como lo haría una persona y mejora con cada intento.">
+<div class="card catalog-item" data-slug="myaccountant" data-category="web" data-live="true" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react pwa indexeddb finanzas app personal (pwa) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. proyecto propio en react + firebase (google cloud), en desarrollo activo." onclick="openProjectModal('myaccountant')" tabindex="0" role="button" aria-label="Ver ficha técnica de MyAccountant · Tus finanzas en orden">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+          <div class="preview">
+            <img src="assets/previews/myaccountant.jpg" alt="MyAccountant · Tus finanzas en orden" loading="lazy" width="320" height="200" />
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <span class="cat-label">Web Apps & ERP</span>
+            </div>
+            <h3>MyAccountant · Tus finanzas en orden</h3>
+            <p>App personal (PWA) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. Proyecto propio en React + Firebase (Google Cloud), en desarrollo activo.</p>
+            <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">IndexedDB</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <a class="btn-micro btn-action" href="demos/myaccountant/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('myaccountant')" aria-label="Abrir ficha técnica de MyAccountant · Tus finanzas en orden">
+                Ficha técnica
+              </button>
+            </div>
+          </div>
+        </div>
+<div class="card catalog-item" data-slug="ourway" data-category="hardware" data-live="true" data-search="ourway atlas y viajes 3d 3d, videojuegos & hardware three.js webgl shaders atlas 3d la escena orbital, los planetas, las texturas y la navegación son los originales. el viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. la conexión a álbumes privados no está habilitada." onclick="openProjectModal('ourway')" tabindex="0" role="button" aria-label="Ver ficha técnica de Ourway">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+          <div class="preview">
+            <img src="assets/previews/ourway.jpg" alt="Ourway" loading="lazy" width="320" height="200" />
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <span class="cat-label">3D, Videojuegos & Hardware</span>
+            </div>
+            <h3>Ourway</h3>
+            <p>La escena orbital, los planetas, las texturas y la navegación son los originales. El viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. La conexión a álbumes privados no está habilitada.</p>
+            <div class="stack"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Shaders</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <a class="btn-micro btn-action" href="demos/ourway/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ourway')" aria-label="Abrir ficha técnica de Ourway">
+                Ficha técnica
+              </button>
+            </div>
+          </div>
+        </div>
+<div class="card catalog-item" data-slug="ruta-clara" data-category="auto" data-live="true" data-search="ruta clara logística y mapas automatización & bi javascript leaflet geojson algoritmos de ruta explora el mapa, compara recorridos y consulta pedidos, carga y reportes. el motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias." onclick="openProjectModal('ruta-clara')" tabindex="0" role="button" aria-label="Ver ficha técnica de Ruta Clara">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+          <div class="preview">
+            <img src="assets/previews/ruta-clara.jpg" alt="Ruta Clara" loading="lazy" width="320" height="200" />
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <span class="cat-label">Automatización & BI</span>
+            </div>
+            <h3>Ruta Clara</h3>
+            <p>Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.</p>
+            <div class="stack"><span class="chip">JavaScript</span><span class="chip">Leaflet</span><span class="chip">GeoJSON</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <a class="btn-micro btn-action" href="demos/ruta-clara/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ruta-clara')" aria-label="Abrir ficha técnica de Ruta Clara">
+                Ficha técnica
+              </button>
+            </div>
+          </div>
+        </div>
+<div class="card catalog-item" data-slug="radar" data-category="auto" data-live="true" data-search="radar analítica comercial automatización & bi chart.js javascript analytics bi dashboards conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún erp ni base empresarial." onclick="openProjectModal('radar')" tabindex="0" role="button" aria-label="Ver ficha técnica de Radar">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+          <div class="preview">
+            <img src="assets/previews/radar.jpg" alt="Radar" loading="lazy" width="320" height="200" />
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <span class="cat-label">Automatización & BI</span>
+            </div>
+            <h3>Radar</h3>
+            <p>Conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. Los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún ERP ni base empresarial.</p>
+            <div class="stack"><span class="chip">Chart.js</span><span class="chip">JavaScript</span><span class="chip">Analytics</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <a class="btn-micro btn-action" href="demos/radar/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('radar')" aria-label="Abrir ficha técnica de Radar">
+                Ficha técnica
+              </button>
+            </div>
+          </div>
+        </div>
+<div class="card catalog-item" data-slug="distrito" data-category="hardware" data-live="true" data-search="distrito experiencia 3d 3d, videojuegos & hardware three.js webgl modelos 3d animaciones el frontend original conserva sus modelos 3d, su habitación, animaciones y controles. la demostración utiliza un perfil y progreso ficticios." onclick="openProjectModal('distrito')" tabindex="0" role="button" aria-label="Ver ficha técnica de Distrito">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+          <div class="preview">
+            <img src="assets/previews/distrito.jpg" alt="Distrito" loading="lazy" width="320" height="200" />
+          </div>
+          <div class="card-body">
+            <div class="card-header-row">
+              <span class="cat-label">3D, Videojuegos & Hardware</span>
+            </div>
+            <h3>Distrito</h3>
+            <p>El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios.</p>
+            <div class="stack"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Modelos 3D</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
+              <a class="btn-micro btn-action" href="demos/distrito/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('distrito')" aria-label="Abrir ficha técnica de Distrito">
+                Ficha técnica
+              </button>
+            </div>
+          </div>
+        </div>
+<div class="card catalog-item" data-slug="dino-ai" data-category="ia" data-live="false" data-search="dino ai · una ia que aprende sola inteligencia artificial ia & machine learning python ppo reinforcement learning opencv una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de chrome: mira la pantalla como lo haría una persona y mejora con cada intento." onclick="openProjectModal('dino-ai')" tabindex="0" role="button" aria-label="Ver ficha técnica de Dino AI · Una IA que aprende sola">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -977,17 +1102,12 @@
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Inteligencia artificial</span>
               <span class="cat-label">IA & Machine Learning</span>
             </div>
             <h3>Dino AI · Una IA que aprende sola</h3>
             <p>Una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de Chrome: mira la pantalla como lo haría una persona y mejora con cada intento.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Reconocimiento visual en tiempo real · 0 entrenamiento previo</span>
-            </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">PPO</span><span class="chip">Reinforcement Learning</span><span class="chip">OpenCV</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">Python</span><span class="chip">PPO</span><span class="chip">Reinforcement Learning</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="proyectos/dino-ai/" >
                 Ver presentación
               </a>
@@ -997,24 +1117,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="mundial" data-category="ia" data-live="true" data-search="mundial 2026 · predicción con ia machine learning · simulación ia & machine learning python fastapi monte carlo scikit-learn modelo de machine learning que predice el mundial 2026: combina ratings elo con regresores xgboost, modela el minuto de cada gol y simula las eliminatorias con monte carlo (sobre 49k+ partidos de historia). web estilo mundial con bracket, grupos, favoritos y detalle por partido.">
+<div class="card catalog-item" data-slug="mundial" data-category="ia" data-live="true" data-search="mundial 2026 · predicción con ia machine learning · simulación ia & machine learning python fastapi monte carlo scikit-learn modelo de machine learning que predice el mundial 2026: combina ratings elo con regresores xgboost, modela el minuto de cada gol y simula las eliminatorias con monte carlo (sobre 49k+ partidos de historia). web estilo mundial con bracket, grupos, favoritos y detalle por partido." onclick="openProjectModal('mundial')" tabindex="0" role="button" aria-label="Ver ficha técnica de Mundial 2026 · Predicción con IA">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/mundial.jpg" alt="Mundial 2026 · Predicción con IA" loading="eager" width="320" height="200" />
+            <img src="assets/previews/mundial.jpg" alt="Mundial 2026 · Predicción con IA" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Machine Learning · Simulación</span>
               <span class="cat-label">IA & Machine Learning</span>
             </div>
             <h3>Mundial 2026 · Predicción con IA</h3>
             <p>Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBoost, modela el minuto de cada gol y simula las eliminatorias con Monte Carlo (sobre 49k+ partidos de historia). Web estilo Mundial con bracket, grupos, favoritos y detalle por partido.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>+50,000 partidos históricos simulados</span>
-            </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Monte Carlo</span><span class="chip">Scikit-Learn</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Monte Carlo</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/mundial/" >
                 Probar demo
               </a>
@@ -1024,7 +1139,7 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="dexter" data-category="ia" data-live="true" data-search="dexter · asistentes de ia a tu medida inteligencia artificial ia & machine learning python openai / claude fastapi multi-agent una colección de asistentes de inteligencia artificial que cualquiera puede instalar y combinar según lo que necesite, con más de 44 habilidades listas para usar.">
+<div class="card catalog-item" data-slug="dexter" data-category="ia" data-live="true" data-search="dexter · asistentes de ia a tu medida inteligencia artificial ia & machine learning python openai / claude fastapi multi-agent una colección de asistentes de inteligencia artificial que cualquiera puede instalar y combinar según lo que necesite, con más de 44 habilidades listas para usar." onclick="openProjectModal('dexter')" tabindex="0" role="button" aria-label="Ver ficha técnica de Dexter · Asistentes de IA a tu medida">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -1042,17 +1157,12 @@
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Inteligencia artificial</span>
               <span class="cat-label">IA & Machine Learning</span>
             </div>
             <h3>Dexter · Asistentes de IA a tu medida</h3>
             <p>Una colección de asistentes de inteligencia artificial que cualquiera puede instalar y combinar según lo que necesite, con más de 44 habilidades listas para usar.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Arquitectura multi-agente con herramientas dinámicas</span>
-            </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">OpenAI / Claude</span><span class="chip">FastAPI</span><span class="chip">Multi-Agent</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">Python</span><span class="chip">OpenAI / Claude</span><span class="chip">FastAPI</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="proyectos/dexter/" >
                 Probar demo
               </a>
@@ -1062,24 +1172,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="nucleo" data-category="web" data-live="true" data-search="núcleo · tu negocio en una pantalla gestión de negocio web apps & erp react typescript node.js postgresql organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita.">
+<div class="card catalog-item" data-slug="nucleo" data-category="web" data-live="true" data-search="núcleo · tu negocio en una pantalla gestión de negocio web apps & erp react typescript node.js postgresql organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita." onclick="openProjectModal('nucleo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Núcleo · Tu negocio en una pantalla">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/nucleo.jpg" alt="Núcleo · Tu negocio en una pantalla" loading="eager" width="320" height="200" />
+            <img src="assets/previews/nucleo.jpg" alt="Núcleo · Tu negocio en una pantalla" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Gestión de negocio</span>
               <span class="cat-label">Web Apps & ERP</span>
             </div>
             <h3>Núcleo · Tu negocio en una pantalla</h3>
             <p>Organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Control total de inventario, ventas y compras</span>
-            </div>
-            <div class="stack"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Node.js</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/nucleo/" >
                 Probar demo
               </a>
@@ -1089,24 +1194,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="lumen" data-category="ia" data-live="true" data-search="lumen · pregúntale a tus números reportes inteligentes ia & machine learning react fastapi nl-to-sql postgresql haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo.">
+<div class="card catalog-item" data-slug="lumen" data-category="ia" data-live="true" data-search="lumen · pregúntale a tus números reportes inteligentes ia & machine learning react fastapi nl-to-sql postgresql haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo." onclick="openProjectModal('lumen')" tabindex="0" role="button" aria-label="Ver ficha técnica de Lumen · Pregúntale a tus números">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/lumen.jpg" alt="Lumen · Pregúntale a tus números" loading="eager" width="320" height="200" />
+            <img src="assets/previews/lumen.jpg" alt="Lumen · Pregúntale a tus números" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Reportes inteligentes</span>
               <span class="cat-label">IA & Machine Learning</span>
             </div>
             <h3>Lumen · Pregúntale a tus números</h3>
             <p>Haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Consultas en lenguaje natural traducidas a SQL seguro</span>
-            </div>
-            <div class="stack"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">NL-to-SQL</span><span class="chip">PostgreSQL</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">NL-to-SQL</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/lumen/" >
                 Probar demo
               </a>
@@ -1116,24 +1216,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="vertice" data-category="web" data-live="true" data-search="vértice · app a la medida app de gestión web apps & erp react pwa offline-first tailwind aplicación hecha a la medida para administrar los procesos internos de un equipo. sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro.">
+<div class="card catalog-item" data-slug="vertice" data-category="web" data-live="true" data-search="vértice · app a la medida app de gestión web apps & erp react pwa offline-first tailwind aplicación hecha a la medida para administrar los procesos internos de un equipo. sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro." onclick="openProjectModal('vertice')" tabindex="0" role="button" aria-label="Ver ficha técnica de Vértice · App a la medida">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/vertice.jpg" alt="Vértice · App a la medida" loading="eager" width="320" height="200" />
+            <img src="assets/previews/vertice.jpg" alt="Vértice · App a la medida" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">App de gestión</span>
               <span class="cat-label">Web Apps & ERP</span>
             </div>
             <h3>Vértice · App a la medida</h3>
             <p>Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Generación instantánea de cotizaciones en campo</span>
-            </div>
-            <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span><span class="chip">Tailwind</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/vertice/" >
                 Probar demo
               </a>
@@ -1143,24 +1238,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="vitrina" data-category="web" data-live="true" data-search="vitrina · tu tienda en internet tienda en línea web apps & erp vanilla js html5 css3 sin dependencias tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento.">
+<div class="card catalog-item" data-slug="vitrina" data-category="web" data-live="true" data-search="vitrina · tu tienda en internet tienda en línea web apps & erp vanilla js html5 css3 sin dependencias tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento." onclick="openProjectModal('vitrina')" tabindex="0" role="button" aria-label="Ver ficha técnica de Vitrina · Tu tienda en internet">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/vitrina.jpg" alt="Vitrina · Tu tienda en internet" loading="eager" width="320" height="200" />
+            <img src="assets/previews/vitrina.jpg" alt="Vitrina · Tu tienda en internet" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Tienda en línea</span>
               <span class="cat-label">Web Apps & ERP</span>
             </div>
             <h3>Vitrina · Tu tienda en internet</h3>
             <p>Tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Carga ultra rápida (<300ms) sin frameworks pesados</span>
-            </div>
-            <div class="stack"><span class="chip">Vanilla JS</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Sin dependencias</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">Vanilla JS</span><span class="chip">HTML5</span><span class="chip">CSS3</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/vitrina/" >
                 Probar demo
               </a>
@@ -1170,51 +1260,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="myaccountant" data-category="web" data-live="true" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react pwa indexeddb finanzas app personal (pwa) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. proyecto propio en react + firebase (google cloud), en desarrollo activo.">
+<div class="card catalog-item" data-slug="nexo" data-category="auto" data-live="true" data-search="nexo · tu asistente por whatsapp atención al cliente automatización & bi python fastapi whatsapp cloud api docker atiende a tus clientes por whatsapp las 24 horas con el api oficial de whatsapp business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. también como plataforma centralizada multi-agente." onclick="openProjectModal('nexo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Nexo · Tu asistente por WhatsApp">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/myaccountant.jpg" alt="MyAccountant · Tus finanzas en orden" loading="eager" width="320" height="200" />
+            <img src="assets/previews/nexo.jpg" alt="Nexo · Tu asistente por WhatsApp" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">App de finanzas personales</span>
-              <span class="cat-label">Web Apps & ERP</span>
-            </div>
-            <h3>MyAccountant · Tus finanzas en orden</h3>
-            <p>App personal (PWA) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. Proyecto propio en React + Firebase (Google Cloud), en desarrollo activo.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Contabilidad personal 100% offline y privada</span>
-            </div>
-            <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">IndexedDB</span><span class="chip">Finanzas</span></div>
-            <div class="card-actions">
-              <a class="btn-micro btn-action" href="demos/myaccountant/" >
-                Probar demo
-              </a>
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('myaccountant')" aria-label="Abrir ficha técnica de MyAccountant · Tus finanzas en orden">
-                Ficha técnica
-              </button>
-            </div>
-          </div>
-        </div>
-<div class="card catalog-item" data-slug="nexo" data-category="auto" data-live="true" data-search="nexo · tu asistente por whatsapp atención al cliente automatización & bi python fastapi whatsapp cloud api docker atiende a tus clientes por whatsapp las 24 horas con el api oficial de whatsapp business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. también como plataforma centralizada multi-agente.">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
-          <div class="preview">
-            <img src="assets/previews/nexo.jpg" alt="Nexo · Tu asistente por WhatsApp" loading="eager" width="320" height="200" />
-          </div>
-          <div class="card-body">
-            <div class="card-header-row">
-              <span class="tag">Atención al cliente</span>
               <span class="cat-label">Automatización & BI</span>
             </div>
             <h3>Nexo · Tu asistente por WhatsApp</h3>
             <p>Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. También como plataforma centralizada multi-agente.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Atención 24/7 sin latencia de webhook</span>
-            </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">WhatsApp Cloud API</span><span class="chip">Docker</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">WhatsApp Cloud API</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/nexo/" >
                 Probar demo
               </a>
@@ -1224,7 +1282,7 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="brujula" data-category="auto" data-live="true" data-search="brújula · tus números por whatsapp bi por whatsapp automatización & bi python fastapi bi whatsapp api ">
+<div class="card catalog-item" data-slug="brujula" data-category="auto" data-live="true" data-search="brújula · tus números por whatsapp bi por whatsapp automatización & bi python fastapi bi whatsapp api " onclick="openProjectModal('brujula')" tabindex="0" role="button" aria-label="Ver ficha técnica de Brújula · Tus números por WhatsApp">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -1252,17 +1310,12 @@
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">BI por WhatsApp</span>
               <span class="cat-label">Automatización & BI</span>
             </div>
             <h3>Brújula · Tus números por WhatsApp</h3>
             <p></p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Reportes diarios y alertas automáticas a dirección</span>
-            </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">BI</span><span class="chip">WhatsApp API</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">BI</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="proyectos/brujula/" >
                 Probar demo
               </a>
@@ -1272,24 +1325,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="festo" data-category="auto" data-live="false" data-search="festo · felicita cumpleaños solo automatización automatización & bi python automated backend postgresql b2b erp cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada por chat, automáticamente. nadie del equipo tiene que acordarse.">
+<div class="card catalog-item" data-slug="festo" data-category="auto" data-live="false" data-search="festo · felicita cumpleaños solo automatización automatización & bi python automated backend postgresql b2b erp cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada por chat, automáticamente. nadie del equipo tiene que acordarse." onclick="openProjectModal('festo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Festo · Felicita cumpleaños solo">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
-            <img src="assets/previews/festo.jpg" alt="Festo · Felicita cumpleaños solo" loading="eager" width="320" height="200" />
+            <img src="assets/previews/festo.jpg" alt="Festo · Felicita cumpleaños solo" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Automatización</span>
               <span class="cat-label">Automatización & BI</span>
             </div>
             <h3>Festo · Felicita cumpleaños solo</h3>
             <p>Cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada por chat, automáticamente. Nadie del equipo tiene que acordarse.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Cero intervención humana · Sincronización diaria</span>
-            </div>
-            <div class="stack"><span class="chip">Python</span><span class="chip">Automated Backend</span><span class="chip">PostgreSQL</span><span class="chip">B2B ERP</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">Python</span><span class="chip">Automated Backend</span><span class="chip">PostgreSQL</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="proyectos/festo/" >
                 Ver presentación
               </a>
@@ -1299,24 +1347,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="pulso" data-category="web" data-live="true" data-search="pulso · encuestas sin internet encuestas web apps & erp react pwa offline-first service workers levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión.">
+<div class="card catalog-item" data-slug="pulso" data-category="web" data-live="true" data-search="pulso · encuestas sin internet encuestas web apps & erp react pwa offline-first service workers levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión." onclick="openProjectModal('pulso')" tabindex="0" role="button" aria-label="Ver ficha técnica de Pulso · Encuestas sin internet">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/pulso.jpg" alt="Pulso · Encuestas sin internet" loading="eager" width="320" height="200" />
+            <img src="assets/previews/pulso.jpg" alt="Pulso · Encuestas sin internet" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Encuestas</span>
               <span class="cat-label">Web Apps & ERP</span>
             </div>
             <h3>Pulso · Encuestas sin internet</h3>
             <p>Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Levantamiento de encuestas sin señal celular</span>
-            </div>
-            <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span><span class="chip">Service Workers</span></div>
-            <div class="card-actions">
+            <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span></div>
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/pulso/" >
                 Probar demo
               </a>
@@ -1326,24 +1369,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="totem" data-category="hardware" data-live="false" data-search="totem · controla tu pantalla espectacular pantallas digitales 3d, videojuegos & hardware react native firebase kiosco interactivo control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular, transmite videos de facebook y muestra el clima en tiempo real.">
+<div class="card catalog-item" data-slug="totem" data-category="hardware" data-live="false" data-search="totem · controla tu pantalla espectacular pantallas digitales 3d, videojuegos & hardware react native firebase kiosco interactivo control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular, transmite videos de facebook y muestra el clima en tiempo real." onclick="openProjectModal('totem')" tabindex="0" role="button" aria-label="Ver ficha técnica de Totem · Controla tu pantalla espectacular">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
-            <img src="assets/previews/totem.jpg" alt="Totem · Controla tu pantalla espectacular" loading="eager" width="320" height="200" />
+            <img src="assets/previews/totem.jpg" alt="Totem · Controla tu pantalla espectacular" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Pantallas digitales</span>
               <span class="cat-label">3D, Videojuegos & Hardware</span>
             </div>
             <h3>Totem · Controla tu pantalla espectacular</h3>
             <p>Control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular, transmite videos de Facebook y muestra el clima en tiempo real.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Actualización remota en tiempo real de pantallas</span>
-            </div>
             <div class="stack"><span class="chip">React Native</span><span class="chip">Firebase</span><span class="chip">Kiosco Interactivo</span></div>
-            <div class="card-actions">
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="proyectos/totem/" >
                 Ver presentación
               </a>
@@ -1353,24 +1391,19 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="marquesina" data-category="hardware" data-live="true" data-search="landing page · portafolio audiovisual sitio web · landing page 3d, videojuegos & hardware html5 canvas websockets digital signage landing page estilo netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y seo completo (open graph + datos estructurados). diseño, frontend y publicación de principio a fin.">
+<div class="card catalog-item" data-slug="marquesina" data-category="hardware" data-live="true" data-search="landing page · portafolio audiovisual sitio web · landing page 3d, videojuegos & hardware html5 canvas websockets digital signage landing page estilo netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y seo completo (open graph + datos estructurados). diseño, frontend y publicación de principio a fin." onclick="openProjectModal('marquesina')" tabindex="0" role="button" aria-label="Ver ficha técnica de Landing page · Portafolio audiovisual">
           <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
-            <img src="assets/previews/marquesina.jpg" alt="Landing page · Portafolio audiovisual" loading="eager" width="320" height="200" />
+            <img src="assets/previews/marquesina.jpg" alt="Landing page · Portafolio audiovisual" loading="lazy" width="320" height="200" />
           </div>
           <div class="card-body">
             <div class="card-header-row">
-              <span class="tag">Sitio web · Landing page</span>
               <span class="cat-label">3D, Videojuegos & Hardware</span>
             </div>
             <h3>Landing page · Portafolio audiovisual</h3>
             <p>Landing page estilo Netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y SEO completo (Open Graph + datos estructurados). Diseño, frontend y publicación de principio a fin.</p>
-            <div class="card-metric-pill">
-              <span class="metric-dot"></span>
-              <span>Render de textos y animaciones a 60 FPS</span>
-            </div>
             <div class="stack"><span class="chip">HTML5 Canvas</span><span class="chip">WebSockets</span><span class="chip">Digital Signage</span></div>
-            <div class="card-actions">
+            <div class="card-actions" onclick="event.stopPropagation()">
               <a class="btn-micro btn-action" href="demos/marquesina/" >
                 Probar demo
               </a>
@@ -1398,7 +1431,7 @@
             <tr class="index-row catalog-item" data-slug="juego-construccion" data-category="hardware" data-live="true" data-search="obra maestra mn videojuego · unity & webgl 3d, videojuegos & hardware unity c# webgl wasm 2d platformer videojuego 2d de recolección de materiales, coladas y construcción. desarrollado en unity, compilado a webgl/wasm y optimizado para jugar en móviles y navegador." onclick="openProjectModal('juego-construccion')" tabindex="0" role="button" aria-label="Ver detalles de Obra Maestra MN">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Obra Maestra MN</strong>
                 <span class="index-summary">Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, comp...</span>
@@ -1409,7 +1442,7 @@
             <span class="index-cat-badge cat-hardware">3D, Videojuegos & Hardware</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">WebGL</span><span class="chip">WASM</span><span class="chip">2D Platformer</span></div>
+            <div class="index-stack-wrap"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">WebGL</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo jugable</span>
@@ -1418,33 +1451,10 @@
             <a class="index-go-btn" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">Probar demo</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="ruta-clara" data-category="auto" data-live="true" data-search="ruta clara logística y mapas automatización & bi javascript leaflet geojson algoritmos de ruta explora el mapa, compara recorridos y consulta pedidos, carga y reportes. el motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias." onclick="openProjectModal('ruta-clara')" tabindex="0" role="button" aria-label="Ver detalles de Ruta Clara">
-          <td class="col-project">
-            <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/ruta-clara.jpg" alt="Ruta Clara" loading="eager" width="320" height="200" /></div>
-              <div>
-                <strong class="index-title">Ruta Clara</strong>
-                <span class="index-summary">Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas ori...</span>
-              </div>
-            </div>
-          </td>
-          <td class="col-cat">
-            <span class="index-cat-badge cat-auto">Automatización & BI</span>
-          </td>
-          <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">JavaScript</span><span class="chip">Leaflet</span><span class="chip">GeoJSON</span><span class="chip">Algoritmos de Ruta</span></div>
-          </td>
-          <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
-          </td>
-          <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/ruta-clara/" >Probar demo</a>
-          </td>
-        </tr>
 <tr class="index-row catalog-item" data-slug="web-studio" data-category="ia" data-live="true" data-search="web studio ia & video editor ia & machine learning javascript ia multimedia canvas webgl video editor explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por ia. el proyecto de ejemplo usa material ficticio." onclick="openProjectModal('web-studio')" tabindex="0" role="button" aria-label="Ver detalles de Web Studio">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/web-studio.jpg" alt="Web Studio" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/web-studio.jpg" alt="Web Studio" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Web Studio</strong>
                 <span class="index-summary">Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por ...</span>
@@ -1455,7 +1465,7 @@
             <span class="index-cat-badge cat-ia">IA & Machine Learning</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">JavaScript</span><span class="chip">IA Multimedia</span><span class="chip">Canvas WebGL</span><span class="chip">Video Editor</span></div>
+            <div class="index-stack-wrap"><span class="chip">JavaScript</span><span class="chip">IA Multimedia</span><span class="chip">Canvas WebGL</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1464,10 +1474,56 @@
             <a class="index-go-btn" href="demos/web-studio/" >Probar demo</a>
           </td>
         </tr>
+<tr class="index-row catalog-item" data-slug="inferencia" data-category="ia" data-live="false" data-search="inferencia eficiente investigación en ia ia & machine learning pytorch gptq int4/int3/int2 cuda huggingface investigación aplicada para romper el muro de 4 gb de vram en gpus de consumo: cuantización int4/int3/int2, gptq y parches residuales de bajo rango para correr modelos 7b en ~2.4 gb." onclick="openProjectModal('inferencia')" tabindex="0" role="button" aria-label="Ver detalles de Inferencia eficiente">
+          <td class="col-project">
+            <div class="index-proj-cell">
+              <div class="index-thumb-mini"><svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="320" height="168" fill="#0d1320"/><rect x="20" y="20" width="280" height="128" rx="10" fill="#151d2f"/><text x="36" y="46" font-size="11" fill="#38bdf8" font-family="system-ui, sans-serif" font-weight="700">CUDA / VRAM OPTIMIZER</text><text x="36" y="68" font-size="20" fill="#f8fafc" font-family="system-ui, sans-serif" font-weight="800">2.4 GB / 4.0 GB</text><rect x="36" y="82" width="248" height="10" rx="5" fill="#1b2540"/><rect x="36" y="82" width="148" height="10" rx="5" fill="#38bdf8"/><text x="36" y="112" font-size="9" fill="#94a3b8" font-family="system-ui, sans-serif">INT4 GPTQ + Low-Rank Quantization</text><text x="36" y="128" font-size="9" fill="#34d399" font-family="system-ui, sans-serif">23.4 tokens/sec &middot; Mistral-7B</text></svg></div>
+              <div>
+                <strong class="index-title">Inferencia eficiente</strong>
+                <span class="index-summary">Investigación aplicada para romper el muro de 4 GB de VRAM en GPUs de consumo: cuantización INT...</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-cat">
+            <span class="index-cat-badge cat-ia">IA & Machine Learning</span>
+          </td>
+          <td class="col-stack">
+            <div class="index-stack-wrap"><span class="chip">PyTorch</span><span class="chip">GPTQ</span><span class="chip">INT4/INT3/INT2</span></div>
+          </td>
+          <td class="col-status">
+            <span class="live badge-showcase">Showcase</span>
+          </td>
+          <td class="col-action" onclick="event.stopPropagation()">
+            <a class="index-go-btn" href="proyectos/inferencia/" >Ver presentación</a>
+          </td>
+        </tr>
+<tr class="index-row catalog-item" data-slug="myaccountant" data-category="web" data-live="true" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react pwa indexeddb finanzas app personal (pwa) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. proyecto propio en react + firebase (google cloud), en desarrollo activo." onclick="openProjectModal('myaccountant')" tabindex="0" role="button" aria-label="Ver detalles de MyAccountant · Tus finanzas en orden">
+          <td class="col-project">
+            <div class="index-proj-cell">
+              <div class="index-thumb-mini"><img src="assets/previews/myaccountant.jpg" alt="MyAccountant · Tus finanzas en orden" loading="lazy" width="320" height="200" /></div>
+              <div>
+                <strong class="index-title">MyAccountant · Tus finanzas en orden</strong>
+                <span class="index-summary">App personal (PWA) para gestionar tus finanzas: presupuesto por categorías, control de gastos y...</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-cat">
+            <span class="index-cat-badge cat-web">Web Apps & ERP</span>
+          </td>
+          <td class="col-stack">
+            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">IndexedDB</span></div>
+          </td>
+          <td class="col-status">
+            <span class="live badge-demo">Demo en vivo</span>
+          </td>
+          <td class="col-action" onclick="event.stopPropagation()">
+            <a class="index-go-btn" href="demos/myaccountant/" >Probar demo</a>
+          </td>
+        </tr>
 <tr class="index-row catalog-item" data-slug="ourway" data-category="hardware" data-live="true" data-search="ourway atlas y viajes 3d 3d, videojuegos & hardware three.js webgl shaders atlas 3d la escena orbital, los planetas, las texturas y la navegación son los originales. el viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. la conexión a álbumes privados no está habilitada." onclick="openProjectModal('ourway')" tabindex="0" role="button" aria-label="Ver detalles de Ourway">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/ourway.jpg" alt="Ourway" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/ourway.jpg" alt="Ourway" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Ourway</strong>
                 <span class="index-summary">La escena orbital, los planetas, las texturas y la navegación son los originales. El viaje de e...</span>
@@ -1478,7 +1534,7 @@
             <span class="index-cat-badge cat-hardware">3D, Videojuegos & Hardware</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Shaders</span><span class="chip">Atlas 3D</span></div>
+            <div class="index-stack-wrap"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Shaders</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1487,10 +1543,33 @@
             <a class="index-go-btn" href="demos/ourway/" >Probar demo</a>
           </td>
         </tr>
+<tr class="index-row catalog-item" data-slug="ruta-clara" data-category="auto" data-live="true" data-search="ruta clara logística y mapas automatización & bi javascript leaflet geojson algoritmos de ruta explora el mapa, compara recorridos y consulta pedidos, carga y reportes. el motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias." onclick="openProjectModal('ruta-clara')" tabindex="0" role="button" aria-label="Ver detalles de Ruta Clara">
+          <td class="col-project">
+            <div class="index-proj-cell">
+              <div class="index-thumb-mini"><img src="assets/previews/ruta-clara.jpg" alt="Ruta Clara" loading="lazy" width="320" height="200" /></div>
+              <div>
+                <strong class="index-title">Ruta Clara</strong>
+                <span class="index-summary">Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas ori...</span>
+              </div>
+            </div>
+          </td>
+          <td class="col-cat">
+            <span class="index-cat-badge cat-auto">Automatización & BI</span>
+          </td>
+          <td class="col-stack">
+            <div class="index-stack-wrap"><span class="chip">JavaScript</span><span class="chip">Leaflet</span><span class="chip">GeoJSON</span></div>
+          </td>
+          <td class="col-status">
+            <span class="live badge-demo">Demo en vivo</span>
+          </td>
+          <td class="col-action" onclick="event.stopPropagation()">
+            <a class="index-go-btn" href="demos/ruta-clara/" >Probar demo</a>
+          </td>
+        </tr>
 <tr class="index-row catalog-item" data-slug="radar" data-category="auto" data-live="true" data-search="radar analítica comercial automatización & bi chart.js javascript analytics bi dashboards conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún erp ni base empresarial." onclick="openProjectModal('radar')" tabindex="0" role="button" aria-label="Ver detalles de Radar">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/radar.jpg" alt="Radar" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/radar.jpg" alt="Radar" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Radar</strong>
                 <span class="index-summary">Conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series ...</span>
@@ -1501,7 +1580,7 @@
             <span class="index-cat-badge cat-auto">Automatización & BI</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Chart.js</span><span class="chip">JavaScript</span><span class="chip">Analytics</span><span class="chip">BI Dashboards</span></div>
+            <div class="index-stack-wrap"><span class="chip">Chart.js</span><span class="chip">JavaScript</span><span class="chip">Analytics</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1513,7 +1592,7 @@
 <tr class="index-row catalog-item" data-slug="distrito" data-category="hardware" data-live="true" data-search="distrito experiencia 3d 3d, videojuegos & hardware three.js webgl modelos 3d animaciones el frontend original conserva sus modelos 3d, su habitación, animaciones y controles. la demostración utiliza un perfil y progreso ficticios." onclick="openProjectModal('distrito')" tabindex="0" role="button" aria-label="Ver detalles de Distrito">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/distrito.jpg" alt="Distrito" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/distrito.jpg" alt="Distrito" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Distrito</strong>
                 <span class="index-summary">El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demost...</span>
@@ -1524,36 +1603,13 @@
             <span class="index-cat-badge cat-hardware">3D, Videojuegos & Hardware</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Modelos 3D</span><span class="chip">Animaciones</span></div>
+            <div class="index-stack-wrap"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Modelos 3D</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
             <a class="index-go-btn" href="demos/distrito/" >Probar demo</a>
-          </td>
-        </tr>
-<tr class="index-row catalog-item" data-slug="inferencia" data-category="ia" data-live="false" data-search="inferencia eficiente investigación en ia ia & machine learning pytorch gptq int4/int3/int2 cuda huggingface investigación aplicada para romper el muro de 4 gb de vram en gpus de consumo: cuantización int4/int3/int2, gptq y parches residuales de bajo rango para correr modelos 7b en ~2.4 gb." onclick="openProjectModal('inferencia')" tabindex="0" role="button" aria-label="Ver detalles de Inferencia eficiente">
-          <td class="col-project">
-            <div class="index-proj-cell">
-              <div class="index-thumb-mini"><svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="320" height="168" fill="#0d1320"/><rect x="20" y="20" width="280" height="128" rx="10" fill="#151d2f" stroke="#2e3a52"/><text x="36" y="46" font-size="11" fill="#38bdf8" font-family="monospace" font-weight="700">CUDA / VRAM OPTIMIZER</text><text x="36" y="68" font-size="20" fill="#f8fafc" font-family="monospace" font-weight="800">2.4 GB / 4.0 GB</text><rect x="36" y="82" width="248" height="10" rx="5" fill="#1b2540"/><rect x="36" y="82" width="148" height="10" rx="5" fill="#38bdf8"/><text x="36" y="112" font-size="9" fill="#94a3b8" font-family="monospace">INT4 GPTQ + Low-Rank Quantization</text><text x="36" y="128" font-size="9" fill="#34d399" font-family="monospace">23.4 tokens/sec · Mistral-7B</text></svg></div>
-              <div>
-                <strong class="index-title">Inferencia eficiente</strong>
-                <span class="index-summary">Investigación aplicada para romper el muro de 4 GB de VRAM en GPUs de consumo: cuantización INT...</span>
-              </div>
-            </div>
-          </td>
-          <td class="col-cat">
-            <span class="index-cat-badge cat-ia">IA & Machine Learning</span>
-          </td>
-          <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">PyTorch</span><span class="chip">GPTQ</span><span class="chip">INT4/INT3/INT2</span><span class="chip">CUDA</span><span class="chip">HuggingFace</span></div>
-          </td>
-          <td class="col-status">
-            <span class="live badge-showcase">Showcase</span>
-          </td>
-          <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="proyectos/inferencia/" >Ver presentación</a>
           </td>
         </tr>
 <tr class="index-row catalog-item" data-slug="dino-ai" data-category="ia" data-live="false" data-search="dino ai · una ia que aprende sola inteligencia artificial ia & machine learning python ppo reinforcement learning opencv una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de chrome: mira la pantalla como lo haría una persona y mejora con cada intento." onclick="openProjectModal('dino-ai')" tabindex="0" role="button" aria-label="Ver detalles de Dino AI · Una IA que aprende sola">
@@ -1584,7 +1640,7 @@
             <span class="index-cat-badge cat-ia">IA & Machine Learning</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">PPO</span><span class="chip">Reinforcement Learning</span><span class="chip">OpenCV</span></div>
+            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">PPO</span><span class="chip">Reinforcement Learning</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-showcase">Showcase</span>
@@ -1596,7 +1652,7 @@
 <tr class="index-row catalog-item" data-slug="mundial" data-category="ia" data-live="true" data-search="mundial 2026 · predicción con ia machine learning · simulación ia & machine learning python fastapi monte carlo scikit-learn modelo de machine learning que predice el mundial 2026: combina ratings elo con regresores xgboost, modela el minuto de cada gol y simula las eliminatorias con monte carlo (sobre 49k+ partidos de historia). web estilo mundial con bracket, grupos, favoritos y detalle por partido." onclick="openProjectModal('mundial')" tabindex="0" role="button" aria-label="Ver detalles de Mundial 2026 · Predicción con IA">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/mundial.jpg" alt="Mundial 2026 · Predicción con IA" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/mundial.jpg" alt="Mundial 2026 · Predicción con IA" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Mundial 2026 · Predicción con IA</strong>
                 <span class="index-summary">Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBo...</span>
@@ -1607,7 +1663,7 @@
             <span class="index-cat-badge cat-ia">IA & Machine Learning</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Monte Carlo</span><span class="chip">Scikit-Learn</span></div>
+            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Monte Carlo</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1641,7 +1697,7 @@
             <span class="index-cat-badge cat-ia">IA & Machine Learning</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">OpenAI / Claude</span><span class="chip">FastAPI</span><span class="chip">Multi-Agent</span></div>
+            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">OpenAI / Claude</span><span class="chip">FastAPI</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1653,7 +1709,7 @@
 <tr class="index-row catalog-item" data-slug="nucleo" data-category="web" data-live="true" data-search="núcleo · tu negocio en una pantalla gestión de negocio web apps & erp react typescript node.js postgresql organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita." onclick="openProjectModal('nucleo')" tabindex="0" role="button" aria-label="Ver detalles de Núcleo · Tu negocio en una pantalla">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/nucleo.jpg" alt="Núcleo · Tu negocio en una pantalla" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/nucleo.jpg" alt="Núcleo · Tu negocio en una pantalla" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Núcleo · Tu negocio en una pantalla</strong>
                 <span class="index-summary">Organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiem...</span>
@@ -1664,7 +1720,7 @@
             <span class="index-cat-badge cat-web">Web Apps & ERP</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span></div>
+            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Node.js</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1676,7 +1732,7 @@
 <tr class="index-row catalog-item" data-slug="lumen" data-category="ia" data-live="true" data-search="lumen · pregúntale a tus números reportes inteligentes ia & machine learning react fastapi nl-to-sql postgresql haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo." onclick="openProjectModal('lumen')" tabindex="0" role="button" aria-label="Ver detalles de Lumen · Pregúntale a tus números">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/lumen.jpg" alt="Lumen · Pregúntale a tus números" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/lumen.jpg" alt="Lumen · Pregúntale a tus números" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Lumen · Pregúntale a tus números</strong>
                 <span class="index-summary">Haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respu...</span>
@@ -1687,7 +1743,7 @@
             <span class="index-cat-badge cat-ia">IA & Machine Learning</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">NL-to-SQL</span><span class="chip">PostgreSQL</span></div>
+            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">NL-to-SQL</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1699,7 +1755,7 @@
 <tr class="index-row catalog-item" data-slug="vertice" data-category="web" data-live="true" data-search="vértice · app a la medida app de gestión web apps & erp react pwa offline-first tailwind aplicación hecha a la medida para administrar los procesos internos de un equipo. sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro." onclick="openProjectModal('vertice')" tabindex="0" role="button" aria-label="Ver detalles de Vértice · App a la medida">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/vertice.jpg" alt="Vértice · App a la medida" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/vertice.jpg" alt="Vértice · App a la medida" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Vértice · App a la medida</strong>
                 <span class="index-summary">Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcion...</span>
@@ -1710,7 +1766,7 @@
             <span class="index-cat-badge cat-web">Web Apps & ERP</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span><span class="chip">Tailwind</span></div>
+            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1722,7 +1778,7 @@
 <tr class="index-row catalog-item" data-slug="vitrina" data-category="web" data-live="true" data-search="vitrina · tu tienda en internet tienda en línea web apps & erp vanilla js html5 css3 sin dependencias tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento." onclick="openProjectModal('vitrina')" tabindex="0" role="button" aria-label="Ver detalles de Vitrina · Tu tienda en internet">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/vitrina.jpg" alt="Vitrina · Tu tienda en internet" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/vitrina.jpg" alt="Vitrina · Tu tienda en internet" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Vitrina · Tu tienda en internet</strong>
                 <span class="index-summary">Tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avi...</span>
@@ -1733,7 +1789,7 @@
             <span class="index-cat-badge cat-web">Web Apps & ERP</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Vanilla JS</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Sin dependencias</span></div>
+            <div class="index-stack-wrap"><span class="chip">Vanilla JS</span><span class="chip">HTML5</span><span class="chip">CSS3</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1742,33 +1798,10 @@
             <a class="index-go-btn" href="demos/vitrina/" >Probar demo</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="myaccountant" data-category="web" data-live="true" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react pwa indexeddb finanzas app personal (pwa) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. proyecto propio en react + firebase (google cloud), en desarrollo activo." onclick="openProjectModal('myaccountant')" tabindex="0" role="button" aria-label="Ver detalles de MyAccountant · Tus finanzas en orden">
-          <td class="col-project">
-            <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/myaccountant.jpg" alt="MyAccountant · Tus finanzas en orden" loading="eager" width="320" height="200" /></div>
-              <div>
-                <strong class="index-title">MyAccountant · Tus finanzas en orden</strong>
-                <span class="index-summary">App personal (PWA) para gestionar tus finanzas: presupuesto por categorías, control de gastos y...</span>
-              </div>
-            </div>
-          </td>
-          <td class="col-cat">
-            <span class="index-cat-badge cat-web">Web Apps & ERP</span>
-          </td>
-          <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">IndexedDB</span><span class="chip">Finanzas</span></div>
-          </td>
-          <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
-          </td>
-          <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/myaccountant/" >Probar demo</a>
-          </td>
-        </tr>
 <tr class="index-row catalog-item" data-slug="nexo" data-category="auto" data-live="true" data-search="nexo · tu asistente por whatsapp atención al cliente automatización & bi python fastapi whatsapp cloud api docker atiende a tus clientes por whatsapp las 24 horas con el api oficial de whatsapp business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. también como plataforma centralizada multi-agente." onclick="openProjectModal('nexo')" tabindex="0" role="button" aria-label="Ver detalles de Nexo · Tu asistente por WhatsApp">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/nexo.jpg" alt="Nexo · Tu asistente por WhatsApp" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/nexo.jpg" alt="Nexo · Tu asistente por WhatsApp" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Nexo · Tu asistente por WhatsApp</strong>
                 <span class="index-summary">Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entie...</span>
@@ -1779,7 +1812,7 @@
             <span class="index-cat-badge cat-auto">Automatización & BI</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">WhatsApp Cloud API</span><span class="chip">Docker</span></div>
+            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">WhatsApp Cloud API</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1823,7 +1856,7 @@
             <span class="index-cat-badge cat-auto">Automatización & BI</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">BI</span><span class="chip">WhatsApp API</span></div>
+            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">BI</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1835,7 +1868,7 @@
 <tr class="index-row catalog-item" data-slug="festo" data-category="auto" data-live="false" data-search="festo · felicita cumpleaños solo automatización automatización & bi python automated backend postgresql b2b erp cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada por chat, automáticamente. nadie del equipo tiene que acordarse." onclick="openProjectModal('festo')" tabindex="0" role="button" aria-label="Ver detalles de Festo · Felicita cumpleaños solo">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/festo.jpg" alt="Festo · Felicita cumpleaños solo" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/festo.jpg" alt="Festo · Felicita cumpleaños solo" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Festo · Felicita cumpleaños solo</strong>
                 <span class="index-summary">Cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada p...</span>
@@ -1846,7 +1879,7 @@
             <span class="index-cat-badge cat-auto">Automatización & BI</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">Automated Backend</span><span class="chip">PostgreSQL</span><span class="chip">B2B ERP</span></div>
+            <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">Automated Backend</span><span class="chip">PostgreSQL</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-showcase">Showcase</span>
@@ -1858,7 +1891,7 @@
 <tr class="index-row catalog-item" data-slug="pulso" data-category="web" data-live="true" data-search="pulso · encuestas sin internet encuestas web apps & erp react pwa offline-first service workers levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión." onclick="openProjectModal('pulso')" tabindex="0" role="button" aria-label="Ver detalles de Pulso · Encuestas sin internet">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/pulso.jpg" alt="Pulso · Encuestas sin internet" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/pulso.jpg" alt="Pulso · Encuestas sin internet" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Pulso · Encuestas sin internet</strong>
                 <span class="index-summary">Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se g...</span>
@@ -1869,7 +1902,7 @@
             <span class="index-cat-badge cat-web">Web Apps & ERP</span>
           </td>
           <td class="col-stack">
-            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span><span class="chip">Service Workers</span></div>
+            <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span></div>
           </td>
           <td class="col-status">
             <span class="live badge-demo">Demo en vivo</span>
@@ -1881,7 +1914,7 @@
 <tr class="index-row catalog-item" data-slug="totem" data-category="hardware" data-live="false" data-search="totem · controla tu pantalla espectacular pantallas digitales 3d, videojuegos & hardware react native firebase kiosco interactivo control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular, transmite videos de facebook y muestra el clima en tiempo real." onclick="openProjectModal('totem')" tabindex="0" role="button" aria-label="Ver detalles de Totem · Controla tu pantalla espectacular">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/totem.jpg" alt="Totem · Controla tu pantalla espectacular" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/totem.jpg" alt="Totem · Controla tu pantalla espectacular" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Totem · Controla tu pantalla espectacular</strong>
                 <span class="index-summary">Control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular,...</span>
@@ -1904,7 +1937,7 @@
 <tr class="index-row catalog-item" data-slug="marquesina" data-category="hardware" data-live="true" data-search="landing page · portafolio audiovisual sitio web · landing page 3d, videojuegos & hardware html5 canvas websockets digital signage landing page estilo netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y seo completo (open graph + datos estructurados). diseño, frontend y publicación de principio a fin." onclick="openProjectModal('marquesina')" tabindex="0" role="button" aria-label="Ver detalles de Landing page · Portafolio audiovisual">
           <td class="col-project">
             <div class="index-proj-cell">
-              <div class="index-thumb-mini"><img src="assets/previews/marquesina.jpg" alt="Landing page · Portafolio audiovisual" loading="eager" width="320" height="200" /></div>
+              <div class="index-thumb-mini"><img src="assets/previews/marquesina.jpg" alt="Landing page · Portafolio audiovisual" loading="lazy" width="320" height="200" /></div>
               <div>
                 <strong class="index-title">Landing page · Portafolio audiovisual</strong>
                 <span class="index-summary">Landing page estilo Netflix para una creativa de marketing audiovisual: hero tipo billboard, ca...</span>
@@ -1977,19 +2010,29 @@
   <section id="skills">
     <div class="container">
       <div class="section-head">
-        <h2>Lo que uso para construir</h2>
-        <p>Herramientas y tecnologías que domino para llevar productos desde la concepción hasta el despliegue en producción.</p>
+        <h2>Herramientas de ingeniería</h2>
+        <p>Tecnologías que utilizo para construir productos de alta fidelidad desde la arquitectura hasta el despliegue.</p>
       </div>
       <div class="skills-grid">
         <div class="skill-card">
+          <h3>3D, Videojuegos y WebGL</h3>
+          <p>Desarrollo con Unity en C#, compilación a WebAssembly/WebGL, shaders GLSL, Three.js para entornos inmersivos y modelado interactivo.</p>
+          <div class="stack"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Three.js</span><span class="chip">GLSL</span><span class="chip">WASM</span></div>
+        </div>
+        <div class="skill-card">
+          <h3>Inteligencia Artificial y ML</h3>
+          <p>Integración de LLMs, agentes autónomos, frameworks de inferencia local en GPU (vLLM, Ollama), INT4/GPTQ y computer vision con OpenCV.</p>
+          <div class="stack"><span class="chip">PyTorch</span><span class="chip">OpenCV</span><span class="chip">HuggingFace</span><span class="chip">INT4 GPTQ</span></div>
+        </div>
+        <div class="skill-card">
           <h3>Frontend y PWAs</h3>
-          <p>React, TypeScript, JavaScript moderno, Tailwind CSS, Service Workers, aplicaciones offline-first, Three.js y WebGL.</p>
-          <div class="stack"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">PWA</span><span class="chip">WebGL</span></div>
+          <p>React, TypeScript, JavaScript moderno, Tailwind CSS, Service Workers, aplicaciones offline-first y gráficos reactivos.</p>
+          <div class="stack"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">PWA</span></div>
         </div>
         <div class="skill-card">
           <h3>Backend y APIs</h3>
           <p>Python, FastAPI, Node.js, Express, diseño de APIs RESTful, webhooks en tiempo real y microservicios orientados a eventos.</p>
-          <div class="stack"><span class="chip">FastAPI</span><span class="chip">Node.js</span><span class="chip">Python</span><span class="chip">REST</span></div>
+          <div class="stack"><span class="chip">FastAPI</span><span class="chip">Node.js</span><span class="chip">Python</span></div>
         </div>
         <div class="skill-card">
           <h3>Bases de Datos &amp; Cache</h3>
@@ -1997,19 +2040,9 @@
           <div class="stack"><span class="chip">PostgreSQL</span><span class="chip">Firebase</span><span class="chip">Redis</span></div>
         </div>
         <div class="skill-card">
-          <h3>Inteligencia Artificial y ML</h3>
-          <p>Integración de LLMs (OpenAI, Claude), agentes autónomos, frameworks de inferencia local en GPU (vLLM, Ollama), INT4/GPTQ y computer vision con OpenCV.</p>
-          <div class="stack"><span class="chip">PyTorch</span><span class="chip">OpenCV</span><span class="chip">HuggingFace</span><span class="chip">INT4 GPTQ</span></div>
-        </div>
-        <div class="skill-card">
           <h3>Automatización y BI</h3>
-          <p>WhatsApp Business API oficial, dashboards interactivos, pipelines de extracción de datos, sincronización con ERPs (Dynamics 365) y bots 24/7.</p>
+          <p>WhatsApp Business API oficial, dashboards interactivos, pipelines de extracción de datos, sincronización con ERPs y bots 24/7.</p>
           <div class="stack"><span class="chip">WhatsApp API</span><span class="chip">BI</span><span class="chip">Dynamics 365</span></div>
-        </div>
-        <div class="skill-card">
-          <h3>3D, Videojuegos y WebGL</h3>
-          <p>Desarrollo con Unity en C#, compilación a WebAssembly/WebGL, shaders GLSL, Three.js para entornos inmersivos y modelado interactivo.</p>
-          <div class="stack"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Three.js</span><span class="chip">GLSL</span></div>
         </div>
       </div>
     </div>
@@ -2019,8 +2052,8 @@
   <section id="contacto">
     <div class="container">
       <div class="contact-box">
-        <h2>¿Tienes una idea en mente?</h2>
-        <p>Hablemos sobre cómo construir o escalar tu próximo sistema, plataforma web o solución de IA.</p>
+        <h2>¿Tienes un proyecto o idea en mente?</h2>
+        <p>Hablemos sobre cómo construir o escalar tu próximo videojuego, plataforma web, herramienta creativa o pipeline de IA.</p>
         <div class="contact-links-grid">
           <a class="btn btn-primary" href="https://wa.me/528336817886?text=Hola%20Emilio%2C%20vi%20tu%20cat%C3%A1logo%20y%20me%20gustar%C3%ADa%20platicar%20sobre%20un%20proyecto." target="_blank" rel="noopener">Escríbeme por WhatsApp</a>
           <a class="btn btn-ghost" href="cv/">CV Interactivo</a>
@@ -2033,7 +2066,7 @@
           <span>·</span>
           <span>Tampico, Tamps., México</span>
           <span>·</span>
-          <span>Disponible para trabajo remoto</span>
+          <span>Disponible para contratos y trabajo remoto</span>
         </div>
       </div>
     </div>
@@ -2071,7 +2104,163 @@
       } catch(e){}
     })();
 
-    // EMIL KOWALSKI SPOTLIGHT EFFECT (Flashlight hover following mouse on cards)
+    // KINETIC INTERACTIVE HERO CANVAS (WITH RIPPLE IMPULSE ON CLICK)
+    (function() {
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var canvas = document.getElementById('heroCanvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      var width = 0, height = 0;
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var points = [];
+      var mouse = { x: -9999, y: -9999, active: false };
+      var numPoints = 32;
+      var animId = null;
+      var isVisible = true;
+
+      function resize() {
+        var rect = canvas.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+      }
+
+      function initPoints() {
+        points = [];
+        for (var i = 0; i < numPoints; i++) {
+          points.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.45,
+            vy: (Math.random() - 0.5) * 0.45,
+            radius: Math.random() * 1.5 + 1.2,
+            color: (i % 3 === 0) ? '#38bdf8' : ((i % 3 === 1) ? '#818cf8' : '#34d399')
+          });
+        }
+      }
+
+      function draw() {
+        if (!isVisible) return;
+        ctx.clearRect(0, 0, width, height);
+
+        for (var i = 0; i < points.length; i++) {
+          var p = points[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          if (mouse.active) {
+            var dx = mouse.x - p.x;
+            var dy = mouse.y - p.y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 140) {
+              var force = (140 - dist) / 140;
+              p.x -= (dx / dist) * force * 1.3;
+              p.y -= (dy / dist) * force * 1.3;
+            }
+          }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.globalAlpha = 0.55;
+          ctx.fill();
+
+          for (var j = i + 1; j < points.length; j++) {
+            var p2 = points[j];
+            var dxx = p.x - p2.x;
+            var dyy = p.y - p2.y;
+            var d = Math.sqrt(dxx * dxx + dyy * dyy);
+            if (d < 115) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = '#38bdf8';
+              ctx.globalAlpha = (1 - d / 115) * 0.18;
+              ctx.lineWidth = 1;
+              ctx.stroke();
+            }
+          }
+        }
+
+        ctx.globalAlpha = 1;
+        animId = requestAnimationFrame(draw);
+      }
+
+      resize();
+      initPoints();
+      draw();
+
+      window.addEventListener('resize', function() {
+        resize();
+      });
+
+      window.addEventListener('mousemove', function(e) {
+        var rect = canvas.getBoundingClientRect();
+        if (e.clientY >= rect.top && e.clientY <= rect.bottom) {
+          mouse.x = e.clientX - rect.left;
+          mouse.y = e.clientY - rect.top;
+          mouse.active = true;
+        } else {
+          mouse.active = false;
+        }
+      });
+
+      canvas.addEventListener('click', function(e) {
+        var rect = canvas.getBoundingClientRect();
+        var cx = e.clientX - rect.left;
+        var cy = e.clientY - rect.top;
+        points.forEach(function(p) {
+          var dx = p.x - cx;
+          var dy = p.y - cy;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 200) {
+            var force = (200 - dist) / 200;
+            p.vx += (dx / Math.max(dist, 1)) * force * 2.2;
+            p.vy += (dy / Math.max(dist, 1)) * force * 2.2;
+          }
+        });
+      });
+
+      document.addEventListener('mouseleave', function() {
+        mouse.active = false;
+      });
+
+      if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            isVisible = entry.isIntersecting;
+            if (isVisible && !animId) draw();
+          });
+        });
+        obs.observe(canvas);
+      }
+    })();
+
+    // 3D PARALLAX TILT ON BENTO CARDS (Tactile Spring Physics)
+    document.querySelectorAll('.bento-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
+        var centerX = rect.width / 2;
+        var centerY = rect.height / 2;
+        var rotateX = ((y - centerY) / centerY) * -3.2;
+        var rotateY = ((x - centerX) / centerX) * 3.2;
+        card.style.transform = 'perspective(1000px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' + rotateY.toFixed(2) + 'deg) translateY(-6px)';
+      });
+      card.addEventListener('mouseleave', function() {
+        card.style.transform = '';
+      });
+    });
+
+    // SPOTLIGHT EFFECT ON CARDS
     document.querySelectorAll('.card').forEach(function(card) {
       card.addEventListener('mousemove', function(e) {
         var rect = card.getBoundingClientRect();
@@ -2085,7 +2274,7 @@
     });
 
     // CATALOG FILTERING & LIVE SEARCH
-    var MODAL_DATA = {"juego-construccion": {"title": "Obra Maestra MN", "tag": "Videojuego · Unity & WebGL", "badge": "Demo jugable", "cat": "3D, Videojuegos & Hardware", "description": "Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador.", "metric": "Motor de físicas y coladas de concreto compilado a WebGL", "stack": ["Unity", "C#", "WebGL", "WASM", "2D Platformer"], "showcase_url": "proyectos/juego-construccion/", "demo_url": "https://mnlaobramaestra.netlify.app/", "is_live": true, "is_game": true}, "ruta-clara": {"title": "Ruta Clara", "tag": "Logística y mapas", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.", "metric": "Optimización logística y despacho de última milla", "stack": ["JavaScript", "Leaflet", "GeoJSON", "Algoritmos de Ruta"], "showcase_url": "proyectos/ruta-clara/", "demo_url": "demos/ruta-clara/", "is_live": true, "is_game": false}, "web-studio": {"title": "Web Studio", "tag": "IA & Video Editor", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio.", "metric": "Editor de video asistido por IA y multipista en el navegador", "stack": ["JavaScript", "IA Multimedia", "Canvas WebGL", "Video Editor"], "showcase_url": "proyectos/web-studio/", "demo_url": "demos/web-studio/", "is_live": true, "is_game": false}, "ourway": {"title": "Ourway", "tag": "Atlas y viajes 3D", "badge": "Demo en vivo", "cat": "3D, Videojuegos & Hardware", "description": "La escena orbital, los planetas, las texturas y la navegación son los originales. El viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. La conexión a álbumes privados no está habilitada.", "metric": "Planeta 3D orbital navegable con texturas personalizadas", "stack": ["Three.js", "WebGL", "Shaders", "Atlas 3D"], "showcase_url": "proyectos/ourway/", "demo_url": "demos/ourway/", "is_live": true, "is_game": false}, "radar": {"title": "Radar", "tag": "Analítica comercial", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "Conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. Los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún ERP ni base empresarial.", "metric": "Tablero comercial interactivo y series temporales", "stack": ["Chart.js", "JavaScript", "Analytics", "BI Dashboards"], "showcase_url": "proyectos/radar/", "demo_url": "demos/radar/", "is_live": true, "is_game": false}, "distrito": {"title": "Distrito", "tag": "Experiencia 3D", "badge": "Demo en vivo", "cat": "3D, Videojuegos & Hardware", "description": "El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios.", "metric": "Habitación 3D interactiva y controles de cámara", "stack": ["Three.js", "WebGL", "Modelos 3D", "Animaciones"], "showcase_url": "proyectos/distrito/", "demo_url": "demos/distrito/", "is_live": true, "is_game": false}, "inferencia": {"title": "Inferencia eficiente", "tag": "Investigación en IA", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Investigación aplicada para romper el muro de 4 GB de VRAM en GPUs de consumo: cuantización INT4/INT3/INT2, GPTQ y parches residuales de bajo rango para correr modelos 7B en ~2.4 GB.", "metric": "Modelos 7B corriendo en GPUs de 4 GB VRAM (2.4 GB footprint)", "stack": ["PyTorch", "GPTQ", "INT4/INT3/INT2", "CUDA", "HuggingFace"], "showcase_url": "proyectos/inferencia/", "demo_url": "proyectos/inferencia/", "is_live": false, "is_game": false}, "dino-ai": {"title": "Dino AI · Una IA que aprende sola", "tag": "Inteligencia artificial", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de Chrome: mira la pantalla como lo haría una persona y mejora con cada intento.", "metric": "Reconocimiento visual en tiempo real · 0 entrenamiento previo", "stack": ["Python", "PPO", "Reinforcement Learning", "OpenCV"], "showcase_url": "proyectos/dino-ai/", "demo_url": "proyectos/dino-ai/", "is_live": false, "is_game": false}, "mundial": {"title": "Mundial 2026 · Predicción con IA", "tag": "Machine Learning · Simulación", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBoost, modela el minuto de cada gol y simula las eliminatorias con Monte Carlo (sobre 49k+ partidos de historia). Web estilo Mundial con bracket, grupos, favoritos y detalle por partido.", "metric": "+50,000 partidos históricos simulados", "stack": ["Python", "FastAPI", "Monte Carlo", "Scikit-Learn"], "showcase_url": "proyectos/mundial/", "demo_url": "demos/mundial/", "is_live": true, "is_game": false}, "dexter": {"title": "Dexter · Asistentes de IA a tu medida", "tag": "Inteligencia artificial", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Una colección de asistentes de inteligencia artificial que cualquiera puede instalar y combinar según lo que necesite, con más de 44 habilidades listas para usar.", "metric": "Arquitectura multi-agente con herramientas dinámicas", "stack": ["Python", "OpenAI / Claude", "FastAPI", "Multi-Agent"], "showcase_url": "proyectos/dexter/", "demo_url": "proyectos/dexter/", "is_live": true, "is_game": false}, "nucleo": {"title": "Núcleo · Tu negocio en una pantalla", "tag": "Gestión de negocio", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita.", "metric": "Control total de inventario, ventas y compras", "stack": ["React", "TypeScript", "Node.js", "PostgreSQL"], "showcase_url": "proyectos/nucleo/", "demo_url": "demos/nucleo/", "is_live": true, "is_game": false}, "lumen": {"title": "Lumen · Pregúntale a tus números", "tag": "Reportes inteligentes", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo.", "metric": "Consultas en lenguaje natural traducidas a SQL seguro", "stack": ["React", "FastAPI", "NL-to-SQL", "PostgreSQL"], "showcase_url": "proyectos/lumen/", "demo_url": "demos/lumen/", "is_live": true, "is_game": false}, "vertice": {"title": "Vértice · App a la medida", "tag": "App de gestión", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro.", "metric": "Generación instantánea de cotizaciones en campo", "stack": ["React", "PWA", "Offline-First", "Tailwind"], "showcase_url": "proyectos/vertice/", "demo_url": "demos/vertice/", "is_live": true, "is_game": false}, "vitrina": {"title": "Vitrina · Tu tienda en internet", "tag": "Tienda en línea", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento.", "metric": "Carga ultra rápida (<300ms) sin frameworks pesados", "stack": ["Vanilla JS", "HTML5", "CSS3", "Sin dependencias"], "showcase_url": "proyectos/vitrina/", "demo_url": "demos/vitrina/", "is_live": true, "is_game": false}, "myaccountant": {"title": "MyAccountant · Tus finanzas en orden", "tag": "App de finanzas personales", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "App personal (PWA) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. Proyecto propio en React + Firebase (Google Cloud), en desarrollo activo.", "metric": "Contabilidad personal 100% offline y privada", "stack": ["React", "PWA", "IndexedDB", "Finanzas"], "showcase_url": "proyectos/myaccountant/", "demo_url": "demos/myaccountant/", "is_live": true, "is_game": false}, "nexo": {"title": "Nexo · Tu asistente por WhatsApp", "tag": "Atención al cliente", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. También como plataforma centralizada multi-agente.", "metric": "Atención 24/7 sin latencia de webhook", "stack": ["Python", "FastAPI", "WhatsApp Cloud API", "Docker"], "showcase_url": "proyectos/nexo/", "demo_url": "demos/nexo/", "is_live": true, "is_game": false}, "brujula": {"title": "Brújula · Tus números por WhatsApp", "tag": "BI por WhatsApp", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "", "metric": "Reportes diarios y alertas automáticas a dirección", "stack": ["Python", "FastAPI", "BI", "WhatsApp API"], "showcase_url": "proyectos/brujula/", "demo_url": "proyectos/brujula/", "is_live": true, "is_game": false}, "festo": {"title": "Festo · Felicita cumpleaños solo", "tag": "Automatización", "badge": "Showcase", "cat": "Automatización & BI", "description": "Cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada por chat, automáticamente. Nadie del equipo tiene que acordarse.", "metric": "Cero intervención humana · Sincronización diaria", "stack": ["Python", "Automated Backend", "PostgreSQL", "B2B ERP"], "showcase_url": "proyectos/festo/", "demo_url": "proyectos/festo/", "is_live": false, "is_game": false}, "pulso": {"title": "Pulso · Encuestas sin internet", "tag": "Encuestas", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión.", "metric": "Levantamiento de encuestas sin señal celular", "stack": ["React", "PWA", "Offline-First", "Service Workers"], "showcase_url": "proyectos/pulso/", "demo_url": "demos/pulso/", "is_live": true, "is_game": false}, "totem": {"title": "Totem · Controla tu pantalla espectacular", "tag": "Pantallas digitales", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "Control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular, transmite videos de Facebook y muestra el clima en tiempo real.", "metric": "Actualización remota en tiempo real de pantallas", "stack": ["React Native", "Firebase", "Kiosco Interactivo"], "showcase_url": "proyectos/totem/", "demo_url": "demos/totem/", "is_live": false, "is_game": false}, "marquesina": {"title": "Landing page · Portafolio audiovisual", "tag": "Sitio web · Landing page", "badge": "Demo en vivo", "cat": "3D, Videojuegos & Hardware", "description": "Landing page estilo Netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y SEO completo (Open Graph + datos estructurados). Diseño, frontend y publicación de principio a fin.", "metric": "Render de textos y animaciones a 60 FPS", "stack": ["HTML5 Canvas", "WebSockets", "Digital Signage"], "showcase_url": "proyectos/marquesina/", "demo_url": "demos/marquesina/", "is_live": true, "is_game": false}};
+    var MODAL_DATA = {"juego-construccion": {"title": "Obra Maestra MN", "tag": "Videojuego · Unity & WebGL", "badge": "Demo jugable", "cat": "3D, Videojuegos & Hardware", "description": "Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador.", "metric": "Motor de físicas y coladas de concreto compilado a WebGL", "stack": ["Unity", "C#", "WebGL", "WASM", "2D Platformer"], "showcase_url": "proyectos/juego-construccion/", "demo_url": "https://mnlaobramaestra.netlify.app/", "is_live": true, "is_game": true}, "web-studio": {"title": "Web Studio", "tag": "IA & Video Editor", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio.", "metric": "Editor de video asistido por IA y multipista en el navegador", "stack": ["JavaScript", "IA Multimedia", "Canvas WebGL", "Video Editor"], "showcase_url": "proyectos/web-studio/", "demo_url": "demos/web-studio/", "is_live": true, "is_game": false}, "inferencia": {"title": "Inferencia eficiente", "tag": "Investigación en IA", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Investigación aplicada para romper el muro de 4 GB de VRAM en GPUs de consumo: cuantización INT4/INT3/INT2, GPTQ y parches residuales de bajo rango para correr modelos 7B en ~2.4 GB.", "metric": "Modelos 7B corriendo en GPUs de 4 GB VRAM (2.4 GB footprint)", "stack": ["PyTorch", "GPTQ", "INT4/INT3/INT2", "CUDA", "HuggingFace"], "showcase_url": "proyectos/inferencia/", "demo_url": "proyectos/inferencia/", "is_live": false, "is_game": false}, "myaccountant": {"title": "MyAccountant · Tus finanzas en orden", "tag": "App de finanzas personales", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "App personal (PWA) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. Proyecto propio en React + Firebase (Google Cloud), en desarrollo activo.", "metric": "Contabilidad personal 100% offline y privada", "stack": ["React", "PWA", "IndexedDB", "Finanzas"], "showcase_url": "proyectos/myaccountant/", "demo_url": "demos/myaccountant/", "is_live": true, "is_game": false}, "ourway": {"title": "Ourway", "tag": "Atlas y viajes 3D", "badge": "Demo en vivo", "cat": "3D, Videojuegos & Hardware", "description": "La escena orbital, los planetas, las texturas y la navegación son los originales. El viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. La conexión a álbumes privados no está habilitada.", "metric": "Planeta 3D orbital navegable con texturas personalizadas", "stack": ["Three.js", "WebGL", "Shaders", "Atlas 3D"], "showcase_url": "proyectos/ourway/", "demo_url": "demos/ourway/", "is_live": true, "is_game": false}, "ruta-clara": {"title": "Ruta Clara", "tag": "Logística y mapas", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.", "metric": "Optimización logística y despacho de última milla", "stack": ["JavaScript", "Leaflet", "GeoJSON", "Algoritmos de Ruta"], "showcase_url": "proyectos/ruta-clara/", "demo_url": "demos/ruta-clara/", "is_live": true, "is_game": false}, "radar": {"title": "Radar", "tag": "Analítica comercial", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "Conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. Los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún ERP ni base empresarial.", "metric": "Tablero comercial interactivo y series temporales", "stack": ["Chart.js", "JavaScript", "Analytics", "BI Dashboards"], "showcase_url": "proyectos/radar/", "demo_url": "demos/radar/", "is_live": true, "is_game": false}, "distrito": {"title": "Distrito", "tag": "Experiencia 3D", "badge": "Demo en vivo", "cat": "3D, Videojuegos & Hardware", "description": "El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios.", "metric": "Habitación 3D interactiva y controles de cámara", "stack": ["Three.js", "WebGL", "Modelos 3D", "Animaciones"], "showcase_url": "proyectos/distrito/", "demo_url": "demos/distrito/", "is_live": true, "is_game": false}, "dino-ai": {"title": "Dino AI · Una IA que aprende sola", "tag": "Inteligencia artificial", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de Chrome: mira la pantalla como lo haría una persona y mejora con cada intento.", "metric": "Reconocimiento visual en tiempo real · 0 entrenamiento previo", "stack": ["Python", "PPO", "Reinforcement Learning", "OpenCV"], "showcase_url": "proyectos/dino-ai/", "demo_url": "proyectos/dino-ai/", "is_live": false, "is_game": false}, "mundial": {"title": "Mundial 2026 · Predicción con IA", "tag": "Machine Learning · Simulación", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBoost, modela el minuto de cada gol y simula las eliminatorias con Monte Carlo (sobre 49k+ partidos de historia). Web estilo Mundial con bracket, grupos, favoritos y detalle por partido.", "metric": "+50,000 partidos históricos simulados", "stack": ["Python", "FastAPI", "Monte Carlo", "Scikit-Learn"], "showcase_url": "proyectos/mundial/", "demo_url": "demos/mundial/", "is_live": true, "is_game": false}, "dexter": {"title": "Dexter · Asistentes de IA a tu medida", "tag": "Inteligencia artificial", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Una colección de asistentes de inteligencia artificial que cualquiera puede instalar y combinar según lo que necesite, con más de 44 habilidades listas para usar.", "metric": "Arquitectura multi-agente con herramientas dinámicas", "stack": ["Python", "OpenAI / Claude", "FastAPI", "Multi-Agent"], "showcase_url": "proyectos/dexter/", "demo_url": "proyectos/dexter/", "is_live": true, "is_game": false}, "nucleo": {"title": "Núcleo · Tu negocio en una pantalla", "tag": "Gestión de negocio", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita.", "metric": "Control total de inventario, ventas y compras", "stack": ["React", "TypeScript", "Node.js", "PostgreSQL"], "showcase_url": "proyectos/nucleo/", "demo_url": "demos/nucleo/", "is_live": true, "is_game": false}, "lumen": {"title": "Lumen · Pregúntale a tus números", "tag": "Reportes inteligentes", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo.", "metric": "Consultas en lenguaje natural traducidas a SQL seguro", "stack": ["React", "FastAPI", "NL-to-SQL", "PostgreSQL"], "showcase_url": "proyectos/lumen/", "demo_url": "demos/lumen/", "is_live": true, "is_game": false}, "vertice": {"title": "Vértice · App a la medida", "tag": "App de gestión", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro.", "metric": "Generación instantánea de cotizaciones en campo", "stack": ["React", "PWA", "Offline-First", "Tailwind"], "showcase_url": "proyectos/vertice/", "demo_url": "demos/vertice/", "is_live": true, "is_game": false}, "vitrina": {"title": "Vitrina · Tu tienda en internet", "tag": "Tienda en línea", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento.", "metric": "Carga ultra rápida (<300ms) sin frameworks pesados", "stack": ["Vanilla JS", "HTML5", "CSS3", "Sin dependencias"], "showcase_url": "proyectos/vitrina/", "demo_url": "demos/vitrina/", "is_live": true, "is_game": false}, "nexo": {"title": "Nexo · Tu asistente por WhatsApp", "tag": "Atención al cliente", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. También como plataforma centralizada multi-agente.", "metric": "Atención 24/7 sin latencia de webhook", "stack": ["Python", "FastAPI", "WhatsApp Cloud API", "Docker"], "showcase_url": "proyectos/nexo/", "demo_url": "demos/nexo/", "is_live": true, "is_game": false}, "brujula": {"title": "Brújula · Tus números por WhatsApp", "tag": "BI por WhatsApp", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "", "metric": "Reportes diarios y alertas automáticas a dirección", "stack": ["Python", "FastAPI", "BI", "WhatsApp API"], "showcase_url": "proyectos/brujula/", "demo_url": "proyectos/brujula/", "is_live": true, "is_game": false}, "festo": {"title": "Festo · Felicita cumpleaños solo", "tag": "Automatización", "badge": "Showcase", "cat": "Automatización & BI", "description": "Cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada por chat, automáticamente. Nadie del equipo tiene que acordarse.", "metric": "Cero intervención humana · Sincronización diaria", "stack": ["Python", "Automated Backend", "PostgreSQL", "B2B ERP"], "showcase_url": "proyectos/festo/", "demo_url": "proyectos/festo/", "is_live": false, "is_game": false}, "pulso": {"title": "Pulso · Encuestas sin internet", "tag": "Encuestas", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión.", "metric": "Levantamiento de encuestas sin señal celular", "stack": ["React", "PWA", "Offline-First", "Service Workers"], "showcase_url": "proyectos/pulso/", "demo_url": "demos/pulso/", "is_live": true, "is_game": false}, "totem": {"title": "Totem · Controla tu pantalla espectacular", "tag": "Pantallas digitales", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "Control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular, transmite videos de Facebook y muestra el clima en tiempo real.", "metric": "Actualización remota en tiempo real de pantallas", "stack": ["React Native", "Firebase", "Kiosco Interactivo"], "showcase_url": "proyectos/totem/", "demo_url": "demos/totem/", "is_live": false, "is_game": false}, "marquesina": {"title": "Landing page · Portafolio audiovisual", "tag": "Sitio web · Landing page", "badge": "Demo en vivo", "cat": "3D, Videojuegos & Hardware", "description": "Landing page estilo Netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y SEO completo (Open Graph + datos estructurados). Diseño, frontend y publicación de principio a fin.", "metric": "Render de textos y animaciones a 60 FPS", "stack": ["HTML5 Canvas", "WebSockets", "Digital Signage"], "showcase_url": "proyectos/marquesina/", "demo_url": "demos/marquesina/", "is_live": true, "is_game": false}};
     var activeFilter = 'all';
     var activeSearch = '';
     var activeView = 'grid';
@@ -2122,9 +2311,9 @@
           card.style.display = 'flex';
           visibleCount++;
           card.style.animation = 'none';
-          void card.offsetWidth; /* trigger reflow */
+          void card.offsetWidth;
           card.style.animation = 'cardPop 0.35s var(--ease-out) ' + delay + 's both';
-          delay = Math.min(delay + 0.03, 0.25);
+          delay = Math.min(delay + 0.02, 0.2);
         } else {
           card.style.display = 'none';
         }
@@ -2221,32 +2410,6 @@
       if (targetBtn) targetBtn.click();
       var sec = document.getElementById('proyectos');
       if (sec) sec.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    function filterBySlug(slug) {
-      if (activeView !== 'grid') {
-        var gridBtn = document.querySelector('.view-btn[data-view="grid"]');
-        if (gridBtn) gridBtn.click();
-      }
-      activeFilter = 'all';
-      tabButtons.forEach(function(b){
-        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
-      });
-      if (searchInput) {
-        searchInput.value = slug;
-        activeSearch = slug;
-        if (searchClear) searchClear.style.display = 'block';
-      }
-      applyCatalogFilters();
-      var target = document.querySelector('.card[data-slug="' + slug + '"]');
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        target.style.transition = 'transform .4s cubic-bezier(0.34, 1.56, 0.64, 1)';
-        target.style.transform = 'translateY(-10px) scale(1.02)';
-        setTimeout(function(){
-          target.style.transform = '';
-        }, 900);
-      }
     }
 
     // MODAL
