@@ -36,17 +36,15 @@ def build_page(lang="es"):
         "hero_status": "Disponible para nuevos proyectos & contratos" if is_es else "Available for new projects & contracts",
         "hero_h1": "Software e IA aplicada." if is_es else "Software and applied AI.",
         "hero_lead": "Desarrollador full-stack especializado en sistemas de producción de punta a punta: plataformas ERP, analítica comercial, inferencia de IA en GPUs de consumo y videojuegos en WebGL. Explora el catálogo con demos interactivas en vivo." if is_es else "Full-stack developer building end-to-end production systems: ERP platforms, commercial analytics, consumer-GPU AI inference, and WebGL games. Explore the interactive catalog with live demos.",
-        "stat_projects": "21 Sistemas" if is_es else "21 Systems",
-        "stat_projects_desc": "Proyectos en producción" if is_es else "Production delivered systems",
-        "stat_demos": "17 Demos" if is_es else "17 Live Demos",
-        "stat_demos_desc": "Interactivos en el navegador" if is_es else "Interactive in browser",
-        "stat_ia": "4 GB VRAM" if is_es else "4 GB VRAM",
-        "stat_ia_desc": "Inferencia de LLMs optimizada" if is_es else "Optimized LLM inference",
-        "stat_code": "100% Funcional" if is_es else "100% Functional",
-        "stat_code_desc": "Probado en campo real" if is_es else "Field-verified code",
-        "quick_highlights": "Proyectos destacados:" if is_es else "Key highlights:",
+        "cap_production": "Sistemas en Producción" if is_es else "Production Systems",
+        "cap_demos": "Demos en Navegador" if is_es else "In-Browser Demos",
+        "cap_ia": "Inferencia Local INT4" if is_es else "Local INT4 Inference",
+        "cap_webgl": "WebGL & Físicas 2D/3D" if is_es else "WebGL & 2D/3D Physics",
+        "cap_erp": "Arquitectura ERP & BI" if is_es else "ERP & BI Architecture",
+        "btn_view_index_1screen": "Ver índice en 1 pantalla" if is_es else "View 1-screen index",
+        "quick_highlights": "Accesos directos:" if is_es else "Flagship shortcuts:",
         "btn_explore_catalog": "Explorar catálogo interactivo (21)" if is_es else "Explore interactive catalog (21)",
-        "btn_contact": "Contacto y CV" if is_es else "Contact and resume",
+        "btn_contact": "Contacto y CV" if is_es else "Contact & CV",
         "catalog_title": "Catálogo de proyectos y demos" if is_es else "Project and demo catalog",
         "catalog_desc": "Filtra por área de especialidad, busca por tecnología o cambia al índice compacto para escanear todo el portafolio en una sola pantalla sin scroll infinito." if is_es else "Filter by category, search by technology, or switch to compact index view to scan the entire portfolio without endless scrolling.",
         "search_placeholder": "Buscar por tecnología, nombre o caso de uso (ej. Python, React, Unity, ERP, Docker)..." if is_es else "Search by technology, name, or use case (e.g. Python, React, Unity, ERP, Docker)...",
@@ -141,10 +139,17 @@ def build_page(lang="es"):
         }
         
         badge_class = "badge-demo" if is_live_demo else "badge-showcase"
+        live_dot_html = '<span class="beacon-pulse"></span>' if is_live_demo else ''
+        
+        card_action_btn_text = i18n["card_btn_demo"] if is_live_demo else i18n["card_btn_showcase"]
+        if slug == "juego-construccion":
+            card_action_btn_text = i18n["modal_btn_play"]
+        card_action_href = demo_url if is_live_demo else showcase_url
+        card_target_attr = 'target="_blank" rel="noopener"' if (slug == "juego-construccion") else ""
         
         card_html = f'''
         <div class="card catalog-item" data-slug="{slug}" data-category="{cat_key}" data-live="{str(is_live_demo).lower()}" data-search="{search_terms}">
-          <span class="live {badge_class}">{badge_label}</span>
+          <span class="live {badge_class}">{live_dot_html}{badge_label}</span>
           <div class="preview">
             {preview_inner}
           </div>
@@ -161,12 +166,12 @@ def build_page(lang="es"):
             </div>
             <div class="stack">{stack_chips}</div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('{slug}')" aria-label="Abrir ficha de {title_escaped}">
+              <a class="btn-micro btn-action" href="{card_action_href}" {card_target_attr}>
+                {card_action_btn_text}
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('{slug}')" aria-label="Abrir ficha técnica de {title_escaped}">
                 {i18n['card_btn_preview']}
               </button>
-              <a class="btn-micro btn-action" href="{showcase_url}">
-                {i18n['card_btn_showcase']}
-              </a>
             </div>
           </div>
         </div>
@@ -344,7 +349,7 @@ def build_page(lang="es"):
     
     /* HERO */
     .hero {{
-      padding: 64px 0 72px; position: relative; overflow: hidden;
+      padding: 48px 0 38px; position: relative; overflow: hidden;
     }}
     .hero::before {{
       content: ""; position: absolute; inset: 0;
@@ -357,57 +362,68 @@ def build_page(lang="es"):
     
     .hero h1 {{
       font-size: var(--step-display); font-weight: 800;
-      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px;
+      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 18px;
       color: var(--ink); max-width: 960px;
     }}
     .hero p.lead {{
       font-size: var(--step-body); color: var(--ink-muted); max-width: 760px;
-      margin-bottom: 34px; line-height: 1.65;
+      margin-bottom: 24px; line-height: 1.65;
     }}
     
-    /* HERO TELEMETRY CARDS */
-    .hero-stats-bar {{
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px; margin: 34px 0 36px;
+    /* HERO ENGINEERING CAPABILITIES RIBBON */
+    .hero-caps-row {{
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 22px;
     }}
-    .hero-stat-card {{
-      position: relative; background: var(--surface-1); border-radius: var(--radius);
-      border: 1px solid transparent;
-      padding: 22px 24px; overflow: hidden;
-      transition: transform .25s var(--ease-out), background .25s var(--ease-out), border-color .25s var(--ease-out);
+    .cap-badge {{
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--surface-1); border: 1px solid transparent;
+      color: var(--ink-muted); font-size: var(--step-sm); font-weight: 500;
+      transition: all .2s var(--ease-out);
     }}
-    .hero-stat-card:hover {{
-      transform: translateY(-4px); background: var(--surface-2); border-color: rgba(56, 189, 248, 0.3);
+    .cap-badge strong {{ color: var(--ink); font-weight: 700; }}
+    .cap-badge:hover {{
+      color: var(--ink); background: var(--surface-2); border-color: rgba(56, 189, 248, 0.25);
+      transform: translateY(-2px);
     }}
-    .hero-stat-card strong {{
-      display: block; font-size: var(--step-h2); font-weight: 800; color: var(--ink);
-      font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; line-height: 1.15;
+    .beacon-dot {{
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none;
     }}
-    .hero-stat-card strong span {{ color: var(--accent); }}
-    .hero-stat-card p {{ font-size: var(--step-sm); color: var(--ink-muted); margin-top: 6px; }}
+    .beacon-dot.green {{ background: var(--accent-green); }}
+    .beacon-dot.blue {{ background: var(--accent); }}
     
     .hero-highlights {{
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 34px;
-      font-size: var(--step-sm); color: var(--ink-muted);
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;
+    }}
+    .highlights-title {{
+      font-size: var(--step-sm); color: var(--ink-muted); font-weight: 600;
     }}
     .highlight-pill {{
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 15px; background: var(--surface-1); border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--ink); font-weight: 500; font-size: var(--step-sm);
-      transition: background .15s, transform .15s var(--ease-out), color .15s, border-color .15s;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; background: var(--surface-1); border-radius: 999px;
+      border: 1px solid transparent; cursor: pointer;
+      color: var(--ink); font-weight: 600; font-size: var(--step-sm);
+      transition: background .18s, transform .18s var(--ease-out), color .18s, border-color .18s;
     }}
     .highlight-pill:hover {{
-      background: var(--surface-2); color: var(--accent); transform: translateY(-2px); border-color: rgba(56, 189, 248, 0.25);
+      background: var(--surface-2); color: var(--accent); transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.3);
     }}
-    .highlight-pill:active {{ transform: scale(0.97); }}
+    .highlight-pill:active {{ transform: scale(0.96); }}
+    .hl-dot {{ width: 7px; height: 7px; border-radius: 50%; flex: none; }}
+    .hl-dot.green {{ background: var(--accent-green); }}
+    .hl-dot.purple {{ background: var(--accent-purple); }}
+    .hl-dot.blue {{ background: var(--accent); }}
+    .pill-tag {{
+      font-size: var(--step-sm); font-weight: 500; opacity: 0.65;
+    }}
     
-    .cta-row {{ display: flex; gap: 14px; flex-wrap: wrap; }}
+    .cta-row {{ display: flex; gap: 12px; flex-wrap: wrap; }}
     .btn {{
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 26px; border-radius: var(--radius-sm); font-weight: 600;
+      padding: 12px 24px; border-radius: var(--radius-sm); font-weight: 600;
       font-size: var(--step-body); cursor: pointer; text-decoration: none; border: none;
-      transition: transform .18s var(--ease-out), background .18s;
+      transition: transform .18s var(--ease-out), background .18s, border-color .18s;
     }}
     .btn-primary {{
       background: var(--accent); color: var(--accent-ink); font-weight: 700;
@@ -419,21 +435,26 @@ def build_page(lang="es"):
     }}
     .btn-ghost:hover {{ background: var(--surface-2); transform: translateY(-2px); }}
     .btn-ghost:active {{ transform: scale(0.97); }}
+    .btn-outline {{
+      background: var(--surface-1); color: var(--ink); border: 1px solid transparent;
+    }}
+    .btn-outline:hover {{ background: var(--surface-2); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }}
+    .btn-outline:active {{ transform: scale(0.97); }}
     
     /* CATALOG SECTION */
-    #proyectos {{ padding: 68px 0 92px; position: relative; }}
-    .section-head {{ margin-bottom: 34px; }}
+    #proyectos {{ padding: 48px 0 88px; position: relative; }}
+    .section-head {{ margin-bottom: 28px; }}
     .section-head h2 {{
       font-size: var(--step-h2); font-weight: 800; letter-spacing: -0.03em; color: var(--ink);
     }}
-    .section-head p {{ color: var(--ink-muted); margin-top: 8px; max-width: 720px; }}
+    .section-head p {{ color: var(--ink-muted); margin-top: 6px; max-width: 720px; }}
     
-    /* CATALOG CONTROLS BAR */
+    /* CATALOG CONTROLS BAR (STICKY COMMAND CENTER) */
     .catalog-bar {{
       background: var(--surface-1); border-radius: var(--radius);
       border: 1px solid transparent;
-      padding: 18px 22px; margin-bottom: 38px;
-      display: flex; flex-direction: column; gap: 16px;
+      padding: 16px 20px; margin-bottom: 32px;
+      display: flex; flex-direction: column; gap: 14px;
     }}
     .catalog-top-row {{
       display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
@@ -537,6 +558,10 @@ def build_page(lang="es"):
     .card .live {{
       position: absolute; top: 12px; right: 12px; z-index: 3;
       font-size: var(--step-sm); font-weight: 700; padding: 4px 11px; border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 6px;
+    }}
+    .beacon-pulse {{
+      width: 6px; height: 6px; border-radius: 50%; background: #042f1a; flex: none;
     }}
     .badge-demo {{ background: var(--accent-green); color: #042f1a; }}
     .badge-showcase {{ background: var(--accent-purple); color: #ffffff; }}
@@ -773,11 +798,10 @@ def build_page(lang="es"):
     }}
     
     .hero-box {{ animation: heroEntrance 0.5s var(--ease-out) both; }}
-    .hero-stat-card:nth-child(1) {{ animation: heroEntrance 0.5s var(--ease-out) 0.05s both; }}
-    .hero-stat-card:nth-child(2) {{ animation: heroEntrance 0.5s var(--ease-out) 0.10s both; }}
-    .hero-stat-card:nth-child(3) {{ animation: heroEntrance 0.5s var(--ease-out) 0.15s both; }}
-    .hero-stat-card:nth-child(4) {{ animation: heroEntrance 0.5s var(--ease-out) 0.20s both; }}
-    .catalog-bar {{ animation: heroEntrance 0.5s var(--ease-out) 0.25s both; }}
+    .hero-caps-row {{ animation: heroEntrance 0.5s var(--ease-out) 0.08s both; }}
+    .hero-highlights {{ animation: heroEntrance 0.5s var(--ease-out) 0.14s both; }}
+    .cta-row {{ animation: heroEntrance 0.5s var(--ease-out) 0.20s both; }}
+    .catalog-bar {{ animation: heroEntrance 0.5s var(--ease-out) 0.26s both; }}
     .cat-pill:nth-child(1) {{ animation: heroEntrance 0.4s var(--ease-out) 0.30s both; }}
     .cat-pill:nth-child(2) {{ animation: heroEntrance 0.4s var(--ease-out) 0.34s both; }}
     .cat-pill:nth-child(3) {{ animation: heroEntrance 0.4s var(--ease-out) 0.38s both; }}
@@ -845,38 +869,50 @@ def build_page(lang="es"):
       <h1>{i18n['hero_h1']}</h1>
       <p class="lead">{i18n['hero_lead']}</p>
       
-      <!-- STATS TELEMETRY BAR -->
-      <div class="hero-stats-bar">
-        <div class="hero-stat-card">
-          <strong>21 <span>+</span></strong>
-          <p>{i18n['stat_projects_desc']}</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>17 <span>●</span></strong>
-          <p>{i18n['stat_demos_desc']}</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>4 GB <span>VRAM</span></strong>
-          <p>{i18n['stat_ia_desc']}</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>100% <span>OK</span></strong>
-          <p>{i18n['stat_code_desc']}</p>
-        </div>
+      <!-- ENGINEERING LIVE CAPABILITIES RIBBON -->
+      <div class="hero-caps-row">
+        <span class="cap-badge"><span class="beacon-dot green"></span> <strong>21</strong> {i18n['cap_production']}</span>
+        <span class="cap-badge"><span class="beacon-dot blue"></span> <strong>17</strong> {i18n['cap_demos']}</span>
+        <span class="cap-badge">{i18n['cap_ia']}</span>
+        <span class="cap-badge">{i18n['cap_webgl']}</span>
+        <span class="cap-badge">{i18n['cap_erp']}</span>
       </div>
 
       <!-- QUICK ACCESS HIGHLIGHTS -->
       <div class="hero-highlights">
-        <span>{i18n['quick_highlights']}</span>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('juego-construccion')">Obra Maestra MN</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('web-studio')">Web Studio (IA)</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('ruta-clara')">Ruta Clara</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('inferencia')">Inferencia 4GB</a>
+        <span class="highlights-title">{i18n['quick_highlights']}</span>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('juego-construccion')">
+          <span class="hl-dot green"></span>
+          <span>Obra Maestra MN</span>
+          <span class="pill-tag">WebGL 2D</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('web-studio')">
+          <span class="hl-dot purple"></span>
+          <span>Web Studio</span>
+          <span class="pill-tag">IA &amp; Video</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('ruta-clara')">
+          <span class="hl-dot green"></span>
+          <span>Ruta Clara</span>
+          <span class="pill-tag">Logística GIS</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('inferencia')">
+          <span class="hl-dot blue"></span>
+          <span>Inferencia 4GB</span>
+          <span class="pill-tag">CUDA INT4</span>
+        </button>
       </div>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="#proyectos">{i18n['btn_explore_catalog']}</a>
-        <a class="btn btn-ghost" href="#contacto">{i18n['btn_contact']}</a>
+        <a class="btn btn-primary" href="#proyectos">
+          <span>{i18n['btn_explore_catalog']}</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
+        </a>
+        <button type="button" class="btn btn-ghost" onclick="switchView('index')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          <span>{i18n['btn_view_index_1screen']}</span>
+        </button>
+        <a class="btn btn-outline" href="#contacto">{i18n['btn_contact']}</a>
       </div>
     </div>
   </header>
@@ -1255,7 +1291,22 @@ def build_page(lang="es"):
       }});
     }});
 
+    function switchView(viewName) {{
+      var targetBtn = document.querySelector('.view-btn[data-view="' + viewName + '"]');
+      if (targetBtn) targetBtn.click();
+      var sec = document.getElementById('proyectos');
+      if (sec) sec.scrollIntoView({{ behavior: 'smooth' }});
+    }}
+
     function filterBySlug(slug) {{
+      if (activeView !== 'grid') {{
+        var gridBtn = document.querySelector('.view-btn[data-view="grid"]');
+        if (gridBtn) gridBtn.click();
+      }}
+      activeFilter = 'all';
+      tabButtons.forEach(function(b){{
+        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
+      }});
       if (searchInput) {{
         searchInput.value = slug;
         activeSearch = slug;
@@ -1265,6 +1316,11 @@ def build_page(lang="es"):
       var target = document.querySelector('.card[data-slug="' + slug + '"]');
       if (target) {{
         target.scrollIntoView({{ behavior: 'smooth', block: 'center' }});
+        target.style.transition = 'transform .4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        target.style.transform = 'translateY(-10px) scale(1.02)';
+        setTimeout(function(){{
+          target.style.transform = '';
+        }}, 900);
       }}
     }}
 

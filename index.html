@@ -134,7 +134,7 @@
     
     /* HERO */
     .hero {
-      padding: 64px 0 72px; position: relative; overflow: hidden;
+      padding: 48px 0 38px; position: relative; overflow: hidden;
     }
     .hero::before {
       content: ""; position: absolute; inset: 0;
@@ -147,57 +147,68 @@
     
     .hero h1 {
       font-size: var(--step-display); font-weight: 800;
-      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px;
+      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 18px;
       color: var(--ink); max-width: 960px;
     }
     .hero p.lead {
       font-size: var(--step-body); color: var(--ink-muted); max-width: 760px;
-      margin-bottom: 34px; line-height: 1.65;
+      margin-bottom: 24px; line-height: 1.65;
     }
     
-    /* HERO TELEMETRY CARDS */
-    .hero-stats-bar {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px; margin: 34px 0 36px;
+    /* HERO ENGINEERING CAPABILITIES RIBBON */
+    .hero-caps-row {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 22px;
     }
-    .hero-stat-card {
-      position: relative; background: var(--surface-1); border-radius: var(--radius);
-      border: 1px solid transparent;
-      padding: 22px 24px; overflow: hidden;
-      transition: transform .25s var(--ease-out), background .25s var(--ease-out), border-color .25s var(--ease-out);
+    .cap-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--surface-1); border: 1px solid transparent;
+      color: var(--ink-muted); font-size: var(--step-sm); font-weight: 500;
+      transition: all .2s var(--ease-out);
     }
-    .hero-stat-card:hover {
-      transform: translateY(-4px); background: var(--surface-2); border-color: rgba(56, 189, 248, 0.3);
+    .cap-badge strong { color: var(--ink); font-weight: 700; }
+    .cap-badge:hover {
+      color: var(--ink); background: var(--surface-2); border-color: rgba(56, 189, 248, 0.25);
+      transform: translateY(-2px);
     }
-    .hero-stat-card strong {
-      display: block; font-size: var(--step-h2); font-weight: 800; color: var(--ink);
-      font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; line-height: 1.15;
+    .beacon-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none;
     }
-    .hero-stat-card strong span { color: var(--accent); }
-    .hero-stat-card p { font-size: var(--step-sm); color: var(--ink-muted); margin-top: 6px; }
+    .beacon-dot.green { background: var(--accent-green); }
+    .beacon-dot.blue { background: var(--accent); }
     
     .hero-highlights {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 34px;
-      font-size: var(--step-sm); color: var(--ink-muted);
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;
+    }
+    .highlights-title {
+      font-size: var(--step-sm); color: var(--ink-muted); font-weight: 600;
     }
     .highlight-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 15px; background: var(--surface-1); border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--ink); font-weight: 500; font-size: var(--step-sm);
-      transition: background .15s, transform .15s var(--ease-out), color .15s, border-color .15s;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; background: var(--surface-1); border-radius: 999px;
+      border: 1px solid transparent; cursor: pointer;
+      color: var(--ink); font-weight: 600; font-size: var(--step-sm);
+      transition: background .18s, transform .18s var(--ease-out), color .18s, border-color .18s;
     }
     .highlight-pill:hover {
-      background: var(--surface-2); color: var(--accent); transform: translateY(-2px); border-color: rgba(56, 189, 248, 0.25);
+      background: var(--surface-2); color: var(--accent); transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.3);
     }
-    .highlight-pill:active { transform: scale(0.97); }
+    .highlight-pill:active { transform: scale(0.96); }
+    .hl-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+    .hl-dot.green { background: var(--accent-green); }
+    .hl-dot.purple { background: var(--accent-purple); }
+    .hl-dot.blue { background: var(--accent); }
+    .pill-tag {
+      font-size: var(--step-sm); font-weight: 500; opacity: 0.65;
+    }
     
-    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 26px; border-radius: var(--radius-sm); font-weight: 600;
+      padding: 12px 24px; border-radius: var(--radius-sm); font-weight: 600;
       font-size: var(--step-body); cursor: pointer; text-decoration: none; border: none;
-      transition: transform .18s var(--ease-out), background .18s;
+      transition: transform .18s var(--ease-out), background .18s, border-color .18s;
     }
     .btn-primary {
       background: var(--accent); color: var(--accent-ink); font-weight: 700;
@@ -209,21 +220,26 @@
     }
     .btn-ghost:hover { background: var(--surface-2); transform: translateY(-2px); }
     .btn-ghost:active { transform: scale(0.97); }
+    .btn-outline {
+      background: var(--surface-1); color: var(--ink); border: 1px solid transparent;
+    }
+    .btn-outline:hover { background: var(--surface-2); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+    .btn-outline:active { transform: scale(0.97); }
     
     /* CATALOG SECTION */
-    #proyectos { padding: 68px 0 92px; position: relative; }
-    .section-head { margin-bottom: 34px; }
+    #proyectos { padding: 48px 0 88px; position: relative; }
+    .section-head { margin-bottom: 28px; }
     .section-head h2 {
       font-size: var(--step-h2); font-weight: 800; letter-spacing: -0.03em; color: var(--ink);
     }
-    .section-head p { color: var(--ink-muted); margin-top: 8px; max-width: 720px; }
+    .section-head p { color: var(--ink-muted); margin-top: 6px; max-width: 720px; }
     
-    /* CATALOG CONTROLS BAR */
+    /* CATALOG CONTROLS BAR (STICKY COMMAND CENTER) */
     .catalog-bar {
       background: var(--surface-1); border-radius: var(--radius);
       border: 1px solid transparent;
-      padding: 18px 22px; margin-bottom: 38px;
-      display: flex; flex-direction: column; gap: 16px;
+      padding: 16px 20px; margin-bottom: 32px;
+      display: flex; flex-direction: column; gap: 14px;
     }
     .catalog-top-row {
       display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
@@ -327,6 +343,10 @@
     .card .live {
       position: absolute; top: 12px; right: 12px; z-index: 3;
       font-size: var(--step-sm); font-weight: 700; padding: 4px 11px; border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .beacon-pulse {
+      width: 6px; height: 6px; border-radius: 50%; background: #042f1a; flex: none;
     }
     .badge-demo { background: var(--accent-green); color: #042f1a; }
     .badge-showcase { background: var(--accent-purple); color: #ffffff; }
@@ -563,11 +583,10 @@
     }
     
     .hero-box { animation: heroEntrance 0.5s var(--ease-out) both; }
-    .hero-stat-card:nth-child(1) { animation: heroEntrance 0.5s var(--ease-out) 0.05s both; }
-    .hero-stat-card:nth-child(2) { animation: heroEntrance 0.5s var(--ease-out) 0.10s both; }
-    .hero-stat-card:nth-child(3) { animation: heroEntrance 0.5s var(--ease-out) 0.15s both; }
-    .hero-stat-card:nth-child(4) { animation: heroEntrance 0.5s var(--ease-out) 0.20s both; }
-    .catalog-bar { animation: heroEntrance 0.5s var(--ease-out) 0.25s both; }
+    .hero-caps-row { animation: heroEntrance 0.5s var(--ease-out) 0.08s both; }
+    .hero-highlights { animation: heroEntrance 0.5s var(--ease-out) 0.14s both; }
+    .cta-row { animation: heroEntrance 0.5s var(--ease-out) 0.20s both; }
+    .catalog-bar { animation: heroEntrance 0.5s var(--ease-out) 0.26s both; }
     .cat-pill:nth-child(1) { animation: heroEntrance 0.4s var(--ease-out) 0.30s both; }
     .cat-pill:nth-child(2) { animation: heroEntrance 0.4s var(--ease-out) 0.34s both; }
     .cat-pill:nth-child(3) { animation: heroEntrance 0.4s var(--ease-out) 0.38s both; }
@@ -635,38 +654,50 @@
       <h1>Software e IA aplicada.</h1>
       <p class="lead">Desarrollador full-stack especializado en sistemas de producción de punta a punta: plataformas ERP, analítica comercial, inferencia de IA en GPUs de consumo y videojuegos en WebGL. Explora el catálogo con demos interactivas en vivo.</p>
       
-      <!-- STATS TELEMETRY BAR -->
-      <div class="hero-stats-bar">
-        <div class="hero-stat-card">
-          <strong>21 <span>+</span></strong>
-          <p>Proyectos en producción</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>17 <span>●</span></strong>
-          <p>Interactivos en el navegador</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>4 GB <span>VRAM</span></strong>
-          <p>Inferencia de LLMs optimizada</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>100% <span>OK</span></strong>
-          <p>Probado en campo real</p>
-        </div>
+      <!-- ENGINEERING LIVE CAPABILITIES RIBBON -->
+      <div class="hero-caps-row">
+        <span class="cap-badge"><span class="beacon-dot green"></span> <strong>21</strong> Sistemas en Producción</span>
+        <span class="cap-badge"><span class="beacon-dot blue"></span> <strong>17</strong> Demos en Navegador</span>
+        <span class="cap-badge">Inferencia Local INT4</span>
+        <span class="cap-badge">WebGL & Físicas 2D/3D</span>
+        <span class="cap-badge">Arquitectura ERP & BI</span>
       </div>
 
       <!-- QUICK ACCESS HIGHLIGHTS -->
       <div class="hero-highlights">
-        <span>Proyectos destacados:</span>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('juego-construccion')">Obra Maestra MN</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('web-studio')">Web Studio (IA)</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('ruta-clara')">Ruta Clara</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('inferencia')">Inferencia 4GB</a>
+        <span class="highlights-title">Accesos directos:</span>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('juego-construccion')">
+          <span class="hl-dot green"></span>
+          <span>Obra Maestra MN</span>
+          <span class="pill-tag">WebGL 2D</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('web-studio')">
+          <span class="hl-dot purple"></span>
+          <span>Web Studio</span>
+          <span class="pill-tag">IA &amp; Video</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('ruta-clara')">
+          <span class="hl-dot green"></span>
+          <span>Ruta Clara</span>
+          <span class="pill-tag">Logística GIS</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('inferencia')">
+          <span class="hl-dot blue"></span>
+          <span>Inferencia 4GB</span>
+          <span class="pill-tag">CUDA INT4</span>
+        </button>
       </div>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="#proyectos">Explorar catálogo interactivo (21)</a>
-        <a class="btn btn-ghost" href="#contacto">Contacto y CV</a>
+        <a class="btn btn-primary" href="#proyectos">
+          <span>Explorar catálogo interactivo (21)</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
+        </a>
+        <button type="button" class="btn btn-ghost" onclick="switchView('index')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          <span>Ver índice en 1 pantalla</span>
+        </button>
+        <a class="btn btn-outline" href="#contacto">Contacto y CV</a>
       </div>
     </div>
   </header>
@@ -737,7 +768,7 @@
       <!-- GRID CARDS -->
       <div class="catalog-grid" id="catalogGrid">
         <div class="card catalog-item" data-slug="juego-construccion" data-category="hardware" data-live="true" data-search="obra maestra mn videojuego · unity & webgl 3d, videojuegos & hardware unity c# webgl wasm 2d platformer videojuego 2d de recolección de materiales, coladas y construcción. desarrollado en unity, compilado a webgl/wasm y optimizado para jugar en móviles y navegador.">
-          <span class="live badge-demo">Demo jugable</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo jugable</span>
           <div class="preview">
             <img src="assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="eager" width="320" height="200" />
           </div>
@@ -754,17 +785,17 @@
             </div>
             <div class="stack"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">WebGL</span><span class="chip">WASM</span><span class="chip">2D Platformer</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('juego-construccion')" aria-label="Abrir ficha de Obra Maestra MN">
+              <a class="btn-micro btn-action" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">
+                Jugar demo en navegador
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('juego-construccion')" aria-label="Abrir ficha técnica de Obra Maestra MN">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/juego-construccion/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="ruta-clara" data-category="auto" data-live="true" data-search="ruta clara logística y mapas automatización & bi javascript leaflet geojson algoritmos de ruta explora el mapa, compara recorridos y consulta pedidos, carga y reportes. el motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/ruta-clara.jpg" alt="Ruta Clara" loading="eager" width="320" height="200" />
           </div>
@@ -781,17 +812,17 @@
             </div>
             <div class="stack"><span class="chip">JavaScript</span><span class="chip">Leaflet</span><span class="chip">GeoJSON</span><span class="chip">Algoritmos de Ruta</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ruta-clara')" aria-label="Abrir ficha de Ruta Clara">
+              <a class="btn-micro btn-action" href="demos/ruta-clara/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ruta-clara')" aria-label="Abrir ficha técnica de Ruta Clara">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/ruta-clara/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="web-studio" data-category="ia" data-live="true" data-search="web studio ia & video editor ia & machine learning javascript ia multimedia canvas webgl video editor explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por ia. el proyecto de ejemplo usa material ficticio.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/web-studio.jpg" alt="Web Studio" loading="eager" width="320" height="200" />
           </div>
@@ -808,17 +839,17 @@
             </div>
             <div class="stack"><span class="chip">JavaScript</span><span class="chip">IA Multimedia</span><span class="chip">Canvas WebGL</span><span class="chip">Video Editor</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('web-studio')" aria-label="Abrir ficha de Web Studio">
+              <a class="btn-micro btn-action" href="demos/web-studio/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('web-studio')" aria-label="Abrir ficha técnica de Web Studio">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/web-studio/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="ourway" data-category="hardware" data-live="true" data-search="ourway atlas y viajes 3d 3d, videojuegos & hardware three.js webgl shaders atlas 3d la escena orbital, los planetas, las texturas y la navegación son los originales. el viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. la conexión a álbumes privados no está habilitada.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/ourway.jpg" alt="Ourway" loading="eager" width="320" height="200" />
           </div>
@@ -835,17 +866,17 @@
             </div>
             <div class="stack"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Shaders</span><span class="chip">Atlas 3D</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ourway')" aria-label="Abrir ficha de Ourway">
+              <a class="btn-micro btn-action" href="demos/ourway/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ourway')" aria-label="Abrir ficha técnica de Ourway">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/ourway/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="radar" data-category="auto" data-live="true" data-search="radar analítica comercial automatización & bi chart.js javascript analytics bi dashboards conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún erp ni base empresarial.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/radar.jpg" alt="Radar" loading="eager" width="320" height="200" />
           </div>
@@ -862,17 +893,17 @@
             </div>
             <div class="stack"><span class="chip">Chart.js</span><span class="chip">JavaScript</span><span class="chip">Analytics</span><span class="chip">BI Dashboards</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('radar')" aria-label="Abrir ficha de Radar">
+              <a class="btn-micro btn-action" href="demos/radar/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('radar')" aria-label="Abrir ficha técnica de Radar">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/radar/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="distrito" data-category="hardware" data-live="true" data-search="distrito experiencia 3d 3d, videojuegos & hardware three.js webgl modelos 3d animaciones el frontend original conserva sus modelos 3d, su habitación, animaciones y controles. la demostración utiliza un perfil y progreso ficticios.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/distrito.jpg" alt="Distrito" loading="eager" width="320" height="200" />
           </div>
@@ -889,12 +920,12 @@
             </div>
             <div class="stack"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Modelos 3D</span><span class="chip">Animaciones</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('distrito')" aria-label="Abrir ficha de Distrito">
+              <a class="btn-micro btn-action" href="demos/distrito/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('distrito')" aria-label="Abrir ficha técnica de Distrito">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/distrito/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
@@ -916,12 +947,12 @@
             </div>
             <div class="stack"><span class="chip">PyTorch</span><span class="chip">GPTQ</span><span class="chip">INT4/INT3/INT2</span><span class="chip">CUDA</span><span class="chip">HuggingFace</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('inferencia')" aria-label="Abrir ficha de Inferencia eficiente">
-                Ficha técnica
-              </button>
-              <a class="btn-micro btn-action" href="proyectos/inferencia/">
+              <a class="btn-micro btn-action" href="proyectos/inferencia/" >
                 Ver presentación
               </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('inferencia')" aria-label="Abrir ficha técnica de Inferencia eficiente">
+                Ficha técnica
+              </button>
             </div>
           </div>
         </div>
@@ -957,17 +988,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">PPO</span><span class="chip">Reinforcement Learning</span><span class="chip">OpenCV</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('dino-ai')" aria-label="Abrir ficha de Dino AI · Una IA que aprende sola">
-                Ficha técnica
-              </button>
-              <a class="btn-micro btn-action" href="proyectos/dino-ai/">
+              <a class="btn-micro btn-action" href="proyectos/dino-ai/" >
                 Ver presentación
               </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('dino-ai')" aria-label="Abrir ficha técnica de Dino AI · Una IA que aprende sola">
+                Ficha técnica
+              </button>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="mundial" data-category="ia" data-live="true" data-search="mundial 2026 · predicción con ia machine learning · simulación ia & machine learning python fastapi monte carlo scikit-learn modelo de machine learning que predice el mundial 2026: combina ratings elo con regresores xgboost, modela el minuto de cada gol y simula las eliminatorias con monte carlo (sobre 49k+ partidos de historia). web estilo mundial con bracket, grupos, favoritos y detalle por partido.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/mundial.jpg" alt="Mundial 2026 · Predicción con IA" loading="eager" width="320" height="200" />
           </div>
@@ -984,17 +1015,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Monte Carlo</span><span class="chip">Scikit-Learn</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('mundial')" aria-label="Abrir ficha de Mundial 2026 · Predicción con IA">
+              <a class="btn-micro btn-action" href="demos/mundial/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('mundial')" aria-label="Abrir ficha técnica de Mundial 2026 · Predicción con IA">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/mundial/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="dexter" data-category="ia" data-live="true" data-search="dexter · asistentes de ia a tu medida inteligencia artificial ia & machine learning python openai / claude fastapi multi-agent una colección de asistentes de inteligencia artificial que cualquiera puede instalar y combinar según lo que necesite, con más de 44 habilidades listas para usar.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
@@ -1022,17 +1053,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">OpenAI / Claude</span><span class="chip">FastAPI</span><span class="chip">Multi-Agent</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('dexter')" aria-label="Abrir ficha de Dexter · Asistentes de IA a tu medida">
+              <a class="btn-micro btn-action" href="proyectos/dexter/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('dexter')" aria-label="Abrir ficha técnica de Dexter · Asistentes de IA a tu medida">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/dexter/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="nucleo" data-category="web" data-live="true" data-search="núcleo · tu negocio en una pantalla gestión de negocio web apps & erp react typescript node.js postgresql organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/nucleo.jpg" alt="Núcleo · Tu negocio en una pantalla" loading="eager" width="320" height="200" />
           </div>
@@ -1049,17 +1080,17 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nucleo')" aria-label="Abrir ficha de Núcleo · Tu negocio en una pantalla">
+              <a class="btn-micro btn-action" href="demos/nucleo/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nucleo')" aria-label="Abrir ficha técnica de Núcleo · Tu negocio en una pantalla">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/nucleo/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="lumen" data-category="ia" data-live="true" data-search="lumen · pregúntale a tus números reportes inteligentes ia & machine learning react fastapi nl-to-sql postgresql haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/lumen.jpg" alt="Lumen · Pregúntale a tus números" loading="eager" width="320" height="200" />
           </div>
@@ -1076,17 +1107,17 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">NL-to-SQL</span><span class="chip">PostgreSQL</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('lumen')" aria-label="Abrir ficha de Lumen · Pregúntale a tus números">
+              <a class="btn-micro btn-action" href="demos/lumen/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('lumen')" aria-label="Abrir ficha técnica de Lumen · Pregúntale a tus números">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/lumen/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="vertice" data-category="web" data-live="true" data-search="vértice · app a la medida app de gestión web apps & erp react pwa offline-first tailwind aplicación hecha a la medida para administrar los procesos internos de un equipo. sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/vertice.jpg" alt="Vértice · App a la medida" loading="eager" width="320" height="200" />
           </div>
@@ -1103,17 +1134,17 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span><span class="chip">Tailwind</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vertice')" aria-label="Abrir ficha de Vértice · App a la medida">
+              <a class="btn-micro btn-action" href="demos/vertice/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vertice')" aria-label="Abrir ficha técnica de Vértice · App a la medida">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/vertice/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="vitrina" data-category="web" data-live="true" data-search="vitrina · tu tienda en internet tienda en línea web apps & erp vanilla js html5 css3 sin dependencias tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/vitrina.jpg" alt="Vitrina · Tu tienda en internet" loading="eager" width="320" height="200" />
           </div>
@@ -1130,17 +1161,17 @@
             </div>
             <div class="stack"><span class="chip">Vanilla JS</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Sin dependencias</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vitrina')" aria-label="Abrir ficha de Vitrina · Tu tienda en internet">
+              <a class="btn-micro btn-action" href="demos/vitrina/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vitrina')" aria-label="Abrir ficha técnica de Vitrina · Tu tienda en internet">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/vitrina/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="myaccountant" data-category="web" data-live="true" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react pwa indexeddb finanzas app personal (pwa) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. proyecto propio en react + firebase (google cloud), en desarrollo activo.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/myaccountant.jpg" alt="MyAccountant · Tus finanzas en orden" loading="eager" width="320" height="200" />
           </div>
@@ -1157,17 +1188,17 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">IndexedDB</span><span class="chip">Finanzas</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('myaccountant')" aria-label="Abrir ficha de MyAccountant · Tus finanzas en orden">
+              <a class="btn-micro btn-action" href="demos/myaccountant/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('myaccountant')" aria-label="Abrir ficha técnica de MyAccountant · Tus finanzas en orden">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/myaccountant/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="nexo" data-category="auto" data-live="true" data-search="nexo · tu asistente por whatsapp atención al cliente automatización & bi python fastapi whatsapp cloud api docker atiende a tus clientes por whatsapp las 24 horas con el api oficial de whatsapp business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. también como plataforma centralizada multi-agente.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/nexo.jpg" alt="Nexo · Tu asistente por WhatsApp" loading="eager" width="320" height="200" />
           </div>
@@ -1184,17 +1215,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">WhatsApp Cloud API</span><span class="chip">Docker</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nexo')" aria-label="Abrir ficha de Nexo · Tu asistente por WhatsApp">
+              <a class="btn-micro btn-action" href="demos/nexo/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nexo')" aria-label="Abrir ficha técnica de Nexo · Tu asistente por WhatsApp">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/nexo/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="brujula" data-category="auto" data-live="true" data-search="brújula · tus números por whatsapp bi por whatsapp automatización & bi python fastapi bi whatsapp api ">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
@@ -1232,12 +1263,12 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">BI</span><span class="chip">WhatsApp API</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('brujula')" aria-label="Abrir ficha de Brújula · Tus números por WhatsApp">
+              <a class="btn-micro btn-action" href="proyectos/brujula/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('brujula')" aria-label="Abrir ficha técnica de Brújula · Tus números por WhatsApp">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/brujula/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
@@ -1259,17 +1290,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">Automated Backend</span><span class="chip">PostgreSQL</span><span class="chip">B2B ERP</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('festo')" aria-label="Abrir ficha de Festo · Felicita cumpleaños solo">
-                Ficha técnica
-              </button>
-              <a class="btn-micro btn-action" href="proyectos/festo/">
+              <a class="btn-micro btn-action" href="proyectos/festo/" >
                 Ver presentación
               </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('festo')" aria-label="Abrir ficha técnica de Festo · Felicita cumpleaños solo">
+                Ficha técnica
+              </button>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="pulso" data-category="web" data-live="true" data-search="pulso · encuestas sin internet encuestas web apps & erp react pwa offline-first service workers levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/pulso.jpg" alt="Pulso · Encuestas sin internet" loading="eager" width="320" height="200" />
           </div>
@@ -1286,12 +1317,12 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span><span class="chip">Service Workers</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('pulso')" aria-label="Abrir ficha de Pulso · Encuestas sin internet">
+              <a class="btn-micro btn-action" href="demos/pulso/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('pulso')" aria-label="Abrir ficha técnica de Pulso · Encuestas sin internet">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/pulso/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
@@ -1313,17 +1344,17 @@
             </div>
             <div class="stack"><span class="chip">React Native</span><span class="chip">Firebase</span><span class="chip">Kiosco Interactivo</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('totem')" aria-label="Abrir ficha de Totem · Controla tu pantalla espectacular">
-                Ficha técnica
-              </button>
-              <a class="btn-micro btn-action" href="proyectos/totem/">
+              <a class="btn-micro btn-action" href="proyectos/totem/" >
                 Ver presentación
               </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('totem')" aria-label="Abrir ficha técnica de Totem · Controla tu pantalla espectacular">
+                Ficha técnica
+              </button>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="marquesina" data-category="hardware" data-live="true" data-search="landing page · portafolio audiovisual sitio web · landing page 3d, videojuegos & hardware html5 canvas websockets digital signage landing page estilo netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y seo completo (open graph + datos estructurados). diseño, frontend y publicación de principio a fin.">
-          <span class="live badge-demo">Demo en vivo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
           <div class="preview">
             <img src="assets/previews/marquesina.jpg" alt="Landing page · Portafolio audiovisual" loading="eager" width="320" height="200" />
           </div>
@@ -1340,12 +1371,12 @@
             </div>
             <div class="stack"><span class="chip">HTML5 Canvas</span><span class="chip">WebSockets</span><span class="chip">Digital Signage</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('marquesina')" aria-label="Abrir ficha de Landing page · Portafolio audiovisual">
+              <a class="btn-micro btn-action" href="demos/marquesina/" >
+                Probar demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('marquesina')" aria-label="Abrir ficha técnica de Landing page · Portafolio audiovisual">
                 Ficha técnica
               </button>
-              <a class="btn-micro btn-action" href="proyectos/marquesina/">
-                Ver presentación
-              </a>
             </div>
           </div>
         </div>
@@ -2185,7 +2216,22 @@
       });
     });
 
+    function switchView(viewName) {
+      var targetBtn = document.querySelector('.view-btn[data-view="' + viewName + '"]');
+      if (targetBtn) targetBtn.click();
+      var sec = document.getElementById('proyectos');
+      if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+    }
+
     function filterBySlug(slug) {
+      if (activeView !== 'grid') {
+        var gridBtn = document.querySelector('.view-btn[data-view="grid"]');
+        if (gridBtn) gridBtn.click();
+      }
+      activeFilter = 'all';
+      tabButtons.forEach(function(b){
+        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
+      });
       if (searchInput) {
         searchInput.value = slug;
         activeSearch = slug;
@@ -2195,6 +2241,11 @@
       var target = document.querySelector('.card[data-slug="' + slug + '"]');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        target.style.transition = 'transform .4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        target.style.transform = 'translateY(-10px) scale(1.02)';
+        setTimeout(function(){
+          target.style.transform = '';
+        }, 900);
       }
     }
 

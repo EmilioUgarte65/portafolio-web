@@ -134,7 +134,7 @@
     
     /* HERO */
     .hero {
-      padding: 64px 0 72px; position: relative; overflow: hidden;
+      padding: 48px 0 38px; position: relative; overflow: hidden;
     }
     .hero::before {
       content: ""; position: absolute; inset: 0;
@@ -147,57 +147,68 @@
     
     .hero h1 {
       font-size: var(--step-display); font-weight: 800;
-      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 20px;
+      letter-spacing: -0.04em; line-height: 1.05; margin-bottom: 18px;
       color: var(--ink); max-width: 960px;
     }
     .hero p.lead {
       font-size: var(--step-body); color: var(--ink-muted); max-width: 760px;
-      margin-bottom: 34px; line-height: 1.65;
+      margin-bottom: 24px; line-height: 1.65;
     }
     
-    /* HERO TELEMETRY CARDS */
-    .hero-stats-bar {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 16px; margin: 34px 0 36px;
+    /* HERO ENGINEERING CAPABILITIES RIBBON */
+    .hero-caps-row {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 22px;
     }
-    .hero-stat-card {
-      position: relative; background: var(--surface-1); border-radius: var(--radius);
-      border: 1px solid transparent;
-      padding: 22px 24px; overflow: hidden;
-      transition: transform .25s var(--ease-out), background .25s var(--ease-out), border-color .25s var(--ease-out);
+    .cap-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 6px 14px; border-radius: 999px;
+      background: var(--surface-1); border: 1px solid transparent;
+      color: var(--ink-muted); font-size: var(--step-sm); font-weight: 500;
+      transition: all .2s var(--ease-out);
     }
-    .hero-stat-card:hover {
-      transform: translateY(-4px); background: var(--surface-2); border-color: rgba(56, 189, 248, 0.3);
+    .cap-badge strong { color: var(--ink); font-weight: 700; }
+    .cap-badge:hover {
+      color: var(--ink); background: var(--surface-2); border-color: rgba(56, 189, 248, 0.25);
+      transform: translateY(-2px);
     }
-    .hero-stat-card strong {
-      display: block; font-size: var(--step-h2); font-weight: 800; color: var(--ink);
-      font-family: 'Space Grotesk', sans-serif; letter-spacing: -0.02em; line-height: 1.15;
+    .beacon-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none;
     }
-    .hero-stat-card strong span { color: var(--accent); }
-    .hero-stat-card p { font-size: var(--step-sm); color: var(--ink-muted); margin-top: 6px; }
+    .beacon-dot.green { background: var(--accent-green); }
+    .beacon-dot.blue { background: var(--accent); }
     
     .hero-highlights {
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 34px;
-      font-size: var(--step-sm); color: var(--ink-muted);
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 28px;
+    }
+    .highlights-title {
+      font-size: var(--step-sm); color: var(--ink-muted); font-weight: 600;
     }
     .highlight-pill {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 7px 15px; background: var(--surface-1); border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--ink); font-weight: 500; font-size: var(--step-sm);
-      transition: background .15s, transform .15s var(--ease-out), color .15s, border-color .15s;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 16px; background: var(--surface-1); border-radius: 999px;
+      border: 1px solid transparent; cursor: pointer;
+      color: var(--ink); font-weight: 600; font-size: var(--step-sm);
+      transition: background .18s, transform .18s var(--ease-out), color .18s, border-color .18s;
     }
     .highlight-pill:hover {
-      background: var(--surface-2); color: var(--accent); transform: translateY(-2px); border-color: rgba(56, 189, 248, 0.25);
+      background: var(--surface-2); color: var(--accent); transform: translateY(-2px);
+      border-color: rgba(56, 189, 248, 0.3);
     }
-    .highlight-pill:active { transform: scale(0.97); }
+    .highlight-pill:active { transform: scale(0.96); }
+    .hl-dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+    .hl-dot.green { background: var(--accent-green); }
+    .hl-dot.purple { background: var(--accent-purple); }
+    .hl-dot.blue { background: var(--accent); }
+    .pill-tag {
+      font-size: var(--step-sm); font-weight: 500; opacity: 0.65;
+    }
     
-    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 13px 26px; border-radius: var(--radius-sm); font-weight: 600;
+      padding: 12px 24px; border-radius: var(--radius-sm); font-weight: 600;
       font-size: var(--step-body); cursor: pointer; text-decoration: none; border: none;
-      transition: transform .18s var(--ease-out), background .18s;
+      transition: transform .18s var(--ease-out), background .18s, border-color .18s;
     }
     .btn-primary {
       background: var(--accent); color: var(--accent-ink); font-weight: 700;
@@ -209,21 +220,26 @@
     }
     .btn-ghost:hover { background: var(--surface-2); transform: translateY(-2px); }
     .btn-ghost:active { transform: scale(0.97); }
+    .btn-outline {
+      background: var(--surface-1); color: var(--ink); border: 1px solid transparent;
+    }
+    .btn-outline:hover { background: var(--surface-2); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
+    .btn-outline:active { transform: scale(0.97); }
     
     /* CATALOG SECTION */
-    #proyectos { padding: 68px 0 92px; position: relative; }
-    .section-head { margin-bottom: 34px; }
+    #proyectos { padding: 48px 0 88px; position: relative; }
+    .section-head { margin-bottom: 28px; }
     .section-head h2 {
       font-size: var(--step-h2); font-weight: 800; letter-spacing: -0.03em; color: var(--ink);
     }
-    .section-head p { color: var(--ink-muted); margin-top: 8px; max-width: 720px; }
+    .section-head p { color: var(--ink-muted); margin-top: 6px; max-width: 720px; }
     
-    /* CATALOG CONTROLS BAR */
+    /* CATALOG CONTROLS BAR (STICKY COMMAND CENTER) */
     .catalog-bar {
       background: var(--surface-1); border-radius: var(--radius);
       border: 1px solid transparent;
-      padding: 18px 22px; margin-bottom: 38px;
-      display: flex; flex-direction: column; gap: 16px;
+      padding: 16px 20px; margin-bottom: 32px;
+      display: flex; flex-direction: column; gap: 14px;
     }
     .catalog-top-row {
       display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
@@ -327,6 +343,10 @@
     .card .live {
       position: absolute; top: 12px; right: 12px; z-index: 3;
       font-size: var(--step-sm); font-weight: 700; padding: 4px 11px; border-radius: 999px;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .beacon-pulse {
+      width: 6px; height: 6px; border-radius: 50%; background: #042f1a; flex: none;
     }
     .badge-demo { background: var(--accent-green); color: #042f1a; }
     .badge-showcase { background: var(--accent-purple); color: #ffffff; }
@@ -563,11 +583,10 @@
     }
     
     .hero-box { animation: heroEntrance 0.5s var(--ease-out) both; }
-    .hero-stat-card:nth-child(1) { animation: heroEntrance 0.5s var(--ease-out) 0.05s both; }
-    .hero-stat-card:nth-child(2) { animation: heroEntrance 0.5s var(--ease-out) 0.10s both; }
-    .hero-stat-card:nth-child(3) { animation: heroEntrance 0.5s var(--ease-out) 0.15s both; }
-    .hero-stat-card:nth-child(4) { animation: heroEntrance 0.5s var(--ease-out) 0.20s both; }
-    .catalog-bar { animation: heroEntrance 0.5s var(--ease-out) 0.25s both; }
+    .hero-caps-row { animation: heroEntrance 0.5s var(--ease-out) 0.08s both; }
+    .hero-highlights { animation: heroEntrance 0.5s var(--ease-out) 0.14s both; }
+    .cta-row { animation: heroEntrance 0.5s var(--ease-out) 0.20s both; }
+    .catalog-bar { animation: heroEntrance 0.5s var(--ease-out) 0.26s both; }
     .cat-pill:nth-child(1) { animation: heroEntrance 0.4s var(--ease-out) 0.30s both; }
     .cat-pill:nth-child(2) { animation: heroEntrance 0.4s var(--ease-out) 0.34s both; }
     .cat-pill:nth-child(3) { animation: heroEntrance 0.4s var(--ease-out) 0.38s both; }
@@ -635,38 +654,50 @@
       <h1>Software and applied AI.</h1>
       <p class="lead">Full-stack developer building end-to-end production systems: ERP platforms, commercial analytics, consumer-GPU AI inference, and WebGL games. Explore the interactive catalog with live demos.</p>
       
-      <!-- STATS TELEMETRY BAR -->
-      <div class="hero-stats-bar">
-        <div class="hero-stat-card">
-          <strong>21 <span>+</span></strong>
-          <p>Production delivered systems</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>17 <span>●</span></strong>
-          <p>Interactive in browser</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>4 GB <span>VRAM</span></strong>
-          <p>Optimized LLM inference</p>
-        </div>
-        <div class="hero-stat-card">
-          <strong>100% <span>OK</span></strong>
-          <p>Field-verified code</p>
-        </div>
+      <!-- ENGINEERING LIVE CAPABILITIES RIBBON -->
+      <div class="hero-caps-row">
+        <span class="cap-badge"><span class="beacon-dot green"></span> <strong>21</strong> Production Systems</span>
+        <span class="cap-badge"><span class="beacon-dot blue"></span> <strong>17</strong> In-Browser Demos</span>
+        <span class="cap-badge">Local INT4 Inference</span>
+        <span class="cap-badge">WebGL & 2D/3D Physics</span>
+        <span class="cap-badge">ERP & BI Architecture</span>
       </div>
 
       <!-- QUICK ACCESS HIGHLIGHTS -->
       <div class="hero-highlights">
-        <span>Key highlights:</span>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('juego-construccion')">Obra Maestra MN</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('web-studio')">Web Studio (IA)</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('ruta-clara')">Ruta Clara</a>
-        <a class="highlight-pill" href="#proyectos" onclick="filterBySlug('inferencia')">Inferencia 4GB</a>
+        <span class="highlights-title">Flagship shortcuts:</span>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('juego-construccion')">
+          <span class="hl-dot green"></span>
+          <span>Obra Maestra MN</span>
+          <span class="pill-tag">WebGL 2D</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('web-studio')">
+          <span class="hl-dot purple"></span>
+          <span>Web Studio</span>
+          <span class="pill-tag">IA &amp; Video</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('ruta-clara')">
+          <span class="hl-dot green"></span>
+          <span>Ruta Clara</span>
+          <span class="pill-tag">Logística GIS</span>
+        </button>
+        <button type="button" class="highlight-pill" onclick="filterBySlug('inferencia')">
+          <span class="hl-dot blue"></span>
+          <span>Inferencia 4GB</span>
+          <span class="pill-tag">CUDA INT4</span>
+        </button>
       </div>
 
       <div class="cta-row">
-        <a class="btn btn-primary" href="#proyectos">Explore interactive catalog (21)</a>
-        <a class="btn btn-ghost" href="#contacto">Contact and resume</a>
+        <a class="btn btn-primary" href="#proyectos">
+          <span>Explore interactive catalog (21)</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 13l5 5 5-5M12 6v12"/></svg>
+        </a>
+        <button type="button" class="btn btn-ghost" onclick="switchView('index')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+          <span>View 1-screen index</span>
+        </button>
+        <a class="btn btn-outline" href="#contacto">Contact & CV</a>
       </div>
     </div>
   </header>
@@ -737,7 +768,7 @@
       <!-- GRID CARDS -->
       <div class="catalog-grid" id="catalogGrid">
         <div class="card catalog-item" data-slug="juego-construccion" data-category="hardware" data-live="true" data-search="obra maestra mn video game · unity & webgl 3d, games & hardware unity c# webgl wasm 2d platformer 2d resource-gathering and construction platformer. built with unity, compiled to webgl/wasm and optimized for seamless mobile and desktop web play.">
-          <span class="live badge-demo">Playable demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Playable demo</span>
           <div class="preview">
             <img src="../assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="eager" width="320" height="200" />
           </div>
@@ -754,17 +785,17 @@
             </div>
             <div class="stack"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">WebGL</span><span class="chip">WASM</span><span class="chip">2D Platformer</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('juego-construccion')" aria-label="Abrir ficha de Obra Maestra MN">
+              <a class="btn-micro btn-action" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">
+                Play web demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('juego-construccion')" aria-label="Abrir ficha técnica de Obra Maestra MN">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/juego-construccion/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="ruta-clara" data-category="auto" data-live="true" data-search="ruta clara logistics and maps automation & bi javascript leaflet geojson algoritmos de ruta explore the original maps, street routes, orders, loading and reports with fictional operations.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/ruta-clara.jpg" alt="Ruta Clara" loading="eager" width="320" height="200" />
           </div>
@@ -781,17 +812,17 @@
             </div>
             <div class="stack"><span class="chip">JavaScript</span><span class="chip">Leaflet</span><span class="chip">GeoJSON</span><span class="chip">Algoritmos de Ruta</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ruta-clara')" aria-label="Abrir ficha de Ruta Clara">
+              <a class="btn-micro btn-action" href="../demos/ruta-clara/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ruta-clara')" aria-label="Abrir ficha técnica de Ruta Clara">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/ruta-clara/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="web-studio" data-category="ia" data-live="true" data-search="web studio ai & video editor ai & machine learning javascript ia multimedia canvas webgl video editor explore the original ai-assisted timeline, media library, monitor and inspector with a fictional sample project.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/web-studio.jpg" alt="Web Studio" loading="eager" width="320" height="200" />
           </div>
@@ -808,17 +839,17 @@
             </div>
             <div class="stack"><span class="chip">JavaScript</span><span class="chip">IA Multimedia</span><span class="chip">Canvas WebGL</span><span class="chip">Video Editor</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('web-studio')" aria-label="Abrir ficha de Web Studio">
+              <a class="btn-micro btn-action" href="../demos/web-studio/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('web-studio')" aria-label="Abrir ficha técnica de Web Studio">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/web-studio/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="ourway" data-category="hardware" data-live="true" data-search="ourway 3d travel atlas 3d, games & hardware three.js webgl shaders atlas 3d explore the original orbital scene, planets, textures and navigation. the sample trip contains no private photos or locations. private album connections are disabled.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/ourway.jpg" alt="Ourway" loading="eager" width="320" height="200" />
           </div>
@@ -835,17 +866,17 @@
             </div>
             <div class="stack"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Shaders</span><span class="chip">Atlas 3D</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ourway')" aria-label="Abrir ficha de Ourway">
+              <a class="btn-micro btn-action" href="../demos/ourway/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ourway')" aria-label="Abrir ficha técnica de Ourway">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/ourway/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="radar" data-category="auto" data-live="true" data-search="radar commercial analytics automation & bi chart.js javascript analytics bi dashboards explore the original navigation and panels with fictional customers, quotes and monthly series. modules without sample data remain empty. no erp or company database is connected.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/radar.jpg" alt="Radar" loading="eager" width="320" height="200" />
           </div>
@@ -862,17 +893,17 @@
             </div>
             <div class="stack"><span class="chip">Chart.js</span><span class="chip">JavaScript</span><span class="chip">Analytics</span><span class="chip">BI Dashboards</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('radar')" aria-label="Abrir ficha de Radar">
+              <a class="btn-micro btn-action" href="../demos/radar/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('radar')" aria-label="Abrir ficha técnica de Radar">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/radar/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="distrito" data-category="hardware" data-live="true" data-search="distrito 3d experience 3d, games & hardware three.js webgl modelos 3d animaciones explore the original 3d room, animated pets and controls with fictional player data.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/distrito.jpg" alt="Distrito" loading="eager" width="320" height="200" />
           </div>
@@ -889,12 +920,12 @@
             </div>
             <div class="stack"><span class="chip">Three.js</span><span class="chip">WebGL</span><span class="chip">Modelos 3D</span><span class="chip">Animaciones</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('distrito')" aria-label="Abrir ficha de Distrito">
+              <a class="btn-micro btn-action" href="../demos/distrito/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('distrito')" aria-label="Abrir ficha técnica de Distrito">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/distrito/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
@@ -916,12 +947,12 @@
             </div>
             <div class="stack"><span class="chip">PyTorch</span><span class="chip">GPTQ</span><span class="chip">INT4/INT3/INT2</span><span class="chip">CUDA</span><span class="chip">HuggingFace</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('inferencia')" aria-label="Abrir ficha de Inferencia eficiente">
-                Quick view
-              </button>
-              <a class="btn-micro btn-action" href="projects/inferencia/">
+              <a class="btn-micro btn-action" href="projects/inferencia/" >
                 View showcase
               </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('inferencia')" aria-label="Abrir ficha técnica de Inferencia eficiente">
+                Quick view
+              </button>
             </div>
           </div>
         </div>
@@ -957,17 +988,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">PPO</span><span class="chip">Reinforcement Learning</span><span class="chip">OpenCV</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('dino-ai')" aria-label="Abrir ficha de Dino AI · An AI that learns on its own">
-                Quick view
-              </button>
-              <a class="btn-micro btn-action" href="projects/dino-ai/">
+              <a class="btn-micro btn-action" href="projects/dino-ai/" >
                 View showcase
               </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('dino-ai')" aria-label="Abrir ficha técnica de Dino AI · An AI that learns on its own">
+                Quick view
+              </button>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="mundial" data-category="ia" data-live="true" data-search="world cup 2026 · ai prediction machine learning · simulation ai & machine learning python fastapi monte carlo scikit-learn machine-learning model that predicts the 2026 world cup: blends elo ratings with xgboost regressors, models the minute of each goal and simulates the knockouts with monte carlo (50k+ historical matches). world-cup-style web with bracket, groups, favorites and per-match detail.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/mundial.jpg" alt="World Cup 2026 · AI prediction" loading="eager" width="320" height="200" />
           </div>
@@ -984,17 +1015,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Monte Carlo</span><span class="chip">Scikit-Learn</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('mundial')" aria-label="Abrir ficha de World Cup 2026 · AI prediction">
+              <a class="btn-micro btn-action" href="../demos/mundial/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('mundial')" aria-label="Abrir ficha técnica de World Cup 2026 · AI prediction">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/mundial/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="dexter" data-category="ia" data-live="true" data-search="dexter · custom ai assistants artificial intelligence ai & machine learning python openai / claude fastapi multi-agent a collection of ai assistants anyone can install and combine as needed, with 46+ ready-to-use skills, persistent memory and multi-agent support. open source.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
@@ -1022,17 +1053,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">OpenAI / Claude</span><span class="chip">FastAPI</span><span class="chip">Multi-Agent</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('dexter')" aria-label="Abrir ficha de Dexter · Custom AI assistants">
+              <a class="btn-micro btn-action" href="projects/dexter/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('dexter')" aria-label="Abrir ficha técnica de Dexter · Custom AI assistants">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/dexter/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="nucleo" data-category="web" data-live="true" data-search="núcleo · your business in one screen business management web apps & erp react typescript node.js postgresql organizes your schedule, resources and day-to-day operations in one real-time place, synced with your calendar so no appointment slips through.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/nucleo.jpg" alt="Núcleo · Your business in one screen" loading="eager" width="320" height="200" />
           </div>
@@ -1049,17 +1080,17 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nucleo')" aria-label="Abrir ficha de Núcleo · Your business in one screen">
+              <a class="btn-micro btn-action" href="../demos/nucleo/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nucleo')" aria-label="Abrir ficha técnica de Núcleo · Your business in one screen">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/nucleo/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="lumen" data-category="ia" data-live="true" data-search="lumen · ask your numbers smart reporting ai & machine learning react fastapi nl-to-sql postgresql ask about your sales or finances in plain language — typing or speaking — and get a clear answer instantly, no spreadsheets required. charts, tables and natural-language reporting over your erp data.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/lumen.jpg" alt="Lumen · Ask your numbers" loading="eager" width="320" height="200" />
           </div>
@@ -1076,17 +1107,17 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">NL-to-SQL</span><span class="chip">PostgreSQL</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('lumen')" aria-label="Abrir ficha de Lumen · Ask your numbers">
+              <a class="btn-micro btn-action" href="../demos/lumen/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('lumen')" aria-label="Abrir ficha técnica de Lumen · Ask your numbers">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/lumen/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="vertice" data-category="web" data-live="true" data-search="vértice · a custom-built app management app web apps & erp react pwa offline-first tailwind a custom application to manage a team’s internal processes (projects, quotes, payments). keeps working offline and protects access with secure authentication. react + fastapi + postgresql + docker.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/vertice.jpg" alt="Vértice · A custom-built app" loading="eager" width="320" height="200" />
           </div>
@@ -1103,17 +1134,17 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span><span class="chip">Tailwind</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vertice')" aria-label="Abrir ficha de Vértice · A custom-built app">
+              <a class="btn-micro btn-action" href="../demos/vertice/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vertice')" aria-label="Abrir ficha técnica de Vértice · A custom-built app">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/vertice/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="vitrina" data-category="web" data-live="true" data-search="vitrina · your online store online store web apps & erp vanilla js html5 css3 sin dependencias a complete, ready-to-sell online store: category catalog, cart with promotions, stock alerts and instant product search. fully responsive.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/vitrina.jpg" alt="Vitrina · Your online store" loading="eager" width="320" height="200" />
           </div>
@@ -1130,17 +1161,17 @@
             </div>
             <div class="stack"><span class="chip">Vanilla JS</span><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Sin dependencias</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vitrina')" aria-label="Abrir ficha de Vitrina · Your online store">
+              <a class="btn-micro btn-action" href="../demos/vitrina/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vitrina')" aria-label="Abrir ficha técnica de Vitrina · Your online store">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/vitrina/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="myaccountant" data-category="web" data-live="true" data-search="myaccountant · your money, in order personal finance app web apps & erp react pwa indexeddb finanzas personal pwa to manage your finances: category budgeting, expense control and real-time tracking. a personal project on react + firebase (google cloud), in active development.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/myaccountant.jpg" alt="MyAccountant · Your money, in order" loading="eager" width="320" height="200" />
           </div>
@@ -1157,17 +1188,17 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">IndexedDB</span><span class="chip">Finanzas</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('myaccountant')" aria-label="Abrir ficha de MyAccountant · Your money, in order">
+              <a class="btn-micro btn-action" href="../demos/myaccountant/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('myaccountant')" aria-label="Abrir ficha técnica de MyAccountant · Your money, in order">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/myaccountant/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="nexo" data-category="auto" data-live="true" data-search="nexo · your whatsapp assistant customer support automation & bi python fastapi whatsapp cloud api docker serves customers on whatsapp 24/7 using the official whatsapp business api: understands text, voice notes and photos, and resolves with no human in the loop. also works as a centralized multi-agent platform.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/nexo.jpg" alt="Nexo · Your WhatsApp assistant" loading="eager" width="320" height="200" />
           </div>
@@ -1184,17 +1215,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">WhatsApp Cloud API</span><span class="chip">Docker</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nexo')" aria-label="Abrir ficha de Nexo · Your WhatsApp assistant">
+              <a class="btn-micro btn-action" href="../demos/nexo/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nexo')" aria-label="Abrir ficha técnica de Nexo · Your WhatsApp assistant">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/nexo/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="brujula" data-category="auto" data-live="true" data-search="brújula · your numbers on whatsapp bi over whatsapp automation & bi python fastapi bi whatsapp api ">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
@@ -1232,12 +1263,12 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">BI</span><span class="chip">WhatsApp API</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('brujula')" aria-label="Abrir ficha de Brújula · Your numbers on WhatsApp">
+              <a class="btn-micro btn-action" href="projects/brujula/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('brujula')" aria-label="Abrir ficha técnica de Brújula · Your numbers on WhatsApp">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/brujula/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
@@ -1259,17 +1290,17 @@
             </div>
             <div class="stack"><span class="chip">Python</span><span class="chip">Automated Backend</span><span class="chip">PostgreSQL</span><span class="chip">B2B ERP</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('festo')" aria-label="Abrir ficha de Festo · Automatic birthday wishes">
-                Quick view
-              </button>
-              <a class="btn-micro btn-action" href="projects/festo/">
+              <a class="btn-micro btn-action" href="projects/festo/" >
                 View showcase
               </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('festo')" aria-label="Abrir ficha técnica de Festo · Automatic birthday wishes">
+                Quick view
+              </button>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="pulso" data-category="web" data-live="true" data-search="pulso · offline-first surveys surveys web apps & erp react pwa offline-first service workers run satisfaction surveys anywhere, even with no signal. responses are saved locally and sync automatically the moment the connection returns. offline-first pwa.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/pulso.jpg" alt="Pulso · Offline-first surveys" loading="eager" width="320" height="200" />
           </div>
@@ -1286,12 +1317,12 @@
             </div>
             <div class="stack"><span class="chip">React</span><span class="chip">PWA</span><span class="chip">Offline-First</span><span class="chip">Service Workers</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('pulso')" aria-label="Abrir ficha de Pulso · Offline-first surveys">
+              <a class="btn-micro btn-action" href="../demos/pulso/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('pulso')" aria-label="Abrir ficha técnica de Pulso · Offline-first surveys">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/pulso/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
@@ -1313,17 +1344,17 @@
             </div>
             <div class="stack"><span class="chip">React Native</span><span class="chip">Firebase</span><span class="chip">Kiosco Interactivo</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('totem')" aria-label="Abrir ficha de Totem · Control your billboard screen">
-                Quick view
-              </button>
-              <a class="btn-micro btn-action" href="projects/totem/">
+              <a class="btn-micro btn-action" href="projects/totem/" >
                 View showcase
               </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('totem')" aria-label="Abrir ficha técnica de Totem · Control your billboard screen">
+                Quick view
+              </button>
             </div>
           </div>
         </div>
 <div class="card catalog-item" data-slug="marquesina" data-category="hardware" data-live="true" data-search="landing page · audiovisual portfolio website · landing page 3d, games & hardware html5 canvas websockets digital signage netflix-style landing page for an audiovisual marketing creative: billboard hero, video catalog with a built-in player, animated hover and full seo (open graph + structured data). design, frontend and deployment end to end.">
-          <span class="live badge-demo">Live demo</span>
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Live demo</span>
           <div class="preview">
             <img src="../assets/previews/marquesina.jpg" alt="Landing page · Audiovisual portfolio" loading="eager" width="320" height="200" />
           </div>
@@ -1340,12 +1371,12 @@
             </div>
             <div class="stack"><span class="chip">HTML5 Canvas</span><span class="chip">WebSockets</span><span class="chip">Digital Signage</span></div>
             <div class="card-actions">
-              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('marquesina')" aria-label="Abrir ficha de Landing page · Audiovisual portfolio">
+              <a class="btn-micro btn-action" href="../demos/marquesina/" >
+                Open demo
+              </a>
+              <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('marquesina')" aria-label="Abrir ficha técnica de Landing page · Audiovisual portfolio">
                 Quick view
               </button>
-              <a class="btn-micro btn-action" href="projects/marquesina/">
-                View showcase
-              </a>
             </div>
           </div>
         </div>
@@ -2185,7 +2216,22 @@
       });
     });
 
+    function switchView(viewName) {
+      var targetBtn = document.querySelector('.view-btn[data-view="' + viewName + '"]');
+      if (targetBtn) targetBtn.click();
+      var sec = document.getElementById('proyectos');
+      if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+    }
+
     function filterBySlug(slug) {
+      if (activeView !== 'grid') {
+        var gridBtn = document.querySelector('.view-btn[data-view="grid"]');
+        if (gridBtn) gridBtn.click();
+      }
+      activeFilter = 'all';
+      tabButtons.forEach(function(b){
+        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
+      });
       if (searchInput) {
         searchInput.value = slug;
         activeSearch = slug;
@@ -2195,6 +2241,11 @@
       var target = document.querySelector('.card[data-slug="' + slug + '"]');
       if (target) {
         target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        target.style.transition = 'transform .4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        target.style.transform = 'translateY(-10px) scale(1.02)';
+        setTimeout(function(){
+          target.style.transform = '';
+        }, 900);
       }
     }
 
