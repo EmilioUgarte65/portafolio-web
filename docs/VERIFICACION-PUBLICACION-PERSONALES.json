@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-15",
+  "repository": "https://github.com/EmilioUgarte65/web-dev-eyes-personal-demos",
+  "pages": [
+    {
+      "url": "https://emiliougarte65.github.io/web-dev-eyes-personal-demos/",
+      "http_status": 200,
+      "javascript_errors": [],
+      "failed_resources": []
+    },
+    {
+      "url": "https://emiliougarte65.github.io/web-dev-eyes-personal-demos/ourway/",
+      "http_status": 200,
+      "javascript_errors": [],
+      "failed_resources": []
+    },
+    {
+      "url": "https://emiliougarte65.github.io/web-dev-eyes-personal-demos/myaccountant/",
+      "http_status": 200,
+      "javascript_errors": [],
+      "failed_resources": []
+    }
+  ]
+}

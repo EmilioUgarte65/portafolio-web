@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Vértice",
+    "layout_preserved": true
+  },
+  {
+    "name": "Vitrina",
+    "layout_preserved": true
+  },
+  {
+    "name": "Distrito",
+    "layout_preserved": true
+  },
+  {
+    "name": "Ruta Clara",
+    "layout_preserved": true
+  },
+  {
+    "name": "Lumen",
+    "layout_preserved": true
+  },
+  {
+    "name": "Núcleo",
+    "layout_preserved": true
+  },
+  {
+    "name": "Pulso",
+    "layout_preserved": true
+  },
+  {
+    "name": "Web Studio / app.css",
+    "layout_preserved": true
+  },
+  {
+    "name": "Web Studio / chat.css",
+    "layout_preserved": true
+  },
+  {
+    "name": "Web Studio / editor.css",
+    "layout_preserved": true
+  },
+  {
+    "name": "Web Studio / tokens.css",
+    "layout_preserved": true
+  },
+  {
+    "name": "Nexo: 26 componentes JSX",
+    "layout_preserved": true
+  }
+]

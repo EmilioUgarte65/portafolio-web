@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Obra Maestra MN · Videojuego Unity &amp; WebGL · Emilio Fonseca</title>
+  <meta name="description" content="Obra Maestra MN: videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y jugable en móvil y navegador.">
+  <link rel="icon" href="../../assets/web-dev-eyes.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="../../assets/showcase-original.css">
+  <style>
+    :root {
+      --primary: #EA580C;
+      --secondary: #F97316;
+      --accent: #C2410C;
+      --grad: linear-gradient(120deg, #EA580C, #FBBF24);
+      --grad-soft: linear-gradient(120deg, #EA580C, #7C2D12);
+      --bg: #0F172A;
+      --fg: #F8FAFC;
+      --muted: #94A3B8;
+      --card-bg: #1E293B;
+      --border: #334155;
+      --font-head: 'Sora', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body { background: var(--bg); color: var(--fg); }
+    .hero .lead { color: #CBD5E1; }
+    .hero .btn-primary { min-height: 52px; padding: 14px 26px; background: var(--primary); border: none; }
+    .hero .btn-primary:hover { background: var(--secondary); }
+    .bento .cell { background: var(--card-bg); border: 1px solid var(--border); color: var(--fg); }
+    .bento .cell p { color: var(--muted); }
+    .stat-badge {
+      display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;
+      font-weight: 700; font-family: var(--font-mono); margin-bottom: 8px;
+    }
+    .badge-orange { background: rgba(234, 88, 12, 0.15); color: #FB923C; border: 1px solid rgba(234, 88, 12, 0.3); }
+    .badge-green { background: rgba(34, 197, 94, 0.15); color: #4ADE80; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .badge-yellow { background: rgba(234, 179, 8, 0.15); color: #FACC15; border: 1px solid rgba(234, 179, 8, 0.3); }
+    .game-banner {
+      width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .game-banner img { width: 100%; height: auto; display: block; }
+    .metric-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0;
+    }
+    .metric-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px;
+    }
+    .metric-val { font-size: 1.85rem; font-weight: 800; font-family: var(--font-head); color: #F8FAFC; }
+    .metric-lbl { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <div class="brand">
+        <span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>
+        Obra Maestra MN
+      </div>
+      <div class="nav-links">
+        <a href="#mecanicas">Mecánicas</a>
+        <a href="#tecnologia">Tecnología</a>
+        <a class="nav-cta" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">▶ Jugar ahora</a>
+        <a href="../../en/projects/juego-construccion/">EN</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--secondary)">Videojuego WebGL · Unity 2D</span>
+        <h1>Construye tu casa: <span class="grad">recolecta material, cuela y levanta muros</span>.</h1>
+        <p class="lead">Un videojuego de simulación y construcción 2D desarrollado en Unity y C#, compilado para la web con WebGL y WebAssembly. Diseñado con optimización móvil extrema, soporte para pantalla táctil, orientación vertical/horizontal automática y arquitectura PWA.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">▶ Jugar ahora (En vivo en Netlify)</a>
+          <a class="btn btn-ghost" href="#mecanicas" style="color:#CBD5E1;border-color:var(--border)">Ver mecánicas</a>
+        </div>
+        <p style="color:var(--muted);font-size:.85rem;margin-top:20px">Juego completo disponible públicamente · Sin descargas · Juega gratis desde móvil o PC</p>
+      </div>
+
+      <div class="mock">
+        <div class="game-banner">
+          <img src="../../assets/previews/juego-construccion.jpg" alt="Obra Maestra MN · Captura de juego">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Métricas y especificaciones -->
+  <section style="padding: 20px 0 60px;">
+    <div class="wrap">
+      <div class="metric-grid">
+        <div class="metric-card">
+          <span class="stat-badge badge-green">Compilador &amp; Motor</span>
+          <div class="metric-val">Unity 2D <span style="font-size:1rem;color:var(--muted)">· C#</span></div>
+          <div class="metric-lbl">Exportado a WebAssembly (WASM) nativo</div>
+        </div>
+        <div class="metric-card">
+          <span class="stat-badge badge-orange">Carga ultraligera</span>
+          <div class="metric-val">&lt; 100 KB <span style="font-size:1rem;color:var(--muted)">inicio</span></div>
+          <div class="metric-lbl">Pantalla de arranque inline con compresión Brotli</div>
+        </div>
+        <div class="metric-card">
+          <span class="stat-badge badge-yellow">Compatibilidad</span>
+          <div class="metric-val">PWA <span style="font-size:1rem;color:var(--muted)">+ Móvil</span></div>
+          <div class="metric-lbl">Instalable en iOS y Android con orientación adaptable</div>
+        </div>
+        <div class="metric-card">
+          <span class="stat-badge badge-green">Disponibilidad</span>
+          <div class="metric-val">Netlify <span style="font-size:1rem;color:var(--muted)">en vivo</span></div>
+          <div class="metric-lbl">Despliegue con encabezados Brotli optimizados</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mecánicas y características -->
+  <section id="mecanicas" style="padding: 40px 0;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--secondary)">Jugabilidad &amp; Dinámica</span>
+        <h2>Mecánicas de juego de extremo a extremo</h2>
+      </div>
+
+      <div class="bento">
+        <div class="cell wide">
+          <span class="stat-badge badge-orange">Construcción física y simulación</span>
+          <h3>Ciclo de obra: Materiales, coladas y avance</h3>
+          <p>El jugador recolecta y gestiona suministros reales de construcción (cemento, grava, arena, varilla y block). Mediante estaciones de mezclado y colocación, prepara la revoltura y vierte las coladas para ver crecer su proyecto arquitectónico paso a paso.</p>
+        </div>
+
+        <div class="cell">
+          <span class="stat-badge badge-green">Controles y adaptabilidad</span>
+          <h3>Móvil primero &amp; Giro de pantalla</h3>
+          <p>Diseñado con controles táctiles integrados en pantalla. Soporta orientación tanto vertical como horizontal de forma nativa sin reiniciar el estado de la partida.</p>
+        </div>
+
+        <div class="cell">
+          <span class="stat-badge badge-yellow">Cuentas y guardado</span>
+          <h3>Persistencia y ranking con Supabase</h3>
+          <p>Soporte para inicio de sesión, progreso en la nube y recuperación de cuenta sin fricciones mediante tokens seguros y autenticación integrada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Despliegue y arquitectura técnica -->
+  <section id="tecnologia" style="padding: 50px 0 80px;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--secondary)">Ingeniería</span>
+        <h2>Optimización WebGL para distribución masiva</h2>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+        <div>
+          <h3 style="color:#FB923C;margin-bottom:8px">Compresión Brotli (.br)</h3>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">
+            La compilación WebGL completa de Unity se distribuye comprimida con Brotli y servida mediante reglas <code style="color:#F8FAFC">_headers</code> personalizadas en Netlify para acelerar la descarga en conexiones móviles lentas.
+          </p>
+        </div>
+        <div>
+          <h3 style="color:#4ADE80;margin-bottom:8px">Service Worker y Caché PWA</h3>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">
+            Equipado con un Service Worker que precachea los binarios WASM y recursos gráficos para permitir aperturas instantáneas una vez instalado en el celular.
+          </p>
+        </div>
+        <div>
+          <h3 style="color:#FACC15;margin-bottom:8px">Audio y sprites dinámicos</h3>
+          <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">
+            Spritesheets compactados mediante herramientas automáticas de recorte y audio web interactivo que responde a las acciones de picado, mezcla y vaciado.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA para jugar -->
+  <section style="padding: 0 0 80px;">
+    <div class="wrap">
+      <div class="cta-card" style="background:linear-gradient(135deg,#1E293B,#0F172A);border:1px solid var(--border);">
+        <h2 style="font-size:2rem;margin-bottom:12px">¿Listo para construir?</h2>
+        <p style="color:var(--muted);max-width:560px;margin:0 auto 24px">
+          Prueba el juego completo ahora mismo. No requiere instalación de tiendas ni configuraciones especiales.
+        </p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-primary" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener" style="font-size:1.05rem;padding:16px 32px">
+            ▶ Jugar Obra Maestra MN
+          </a>
+          <a class="btn btn-ghost" href="../../" style="color:#CBD5E1;border-color:var(--border)">Volver a los proyectos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Web Dev-Eyes · Obra Maestra MN</div>
+      <a class="back" href="../../" style="color:var(--muted)">← Volver a los proyectos</a>
+    </div>
+  </footer>
+</body>
+</html>

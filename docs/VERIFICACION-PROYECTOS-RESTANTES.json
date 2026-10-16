@@ -1,0 +1,101 @@
+{
+  "frontends": [
+    {
+      "app": "myaccountant",
+      "checks": [
+        "Navegación al espacio compartido original"
+      ],
+      "javascript_errors": [],
+      "http_errors": []
+    },
+    {
+      "app": "ourway",
+      "checks": [
+        "Escena 3D y navegación al mapa original"
+      ],
+      "javascript_errors": [],
+      "http_errors": []
+    },
+    {
+      "app": "festo",
+      "checks": [
+        "Envío local simulado y descarga de felicitación PNG"
+      ],
+      "javascript_errors": [],
+      "http_errors": []
+    },
+    {
+      "app": "mundial",
+      "checks": [
+        "Vistas de grupos y favoritos originales"
+      ],
+      "javascript_errors": [],
+      "http_errors": []
+    },
+    {
+      "app": "radar",
+      "checks": [
+        "Doce vistas y ficha de cliente ficticio sin errores"
+      ],
+      "javascript_errors": [],
+      "http_errors": []
+    },
+    {
+      "app": "totem",
+      "checks": [
+        "Creación y listado de texto en memoria"
+      ],
+      "javascript_errors": [],
+      "http_errors": []
+    },
+    {
+      "app": "marquesina",
+      "checks": [
+        "Reproducción de video propio en el modal original"
+      ],
+      "javascript_errors": [],
+      "http_errors": []
+    }
+  ],
+  "showcases_responsive": [
+    1440,
+    390
+  ],
+  "mobile_frontends": [
+    {
+      "app": "myaccountant",
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "app": "ourway",
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "app": "festo",
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "app": "mundial",
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "app": "radar",
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "app": "totem",
+      "viewport": 390,
+      "content": 390
+    },
+    {
+      "app": "marquesina",
+      "viewport": 390,
+      "content": 390
+    }
+  ]
+}

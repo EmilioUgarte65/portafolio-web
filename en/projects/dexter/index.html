@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dexter — Turn your AI agent into something far more capable</title>
+<meta name="description" content="Dexter: an ecosystem configurator for AI agents. Install persistent memory, 46+ skills, automation and more into Claude Code, Cursor, Codex and others — with a single command." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%237C3AED'/%3E%3Ctext x='50' y='72' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../../assets/showcase-original.css" />
+<style>
+:root {
+  --primary: #7C3AED; --secondary: #A855F7; --accent: #22D3EE;
+  --bg: #F7F5FF; --fg: #1E1640; --muted: #574b73; --card: #ffffff; --border: #ece6fb; --soft: #f1ecfd;
+  --font-head: 'Space Grotesk', system-ui, sans-serif; --font-body: 'Inter', system-ui, sans-serif;
+  --radius: 18px;
+}
+.cell:hover { border-color: var(--secondary); }
+.hero-single { text-align: center; max-width: 760px; margin: 0 auto; }
+.hero-single .btn-row, .hero-single .stat-row { justify-content: center; }
+.dexter-banner {
+  width: 100%; max-width: 960px; height: auto; aspect-ratio: 1400 / 711; object-fit: cover;
+  margin: 40px auto 0; display: block;
+  border-radius: 18px; border: 1px solid var(--border);
+  box-shadow: 0 30px 64px rgba(124,58,237,.20);
+}
+@media (max-width: 600px) { .dexter-banner { margin-top: 28px; border-radius: 14px; } }
+.tier { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 760px){ .tier { grid-template-columns: 1fr; } }
+.tier .cell { margin: 0; }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Dexter</div>
+  <div class="nav-links"><a href="#que-hace">What's included</a><a class="nav-cta" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">View on GitHub</a><a href="../../../proyectos/dexter/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div class="hero-single">
+    <span class="eyebrow">Ecosystem configurator for AI agents</span>
+    <h1>Turn your AI agent into <span class="grad">something far more capable</span>.</h1>
+    <p class="lead">Dexter installs —in one go— a complete skill system inside your agent: persistent memory, 46+ skills that load as you need them, automation, communications, and a structured workflow. You install it once and your agent becomes dramatically more powerful.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="btn btn-ghost" href="#que-hace">What's included</a>
+    </div>
+  </div>
+  <img class="dexter-banner" src="../../../assets/dexter-banner.jpg" alt="Dexter — AI agent ecosystem" loading="eager" width="1400" height="711" />
+  <div class="wrap"><div class="hero-single"><div class="stat-row">
+    <div class="stat"><div class="n">46+</div><div class="l">skills ready to use</div></div>
+    <div class="stat"><div class="n">6 agents</div><div class="l">Claude Code, Cursor, Codex…</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">your memory, private and local</div></div>
+  </div></div></div>
+</div></header>
+
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">What's included</span><h2>An agent with superpowers, ready in minutes</h2><p>Memory, automation, communications, and the ability to create its own skills. All inside the agent you already use.</p></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4 4 4 0 0 1 1 7 3 3 0 0 1-1 6 4 4 0 0 1-8 0 3 3 0 0 1-1-6 4 4 0 0 1 1-7 4 4 0 0 1 4-4z"/></svg></div>
+      <h3>Persistent memory</h3>
+      <p>It remembers decisions, findings and agreements across sessions (Engram, on SQLite). Stop re-explaining the context to your agent every time.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h3>46+ skills on demand</h3>
+      <p>Skills that load only when needed — fast and without cluttering the context. From development to security.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+      <h3>WhatsApp auto-reply</h3>
+      <p>It works with a regular number, no business account required. To strangers it replies as your "persona," with your style and your rules.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <h3>Home automation</h3>
+      <p>Control Philips Hue, Home Assistant and devices over MQTT directly from your agent.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg></div>
+      <h3>It extends itself</h3>
+      <p>Need a new skill? Describe it and Dexter creates and activates it instantly, no restart required.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <h3>Desktop automation + 112 ready-made flows</h3>
+      <p>Describe a task in natural language and Dexter takes screenshots, reasons about the screen, and runs clicks and keystrokes until it's done — saving the sequence as a reusable macro. Plus over 112 community flows (ClawFlows) ready to import.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="privacidad" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Your memory is yours</span><h2>The same base brain, a unique agent for everyone</h2><p>Everyone starts from the same playbook; with use, each Dexter learns your preferences, your stack, and your way of working.</p></div>
+  <div class="tier">
+    <div class="cell"><h3>Base brain</h3><p>Skills and capabilities: the same for everyone, open on GitHub. The starting point.</p></div>
+    <div class="cell"><h3>Your conversations</h3><p>Decisions and discoveries live on your machine (local SQLite). They never leave it.</p></div>
+    <div class="cell"><h3>100% private</h3><p>Two people install the same thing; after a week of use they have two completely different agents.</p></div>
+  </div>
+</div></section>
+
+
+
+<section id="stack"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>Technology</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Multi-agent</h4><p>Claude Code, OpenCode, Codex, Cursor, Gemini CLI and VS Code — the same ecosystem across all of them.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Local memory (Engram)</h4><p>SQLite + full-text search. It stores and retrieves context across sessions, on your machine.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Open source</h4><p>Open source under Apache 2.0, in active development and with automated tests.</p></div></div>
+  </div>
+</div></section>
+
+<section id="ver"><div class="wrap">
+  <div class="cta-card">
+    <h2>Give your agent superpowers</h2>
+    <p>The entire system —skills, memory, automation and the multi-agent installer— is open on GitHub.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">View Dexter on GitHub</a>
+      <a class="btn btn-ghost" href="../../../en/">More projects</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Dexter</div>
+  <div>© <span class="yr"></span> Dexter · Ecosystem configurator for AI agents</div>
+  <a class="back" href="../../../en/">← Back to projects</a>
+</div></footer>
+<script>document.querySelectorAll('.yr').forEach(e=>e.textContent=new Date().getFullYear());</script>
+</body>
+</html>

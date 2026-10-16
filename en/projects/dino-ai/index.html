@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dino AI — An AI that learns to play on its own</title>
+<meta name="description" content="Dino AI: an artificial intelligence that learns, entirely on its own, to play Chrome's dinosaur game. It watches the screen, detects obstacles, and learns through reinforcement (PPO) when to jump." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230EA5A4'/%3E%3Ctext x='50' y='72' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../../assets/showcase-original.css" />
+<style>
+:root {
+  --primary: #0EA5A4; --secondary: #14B8A6; --accent: #6366F1;
+  --bg: #F3FAF9; --fg: #0F2E2C; --muted: #4b6562; --card: #ffffff; --border: #d9eeeb; --soft: #e6f6f4;
+  --font-head: 'Space Grotesk', system-ui, sans-serif; --font-body: 'Inter', system-ui, sans-serif;
+  --radius: 18px;
+}
+.cell:hover { border-color: var(--secondary); }
+.mock svg { width: 100%; height: auto; display: block; }
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Dino AI</div>
+  <div class="nav-links"><a href="#que-hace">What it does</a><a class="nav-cta" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">View code</a><a href="../../../proyectos/dino-ai/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">Artificial intelligence · Reinforcement learning</span>
+    <h1>An AI that <span class="grad">learns to play</span> on its own.</h1>
+    <p class="lead">No one programmed the rules into it. It watches the screen the way a person would, detects the obstacles, and discovers —through trial and reward— the exact moment to jump in Chrome's dinosaur game. Every attempt makes it better.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="btn btn-ghost" href="#que-hace">How it works</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="n">PPO</div><div class="l">Reinforcement learning</div></div>
+      <div class="stat"><div class="n">Vision</div><div class="l">Detects obstacles on screen</div></div>
+      <div class="stat"><div class="n">Self</div><div class="l">Improves on its own each attempt</div></div>
+    </div>
+  </div>
+  <div class="mock" aria-hidden="true">
+    <svg viewBox="0 0 560 392" xmlns="http://www.w3.org/2000/svg">
+      <rect width="560" height="392" fill="#0c1018"/>
+      <!-- panel superior: lo que ve la IA -->
+      <rect x="24" y="20" width="512" height="40" rx="10" fill="#11182a"/>
+      <text x="40" y="45" font-size="13" fill="#5eead4" font-family="Space Grotesk" font-weight="600">▶ Brain · what the AI sees</text>
+      <text x="430" y="45" font-size="13" fill="#a5b4fc" font-family="Space Grotesk">reward ↑</text>
+      <!-- escena del juego -->
+      <rect x="24" y="76" width="512" height="180" rx="12" fill="#0f1626"/>
+      <line x1="48" y1="216" x2="512" y2="216" stroke="#2a3550" stroke-width="2"/>
+      <!-- dino -->
+      <g fill="#5eead4">
+        <rect x="86" y="176" width="30" height="34" rx="3"/><rect x="106" y="166" width="22" height="22" rx="3"/><rect x="126" y="172" width="8" height="6"/>
+        <rect x="90" y="210" width="7" height="12"/><rect x="104" y="210" width="7" height="12"/>
+      </g>
+      <!-- caja de detección sobre el cactus -->
+      <rect x="372" y="160" width="60" height="60" rx="3" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6 4"/>
+      <text x="402" y="152" font-size="10" fill="#f43f5e" text-anchor="middle" font-family="Space Grotesk" font-weight="600">obstacle</text>
+      <!-- cactus -->
+      <g fill="#34d399"><rect x="392" y="178" width="12" height="40" rx="3"/><rect x="382" y="190" width="8" height="16" rx="2"/><rect x="404" y="186" width="8" height="18" rx="2"/></g>
+      <!-- HUD -->
+      <text x="48" y="100" font-size="12" fill="#94a3b8" font-family="Inter">HI 04820</text>
+      <!-- panel inferior: curva de recompensa -->
+      <rect x="24" y="272" width="512" height="100" rx="12" fill="#11182a"/>
+      <text x="40" y="296" font-size="12" fill="#94a3b8" font-family="Inter">Reward per episode</text>
+      <polyline points="48,352 110,348 172,338 234,330 296,314 358,300 420,280 482,264 512,256" fill="none" stroke="#5eead4" stroke-width="3"/>
+      <polyline points="48,352 110,348 172,338 234,330 296,314 358,300 420,280 482,264 512,256" fill="none" stroke="#5eead4" stroke-width="10" opacity="0.12"/>
+      <circle cx="512" cy="256" r="4" fill="#5eead4"/>
+    </svg>
+  </div>
+</div></header>
+
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">What it does</span><h2>It learns to play like a person does: by watching</h2><p>No tricks, no access to the game's code. Just the screen, the eyes (computer vision) and experience.</p></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>It sees the screen</h3>
+      <p>It captures the game in real time and, with computer vision (OpenCV), detects where the dinosaur is and the obstacles coming toward it.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h3>It decides in milliseconds</h3>
+      <p>At every instant it chooses an action —jump or keep going— trying to dodge what's coming. It reacts faster than you blink.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg></div>
+      <h3>It learns through reward</h3>
+      <p>Each time it survives a little longer, it gets a reward. The PPO algorithm tunes its "instinct" to repeat what works and avoid what kills it.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+      <h3>It improves with every attempt</h3>
+      <p>It starts clumsy and ends up expert. Episode after episode its score climbs — the learning curve proves it.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <h3>Two approaches</h3>
+      <p>A trained neural network that learns on its own, and a fixed-rules version. Perfect for comparing the AI against a traditional script.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6"/></svg></div>
+      <h3>It visualizes what it "sees"</h3>
+      <p>A debug mode shows exactly the region of the game the AI is analyzing and the obstacles it detects, drawn on screen. Full transparency into its reasoning.</p>
+    </div>
+  </div>
+</div></section>
+
+
+
+<section id="stack"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>Technology</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Reinforcement learning</h4><p>PPO with Stable-Baselines3 and a custom Gymnasium environment (observation, actions and reward).</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Computer vision</h4><p>OpenCV + screen capture to detect obstacles from the image, without reading the game's memory.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Neural networks</h4><p>PyTorch trains the policy that decides each action; the model is saved and reused.</p></div></div>
+  </div>
+</div></section>
+
+<section id="ver"><div class="wrap">
+  <div class="cta-card">
+    <h2>Watch the AI play on its own</h2>
+    <p>All the code is open: the environment, the training, and the script that loads the model and plays autonomously.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">View the code on GitHub</a>
+      <a class="btn btn-ghost" href="../../../en/">More projects</a>
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Dino AI</div>
+  <div>© <span class="yr"></span> Dino AI · An AI that learns to play on its own through reinforcement</div>
+  <a class="back" href="../../../en/">← Back to projects</a>
+</div></footer>
+<script>document.querySelectorAll('.yr').forEach(e=>e.textContent=new Date().getFullYear());</script>
+</body>
+</html>

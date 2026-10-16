@@ -1,0 +1,75 @@
+[
+  {
+    "app": "web-studio",
+    "checks": [
+      "Editor y reproducción"
+    ],
+    "errors": [],
+    "http_errors": []
+  },
+  {
+    "app": "nexo",
+    "checks": [
+      "Bandeja original"
+    ],
+    "errors": [],
+    "http_errors": []
+  },
+  {
+    "app": "lumen",
+    "checks": [
+      "Módulo Balance General"
+    ],
+    "errors": [],
+    "http_errors": []
+  },
+  {
+    "app": "nucleo",
+    "checks": [
+      "Lista de eventos"
+    ],
+    "errors": [],
+    "http_errors": []
+  },
+  {
+    "app": "pulso",
+    "checks": [
+      "Panel administrativo"
+    ],
+    "errors": [],
+    "http_errors": []
+  },
+  {
+    "app": "vertice",
+    "checks": [],
+    "errors": [],
+    "http_errors": []
+  },
+  {
+    "app": "vitrina",
+    "checks": [
+      "Ficha de cemento sin marcas"
+    ],
+    "errors": [],
+    "http_errors": []
+  },
+  {
+    "app": "distrito",
+    "checks": [
+      "Cuarto 3D y comida",
+      "Catálogo original de mascotas"
+    ],
+    "errors": [],
+    "http_errors": []
+  },
+  {
+    "app": "ruta-clara",
+    "checks": [
+      "Rutas sobre red vial",
+      "Comparación calculada entre puntos",
+      "Carga, reportes, pedidos, flota y chofer"
+    ],
+    "errors": [],
+    "http_errors": []
+  }
+]

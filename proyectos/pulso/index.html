@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pulso — Encuestas que funcionan sin internet</title>
+<meta name="description" content="Pulso: app para levantar encuestas de satisfacción en campo, con o sin señal. Las respuestas se guardan solas y se sincronizan al volver la conexión." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230369A1'/%3E%3Ctext x='50' y='72' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Varela+Round&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../assets/showcase-original.css" />
+<style>
+:root {
+  --primary: #19796B; --secondary: #0284C7; --accent: #42B6A0;
+  --bg: #F7FAFC; --fg: #0b2434; --muted: #51677a;
+  --font-head: 'Varela Round', system-ui, sans-serif; --font-body: 'Nunito Sans', system-ui, sans-serif;
+  --radius: 22px;
+}
+h1,h2,h3,h4 { letter-spacing: 0; }
+.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Pulso</div>
+  <div class="nav-links"><a href="#que-hace">Qué hace</a><a class="nav-cta" href="../../demos/pulso/" target="_blank" rel="noopener">▶ Ver demo</a><a href="../../en/projects/pulso/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">Encuestas de satisfacción</span>
+    <h1>Encuestas que funcionan <span class="grad">donde sea, haya o no señal</span>.</h1>
+    <p class="lead">Pulso deja que tu equipo levante encuestas en piso de venta, en ruta o en zonas sin internet. Las respuestas se guardan en el dispositivo y se sincronizan solas en cuanto vuelve la conexión.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="../../demos/pulso/" target="_blank" rel="noopener">▶ Ver demo interactiva</a>
+      <a class="btn btn-ghost" href="#que-hace">Ver qué hace</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="n">Sin señal</div><div class="l">Captura siempre</div></div>
+      <div class="stat"><div class="n">Auto-sync</div><div class="l">Al reconectar</div></div>
+      <div class="stat"><div class="n">En el celular</div><div class="l">Se instala como app</div></div>
+    </div>
+  </div>
+  <div class="mock" style="background:transparent;border:0;box-shadow:none" aria-hidden="true">
+    <svg viewBox="0 0 560 392" xmlns="http://www.w3.org/2000/svg">
+      <rect width="560" height="392" fill="transparent"/>
+      <!-- phone -->
+      <rect x="190" y="14" width="180" height="364" rx="34" fill="#0b2434"/>
+      <rect x="200" y="24" width="160" height="344" rx="26" fill="#ffffff"/>
+      <!-- status -->
+      <rect x="200" y="24" width="160" height="44" rx="26" fill="#19796B"/><rect x="200" y="50" width="160" height="18" fill="#19796B"/>
+      <text x="216" y="51" font-size="12" fill="#fff" font-family="Varela Round">Pulso</text>
+      <g class="pulse"><rect x="300" y="38" width="52" height="18" rx="9" fill="#0284C7"/><text x="326" y="51" font-size="9" fill="#fff" text-anchor="middle" font-family="Nunito Sans" font-weight="700">Sin señal</text></g>
+      <!-- question -->
+      <text x="216" y="92" font-size="12.5" fill="#0b2434" font-family="Varela Round">¿Cómo fue tu experiencia?</text>
+      <!-- stars -->
+      <g transform="translate(214,104)">
+        <path d="M11 0l3.2 6.7 7.3.9-5.4 5 1.4 7.2L11 22.3 4.5 25.8l1.4-7.2-5.4-5 7.3-.9z" fill="#42B6A0"/>
+        <g transform="translate(30,0)"><path d="M11 0l3.2 6.7 7.3.9-5.4 5 1.4 7.2L11 22.3 4.5 25.8l1.4-7.2-5.4-5 7.3-.9z" fill="#42B6A0"/></g>
+        <g transform="translate(60,0)"><path d="M11 0l3.2 6.7 7.3.9-5.4 5 1.4 7.2L11 22.3 4.5 25.8l1.4-7.2-5.4-5 7.3-.9z" fill="#42B6A0"/></g>
+        <g transform="translate(90,0)"><path d="M11 0l3.2 6.7 7.3.9-5.4 5 1.4 7.2L11 22.3 4.5 25.8l1.4-7.2-5.4-5 7.3-.9z" fill="#42B6A0"/></g>
+        <g transform="translate(120,0)"><path d="M11 0l3.2 6.7 7.3.9-5.4 5 1.4 7.2L11 22.3 4.5 25.8l1.4-7.2-5.4-5 7.3-.9z" fill="#cfe3ef"/></g>
+      </g>
+      <!-- options -->
+      <text x="216" y="162" font-size="11.5" fill="#0b2434" font-family="Varela Round">¿Qué te gustó más?</text>
+      <rect x="214" y="172" width="132" height="28" rx="9" fill="#E0F2FE" stroke="#0284C7"/><circle cx="228" cy="186" r="5" fill="#19796B"/><text x="240" y="190" font-size="10.5" fill="#0b2434" font-family="Nunito Sans">Atención</text>
+      <rect x="214" y="206" width="132" height="28" rx="9" fill="#F1F5F9"/><circle cx="228" cy="220" r="5" fill="none" stroke="#94a3b8"/><text x="240" y="224" font-size="10.5" fill="#51677a" font-family="Nunito Sans">Precios</text>
+      <rect x="214" y="240" width="132" height="28" rx="9" fill="#F1F5F9"/><circle cx="228" cy="254" r="5" fill="none" stroke="#94a3b8"/><text x="240" y="258" font-size="10.5" fill="#51677a" font-family="Nunito Sans">Variedad</text>
+      <!-- comment + submit -->
+      <rect x="214" y="278" width="132" height="34" rx="9" fill="#F1F5F9"/><text x="224" y="298" font-size="10" fill="#94a3b8" font-family="Nunito Sans">Comentario…</text>
+      <rect x="214" y="322" width="132" height="34" rx="11" fill="#19796B"/><text x="280" y="344" font-size="12" fill="#fff" text-anchor="middle" font-family="Varela Round">Enviar</text>
+      <!-- floating sync chip -->
+      <g transform="translate(386,150)">
+        <rect x="0" y="0" width="150" height="92" rx="14" fill="#ffffff" stroke="#e3e8f0"/>
+        <circle cx="26" cy="30" r="14" fill="#ECFDF5"/><path d="M20 30l4 4 8-8" stroke="#059669" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="48" y="27" font-size="11" fill="#0b2434" font-family="Varela Round">12 guardadas</text>
+        <text x="48" y="42" font-size="9.5" fill="#51677a" font-family="Nunito Sans">en el dispositivo</text>
+        <rect x="14" y="58" width="122" height="22" rx="8" fill="#E0F2FE"/><circle class="pulse" cx="28" cy="69" r="4" fill="#0284C7"/><text x="40" y="73" font-size="9.5" fill="#075985" font-family="Nunito Sans" font-weight="700">Sincronizando…</text>
+      </g>
+    </svg>
+  </div>
+</div></header>
+
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Qué hace</span><h2>Mide la satisfacción sin pretextos</h2><p>Pensada para el mundo real: campo, ruta y sucursales con mala señal.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/><path d="M12 8v4l3 2" stroke="#fff"/></svg></div>
+      <h3>Captura sin internet</h3>
+      <p>Cada respuesta se guarda al momento en el teléfono o tablet. Tu personal nunca se queda esperando señal para seguir encuestando.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/></svg></div>
+      <h3>Sincronización automática</h3>
+      <p>Cuando vuelve la conexión, todo lo pendiente sube solo, sin que nadie tenga que acordarse.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg></div>
+      <h3>Calificaciones</h3>
+      <p>Estrellas, opciones y comentarios; fáciles de responder en segundos.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+      <h3>Se instala como app</h3>
+      <p>Va en el celular como una aplicación más, sin pasar por ninguna tienda.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 4-6"/></svg></div>
+      <h3>Resultados al centro</h3>
+      <p>Todas las respuestas llegan a un mismo lugar para analizarlas.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01"/></svg></div>
+      <h3>Pensada para tu personal</h3>
+      <p>Interfaz simple y rápida para que cualquiera del equipo levante encuestas sin capacitación: tocar, calificar y listo.</p>
+    </div>
+  </div>
+</div></section>
+
+
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Confiable en el peor internet</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Offline-first</h4><p>Diseñada para trabajar primero local y luego sincronizar.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>App instalable (PWA)</h4><p>Sin tiendas ni instalaciones complicadas.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Sincronización segura</h4><p>Las respuestas viajan protegidas al concentrador.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Ligera</h4><p>Funciona bien hasta en equipos modestos.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Formularios flexibles</h4><p>Estrellas, opción múltiple y texto, a tu medida.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Sin pérdida de datos</h4><p>Nada se pierde aunque se cierre la app o se acabe la batería.</p></div></div>
+  </div>
+</div></section>
+
+<section id="demo"><div class="wrap">
+  <div class="cta-card">
+    <h2>¿Quieres medir la satisfacción de tus clientes?</h2>
+    <p>Agenda una demostración y te muestro Pulso funcionando incluso en modo avión.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="../../demos/pulso/" target="_blank" rel="noopener">▶ Ver demo interactiva</a>
+      <a class="btn btn-ghost" href="https://wa.me/528331273591?text=Hola%2C%20me%20interesa%20una%20demo%20de%20Pulso" target="_blank" rel="noopener">Contactar</a>
+      
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Pulso</div>
+  <div>© <span class="yr"></span> Pulso · Encuestas de satisfacción sin internet</div>
+  <a class="back" href="../../">← Volver a los proyectos</a>
+</div></footer>
+<script>document.querySelectorAll('.yr').forEach(e=>e.textContent=new Date().getFullYear());</script>
+</body>
+</html>

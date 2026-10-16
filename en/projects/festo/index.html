@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Festo · Automation · Emilio Fonseca</title>
+  <meta name="description" content="Festo inspects employee records every morning, detects birthdays, dynamically generates a personalized greeting card, and dispatches it over chat.">
+  <link rel="icon" href="../../../assets/web-dev-eyes.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="../../../assets/showcase-original.css">
+  <style>
+    :root {
+      --primary: #B88738;
+      --secondary: #B88738;
+      --accent: #B88738;
+      --grad: linear-gradient(120deg, #B88738, color-mix(in srgb, #B88738 70%, white));
+      --grad-soft: linear-gradient(120deg, #B88738, color-mix(in srgb, #B88738 60%, black));
+      --bg: #F7F8FC;
+      --fg: #1E1B4B;
+      --muted: #5b5b7a;
+      --font-head: 'Sora', sans-serif;
+      --font-body: 'Inter', sans-serif;
+    }
+    .hero .btn-primary {
+      min-height: 52px;
+      padding: 14px 24px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <div class="brand">
+        <span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>
+        Festo
+      </div>
+      <div class="nav-links">
+        <a href="#que-hace">How it works</a>
+        <a class="nav-cta" href="../../../en/#contact">Contact</a>
+        <a href="../../../proyectos/festo/">ES</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Automation &amp; Integrations</span>
+        <h1>Chat celebrations, <span class="grad">without manual work</span>.</h1>
+        <p class="lead">Festo is a background Node.js service that checks database records every morning, identifies employees with birthdays, dynamically generates a personalized card, and dispatches it via chat on schedule. No reminders or manual tasks required from the team.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#que-hace">How it works</a>
+          <a class="btn btn-ghost" href="../../../en/">← Back to portfolio</a>
+        </div>
+        <p style="color:var(--muted);font-size:.85rem;margin-top:20px">Background automation · Node.js · Scheduled execution</p>
+      </div>
+      <div class="mock">
+        <img src="../../../assets/festo-template.png" alt="Festo · Greeting card template" style="width:100%;max-width:420px;margin:0 auto;height:auto;display:block;border-radius:16px;box-shadow:0 24px 48px rgba(184,135,56,.2)">
+      </div>
+    </div>
+  </header>
+
+  <section id="que-hace">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Festo</span>
+        <h2>End-to-end automated workflow</h2>
+      </div>
+      <div class="bento">
+        <div class="cell wide">
+          <div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div>
+          <h3>Daily database detection</h3>
+          <p>A scheduled morning process queries employee records, matching the current date with birthdays.</p>
+        </div>
+        <div class="cell">
+          <div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div>
+          <h3>Dynamic card rendering</h3>
+          <p>Renders a personalized greeting card image at runtime, overlaying the employee's name onto the celebration template.</p>
+        </div>
+        <div class="cell">
+          <div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div>
+          <h3>Chat API delivery</h3>
+          <p>Connects to the messaging API (WhatsApp / Chat) to deliver the card and message promptly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-card">
+        <h2>A frictionless administrative process</h2>
+        <p>Automation designed to free up administrative time and ensure no team celebration is missed.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-primary" href="../../../en/#contact">Contact</a>
+          <a class="btn btn-ghost" href="../../../en/">Back to projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Web Dev-Eyes · Festo</div>
+      <a class="back" href="../../../en/">← Back to projects</a>
+    </div>
+  </footer>
+</body>
+</html>

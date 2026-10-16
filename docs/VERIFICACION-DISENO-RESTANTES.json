@@ -1,0 +1,38 @@
+[
+  {
+    "project": "Marquesina",
+    "check": "CSS original, omitiendo únicamente colores y comentarios",
+    "preserved": true
+  },
+  {
+    "project": "Mundial",
+    "check": "CSS original, omitiendo únicamente colores y comentarios",
+    "preserved": true
+  },
+  {
+    "project": "Ourway",
+    "check": "CSS original, omitiendo únicamente colores y comentarios",
+    "preserved": true
+  },
+  {
+    "project": "MyAccountant",
+    "check": "Clases de los componentes JSX originales",
+    "files_checked": 37,
+    "preserved": true,
+    "different_files": []
+  },
+  {
+    "project": "Festo",
+    "check": "Clases de los componentes JSX originales",
+    "files_checked": 9,
+    "preserved": true,
+    "different_files": []
+  },
+  {
+    "project": "Totem",
+    "check": "Clases de los componentes JSX originales",
+    "files_checked": 15,
+    "preserved": true,
+    "different_files": []
+  }
+]

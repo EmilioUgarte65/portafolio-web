@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vértice — Custom-built management app</title>
+<meta name="description" content="Vértice: a tailor-made management application. Works offline, with secure access and sync. Agile frontend and a robust backend." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234F46E5'/%3E%3Ctext x='50' y='72' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../../../assets/showcase-original.css" />
+<style>
+:root {
+  --primary: #176A8A; --secondary: #6366F1; --accent: #43AFC1;
+  --bg: #F7F8FC; --fg: #1E1B4B; --muted: #5b5b7a;
+  --font-head: 'Sora', system-ui, sans-serif; --font-body: 'Inter', system-ui, sans-serif;
+}
+.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Vértice</div>
+  <div class="nav-links"><a href="#que-hace">What it does</a><a class="nav-cta" href="../../../demos/vertice/" target="_blank" rel="noopener">▶ View demo</a><a href="../../../proyectos/vertice/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
+</div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">Tailor-made management application</span>
+    <h1>The internal software your team <span class="grad">needs, built to fit</span>.</h1>
+    <p class="lead">Vértice digitizes your operational processes in a single application: secure, fast and still working even when the internet goes down. When the connection comes back, everything syncs on its own.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="../../../demos/vertice/" target="_blank" rel="noopener">▶ View interactive demo</a>
+      <a class="btn btn-ghost" href="#que-hace">See what it does</a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="n">Offline</div><div class="l">Works without internet</div></div>
+      <div class="stat"><div class="n">Secure</div><div class="l">Session-based access</div></div>
+      <div class="stat"><div class="n">Tailored</div><div class="l">For your process</div></div>
+    </div>
+  </div>
+  <div class="mock" aria-hidden="true">
+    <svg viewBox="0 0 560 392" xmlns="http://www.w3.org/2000/svg">
+      <rect width="560" height="392" fill="#ffffff"/>
+      <rect width="560" height="40" fill="#1E1B4B"/>
+      <circle cx="22" cy="20" r="4" fill="#fb7185"/><circle cx="38" cy="20" r="4" fill="#fbbf24"/><circle cx="54" cy="20" r="4" fill="#34d399"/>
+      <rect x="210" y="13" width="140" height="14" rx="7" fill="#322f63"/>
+      <rect x="446" y="11" width="100" height="18" rx="9" fill="#43AFC1" opacity="0.18"/><circle class="pulse" cx="462" cy="20" r="4" fill="#43AFC1"/><text x="474" y="24" font-size="10" fill="#0c4a6e" font-family="Inter" font-weight="600">Offline · ok</text>
+      <!-- sidebar -->
+      <rect x="0" y="40" width="120" height="352" fill="#F2F1FB"/>
+      <rect x="16" y="60" width="88" height="26" rx="7" fill="#176A8A"/><text x="30" y="78" font-size="11" fill="#fff" font-family="Inter" font-weight="600">Dashboard</text>
+      <text x="30" y="112" font-size="11" fill="#7b7b9a" font-family="Inter">Records</text>
+      <text x="30" y="142" font-size="11" fill="#7b7b9a" font-family="Inter">Files</text>
+      <text x="30" y="172" font-size="11" fill="#7b7b9a" font-family="Inter">Reports</text>
+      <text x="30" y="202" font-size="11" fill="#7b7b9a" font-family="Inter">Settings</text>
+      <!-- content header -->
+      <text x="140" y="72" font-size="15" fill="#1E1B4B" font-family="Sora" font-weight="700">Records</text>
+      <rect x="446" y="56" width="100" height="26" rx="8" fill="#176A8A"/><text x="496" y="73" font-size="11" fill="#fff" text-anchor="middle" font-family="Inter" font-weight="600">+ New</text>
+      <!-- table -->
+      <rect x="140" y="92" width="406" height="30" rx="6" fill="#EEF0FB"/>
+      <text x="154" y="111" font-size="10" fill="#7b7b9a" font-family="Inter" font-weight="600">REF</text><text x="250" y="111" font-size="10" fill="#7b7b9a" font-family="Inter" font-weight="600">STATUS</text><text x="370" y="111" font-size="10" fill="#7b7b9a" font-family="Inter" font-weight="600">DATE</text><text x="470" y="111" font-size="10" fill="#7b7b9a" font-family="Inter" font-weight="600">AMOUNT</text>
+      <g font-family="Inter" font-size="11" fill="#37354f">
+        <rect x="140" y="128" width="406" height="34" rx="6" fill="#fff" stroke="#eef0fb"/>
+        <text x="154" y="149">A-1042</text><rect x="250" y="139" width="58" height="16" rx="8" fill="#DCFCE7"/><text x="258" y="151" font-size="9.5" fill="#15803d">Active</text><text x="370" y="149">Jun 12</text><text x="470" y="149" font-weight="700">$3,200</text>
+        <rect x="140" y="166" width="406" height="34" rx="6" fill="#fff" stroke="#eef0fb"/>
+        <text x="154" y="187">A-1041</text><rect x="250" y="177" width="64" height="16" rx="8" fill="#FEF3C7"/><text x="258" y="189" font-size="9.5" fill="#a16207">Pending</text><text x="370" y="187">Jun 12</text><text x="470" y="187" font-weight="700">$980</text>
+        <rect class="pulse" x="140" y="204" width="406" height="34" rx="6" fill="#EEF2FF" stroke="#c7d2fe"/>
+        <text x="154" y="225">A-1040</text><rect x="250" y="215" width="58" height="16" rx="8" fill="#DCFCE7"/><text x="258" y="227" font-size="9.5" fill="#15803d">Active</text><text x="370" y="225">Jun 11</text><text x="470" y="225" font-weight="700">$5,410</text>
+        <rect x="140" y="242" width="406" height="34" rx="6" fill="#fff" stroke="#eef0fb"/>
+        <text x="154" y="263">A-1039</text><rect x="250" y="253" width="58" height="16" rx="8" fill="#E0E7FF"/><text x="258" y="265" font-size="9.5" fill="#4338ca">Closed</text><text x="370" y="263">Jun 11</text><text x="470" y="263" font-weight="700">$1,750</text>
+      </g>
+      <!-- footer stat -->
+      <rect x="140" y="290" width="196" height="78" rx="10" fill="#F7F8FC" stroke="#e6e7f3"/><text x="156" y="314" font-size="11" fill="#5b5b7a" font-family="Inter">Records this month</text><text x="156" y="346" font-size="24" fill="#176A8A" font-family="Sora" font-weight="800">1,284</text>
+      <rect x="350" y="290" width="196" height="78" rx="10" fill="#1E1B4B"/><text x="366" y="314" font-size="11" fill="#a5a3c9" font-family="Inter">Sync</text><text x="366" y="346" font-size="24" fill="#34d399" font-family="Sora" font-weight="800">Up to date</text>
+    </svg>
+  </div>
+</div></header>
+
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">What it does</span><h2>Your process, in one app</h2><p>Replace spreadsheets and paper forms with a tool built for the way you work.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/><path d="M8 16l2 2 4-4" stroke="#fff"/></svg></div>
+      <h3>Works offline</h3>
+      <p>Your team keeps capturing and looking up data even with no signal. When the connection comes back, everything pending syncs automatically, with nothing lost.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <h3>Secure access</h3>
+      <p>Sign-in with protected sessions; each user only gets into their own area.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+      <h3>File uploads</h3>
+      <p>Attach documents and images to each record, straight from your phone.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18M7 14l3-3 3 3 5-6"/></svg></div>
+      <h3>Reports</h3>
+      <p>Turn daily data entry into dashboards and reports that update on their own.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l2 7h7l-5.5 4 2 7L12 17l-5.5 3 2-7L3 9h7z"/></svg></div>
+      <h3>Installable (PWA)</h3>
+      <p>Installs on phone or computer like any other app, with no app stores.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 20h9M3 20l9-9 3 3M14 7l3-3 3 3-3 3z"/></svg></div>
+      <h3>Built to fit</h3>
+      <p>It's not a generic system you have to adapt to: it's built around your real process, with the fields, steps and rules your operation needs.</p>
+    </div>
+  </div>
+</div></section>
+
+
+
+<section><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>End-to-end engineering</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Agile frontend</h4><p>A fast, smooth interface built for everyday use.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Robust backend</h4><p>A reliable service that organizes and protects the data.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Offline-first</h4><p>Saves on the device and syncs on reconnect.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Secure authentication</h4><p>Protected sessions with automatic expiration.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Containers</h4><p>Clean, reproducible deployment on any server.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Scalable</h4><p>It grows with you: more users, more data, without rebuilding everything.</p></div></div>
+  </div>
+</div></section>
+
+<section id="demo"><div class="wrap">
+  <div class="cta-card">
+    <h2>Got a process to digitize?</h2>
+    <p>Tell me how your team works and I'll show you how Vértice turns it into an app.</p>
+    <div class="btn-row" style="justify-content:center">
+      <a class="btn btn-primary" href="../../../demos/vertice/" target="_blank" rel="noopener">▶ View interactive demo</a>
+      <a class="btn btn-ghost" href="https://wa.me/528331273591?text=Hola%2C%20me%20interesa%20una%20demo%20de%20V%C3%A9rtice" target="_blank" rel="noopener">Get in touch</a>
+
+    </div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Vértice</div>
+  <div>© <span class="yr"></span> Vértice · Tailor-made management applications</div>
+  <a class="back" href="../../../en/">← Back to projects</a>
+</div></footer>
+<script>document.querySelectorAll('.yr').forEach(e=>e.textContent=new Date().getFullYear());</script>
+</body>
+</html>

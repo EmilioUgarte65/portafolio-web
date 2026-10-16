@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Efficient Inference · AI Research Lab · Emilio Fonseca</title>
+  <meta name="description" content="Applied research and benchmarking on LLM optimization for resource-constrained hardware: INT4/INT3/INT2 quantization, GPTQ, Lloyd-Max and Low-Rank residual patches.">
+  <link rel="icon" href="../../../assets/web-dev-eyes.svg">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+  <link rel="stylesheet" href="../../../assets/showcase-original.css">
+  <style>
+    :root {
+      --primary: #6366F1;
+      --secondary: #818CF8;
+      --accent: #4F46E5;
+      --grad: linear-gradient(120deg, #6366F1, #A855F7);
+      --grad-soft: linear-gradient(120deg, #4F46E5, #312E81);
+      --bg: #0F172A;
+      --fg: #F8FAFC;
+      --muted: #94A3B8;
+      --card-bg: #1E293B;
+      --border: #334155;
+      --font-head: 'Sora', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    body { background: var(--bg); color: var(--fg); }
+    .hero .lead { color: #CBD5E1; }
+    .hero .btn-primary { min-height: 52px; padding: 14px 26px; background: var(--primary); border: none; }
+    .hero .btn-primary:hover { background: var(--secondary); }
+    .bento .cell { background: var(--card-bg); border: 1px solid var(--border); color: var(--fg); }
+    .bento .cell p { color: var(--muted); }
+    .stat-badge {
+      display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 0.75rem;
+      font-weight: 700; font-family: var(--font-mono); margin-bottom: 8px;
+    }
+    .badge-green { background: rgba(34, 197, 94, 0.15); color: #4ADE80; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .badge-purple { background: rgba(168, 85, 247, 0.15); color: #C084FC; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge-blue { background: rgba(59, 130, 246, 0.15); color: #60A5FA; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .code-pill { font-family: var(--font-mono); background: #0B0F19; padding: 2px 6px; border-radius: 4px; font-size: 0.85em; color: #E2E8F0; }
+    .tabla-lab {
+      width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9rem; text-align: left;
+    }
+    .tabla-lab th {
+      background: #1E293B; color: #94A3B8; font-weight: 600; padding: 12px 16px; border-bottom: 2px solid var(--border);
+    }
+    .tabla-lab td {
+      padding: 12px 16px; border-bottom: 1px solid var(--border); font-family: var(--font-mono);
+    }
+    .tabla-lab tr:hover td { background: rgba(255,255,255,0.02); }
+    .highlight-cell { color: #4ADE80; font-weight: 700; }
+    .metric-card {
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 20px;
+    }
+    .metric-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 24px 0;
+    }
+    .metric-val { font-size: 1.85rem; font-weight: 800; font-family: var(--font-head); color: #F8FAFC; }
+    .metric-lbl { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <div class="brand">
+        <span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>
+        Efficient Inference
+      </div>
+      <div class="nav-links">
+        <a href="#findings">Findings</a>
+        <a href="#results">Results</a>
+        <a class="nav-cta" href="#results">Scoreboard</a>
+        <a href="../../../proyectos/inferencia/">ES</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--secondary)">AI Research &amp; Benchmarking</span>
+        <h1>Breaking the VRAM wall: <span class="grad">powerful models with less compute</span>.</h1>
+        <p class="lead">Applied research on running dense language models (LLMs) on budget consumer hardware (4 GB VRAM GPU). Combining extreme quantization (INT4/INT3/INT2), Hessian-weighted compensation (GPTQ), non-uniform quantization (Lloyd-Max), and low-rank residual error patches.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#results">View Scoreboard</a>
+          <a class="btn btn-ghost" href="../../../en/" style="color:#CBD5E1;border-color:var(--border)">← Back to portfolio</a>
+        </div>
+        <p style="color:var(--muted);font-size:.85rem;margin-top:20px">Reproducible testbed · PyTorch 2.6 CUDA + Ollama · NVIDIA RTX 3050 Laptop GPU</p>
+      </div>
+
+      <div class="mock">
+        <div class="metric-card" style="box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+            <span class="stat-badge badge-purple">Constrained Hardware (4 GB)</span>
+            <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted)">RTX 3050 · 2026</span>
+          </div>
+          <h3 style="font-size:1.1rem;margin-bottom:16px">The Core Objective</h3>
+          <p style="font-size:0.85rem;color:var(--muted);line-height:1.5">
+            A standard 7B model in FP16 weighs ~14 GB and spills over into system RAM/PCIe, causing severe latency degradation. Compressing to ~2.7 bits reduces it to <b>~2.4 GB</b>, fitting fully within a budget 4 GB GPU.
+          </p>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);display:flex;gap:20px">
+            <div>
+              <div style="font-size:1.2rem;font-weight:700;color:#4ADE80">1.01× PPL</div>
+              <div style="font-size:0.75rem;color:var(--muted)">Lossless INT4</div>
+            </div>
+            <div>
+              <div style="font-size:1.2rem;font-weight:700;color:#60A5FA">1.15× PPL</div>
+              <div style="font-size:0.75rem;color:var(--muted)">Recovered INT3</div>
+            </div>
+            <div>
+              <div style="font-size:1.2rem;font-weight:700;color:#C084FC">~2.7 bits</div>
+              <div style="font-size:0.75rem;color:var(--muted)">INT2 + Low-Rank Patch</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Key Metrics -->
+  <section style="padding: 20px 0 60px;">
+    <div class="wrap">
+      <div class="metric-grid">
+        <div class="metric-card">
+          <span class="stat-badge badge-green">Baseline (1B)</span>
+          <div class="metric-val">129.6 <span style="font-size:1rem;color:var(--muted)">tok/s</span></div>
+          <div class="metric-lbl">Gemma 1B 100% on GPU (Ollama)</div>
+        </div>
+        <div class="metric-card">
+          <span class="stat-badge badge-green">Baseline (3B)</span>
+          <div class="metric-val">82.6 <span style="font-size:1rem;color:var(--muted)">tok/s</span></div>
+          <div class="metric-lbl">Llama 3.2 100% on GPU (Ollama)</div>
+        </div>
+        <div class="metric-card">
+          <span class="stat-badge badge-blue">Theoretical Compression</span>
+          <div class="metric-val">5.8× <span style="font-size:1rem;color:var(--muted)">reduction</span></div>
+          <div class="metric-lbl">From FP16 (16 bits) to ~2.7 effective bits</div>
+        </div>
+        <div class="metric-card">
+          <span class="stat-badge badge-purple">Wall Broken</span>
+          <div class="metric-val">12.45× <span style="font-size:1rem;color:var(--muted)">PPL</span></div>
+          <div class="metric-lbl">Pure 2-bit with clipped error GPTQ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key findings -->
+  <section id="findings" style="padding: 40px 0;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--secondary)">Methodology &amp; Findings</span>
+        <h2>4 Core Experimental Discoveries</h2>
+      </div>
+
+      <div class="bento">
+        <div class="cell wide">
+          <span class="stat-badge badge-blue">Finding 1 · Hessian Quantization</span>
+          <h3>GPTQ Solves INT4 and INT3 Completely</h3>
+          <p>Naive uniform quantization collapses catastrophically. By minimizing activation error <span class="code-pill">‖(W−Q)X‖²</span> using Hessian <span class="code-pill">H = XXᵀ</span> and column-by-column compensation, <b>INT4 reaches 1.01×</b> (indistinguishable from FP32) and <b>INT3 reaches 1.15×</b>, allowing 7B models in ~2.6 GB.</p>
+        </div>
+
+        <div class="cell">
+          <span class="stat-badge badge-purple">Finding 2 · The INT2 Wall</span>
+          <h3>Why 2-bit Diverges</h3>
+          <p>At 2 bits, classic GPTQ diverges (22,820× error) because the feedback loop amplifies error residuals. Introducing <b>error-feedback clipping at ±2.5σ</b> stabilizes the loop, jumping from 288× to <b>12.45×</b> at pure 2 bits.</p>
+        </div>
+
+        <div class="cell">
+          <span class="stat-badge badge-green">Finding 3 · Orthogonal Stacking</span>
+          <h3>Low-Rank Residual Patches (HADA-LR)</h3>
+          <p>Correcting quantization residuals in activation space with a low-rank approximation drops error drastically: <b>rank-16 reaches 1.54× at 2.67 bits</b> and <b>rank-32 reaches 1.14× at 3.33 bits</b>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scoreboard -->
+  <section id="results" style="padding: 60px 0;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--secondary)">Experimental Scoreboard</span>
+        <h2>Quantitative Results (Perplexity Ratio vs. FP32)</h2>
+        <p style="color:var(--muted)">Evaluated on laboratory model (GPT-2, base PPL = 3.013). Lower is better (1.00× = identical to unquantized FP32 baseline).</p>
+      </div>
+
+      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;overflow-x:auto;">
+        <table class="tabla-lab">
+          <thead>
+            <tr>
+              <th>Target Precision</th>
+              <th>Uniform Quantization</th>
+              <th>Lloyd-Max (Non-uniform)</th>
+              <th>GPTQ (Hessian)</th>
+              <th>GPTQ + Low-Rank Patch</th>
+              <th>Verdict</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="color:var(--fg);font-weight:700">INT4 (4 bits)</td>
+              <td>1.14×</td>
+              <td>1.03×</td>
+              <td class="highlight-cell">1.01×</td>
+              <td class="highlight-cell">1.01×</td>
+              <td><span class="stat-badge badge-green">Solved (Lossless)</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--fg);font-weight:700">INT3 (3 bits)</td>
+              <td>546× (broken)</td>
+              <td>1.95×</td>
+              <td class="highlight-cell">1.15×</td>
+              <td class="highlight-cell">1.05×</td>
+              <td><span class="stat-badge badge-green">Solved (Production)</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--fg);font-weight:700">Pure INT2 (2 bits)</td>
+              <td>2,588× (unusable)</td>
+              <td>508×</td>
+              <td>12.45× (damped)</td>
+              <td class="highlight-cell">2.32× (rank-8)</td>
+              <td><span class="stat-badge badge-blue">Frontier Passed</span></td>
+            </tr>
+            <tr>
+              <td style="color:var(--fg);font-weight:700">Hybrid (~2.67 bits)</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td class="highlight-cell">1.54× (rank-16)</td>
+              <td><span class="stat-badge badge-purple">Sweet Spot (VRAM / Quality)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:24px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:12px;padding:16px 20px;font-size:0.875rem;color:#CBD5E1">
+        💡 <b>Technical Takeaway:</b> By stacking Hessian compensation with low-rank activation residual corrections, a 7B parameter model drops from 14 GB down to <b>~2.4 GB</b>, fitting fully on a 4 GB GPU without PCIe latency penalties.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding: 20px 0 80px;">
+    <div class="wrap">
+      <div class="cta-card" style="background:var(--card-bg);border:1px solid var(--border);">
+        <h2>Engineering Applied to Efficiency</h2>
+        <p style="color:var(--muted)">From theoretical mathematics (Cholesky, orthogonal rotations, SVD) to high-speed execution on real consumer hardware.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-primary" href="../../../en/#contact">Contact</a>
+          <a class="btn btn-ghost" href="../../../en/" style="color:#CBD5E1;border-color:var(--border)">Back to projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand">Web Dev-Eyes · Efficient Inference</div>
+      <a class="back" href="../../../en/" style="color:var(--muted)">← Back to projects</a>
+    </div>
+  </footer>
+</body>
+</html>

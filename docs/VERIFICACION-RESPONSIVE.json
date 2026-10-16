@@ -1,0 +1,74 @@
+[
+  {
+    "width": 1440,
+    "route": "",
+    "page": 1440,
+    "viewport": 1440
+  },
+  {
+    "width": 1440,
+    "route": "en/",
+    "page": 1440,
+    "viewport": 1440
+  },
+  {
+    "width": 1440,
+    "route": "proyectos/web-studio/",
+    "page": 1440,
+    "viewport": 1440
+  },
+  {
+    "width": 1440,
+    "route": "proyectos/distrito/",
+    "page": 1440,
+    "viewport": 1440
+  },
+  {
+    "width": 1440,
+    "route": "proyectos/ruta-clara/",
+    "page": 1440,
+    "viewport": 1440
+  },
+  {
+    "width": 1440,
+    "route": "proyectos/vitrina/",
+    "page": 1440,
+    "viewport": 1440
+  },
+  {
+    "width": 390,
+    "route": "",
+    "page": 390,
+    "viewport": 390
+  },
+  {
+    "width": 390,
+    "route": "en/",
+    "page": 390,
+    "viewport": 390
+  },
+  {
+    "width": 390,
+    "route": "proyectos/web-studio/",
+    "page": 390,
+    "viewport": 390
+  },
+  {
+    "width": 390,
+    "route": "proyectos/distrito/",
+    "page": 390,
+    "viewport": 390
+  },
+  {
+    "width": 390,
+    "route": "proyectos/ruta-clara/",
+    "page": 390,
+    "viewport": 390
+  },
+  {
+    "width": 390,
+    "route": "proyectos/vitrina/",
+    "page": 390,
+    "viewport": 390
+  }
+]
