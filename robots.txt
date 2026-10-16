@@ -1,11 +1,16 @@
 User-agent: *
 Allow: /
+Allow: /portafolio-web/llms.txt
+Allow: /portafolio-web/llms-full.txt
 
 # Explicit permissions for AI Search & LLM Engines
 User-agent: GPTBot
 Allow: /
 
 User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ClaudeBot
@@ -26,9 +31,5 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-# Sitemap
+# Sitemap (includes llms.txt and llms-full.txt)
 Sitemap: https://emiliougarte65.github.io/portafolio-web/sitemap.xml
-
-# LLM Standard Discovery File (https://llmstxt.org/)
-LLM-Data: https://emiliougarte65.github.io/portafolio-web/llms.txt
-LLM-Data-Full: https://emiliougarte65.github.io/portafolio-web/llms-full.txt
