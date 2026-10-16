@@ -31,16 +31,16 @@ def build_page(lang="es"):
     root_prefix = "" if is_es else "../"
     
     i18n = {
-        "title": "Emilio Fonseca — Código, físicas e interactividad" if is_es else "Emilio Fonseca — Code, Physics & Interactivity",
-        "description": "Portafolio de Emilio Fonseca: desarrollador Full-Stack e IA en México. Videojuegos WebGL, suites multimedia, PWAs offline e inferencia LLM en GPU." if is_es else "Emilio Fonseca — Full-Stack & AI Engineer in Mexico. WebGL physics games, multimedia tools, offline-first PWAs, and local LLM GPU inference.",
-        "hero_pill": "Ingeniería de Software · Físicas & Creatividad Interactiva" if is_es else "Software Engineering · Physics & Interactive Creativity",
+        "title": "Emilio Fonseca — Desarrollo Full-Stack, IA, Análisis de Datos & WebGL" if is_es else "Emilio Fonseca — Full-Stack Apps, AI Integrations, Data Analytics & WebGL",
+        "description": "Emilio Fonseca: desarrollador Full-Stack e IA en México. Aplicaciones completas locales o en la nube, integraciones con IA, análisis de datos y WebGL." if is_es else "Emilio Fonseca: Full-Stack & AI Engineer in Mexico. Complete local or cloud web apps, AI integrations, data analytics, and interactive WebGL tools.",
+        "hero_pill": "Aplicaciones Locales y en la Nube · Integraciones con IA · Análisis de Datos" if is_es else "Local & Cloud Applications · AI Integrations · Data Analytics",
         "hero_h1": "Código, físicas e interactividad." if is_es else "Code, physics and interactivity.",
-        "hero_lead": "Hola, soy Emilio Fonseca. Desarrollador full-stack y creador técnico. Construyo software donde la ingeniería profunda y el diseño visual convergen: videojuegos con físicas reales en WebGL, suites de autor multimedia, plataformas en producción e inferencia local de IA en hardware de consumo." if is_es else "Hi, I'm Emilio Fonseca. Full-stack developer and creative technologist. I build software where deep engineering and interactive visual design converge: WebGL physics games, multimedia authoring suites, production platforms, and local AI inference on consumer GPUs.",
+        "hero_lead": "Hola, soy Emilio Fonseca. Desarrollador full-stack e ingeniero de IA. Construyo aplicaciones completas locales (offline-first) o en la nube, integraciones con inteligencia artificial (LLMs, agentes autónomos, RAG y WhatsApp Business API), sistemas de análisis de datos y BI, suites multimedia y motores de físicas en WebGL." if is_es else "Hi, I'm Emilio Fonseca. Full-stack developer and AI engineer. I build complete local (offline-first) and cloud applications, production AI integrations (LLMs, autonomous agents, RAG, and WhatsApp Business API), data analytics and BI systems, multimedia suites, and interactive WebGL physics engines.",
         "btn_explore_creations": "Explorar obras destacadas" if is_es else "Explore flagship projects",
         "btn_explore_archive": "Archivo completo (22)" if is_es else "Complete archive (22)",
         "btn_view_index_1screen": "Índice en 1 pantalla" if is_es else "1-screen index",
         "bento_title": "Creatividad técnica y proyectos insignia" if is_es else "Technical creativity & flagship projects",
-        "bento_desc": "Una muestra de flexibilidad: motores de físicas en el navegador, suites multimedia, modelos de IA a bajo nivel y apps offline-first." if is_es else "A showcase of versatility: in-browser physics engines, multimedia suites, low-level AI models, and offline-first apps.",
+        "bento_desc": "Muestra de versatilidad: aplicaciones completas en la nube o 100% locales, integraciones e inferencia de IA, análisis de datos, suites multimedia y físicas en el navegador." if is_es else "A showcase of versatility: complete cloud or 100% local applications, AI integrations and inference, data analytics, multimedia suites, and in-browser physics engines.",
         "bento_mn_badge": "Videojuego WebGL" if is_es else "WebGL Game",
         "bento_mn_desc": "Videojuego 2D con motor de físicas personalizado, recolección de materiales y coladas de concreto. Desarrollado en Unity con WebAssembly para jugar al instante en el navegador sin descargas." if is_es else "2D game featuring a custom physics engine, material harvesting, and concrete pouring. Built in Unity and compiled to WebAssembly for instant in-browser play with zero downloads.",
         "bento_studio_badge": "Suite Multimedia" if is_es else "Multimedia Suite",
@@ -53,8 +53,8 @@ def build_page(lang="es"):
         "bento_acc_desc": "Sistema de gestión financiera y contabilidad personal con arquitectura 100% offline-first. Cero servidores externos y cero nube: almacenamiento local cifrado en IndexedDB, balances mensuales automatizados y control de gastos privado." if is_es else "Personal finance and accounting system with 100% offline-first architecture. Zero external servers and zero cloud: encrypted local storage in IndexedDB, automated monthly balance sheets, and private expense tracking.",
         "bento_acc_btn": "Probar app demo" if is_es else "Launch app demo",
         "catalog_title": "Archivo completo de proyectos" if is_es else "Complete project archive",
-        "catalog_desc": "Explora las 22 implementaciones en producción por categoría, busca por tecnología o activa el índice compacto para escanear todo en una sola pantalla sin scroll infinito." if is_es else "Explore all 22 production projects by category, search by technology, or switch to the compact index table to scan everything in one screen without endless scrolling.",
-        "search_placeholder": "Buscar por tecnología, nombre o caso de uso (ej. Python, React, Unity, ERP, Docker)..." if is_es else "Search by technology, name, or use case (e.g. Python, React, Unity, ERP, Docker)...",
+        "catalog_desc": "Explora las 22 implementaciones en producción: aplicaciones completas locales o en la nube, integraciones con IA, análisis de datos y herramientas interactivas." if is_es else "Explore all 22 production implementations: complete local or cloud applications, AI integrations, data analytics, and interactive tools.",
+        "search_placeholder": "Buscar por tecnología, nombre o caso de uso (ej. IA, Datos, Nube, Local, Python, React, ERP)..." if is_es else "Search by technology, name, or use case (e.g. AI, Data, Cloud, Local, Python, React, ERP)...",
         "view_grid": "Cuadrícula" if is_es else "Grid",
         "view_index": "Índice en tabla" if is_es else "Table index",
         "tab_all": "Todos" if is_es else "All",
@@ -77,11 +77,11 @@ def build_page(lang="es"):
         "modal_btn_play": "Jugar demo en navegador" if is_es else "Play web demo",
         "modal_btn_showcase": "Ver presentación completa" if is_es else "View in-depth showcase",
         "skills_title": "Herramientas de ingeniería" if is_es else "Engineering tools",
-        "skills_lead": "Tecnologías que utilizo para construir productos de alta fidelidad desde la arquitectura hasta el despliegue." if is_es else "Technologies I use to build high-fidelity products from initial architecture to final deployment.",
+        "skills_lead": "Tecnologías que utilizo para desarrollar aplicaciones completas locales o en la nube, integraciones con IA, pipelines de análisis de datos y experiencias interactivas." if is_es else "Technologies I use to build complete local or cloud applications, AI integrations, data analytics pipelines, and interactive experiences.",
         "faq_title": "Preguntas frecuentes & Arquitectura" if is_es else "Frequently Asked Questions & Architecture",
-        "faq_lead": "Respuestas directas sobre mi enfoque técnico, infraestructura, disponibilidad geográfica y especialidades." if is_es else "Direct answers regarding my engineering methodology, architecture, geographic availability, and verified stack.",
+        "faq_lead": "Respuestas directas sobre mi enfoque en aplicaciones locales y en la nube, integraciones de IA, análisis de datos y disponibilidad geográfica." if is_es else "Direct answers regarding my engineering methodology for local & cloud apps, AI integrations, data analytics, and geographic availability.",
         "contact_title": "¿Tienes un proyecto o idea en mente?" if is_es else "Have a project or idea in mind?",
-        "contact_lead": "Hablemos sobre cómo construir o escalar tu próximo videojuego, plataforma web, herramienta creativa o pipeline de IA." if is_es else "Let's discuss building or scaling your next game, web platform, creative tool, or AI pipeline.",
+        "contact_lead": "Hablemos sobre cómo construir o escalar tu próxima aplicación local o en la nube, integración con IA, sistema de análisis de datos o experiencia interactiva." if is_es else "Let's discuss building or scaling your next local or cloud application, AI integration, data analytics system, or interactive experience.",
         "contact_wa": "Escríbeme por WhatsApp" if is_es else "Message on WhatsApp",
         "contact_cv_interactive": "CV Interactivo" if is_es else "Interactive Resume",
         "contact_cv_pdf": "Descargar CV (PDF)" if is_es else "Download Resume (PDF)",
@@ -130,7 +130,9 @@ def build_page(lang="es"):
             demo_url = "https://mnlaobramaestra.netlify.app/"
         elif slug == "cora":
             demo_url = "https://emiliougarte65.github.io/cora-showcase/" if is_es else "https://emiliougarte65.github.io/cora-showcase/en/"
-        elif slug in ["mundial", "nexo", "lumen", "nucleo", "vertice", "vitrina", "myaccountant", "marquesina", "pulso", "totem", "web-studio", "distrito", "ruta-clara", "ourway", "radar"]:
+        elif slug == "marquesina":
+            demo_url = "https://almacast.github.io/portafolio/"
+        elif slug in ["mundial", "nexo", "lumen", "nucleo", "vertice", "vitrina", "myaccountant", "pulso", "totem", "web-studio", "distrito", "ruta-clara", "ourway", "radar"]:
             demo_url = f"{root_prefix}demos/{slug}/"
             
         badge_label = "Demo en vivo" if is_live_demo else "Showcase"
@@ -138,6 +140,8 @@ def build_page(lang="es"):
             badge_label = "Live demo" if is_live_demo else "Showcase"
         if slug == "juego-construccion":
             badge_label = "Demo jugable" if is_es else "Playable demo"
+        elif slug == "marquesina":
+            badge_label = "Sitio en vivo" if is_es else "Live site"
             
         cat_key = meta["cat"]
         cat_name = meta["cat_name_es"] if is_es else meta["cat_name_en"]
@@ -167,8 +171,10 @@ def build_page(lang="es"):
         card_action_btn_text = i18n["card_btn_demo"] if is_live_demo else i18n["card_btn_showcase"]
         if slug == "juego-construccion":
             card_action_btn_text = i18n["modal_btn_play"]
+        elif slug == "marquesina":
+            card_action_btn_text = "Ver sitio en vivo" if is_es else "Visit live site"
         card_action_href = demo_url if is_live_demo else showcase_url
-        card_target_attr = 'target="_blank" rel="noopener"' if (slug in ["juego-construccion", "cora"]) else ""
+        card_target_attr = 'target="_blank" rel="noopener"' if (slug in ["juego-construccion", "cora", "marquesina"]) else ""
         
         card_html = f'''
         <div class="card catalog-item" data-slug="{slug}" data-category="{cat_key}" data-live="{str(is_live_demo).lower()}" data-search="{search_terms}" onclick="openProjectModal('{slug}')" tabindex="0" role="button" aria-label="Ver ficha técnica de {title_escaped}">
@@ -196,9 +202,9 @@ def build_page(lang="es"):
         '''.strip()
         grid_cards_html.append(card_html)
         
-        action_btn_text = i18n["card_btn_demo"] if is_live_demo else i18n["card_btn_showcase"]
+        action_btn_text = card_action_btn_text
         action_btn_href = demo_url if is_live_demo else showcase_url
-        target_attr = 'target="_blank" rel="noopener"' if (slug == "juego-construccion") else ""
+        target_attr = card_target_attr
         
         row_html = f'''
         <tr class="index-row catalog-item" data-slug="{slug}" data-category="{cat_key}" data-live="{str(is_live_demo).lower()}" data-search="{search_terms}" onclick="openProjectModal('{slug}')" tabindex="0" role="button" aria-label="Ver detalles de {title_escaped}">
