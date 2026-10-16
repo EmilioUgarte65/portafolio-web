@@ -346,18 +346,21 @@ def main():
 
     print(f"Updated {showcase_count} showcase pages (ES & EN).")
 
-    # 3. Update all 15 live demo pages
+    # 3. Update all live demo pages (including auxiliary subviews)
     demo_count = 0
     for slug in DEMO_SLUGS:
-        demo_path = os.path.join("demos", slug, "index.html")
-        if os.path.exists(demo_path):
-            with open(demo_path, "r", encoding="utf-8") as f:
-                html = f.read()
-            block = build_demo_seo_block(slug, lookup_es[slug], PROJECT_META[slug])
-            html = inject_before_head_close(html, block)
-            with open(demo_path, "w", encoding="utf-8") as f:
-                f.write(html)
-            demo_count += 1
+        demo_dir = os.path.join("demos", slug)
+        if os.path.isdir(demo_dir):
+            for fname in os.listdir(demo_dir):
+                if fname.endswith(".html"):
+                    demo_path = os.path.join(demo_dir, fname)
+                    with open(demo_path, "r", encoding="utf-8") as f:
+                        html = f.read()
+                    block = build_demo_seo_block(slug, lookup_es[slug], PROJECT_META[slug])
+                    html = inject_before_head_close(html, block)
+                    with open(demo_path, "w", encoding="utf-8") as f:
+                        f.write(html)
+                    demo_count += 1
 
     print(f"Updated {demo_count} interactive demo pages.")
 

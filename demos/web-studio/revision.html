@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Revisión de video · Web Studio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23F5B82E%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2214%22 font-family=%22Arial%22 font-weight=%22bold%22 text-anchor=%22middle%22 fill=%22%2317130A%22%3EMN%3C/text%3E%3C/svg%3E">
+<style>
+  :root { --bg0: #0E0F11; --bg1: #16171A; --bg2: #1D1F23; --bg3: #26282D; --line: #2A2C31; --tx1: #ECEDEF; --tx2: #A9ACB4; --tx3: #8B8F98;
+    --ac: #F5B82E; --on-ac: #17130A; --ok: #3DD68C; --warn: #F5A524; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg0); color: var(--tx1); font: 14px/1.45 "Segoe UI", system-ui, sans-serif; }
+  header { display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); background: var(--bg1); }
+  .logo { background: var(--ac); color: var(--on-ac); font-weight: 800; border-radius: 6px; padding: 2px 6px; }
+  header h1 { font-size: 16px; margin: 0; font-weight: 600; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  main { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr); gap: 18px; padding: 16px; max-width: 1400px; margin: 0 auto; }
+  main[hidden] { display: none; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+  video { width: 100%; background: #000; border-radius: 8px; display: block; max-height: 70vh; }
+  .lado { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; } .lado[hidden], #uno[hidden] { display: none; }
+  .barra { position: relative; height: 10px; margin: 6px 0 2px; background: var(--bg2); border-radius: 5px; cursor: pointer; }
+  .barra span { position: absolute; top: 0; width: 4px; height: 10px; margin-left: -2px; background: var(--ac); border-radius: 2px; }
+  .barra span.res { background: var(--tx3); }
+  .tenue { color: var(--tx2); } .peq { font-size: 12px; }
+  .panel { background: var(--bg1); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin-bottom: 12px; }
+  h2 { font-size: 14px; margin: 0 0 8px; }
+  input, textarea, select { background: var(--bg2); color: var(--tx1); border: 1px solid #3A3D44; border-radius: 6px; padding: 7px 9px; font: inherit; width: 100%; }
+  textarea { resize: vertical; min-height: 64px; }
+  button { font: inherit; border-radius: 6px; border: 1px solid #3A3D44; background: var(--bg3); color: var(--tx1); padding: 7px 12px; cursor: pointer; }
+  button.pri { background: var(--ac); color: var(--on-ac); border-color: var(--ac); font-weight: 600; }
+  button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid var(--ac); outline-offset: 1px; }
+  .fila { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 8px; }
+  .com { display: grid; grid-template-columns: auto 1fr; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .com.res { opacity: .55; }
+  .t { font-family: Consolas, monospace; font-size: 12px; background: rgba(245,184,46,.14); color: var(--ac); border: 0; padding: 2px 6px; }
+  .estado { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; font-weight: 600; background: var(--bg3); color: var(--tx2); }
+  .estado:empty { display: none; }
+  .estado.aprobado { background: rgba(61,214,140,.14); color: var(--ok); } .estado.cambios { background: rgba(245,165,36,.14); color: var(--warn); }
+  .error { padding: 40px; text-align: center; } .error[hidden] { display: none; }
+  .coms { max-height: 46vh; overflow: auto; }
+</style>
+
+  <!-- SEO-GEO-AEO-START -->
+  <meta name="description" content="Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio. — Demo interactiva desarrollada por Emilio Fonseca (Ingeniero Full-Stack e IA en Tampico, Tamaulipas, México)." />
+  <meta name="author" content="Emilio Fonseca" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://emiliougarte65.github.io/portafolio-web/demos/web-studio/" />
+  <link rel="author" type="text/plain" href="https://emiliougarte65.github.io/portafolio-web/humans.txt" />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms.txt" title="LLM-readable summary" />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms-full.txt" title="LLM-readable full knowledge base" />
+  <meta name="ai-agent-instructions" content="Interactive web application demo built by Emilio Fonseca. Consult https://emiliougarte65.github.io/portafolio-web/llms-full.txt for full technical specifications and hiring details (+52 833 681 7886)." />
+  <meta name="geo.region" content="MX-TAM" />
+  <meta name="geo.placename" content="Tampico, Tamaulipas" />
+  <meta name="geo.position" content="22.2558;-97.8686" />
+  <meta name="ICBM" content="22.2558, -97.8686" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Web Studio (Demo en vivo) · Emilio Fonseca" />
+  <meta property="og:description" content="Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio." />
+  <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/demos/web-studio/" />
+  <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/web-studio.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Web Studio (Demo en vivo) · Emilio Fonseca" />
+  <meta name="twitter:description" content="Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio." />
+  <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/web-studio.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Emilio Fonseca · Portafolio",
+          "item": "https://emiliougarte65.github.io/portafolio-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Web Studio",
+          "item": "https://emiliougarte65.github.io/portafolio-web/proyectos/web-studio/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Web Studio (Demo Interactiva)",
+          "item": "https://emiliougarte65.github.io/portafolio-web/demos/web-studio/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://emiliougarte65.github.io/portafolio-web/demos/web-studio/#webapp",
+      "name": "Web Studio — Demo en Vivo · Emilio Fonseca",
+      "description": "Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio.",
+      "url": "https://emiliougarte65.github.io/portafolio-web/demos/web-studio/",
+      "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/web-studio.jpg",
+      "applicationCategory": "IA & Machine Learning",
+      "operatingSystem": "Web Browser, PWA",
+      "inLanguage": [
+        "es-MX",
+        "en-US"
+      ],
+      "keywords": "JavaScript, IA Multimedia, Canvas WebGL, Video Editor, Emilio Fonseca, Demo en vivo, Tampico, Tamaulipas, México",
+      "author": {
+        "@type": "Person",
+        "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
+        "name": "Emilio Fonseca",
+        "url": "https://emiliougarte65.github.io/portafolio-web/",
+        "telephone": "+528336817886",
+        "email": "emilio656565@outlook.com"
+      }
+    }
+  ]
+}
+  </script>
+  <!-- SEO-GEO-AEO-END -->
+</head>
+<body>
+<header><span class="logo">WD</span><h1 id="titulo">Revisión de video</h1><span id="estado" class="estado"></span></header>
+<main id="main" hidden>
+  <section>
+    <div id="uno"><video id="v" controls playsinline preload="metadata"></video></div>
+    <div class="lado" id="lado" hidden><video id="va" controls muted playsinline preload="metadata"></video><video id="vb" controls playsinline preload="metadata"></video></div>
+    <div class="barra" id="barra" title="Comentarios en el tiempo (clic para ir)"></div>
+    <div class="fila peq tenue"><span id="info"></span><span style="flex:1"></span>
+      <label id="comp-caja" hidden>Comparar con <select id="comp" style="width:auto"><option value="">—</option></select></label></div>
+  </section>
+  <aside>
+    <div class="panel"><h2>Comentar en <span id="tc" class="t">0:00</span></h2>
+      <form id="f"><input id="autor" maxlength="40" placeholder="Tu nombre" autocomplete="name" aria-label="Tu nombre">
+        <textarea id="texto" maxlength="1000" placeholder="¿Qué cambiarías en este momento del video?" aria-label="Comentario" style="margin-top:6px"></textarea>
+        <div class="fila"><span class="peq tenue">El video se pausa al escribir.</span><span style="flex:1"></span><button class="pri">Enviar comentario</button></div></form></div>
+    <div class="panel"><h2>¿Listo para publicar?</h2>
+      <input id="nota" maxlength="300" placeholder="Nota (opcional)" aria-label="Nota">
+      <div class="fila"><button id="ok" class="pri">Aprobar</button><button id="cambios">Pedir cambios</button></div></div>
+    <div class="panel"><h2>Comentarios <span id="n" class="tenue peq"></span></h2><div id="coms" class="coms"></div></div>
+  </aside>
+</main>
+<div id="err" class="error" hidden><h2>Enlace no válido</h2><p class="tenue">Este enlace de revisión no existe o ya expiró.</p></div>
+<script>
+"use strict";
+(() => {
+  // Funciona en la red local (/r/<token>) y dentro de la app (/revision.html?t=<token>, API en /api/revision).
+  const m = location.pathname.match(/^\/r\/([A-Za-z0-9_-]+)/);
+  const tok = m ? m[1] : new URLSearchParams(location.search).get("t") || "";
+  const base = m ? `/r/${tok}` : `/api/revision/${encodeURIComponent(tok)}`;
+  const $ = (s) => document.querySelector(s);
+  const e = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const tc = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  const ESTADOS = { aprobado: "Aprobado", cambios: "Cambios pedidos", pendiente: "" };
+  const v = $("#v"); let info = null;
+  try { $("#autor").value = sessionStorage.getItem("wdvs-revisor") || ""; } catch { /* */ }
+  async function api(ruta, op = {}) {
+    const r = await fetch(base + ruta, op.json ? { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(op.json) } : {});
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(d.detail || r.statusText);
+    return d;
+  }
+  async function cargar() {
+    try { info = await api("/info"); } catch { $("#err").hidden = false; $("#main").hidden = true; return; }
+    $("#main").hidden = false;
+    $("#titulo").textContent = `${info.proyecto} · ${info.version.nombre || info.version.id}`;
+    document.title = `Revisión: ${info.proyecto}`;
+    const a = info.aprobacion || {}; $("#estado").textContent = ESTADOS[a.estado] || ""; $("#estado").className = "estado " + (a.estado || "");
+    $("#info").textContent = `Compartido por ${info.de || "—"}${info.nota ? " · " + info.nota : ""}`;
+    if (!v.getAttribute("src")) v.src = base + "/video";
+    const otras = info.otras_versiones.filter((x) => x.id !== info.version.id);
+    $("#comp-caja").hidden = !otras.length;
+    if ($("#comp").options.length === 1) otras.forEach((x) => $("#comp").add(new Option(x.nombre || x.id, x.id)));
+    pintar();
+  }
+  function pintar() {
+    const cs = info.comentarios.slice().sort((x, y) => x.t - y.t);
+    $("#n").textContent = cs.length ? `(${cs.length})` : "";
+    $("#coms").innerHTML = cs.map((c) => `<div class="com ${c.resuelto ? "res" : ""}"><button class="t" data-t="${c.t}">${tc(c.t)}</button>
+      <div><b>${e(c.autor)}</b> <span class="tenue peq">${new Date(c.ts).toLocaleString("es-MX", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}${c.resuelto ? " · resuelto" : ""}</span><div>${e(c.texto)}</div></div></div>`).join("") || '<p class="tenue peq">Sé el primero en comentar.</p>';
+    const d = v.duration || 0;
+    $("#barra").innerHTML = d ? cs.map((c) => `<span class="${c.resuelto ? "res" : ""}" style="left:${(c.t / d) * 100}%" title="${e(c.autor)}: ${e(c.texto)}"></span>`).join("") : "";
+    document.querySelectorAll("[data-t]").forEach((b) => b.onclick = () => { v.currentTime = +b.dataset.t; v.play(); });
+  }
+  v.ontimeupdate = () => { $("#tc").textContent = tc(v.currentTime); };
+  v.onloadedmetadata = () => info && pintar();
+  $("#barra").onclick = (ev) => { const r = ev.currentTarget.getBoundingClientRect(); v.currentTime = ((ev.clientX - r.left) / r.width) * (v.duration || 0); };
+  $("#texto").onfocus = () => v.pause();
+  $("#f").onsubmit = async (ev) => {
+    ev.preventDefault(); const texto = $("#texto").value.trim(); if (!texto) return;
+    const autor = $("#autor").value.trim() || "Anónimo"; try { sessionStorage.setItem("wdvs-revisor", autor); } catch { /* */ }
+    try { await api("/comentarios", { json: { t: v.currentTime || 0, texto, autor } }); $("#texto").value = ""; await cargar(); }
+    catch (err) { alert(err.message); }
+  };
+  const aprobar = async (estado) => {
+    const autor = $("#autor").value.trim(); if (!autor) { $("#autor").focus(); return alert("Escribe tu nombre"); }
+    try { await api("/aprobar", { json: { estado, autor, nota: $("#nota").value } }); $("#nota").value = ""; await cargar(); }
+    catch (err) { alert(err.message); }
+  };
+  $("#ok").onclick = () => aprobar("aprobado");
+  $("#cambios").onclick = () => aprobar("cambios");
+  $("#comp").onchange = (ev) => {   // versiones lado a lado
+    const id = ev.target.value; $("#lado").hidden = !id; $("#uno").hidden = !!id;
+    if (id) { $("#va").src = `${base}/video?v=${encodeURIComponent(id)}`; $("#vb").src = base + "/video"; }
+  };
+  $("#vb").onplay = () => { $("#va").currentTime = $("#vb").currentTime; $("#va").play(); };
+  $("#vb").onpause = () => $("#va").pause();
+  $("#vb").onseeked = () => { $("#va").currentTime = $("#vb").currentTime; };
+  cargar(); setInterval(() => { if (document.visibilityState === "visible" && !$("#texto").value) cargar(); }, 20000);
+})();
+</script>
+</body>
+</html>

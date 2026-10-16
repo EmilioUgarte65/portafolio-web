@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Efectos y estilo · Web Studio</title>
+<link rel="stylesheet" href="tokens.css">
+<style>
+  body { margin: 0; background: var(--fondo, #121316); color: var(--texto, #eee); font-family: var(--font, system-ui); }
+  header { display: flex; gap: 8px; padding: 10px 16px; border-bottom: 1px solid var(--borde-suave, #333); align-items: center; }
+  header button { background: var(--panel3, #333); color: inherit; border: 1px solid var(--borde, #444); border-radius: 6px; padding: 5px 12px; cursor: pointer; }
+  header button.on { background: var(--acento, #F5B82E); color: var(--on-ac, #111); }
+  main { padding: 12px 16px; }
+</style>
+
+  <!-- SEO-GEO-AEO-START -->
+  <meta name="description" content="Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio. — Demo interactiva desarrollada por Emilio Fonseca (Ingeniero Full-Stack e IA en Tampico, Tamaulipas, México)." />
+  <meta name="author" content="Emilio Fonseca" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://emiliougarte65.github.io/portafolio-web/demos/web-studio/" />
+  <link rel="author" type="text/plain" href="https://emiliougarte65.github.io/portafolio-web/humans.txt" />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms.txt" title="LLM-readable summary" />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms-full.txt" title="LLM-readable full knowledge base" />
+  <meta name="ai-agent-instructions" content="Interactive web application demo built by Emilio Fonseca. Consult https://emiliougarte65.github.io/portafolio-web/llms-full.txt for full technical specifications and hiring details (+52 833 681 7886)." />
+  <meta name="geo.region" content="MX-TAM" />
+  <meta name="geo.placename" content="Tampico, Tamaulipas" />
+  <meta name="geo.position" content="22.2558;-97.8686" />
+  <meta name="ICBM" content="22.2558, -97.8686" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Web Studio (Demo en vivo) · Emilio Fonseca" />
+  <meta property="og:description" content="Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio." />
+  <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/demos/web-studio/" />
+  <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/web-studio.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Web Studio (Demo en vivo) · Emilio Fonseca" />
+  <meta name="twitter:description" content="Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio." />
+  <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/web-studio.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Emilio Fonseca · Portafolio",
+          "item": "https://emiliougarte65.github.io/portafolio-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Web Studio",
+          "item": "https://emiliougarte65.github.io/portafolio-web/proyectos/web-studio/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Web Studio (Demo Interactiva)",
+          "item": "https://emiliougarte65.github.io/portafolio-web/demos/web-studio/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://emiliougarte65.github.io/portafolio-web/demos/web-studio/#webapp",
+      "name": "Web Studio — Demo en Vivo · Emilio Fonseca",
+      "description": "Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio.",
+      "url": "https://emiliougarte65.github.io/portafolio-web/demos/web-studio/",
+      "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/web-studio.jpg",
+      "applicationCategory": "IA & Machine Learning",
+      "operatingSystem": "Web Browser, PWA",
+      "inLanguage": [
+        "es-MX",
+        "en-US"
+      ],
+      "keywords": "JavaScript, IA Multimedia, Canvas WebGL, Video Editor, Emilio Fonseca, Demo en vivo, Tampico, Tamaulipas, México",
+      "author": {
+        "@type": "Person",
+        "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
+        "name": "Emilio Fonseca",
+        "url": "https://emiliougarte65.github.io/portafolio-web/",
+        "telephone": "+528336817886",
+        "email": "emilio656565@outlook.com"
+      }
+    }
+  ]
+}
+  </script>
+  <!-- SEO-GEO-AEO-END -->
+</head>
+<body>
+<!-- Página independiente (pruebas y acceso directo): el editor monta los mismos módulos con WDVS.plugins / WDVS.estilo. -->
+<header><b>Web Studio</b>
+  <button id="b1" class="on">Efectos y transiciones</button><button id="b2">Código (Avanzado)</button><button id="b3">Mi estilo</button></header>
+<main id="m"></main>
+<script src="plugins_panel.js"></script>
+<script src="estilo_panel.js"></script>
+<script>
+  const m = document.getElementById("m");
+  const tabs = { b1: () => WDVS.plugins.montarPanel(m), b2: () => WDVS.plugins.montarEditor(m, {}), b3: () => WDVS.estilo.montar(m) };
+  for (const [id, fn] of Object.entries(tabs)) document.getElementById(id).onclick = (e) => {
+    document.querySelectorAll("header button").forEach((b) => b.classList.toggle("on", b === e.target)); fn(); };
+  const q = new URLSearchParams(location.search).get("tab");
+  (q && document.getElementById(q) ? document.getElementById(q) : document.getElementById("b1")).click();
+</script>
+</body>
+</html>

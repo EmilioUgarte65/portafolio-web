@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mi mascota · Distrito</title>
+  <meta name="description" content="Mira mi mascota de Distrito">
+  <meta name="theme-color" content="#06205c">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="./img/web-dev-eyes.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" media="print" onload="this.media='all'">
+  <style>
+    /* Pagina publica para presumir la mascota (enlace /p/<token>): sin sesion, solo la mascota y su cuarto.
+       Primero sale la foto del cuarto (al instante) y despues, sin prisa, el cuarto en 3D encima. */
+    :root { --navy: #06205c; --navy-2: #0d2f80; --navy-3: #031540; --rojo: #e1211c; --oro: #ffc21a; --tx: #0a1a4a; --tx-2: #5b6a92; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { font-family: Nunito, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--tx); background: #eef2fb; min-height: 100dvh;
+      display: flex; flex-direction: column; align-items: center; -webkit-font-smoothing: antialiased; }
+    .cab { width: 100%; background: radial-gradient(120% 140% at 50% 0%, var(--navy-2) 0%, var(--navy) 55%, var(--navy-3) 100%); padding: 14px 16px 64px;
+      display: flex; justify-content: center; position: relative; overflow: hidden; }
+    .cab::before { content: ""; position: absolute; left: 50%; top: 100%; width: 1400px; aspect-ratio: 1; translate: -50% -50%; opacity: .07;
+      background: repeating-conic-gradient(#fff 0 6deg, transparent 6deg 20deg); pointer-events: none; }
+    .cab::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--rojo); }
+    .logo { position: relative; display: block; width: 132px; aspect-ratio: 640 / 492; overflow: hidden; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .35)); }
+    .logo img { display: block; width: 100%; height: auto; }   /* el lema de abajo (azul sobre azul) queda fuera */
+    main { width: 100%; max-width: 520px; padding: 0 16px 28px; margin-top: -48px; position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+    .cuarto { position: relative; width: 100%; aspect-ratio: 9 / 10; border-radius: 28px; overflow: hidden; background: radial-gradient(120% 90% at 50% 40%, #dfe8fb, #b9c9ec);
+      border: 4px solid #fff; box-shadow: 0 22px 44px rgba(3, 21, 64, .28); touch-action: none; }
+    .portada, .cuarto-3d { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .portada { object-fit: cover; opacity: 0; transition: opacity .3s; }
+    .portada.lista { opacity: 1; }
+    .cuarto.con-3d .portada { opacity: 0; transition: opacity .4s .6s; }   /* el 3D ya llego: la foto se va (no se asoma por las orillas) */
+    .cuarto-3d { opacity: 0; transition: opacity .6s; }
+    .cuarto-3d.lista { opacity: 1; }
+    .cuarto-3d canvas { position: absolute; inset: 0; width: 100% !important; height: 100% !important; }
+    .gira { position: absolute; left: 50%; bottom: 14px; translate: -50% 0; display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 99px;
+      background: rgba(3, 21, 64, .72); color: #fff; font-weight: 800; font-size: 13px; pointer-events: none; opacity: 0; transition: opacity .4s; white-space: nowrap; }
+    .gira.ver { opacity: 1; }
+    .gira svg { width: 18px; height: 18px; animation: gira 2.4s ease-in-out infinite; }
+    @keyframes gira { 0%, 100% { transform: rotate(-25deg); } 50% { transform: rotate(25deg); } }
+    .estado { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 24px; color: var(--tx-2); font-weight: 800; }
+    .texto { text-align: center; }
+    .texto small { display: block; color: var(--rojo); font-weight: 900; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; }
+    h1 { margin: 4px 0 0; font-size: clamp(34px, 10vw, 46px); line-height: 1.02; font-weight: 900; color: var(--navy); letter-spacing: -.01em; }
+    .sub { margin: 8px 0 0; color: var(--tx-2); font-weight: 800; font-size: 15px; }
+    .pildoras { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+    .pildoras span { padding: 6px 14px; border-radius: 99px; font-weight: 900; font-size: 13px; background: #fff; color: var(--navy); box-shadow: 0 2px 8px rgba(3, 21, 64, .1); }
+    .pildoras .cor { background: var(--rojo); color: #fff; }
+    .cta { margin: 0; text-align: center; color: var(--tx-2); font-size: 13px; font-weight: 700; }
+    .cta a { color: var(--navy-2); font-weight: 900; text-decoration: none; border-bottom: 2px solid rgba(13, 47, 128, .25); }
+    @media (min-width: 900px) { main { max-width: 560px; } }
+    @media (prefers-reduced-motion: reduce) { .gira svg { animation: none; } .portada, .cuarto-3d { transition: none; } }
+  </style>
+
+  <!-- SEO-GEO-AEO-START -->
+  <meta name="description" content="El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios. — Demo interactiva desarrollada por Emilio Fonseca (Ingeniero Full-Stack e IA en Tampico, Tamaulipas, México)." />
+  <meta name="author" content="Emilio Fonseca" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://emiliougarte65.github.io/portafolio-web/demos/distrito/" />
+  <link rel="author" type="text/plain" href="https://emiliougarte65.github.io/portafolio-web/humans.txt" />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms.txt" title="LLM-readable summary" />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms-full.txt" title="LLM-readable full knowledge base" />
+  <meta name="ai-agent-instructions" content="Interactive web application demo built by Emilio Fonseca. Consult https://emiliougarte65.github.io/portafolio-web/llms-full.txt for full technical specifications and hiring details (+52 833 681 7886)." />
+  <meta name="geo.region" content="MX-TAM" />
+  <meta name="geo.placename" content="Tampico, Tamaulipas" />
+  <meta name="geo.position" content="22.2558;-97.8686" />
+  <meta name="ICBM" content="22.2558, -97.8686" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Distrito (Demo en vivo) · Emilio Fonseca" />
+  <meta property="og:description" content="El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios." />
+  <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/demos/distrito/" />
+  <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/distrito.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Distrito (Demo en vivo) · Emilio Fonseca" />
+  <meta name="twitter:description" content="El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios." />
+  <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/distrito.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Emilio Fonseca · Portafolio",
+          "item": "https://emiliougarte65.github.io/portafolio-web/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Distrito",
+          "item": "https://emiliougarte65.github.io/portafolio-web/proyectos/distrito/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Distrito (Demo Interactiva)",
+          "item": "https://emiliougarte65.github.io/portafolio-web/demos/distrito/"
+        }
+      ]
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://emiliougarte65.github.io/portafolio-web/demos/distrito/#webapp",
+      "name": "Distrito — Demo en Vivo · Emilio Fonseca",
+      "description": "El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios.",
+      "url": "https://emiliougarte65.github.io/portafolio-web/demos/distrito/",
+      "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/distrito.jpg",
+      "applicationCategory": "3D, Videojuegos & Hardware",
+      "operatingSystem": "Web Browser, PWA",
+      "inLanguage": [
+        "es-MX",
+        "en-US"
+      ],
+      "keywords": "Three.js, WebGL, Modelos 3D, Animaciones, Emilio Fonseca, Demo en vivo, Tampico, Tamaulipas, México",
+      "author": {
+        "@type": "Person",
+        "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
+        "name": "Emilio Fonseca",
+        "url": "https://emiliougarte65.github.io/portafolio-web/",
+        "telephone": "+528336817886",
+        "email": "emilio656565@outlook.com"
+      }
+    }
+  ]
+}
+  </script>
+  <!-- SEO-GEO-AEO-END -->
+</head>
+<body>
+  <header class="cab"><span class="logo"><img src="./img/web-dev-eyes.svg" alt="Distrito" width="640" height="666" onerror="this.onerror=null;this.src='./img/web-dev-eyes.svg'"></span></header>
+  <main>
+    <section class="cuarto" id="cuarto">
+      <img class="portada" id="portada" alt="">
+      <div class="cuarto-3d" id="cuarto-3d"></div>
+      <div class="estado" id="estado" hidden></div>
+      <span class="gira" id="gira"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Arrastra para girar el cuarto</span>
+    </section>
+    <div class="texto"><small id="eti">Distrito</small><h1 id="titulo">Cargando…</h1><p class="sub" id="sub"></p><div class="pildoras" id="pildoras"></div></div>
+    <p class="cta">¿Trabajas en DE? <a href="/">Únete a Distrito</a> y arma tu propio cuarto.</p>
+  </main>
+  <!-- el servidor le pone su version (?v=) a esta direccion; el 3D se pide despues de pintar la foto -->
+  <a hidden id="m3d" href="./monstruos3d.js"></a>
+  <script type="module">
+    const TIENDA = { S001: 'Miralta', S003: 'Av. Monterrey', S004: 'Hidalgo', S007: 'Curva' };
+    // mismos nombres por defecto que la app (core.js: NOMBRE_MONSTRUO)
+    const NOMBRE = { obra: 'Ladrillín', pisos: 'Azulín', pintura: 'Brochi', plomeria: 'Gotita', ferreteria: 'Tuerquín', patito: 'Patito', cocodrilo: 'Coco',
+      gatito: 'Michi', xolo: 'Xolo', ajolote: 'Ajolotito', pinguino: 'Pingui', conejito: 'Conejito', panda: 'Pandita', unicornio: 'Unicornio', murcielago: 'Murci' };
+    const $ = (id) => document.getElementById(id);
+    const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const token = location.pathname.split('/')[2] || '';
+    const base = '/p/' + encodeURIComponent(token);
+    // 1) la foto del cuarto, al instante (si no hay portada, la de la vista previa)
+    const portada = $('portada');
+    portada.onload = () => portada.classList.add('lista');
+    portada.onerror = () => { if (!portada.src.includes('/foto.jpg')) portada.src = base + '/foto.jpg'; else portada.remove(); };
+    portada.src = base + '/cuadro.jpg';
+    const datos = fetch('/api/publico?t=' + encodeURIComponent(token)).then(async (r) => { const d = await r.json(); if (!r.ok) throw new Error(d.error || 'Este enlace ya no está activo'); return d; });
+    // 2) el 3D, sin estorbarle a la foto: se pide cuando el navegador esta libre
+    const libre = () => new Promise((ok) => (window.requestIdleCallback ? requestIdleCallback(ok, { timeout: 1200 }) : setTimeout(ok, 300)));
+    const tres = libre().then(() => import($('m3d').getAttribute('href'))).then(() => window.Monstruos
+      || new Promise((ok) => window.addEventListener('monstruos-listos', () => ok(window.Monstruos), { once: true })));
+    try {
+      const d = await datos;
+      const m = d.mascota, nombre = m.nombre || NOMBRE[m.especie] || 'Mi mascota';
+      document.title = `${nombre} de ${d.dueno} · Distrito`;
+      $('eti').textContent = d.dueno ? `La mascota de ${d.dueno}` : 'Distrito';
+      $('titulo').textContent = nombre;
+      $('sub').textContent = [m.etapa_nombre, TIENDA[d.tienda] ? `Tienda ${TIENDA[d.tienda]}` : ''].filter(Boolean).join(' · ');
+      $('pildoras').innerHTML = `<span>Nivel ${esc(m.nivel)}</span><span class="cor">♥ ${esc(d.likes)} ${Number(d.likes) === 1 ? 'corazón' : 'corazones'}</span>`;
+      const M = await tres;
+      if (M?.disponible) {   // sin 3D: se queda la foto
+        await M.cargar?.(m.especie);
+        const lienzo = $('cuarto-3d');
+        M.montarCuarto(lienzo, { mascota: m, muebles: d.cuarto, posiciones: d.posiciones || {}, pared: d.cuarto.pared, piso: d.cuarto.piso, interactivo: true });
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          lienzo.classList.add('lista'); $('cuarto').classList.add('con-3d');
+          const gira = $('gira'); gira.classList.add('ver');
+          const ocultar = () => gira.classList.remove('ver');
+          setTimeout(ocultar, 5000); $('cuarto').addEventListener('pointerdown', ocultar, { once: true });
+        }));
+      }
+    } catch (e) {
+      $('titulo').textContent = 'Mascota no disponible';
+      $('eti').textContent = 'Distrito';
+      portada.remove();
+      const est = $('estado'); est.textContent = e.message || 'Este enlace ya no está activo'; est.hidden = false;
+    }
+  </script>
+</body>
+</html>
