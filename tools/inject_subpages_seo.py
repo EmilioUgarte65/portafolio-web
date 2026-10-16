@@ -11,6 +11,24 @@ DEMO_SLUGS = [
     "ruta-clara", "totem", "vertice", "vitrina", "web-studio"
 ]
 
+def clamp_desc(text, max_len=154):
+    text = re.sub(r"\s+", " ", text).strip()
+    if len(text) <= max_len:
+        return text
+    cut = text[:max_len - 1].rsplit(" ", 1)[0].rstrip(".,;:")
+    return cut + "."
+
+def normalize_existing_meta_description(html_text):
+    def repl(match):
+        prefix, content, suffix = match.group(1), match.group(2), match.group(3)
+        return f'{prefix}{clamp_desc(content, 154)}{suffix}'
+    return re.sub(
+        r'(<meta\s+name=["\']description["\']\s+content=["\'])([^"\']+)(["\']\s*/?>)',
+        repl,
+        html_text,
+        flags=re.IGNORECASE
+    )
+
 def strip_previous_injection(html_text):
     return re.sub(
         r"\s*<!-- SEO-GEO-AEO-START -->.*?<!-- SEO-GEO-AEO-END -->\s*",
@@ -19,8 +37,18 @@ def strip_previous_injection(html_text):
         flags=re.DOTALL
     )
 
-def inject_before_head_close(html_text, block):
+def inject_before_head_close(html_text, block, is_demo=False):
     cleaned = strip_previous_injection(html_text)
+    if is_demo:
+        # Remove any existing meta description on demo pages so there is exactly 1
+        cleaned = re.sub(
+            r'\s*<meta\s+name=["\']description["\']\s+content=["\'][^"\']*["\']\s*/?>',
+            '',
+            cleaned,
+            flags=re.IGNORECASE
+        )
+    else:
+        cleaned = normalize_existing_meta_description(cleaned)
     wrapped = f"\n  <!-- SEO-GEO-AEO-START -->\n{block}\n  <!-- SEO-GEO-AEO-END -->\n</head>"
     if "</head>" in cleaned:
         return cleaned.replace("</head>", wrapped, 1)
@@ -181,8 +209,9 @@ def build_demo_seo_block(slug, card, meta):
         ]
     }
     json_ld = json.dumps(graph, ensure_ascii=False, indent=2)
+    meta_desc_short = clamp_desc(f"{title_clean}: {desc_clean}", 154)
 
-    return f'''  <meta name="description" content="{desc_clean} — Demo interactiva desarrollada por Emilio Fonseca (Ingeniero Full-Stack e IA en Tampico, Tamaulipas, México)." />
+    return f'''  <meta name="description" content="{meta_desc_short}" />
   <meta name="author" content="Emilio Fonseca" />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <link rel="canonical" href="{demo_url}" />
@@ -357,7 +386,7 @@ def main():
                     with open(demo_path, "r", encoding="utf-8") as f:
                         html = f.read()
                     block = build_demo_seo_block(slug, lookup_es[slug], PROJECT_META[slug])
-                    html = inject_before_head_close(html, block)
+                    html = inject_before_head_close(html, block, is_demo=True)
                     with open(demo_path, "w", encoding="utf-8") as f:
                         f.write(html)
                     demo_count += 1
@@ -392,6 +421,20 @@ def main():
     with open("sitemap.xml", "w", encoding="utf-8") as f:
         f.write("\n".join(sitemap_lines))
     print(f"Updated sitemap.xml with {len(urls)} total URLs.")
+
+    # 5. Audit all 68 HTML pages for meta description length (25 <= len <= 160)
+    import glob
+    all_html = [
+        f for f in glob.glob("**/*.html", recursive=True)
+        if "original" not in f and "taste-skill" not in f and "google331104" not in f and "cv-" not in f
+    ]
+    violations = []
+    for f in all_html:
+        txt = open(f, encoding="utf-8").read()
+        descs = re.findall(r'<meta\s+name=["\']description["\']\s+content=["\']([^"\']*)["\']', txt, flags=re.I)
+        if len(descs) != 1 or len(descs[0]) < 25 or len(descs[0]) > 160:
+            violations.append((f, [len(d) for d in descs]))
+    print(f"Audited {len(all_html)} HTML pages: {len(violations)} meta description violations.", violations)
 
 if __name__ == "__main__":
     main()

@@ -32,7 +32,7 @@ def build_page(lang="es"):
     
     i18n = {
         "title": "Emilio Fonseca — Código, físicas e interactividad" if is_es else "Emilio Fonseca — Code, Physics & Interactivity",
-        "description": "Portafolio y catálogo de Emilio Fonseca: videojuegos con físicas en WebGL, herramientas multimedia creativas, plataformas web de producción e inferencia de IA local en GPUs de consumo." if is_es else "Portfolio and catalog of Emilio Fonseca: WebGL physics games, creative multimedia tools, production web platforms, and local AI inference on consumer GPUs.",
+        "description": "Portafolio de Emilio Fonseca: desarrollador Full-Stack e IA en México. Videojuegos WebGL, suites multimedia, PWAs offline e inferencia LLM en GPU." if is_es else "Emilio Fonseca — Full-Stack & AI Engineer in Mexico. WebGL physics games, multimedia tools, offline-first PWAs, and local LLM GPU inference.",
         "hero_pill": "Ingeniería de Software · Físicas & Creatividad Interactiva" if is_es else "Software Engineering · Physics & Interactive Creativity",
         "hero_h1": "Código, físicas e interactividad." if is_es else "Code, physics and interactivity.",
         "hero_lead": "Hola, soy Emilio Fonseca. Desarrollador full-stack y creador técnico. Construyo software donde la ingeniería profunda y el diseño visual convergen: videojuegos con físicas reales en WebGL, suites de autor multimedia, plataformas en producción e inferencia local de IA en hardware de consumo." if is_es else "Hi, I'm Emilio Fonseca. Full-stack developer and creative technologist. I build software where deep engineering and interactive visual design converge: WebGL physics games, multimedia authoring suites, production platforms, and local AI inference on consumer GPUs.",
