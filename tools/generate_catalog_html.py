@@ -20,7 +20,7 @@ if os.path.exists("tools/previews_extracted.json"):
 # Standout projects order
 SLUG_ORDER = [
     "juego-construccion", "web-studio", "inferencia", "myaccountant",
-    "ourway", "ruta-clara", "radar", "distrito", "dino-ai", "mundial",
+    "cora", "ourway", "ruta-clara", "radar", "distrito", "dino-ai", "mundial",
     "dexter", "nucleo", "lumen", "vertice", "vitrina",
     "nexo", "brujula", "festo", "pulso", "totem", "marquesina"
 ]
@@ -37,7 +37,7 @@ def build_page(lang="es"):
         "hero_h1": "Código, físicas e interactividad." if is_es else "Code, physics and interactivity.",
         "hero_lead": "Hola, soy Emilio Fonseca. Desarrollador full-stack y creador técnico. Construyo software donde la ingeniería profunda y el diseño visual convergen: videojuegos con físicas reales en WebGL, suites de autor multimedia, plataformas en producción e inferencia local de IA en hardware de consumo." if is_es else "Hi, I'm Emilio Fonseca. Full-stack developer and creative technologist. I build software where deep engineering and interactive visual design converge: WebGL physics games, multimedia authoring suites, production platforms, and local AI inference on consumer GPUs.",
         "btn_explore_creations": "Explorar obras destacadas" if is_es else "Explore flagship projects",
-        "btn_explore_archive": "Archivo completo (21)" if is_es else "Complete archive (21)",
+        "btn_explore_archive": "Archivo completo (22)" if is_es else "Complete archive (22)",
         "btn_view_index_1screen": "Índice en 1 pantalla" if is_es else "1-screen index",
         "bento_title": "Creatividad técnica y proyectos insignia" if is_es else "Technical creativity & flagship projects",
         "bento_desc": "Una muestra de flexibilidad: motores de físicas en el navegador, suites multimedia, modelos de IA a bajo nivel y apps offline-first." if is_es else "A showcase of versatility: in-browser physics engines, multimedia suites, low-level AI models, and offline-first apps.",
@@ -53,14 +53,14 @@ def build_page(lang="es"):
         "bento_acc_desc": "Sistema de gestión financiera y contabilidad personal con arquitectura 100% offline-first. Cero servidores externos y cero nube: almacenamiento local cifrado en IndexedDB, balances mensuales automatizados y control de gastos privado." if is_es else "Personal finance and accounting system with 100% offline-first architecture. Zero external servers and zero cloud: encrypted local storage in IndexedDB, automated monthly balance sheets, and private expense tracking.",
         "bento_acc_btn": "Probar app demo" if is_es else "Launch app demo",
         "catalog_title": "Archivo completo de proyectos" if is_es else "Complete project archive",
-        "catalog_desc": "Explora las 21 implementaciones en producción por categoría, busca por tecnología o activa el índice compacto para escanear todo en una sola pantalla sin scroll infinito." if is_es else "Explore all 21 production projects by category, search by technology, or switch to the compact index table to scan everything in one screen without endless scrolling.",
+        "catalog_desc": "Explora las 22 implementaciones en producción por categoría, busca por tecnología o activa el índice compacto para escanear todo en una sola pantalla sin scroll infinito." if is_es else "Explore all 22 production projects by category, search by technology, or switch to the compact index table to scan everything in one screen without endless scrolling.",
         "search_placeholder": "Buscar por tecnología, nombre o caso de uso (ej. Python, React, Unity, ERP, Docker)..." if is_es else "Search by technology, name, or use case (e.g. Python, React, Unity, ERP, Docker)...",
         "view_grid": "Cuadrícula" if is_es else "Grid",
         "view_index": "Índice en tabla" if is_es else "Table index",
         "tab_all": "Todos" if is_es else "All",
         "tab_demos": "Demos en vivo" if is_es else "Live demos",
         "showing_text": "Mostrando" if is_es else "Showing",
-        "of_text": "de 21 proyectos" if is_es else "of 21 projects",
+        "of_text": "de 22 proyectos" if is_es else "of 22 projects",
         "no_results": "No se encontraron proyectos con ese criterio de búsqueda." if is_es else "No projects found matching that search criteria.",
         "btn_clear_search": "Restablecer filtros" if is_es else "Reset filters",
         "card_btn_preview": "Ficha técnica" if is_es else "Quick view",
@@ -125,6 +125,8 @@ def build_page(lang="es"):
         demo_url = showcase_url
         if slug == "juego-construccion":
             demo_url = "https://mnlaobramaestra.netlify.app/"
+        elif slug == "cora":
+            demo_url = "https://emiliougarte65.github.io/cora-showcase/" if is_es else "https://emiliougarte65.github.io/cora-showcase/en/"
         elif slug in ["mundial", "nexo", "lumen", "nucleo", "vertice", "vitrina", "myaccountant", "marquesina", "pulso", "totem", "web-studio", "distrito", "ruta-clara", "ourway", "radar"]:
             demo_url = f"{root_prefix}demos/{slug}/"
             
@@ -163,7 +165,7 @@ def build_page(lang="es"):
         if slug == "juego-construccion":
             card_action_btn_text = i18n["modal_btn_play"]
         card_action_href = demo_url if is_live_demo else showcase_url
-        card_target_attr = 'target="_blank" rel="noopener"' if (slug == "juego-construccion") else ""
+        card_target_attr = 'target="_blank" rel="noopener"' if (slug in ["juego-construccion", "cora"]) else ""
         
         card_html = f'''
         <div class="card catalog-item" data-slug="{slug}" data-category="{cat_key}" data-live="{str(is_live_demo).lower()}" data-search="{search_terms}" onclick="openProjectModal('{slug}')" tabindex="0" role="button" aria-label="Ver ficha técnica de {title_escaped}">
@@ -1070,7 +1072,7 @@ def build_page(lang="es"):
     </div>
   </section>
 
-  <!-- COMPLETE CATALOG & ARCHIVE (21 PROJECTS) -->
+  <!-- COMPLETE CATALOG & ARCHIVE (22 PROJECTS) -->
   <section id="proyectos">
     <div class="container">
       <div class="section-head">
@@ -1102,15 +1104,15 @@ def build_page(lang="es"):
           <div class="catalog-tabs">
             <button type="button" class="cat-pill active" data-filter="all">
               <span>{i18n['tab_all']}</span>
-              <span class="pill-count">21</span>
+              <span class="pill-count">22</span>
             </button>
             <button type="button" class="cat-pill" data-filter="demos">
               <span>{i18n['tab_demos']}</span>
-              <span class="pill-count">17</span>
+              <span class="pill-count">18</span>
             </button>
             <button type="button" class="cat-pill" data-filter="ia">
               <span>IA &amp; ML</span>
-              <span class="pill-count">6</span>
+              <span class="pill-count">7</span>
             </button>
             <button type="button" class="cat-pill" data-filter="web">
               <span>Web &amp; ERP</span>
@@ -1126,7 +1128,7 @@ def build_page(lang="es"):
             </button>
           </div>
           <div class="catalog-status-text">
-            <span>{i18n['showing_text']} <strong id="catalogVisibleCount">21</strong> {i18n['of_text']}</span>
+            <span>{i18n['showing_text']} <strong id="catalogVisibleCount">22</strong> {i18n['of_text']}</span>
           </div>
         </div>
       </div>

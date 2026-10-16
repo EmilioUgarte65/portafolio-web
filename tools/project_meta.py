@@ -195,6 +195,15 @@ PROJECT_META = {
         "stack": ["Unity", "C#", "WebGL", "WASM", "2D Platformer"],
         "metric_es": "Motor de físicas y coladas de concreto compilado a WebGL",
         "metric_en": "Physics engine & material harvesting compiled to WASM"
+    },
+    "cora": {
+        "cat": "ia",
+        "cat_name_es": "IA & Machine Learning",
+        "cat_name_en": "AI & Machine Learning",
+        "demo_type": "demo",
+        "stack": ["Python", "FastAPI", "OpenAI / Claude", "Vector RAG", "ui-ux-pro-max"],
+        "metric_es": "Atención omnicanal 24/7 · Texto, voz y catálogo vectorizado",
+        "metric_en": "24/7 Omnichannel support · Text, voice & vectorized catalog"
     }
 }
 

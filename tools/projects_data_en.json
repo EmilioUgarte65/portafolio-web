@@ -187,5 +187,14 @@
     "tag": "Video Game · Unity & WebGL",
     "title": "Obra Maestra MN",
     "description": "2D resource-gathering and construction platformer. Built with Unity, compiled to WebGL/WASM and optimized for seamless mobile and desktop web play."
+  },
+  {
+    "href": "projects/cora/",
+    "badge": "● Demo",
+    "image": "../assets/previews/cora.jpg",
+    "alt": "CORA · Conversational AI Assistant",
+    "tag": "Conversational AI · RAG",
+    "title": "CORA · Conversational AI Assistant",
+    "description": "Smart assistant with AI-Native UI that serves customers across messaging channels: understands text, voice notes, and images, searches vector catalogs, and provides 24/7 expert sales recommendations."
   }
 ]

@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CORA — Conversational AI Assistant</title>
+  <meta name="description" content="CORA is an artificial intelligence assistant that serves customers over messaging: it understands text, voice and images, searches your catalog and advises like an expert." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== Design tokens (ui-ux-pro-max · AI-Native UI) ===== */
+    :root {
+      --color-primary: #7C3AED;
+      --color-on-primary: #FFFFFF;
+      --color-secondary: #A78BFA;
+      --color-accent: #0891B2;
+      --color-background: #FAF5FF;
+      --color-foreground: #1E1B4B;
+      --color-muted: #ECEEF9;
+      --color-border: #DDD6FE;
+      --color-card: #FFFFFF;
+      --shadow-sm: 0 1px 2px rgba(30,27,75,0.06);
+      --shadow-md: 0 8px 24px rgba(124,58,237,0.10);
+      --shadow-lg: 0 24px 60px rgba(124,58,237,0.16);
+      --radius: 20px;
+      --radius-sm: 14px;
+      --font-head: 'Space Grotesk', system-ui, sans-serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --maxw: 1140px;
+      --grad: linear-gradient(120deg, #7C3AED, #0891B2 75%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-background);
+      color: var(--color-foreground);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(44% 36% at 90% -4%, rgba(124,58,237,.12), transparent 62%),
+        radial-gradient(40% 38% at -4% 10%, rgba(8,145,178,.09), transparent 62%),
+        radial-gradient(40% 44% at 50% 118%, rgba(167,139,250,.10), transparent 64%);
+    }
+    ::selection { background: rgba(124,58,237,.18); }
+    h1, h2, h3, .h { font-family: var(--font-head); letter-spacing: -0.02em; line-height: 1.1; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-head); font-weight: 600; font-size: 0.78rem;
+      text-transform: uppercase; letter-spacing: 0.09em;
+      color: var(--color-primary); background: color-mix(in srgb, var(--color-primary) 9%, #fff);
+      border: 1px solid color-mix(in srgb, var(--color-primary) 18%, transparent);
+      padding: 6px 14px; border-radius: 999px;
+    }
+
+    /* ===== Nav ===== */
+    nav {
+      position: sticky; top: 0; z-index: 60;
+      background: rgba(250,245,255,0.8); backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--color-border);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-family: var(--font-head); font-weight: 700; font-size: 1.15rem; }
+    .brand .orb {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: conic-gradient(from 180deg, var(--color-primary), var(--color-accent), var(--color-secondary), var(--color-primary));
+      box-shadow: 0 0 0 4px var(--color-muted);
+      animation: spin 8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .nav-cta {
+      font-family: var(--font-head); font-weight: 600; font-size: 0.9rem;
+      background: var(--color-foreground); color: #fff; padding: 9px 18px; border-radius: 999px;
+      transition: transform .15s, box-shadow .2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+    /* ===== Hero ===== */
+    .hero { position: relative; padding: 80px 0 64px; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background:
+        radial-gradient(60% 50% at 80% 0%, rgba(124,58,237,0.14), transparent 70%),
+        radial-gradient(50% 50% at 0% 30%, rgba(8,145,178,0.10), transparent 70%);
+    }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+    .hero h1 { font-size: clamp(2.4rem, 5.5vw, 3.8rem); font-weight: 700; margin: 22px 0 18px; }
+    .hero h1 .grad {
+      background: var(--grad); background-size: 200% auto;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: shimmer 9s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: 200% center; } }
+    @media (prefers-reduced-motion: reduce) { .hero h1 .grad, .brand .orb { animation: none !important; } }
+    .hero p.lead { font-size: 1.18rem; color: #4b4a6b; max-width: 540px; margin-bottom: 30px; }
+    .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+      font-family: var(--font-head); font-weight: 600; font-size: 0.98rem;
+      padding: 14px 26px; border-radius: 999px; border: 0;
+      transition: transform .15s, box-shadow .2s, background .2s;
+    }
+    .btn-primary { background: var(--grad); color: var(--color-on-primary); box-shadow: var(--shadow-md); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-ghost { background: #fff; color: var(--color-foreground); border: 1.5px solid var(--color-border); }
+    .btn-ghost:hover { border-color: var(--color-primary); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .stat-row { display: flex; gap: 30px; margin-top: 38px; flex-wrap: wrap; }
+    .stat .n { font-family: var(--font-head); font-weight: 700; font-size: 1.7rem; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .stat .l { font-size: 0.85rem; color: #6b6a85; }
+
+    /* ===== Phone / chat mockup ===== */
+    .phone {
+      justify-self: center; width: 320px; max-width: 100%;
+      background: #fff; border-radius: 36px; padding: 14px;
+      box-shadow: var(--shadow-lg); border: 1px solid var(--color-border);
+    }
+    .phone-screen { background: #ECE5DD; border-radius: 26px; overflow: hidden; height: 560px; display: flex; flex-direction: column; }
+    .chat-head {
+      background: var(--color-primary); color: #fff; padding: 16px 18px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .chat-head .av { width: 38px; height: 38px; border-radius: 50%; background: conic-gradient(from 180deg, #fff6, #fff2); display: grid; place-items: center; font-family: var(--font-head); font-weight: 700; }
+    .chat-head .nm { font-family: var(--font-head); font-weight: 600; font-size: 0.98rem; }
+    .chat-head .on { font-size: 0.74rem; opacity: 0.85; }
+    .chat-body { flex: 1; padding: 16px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+    .bubble { max-width: 80%; padding: 9px 13px; border-radius: 14px; font-size: 0.88rem; box-shadow: var(--shadow-sm); opacity: 0; transform: translateY(8px); animation: pop .4s forwards; }
+    .bubble.in { background: #fff; align-self: flex-start; border-top-left-radius: 4px; }
+    .bubble.out { background: #DCF8C6; align-self: flex-end; border-top-right-radius: 4px; }
+    .bubble.b1 { animation-delay: .3s; } .bubble.b2 { animation-delay: 1.2s; }
+    .bubble.b3 { animation-delay: 2.2s; } .bubble.b4 { animation-delay: 3.4s; }
+    @keyframes pop { to { opacity: 1; transform: translateY(0); } }
+    .typing { align-self: flex-start; background: #fff; padding: 12px 14px; border-radius: 14px; border-top-left-radius: 4px; display: inline-flex; gap: 5px; box-shadow: var(--shadow-sm); }
+    .typing span { width: 7px; height: 7px; border-radius: 50%; background: var(--color-secondary); animation: blink 1.2s infinite; }
+    .typing span:nth-child(2) { animation-delay: .2s; } .typing span:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink { 0%,60%,100% { opacity: .25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
+    .voice-note { display: flex; align-items: center; gap: 8px; }
+    .voice-note .play { width: 22px; height: 22px; border-radius: 50%; background: var(--color-primary); display: grid; place-items: center; }
+    .wavebars { display: flex; align-items: center; gap: 2px; height: 18px; }
+    .wavebars i { width: 3px; background: var(--color-secondary); border-radius: 2px; display: inline-block; }
+
+    /* ===== Sections ===== */
+    section { padding: 76px 0; }
+    .sec-head { text-align: center; max-width: 640px; margin: 0 auto 50px; }
+    .sec-head h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 700; margin: 16px 0 12px; }
+    .sec-head p { color: #5b5a78; font-size: 1.05rem; }
+
+    /* ===== Bento grid ===== */
+    .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 1fr; gap: 18px; }
+    @media (max-width: 900px) { .bento { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px) { .bento { grid-template-columns: 1fr; } }
+    .cell {
+      background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius);
+      padding: 26px; box-shadow: var(--shadow-sm);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+      display: flex; flex-direction: column;
+    }
+    .cell:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--color-secondary); }
+    .cell.wide { grid-column: span 2; }
+    @media (max-width: 560px) { .cell.wide { grid-column: span 1; } }
+    .ic {
+      width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: #fff; margin-bottom: 16px;
+    }
+    .ic svg { width: 24px; height: 24px; }
+    .cell h3 { font-size: 1.18rem; font-weight: 600; margin-bottom: 8px; }
+    .cell p { color: #5b5a78; font-size: 0.94rem; }
+    .cell .demo { margin-top: auto; padding-top: 16px; }
+    .pill { display: inline-block; font-size: 0.76rem; font-weight: 500; color: var(--color-accent); background: #E0F4F8; padding: 4px 10px; border-radius: 8px; margin: 4px 4px 0 0; }
+
+    /* ===== Flow / specs ===== */
+    .alt { background: #fff; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: step; }
+    @media (max-width: 820px) { .flow { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .flow { grid-template-columns: 1fr; } }
+    .step { position: relative; padding: 26px 22px; border-radius: var(--radius-sm); background: var(--color-background); border: 1px solid var(--color-border); }
+    .step::before {
+      counter-increment: step; content: counter(step);
+      font-family: var(--font-head); font-weight: 700; font-size: 0.9rem;
+      width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--color-primary); color: #fff; margin-bottom: 14px;
+    }
+    .step h4 { font-family: var(--font-head); font-size: 1.02rem; margin-bottom: 6px; }
+    .step p { font-size: 0.88rem; color: #5b5a78; }
+
+    .specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 760px) { .specs { grid-template-columns: 1fr; } }
+    .spec { display: flex; gap: 14px; padding: 20px; background: var(--color-card); border: 1px solid var(--color-border); border-radius: var(--radius-sm); }
+    .spec .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--color-accent); margin-top: 8px; flex: none; box-shadow: 0 0 0 4px #E0F4F8; }
+    .spec h4 { font-family: var(--font-head); font-size: 0.98rem; }
+    .spec p { font-size: 0.85rem; color: #5b5a78; }
+
+    /* ===== CTA ===== */
+    .cta-card {
+      position: relative; overflow: hidden; text-align: center;
+      background: linear-gradient(135deg, var(--color-primary), #5b21b6 60%, var(--color-accent));
+      color: #fff; border-radius: 28px; padding: 64px 32px;
+    }
+    .cta-card::after { content: ""; position: absolute; top: -40%; right: -10%; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 70%); }
+    .cta-card h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; position: relative; }
+    .cta-card p { opacity: 0.92; max-width: 520px; margin: 0 auto 28px; position: relative; }
+    .cta-card .btn-primary { background: #fff; color: var(--color-primary); }
+    .cta-card .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.5); }
+
+    footer { padding: 40px 0; text-align: center; color: #6b6a85; font-size: 0.88rem; }
+    footer .brand { justify-content: center; margin-bottom: 10px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .bubble { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap" style="display: flex; align-items: center; justify-content: space-between;">
+      <a href="../../../en/" style="font-size: 0.88rem; color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">&larr; Back to portfolio</a>
+      <div class="brand"><span class="orb"></span> CORA</div>
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <a class="nav-cta" href="https://emiliougarte65.github.io/cora-showcase/en/" target="_blank" rel="noopener">Live showcase</a>
+        <a href="../../../proyectos/cora/" title="Ver en espa&ntilde;ol" style="color: var(--color-accent, #0891B2); font-weight: 700;">ES</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);display:inline-block"></span> Conversational AI assistant</span>
+        <h1>Customer service that <span class="grad">understands, replies and resolves</span> — 24/7.</h1>
+        <p class="lead">CORA is the AI-powered assistant that serves your customers over <strong>WhatsApp</strong>. It understands text, voice notes and images, searches your catalog and advises like a true expert. It is the brain that brings conversations to life.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#capacidades">See what it does
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#flujo">How it works</a>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><div class="n">24/7</div><div class="l">Always available</div></div>
+          <div class="stat"><div class="n">3 channels</div><div class="l">Text · voice · image</div></div>
+          <div class="stat"><div class="n">&lt;5s</div><div class="l">Response time</div></div>
+        </div>
+      </div>
+
+      <!-- Phone chat mockup -->
+      <div class="phone" aria-hidden="true">
+        <div class="phone-screen">
+          <div class="chat-head">
+            <div class="av">C</div>
+            <div><div class="nm">CORA</div><div class="on">online · typing now</div></div>
+          </div>
+          <div class="chat-body">
+            <div class="bubble out b1">Hi, I'm looking for a concrete accelerator 🧱</div>
+            <div class="bubble in b2">Hi there! Of course 👍 I have the <strong>Fester Festermix Accelerator 4 L</strong> in stock. Want me to share the price and availability?</div>
+            <div class="bubble out b3">
+              <div class="voice-note">
+                <span class="play"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+                <span class="wavebars"><i style="height:6px"></i><i style="height:13px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:7px"></i><i style="height:12px"></i><i style="height:5px"></i><i style="height:10px"></i></span>
+                <span style="font-size:.72rem;color:#555">0:06</span>
+              </div>
+            </div>
+            <div class="bubble in b4">Got your voice note 🎧 I'd also recommend a compatible sealant. Want an advisor to confirm shipping for you?</div>
+            <div class="typing"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CAPACIDADES (BENTO) -->
+  <section id="capacidades">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Capabilities</span>
+        <h2>Everything CORA can do</h2>
+        <p>A single assistant that handles the entire customer conversation, from start to finish.</p>
+      </div>
+      <div class="bento">
+        <div class="cell wide">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+          <h3>Natural conversation</h3>
+          <p>Chats with your customers in everyday language, understands the intent behind every message and keeps the thread of the conversation without sounding robotic.</p>
+          <div class="demo"><span class="pill">Natural language</span><span class="pill">Continuous context</span><span class="pill">Friendly tone</span></div>
+        </div>
+        <div class="cell">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg></div>
+          <h3>Understands voice notes</h3>
+          <p>Transcribes the audio messages customers send and responds as if it had listened to them.</p>
+        </div>
+        <div class="cell">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+          <h3>Reads images</h3>
+          <p>Receives photos of products or problems and interprets them to give a better recommendation.</p>
+        </div>
+        <div class="cell">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>Smart search</h3>
+          <p>Finds the right product even when the customer misspells it, uses synonyms or colloquial terms.</p>
+          <div class="demo"><span class="pill">Synonyms</span><span class="pill">Typo-tolerant</span></div>
+        </div>
+        <div class="cell">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></div>
+          <h3>Expert advice</h3>
+          <p>Advises like a home-improvement specialist: which product to use, how to apply it and which add-ons to take.</p>
+        </div>
+        <div class="cell wide">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Escalates to a human when needed</h3>
+          <p>CORA knows its limits: when a conversation calls for human judgment —a customer onboarding, a negotiation or a special case— it hands it off to a team member without friction.</p>
+          <div class="demo"><span class="pill">Conversation memory</span><span class="pill">Smart handoff</span><span class="pill">No lost context</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLUJO -->
+  <section id="flujo" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">How it works</span>
+        <h2>From a message to a closed sale</h2>
+        <p>Four steps that happen in seconds, automatically.</p>
+      </div>
+      <div class="flow">
+        <div class="step"><h4>Receives</h4><p>The customer writes, sends an audio or a photo through their favorite messaging channel.</p></div>
+        <div class="step"><h4>Understands</h4><p>CORA interprets the message no matter the format and grasps what they really need.</p></div>
+        <div class="step"><h4>Resolves</h4><p>Searches the catalog, answers technical questions and suggests products and add-ons.</p></div>
+        <div class="step"><h4>Follows up</h4><p>Follows up, remembers the conversation and hands off to an advisor when required.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECS -->
+  <section id="specs">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Under the hood</span>
+        <h2>Built with modern technology</h2>
+        <p>A solid, secure foundation, ready to grow.</p>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="dot"></span><div><h4>Generative AI</h4><p>State-of-the-art language models for understanding and response.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>Multimodal</h4><p>Processes text, voice and image within a single conversation.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>Integrable</h4><p>Connects to catalogs and business systems via API; integrates into a WhatsApp platform as its AI brain.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>Contextual memory</h4><p>Remembers the conversation and clears inactive sessions automatically.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>Secure by design</h4><p>Credentials and sensitive data kept out of the code, in environment variables.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>Scalable</h4><p>Designed to handle many conversations in parallel, without losing the context of each one.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="contacto">
+    <div class="wrap">
+      <div class="cta-card">
+        <h2>Want to see CORA in action?</h2>
+        <p>Schedule a demo and discover how an AI assistant can serve your customers while you focus on your business.</p>
+        <div class="btn-row" style="justify-content:center">
+          <a class="btn btn-primary" href="https://wa.me/528336817886?text=Hola%2C%20me%20interesa%20CORA" target="_blank" rel="noopener">Request a demo</a>
+          <a class="btn btn-ghost" href="https://emiliougarte65.github.io/portafolio-web/en/">See more projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand"><span class="orb"></span> CORA</div>
+      © <span id="y"></span> CORA · Conversational AI Assistant
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Typing indicator loop: restarts the bubble animation
+    const body = document.querySelector('.chat-body');
+    if (body && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setInterval(() => {
+        body.querySelectorAll('.bubble').forEach(b => {
+          b.style.animation = 'none'; void b.offsetWidth; b.style.animation = '';
+        });
+      }, 6000);
+    }
+  </script>
+</body>
+</html>

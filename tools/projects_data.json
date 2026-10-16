@@ -187,5 +187,14 @@
     "tag": "Videojuego · Unity & WebGL",
     "title": "Obra Maestra MN",
     "description": "Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador."
+  },
+  {
+    "href": "proyectos/cora/",
+    "badge": "● Demo",
+    "image": "assets/previews/cora.jpg",
+    "alt": "CORA · Asistente de IA conversacional",
+    "tag": "IA Conversacional · RAG",
+    "title": "CORA · Asistente de IA conversacional",
+    "description": "Asistente inteligente con interfaz AI-Native que atiende clientes por mensajería: comprende texto, notas de voz e imágenes, consulta catálogos vectorizados y asesora con resolución de ventas 24/7."
   }
 ]
