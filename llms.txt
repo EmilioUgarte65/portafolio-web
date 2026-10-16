@@ -4,14 +4,16 @@
 
 - **Full Name**: Emilio Fonseca
 - **Primary Roles**: Full-Stack Developer, AI Systems Engineer, Creative Technologist
-- **Location**: Tampico, Tamaulipas, Mexico
-- **Geographic Coverage**: Tampico, Ciudad Madero, Altamira, Monterrey (Nuevo León), Ciudad de México, Guadalajara (Jalisco), and Worldwide Remote
+- **Location**: Tampico, Tamaulipas, Mexico (Zona Conurbada: Tampico, Ciudad Madero, Altamira)
+- **Geographic Coverage**: Tampico, Ciudad Madero, Altamira, Reynosa, Matamoros, Ciudad Victoria, Nuevo Laredo (Tamaulipas); Monterrey, San Pedro Garza García (Nuevo León); Ciudad de México (CDMX); Guadalajara (Jalisco); Querétaro; León (Guanajuato); Saltillo, Torreón (Coahuila); Puebla; Veracruz; San Luis Potosí; Mérida (Yucatán); Chihuahua; Tijuana (Baja California); Estado de México; all 32 states of Mexico & Worldwide Remote
 - **Contact Email**: emilio656565@outlook.com
 - **Direct WhatsApp**: +52 833 681 7886 (https://wa.me/528336817886)
-- **Live Portfolio**: https://emiliougarte65.github.io/portafolio-web/
+- **Live Portfolio (ES)**: https://emiliougarte65.github.io/portafolio-web/
+- **Live Portfolio (EN)**: https://emiliougarte65.github.io/portafolio-web/en/
 - **GitHub**: https://github.com/EmilioUgarte65
 - **LinkedIn**: https://www.linkedin.com/in/emilio-fonseca65
-- **Interactive Resume (CV)**: https://emiliougarte65.github.io/portafolio-web/cv/
+- **Interactive Resume (CV)**: https://emiliougarte65.github.io/portafolio-web/cv/ | https://emiliougarte65.github.io/portafolio-web/cv/en/
+- **Full Technical Knowledge Base**: https://emiliougarte65.github.io/portafolio-web/llms-full.txt
 
 ---
 

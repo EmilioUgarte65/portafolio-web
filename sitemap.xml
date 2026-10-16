@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://emiliougarte65.github.io/portafolio-web/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/</loc></url>
 <url><loc>https://emiliougarte65.github.io/portafolio-web/llms.txt</loc></url>
 <url><loc>https://emiliougarte65.github.io/portafolio-web/llms-full.txt</loc></url>
-<url><loc>https://emiliougarte65.github.io/portafolio-web/en/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/humans.txt</loc></url>
 <url><loc>https://emiliougarte65.github.io/portafolio-web/cv/</loc></url>
 <url><loc>https://emiliougarte65.github.io/portafolio-web/cv/en/</loc></url>
 <url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/brujula/</loc></url>
@@ -50,4 +51,19 @@
 <url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/vertice/</loc></url>
 <url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/vitrina/</loc></url>
 <url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/web-studio/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/distrito/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/lumen/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/marquesina/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/mundial/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/myaccountant/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/nexo/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/nucleo/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/ourway/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/pulso/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/radar/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/ruta-clara/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/totem/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/vertice/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/vitrina/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/demos/web-studio/</loc></url>
 </urlset>

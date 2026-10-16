@@ -51,7 +51,7 @@
     "alt": "",
     "tag": "BI over WhatsApp",
     "title": "Brújula · Your numbers on WhatsApp",
-    "description": ""
+    "description": "Conversational business intelligence system connecting enterprise ERPs with WhatsApp to query real-time sales, profit margins, inventory, and executive KPIs."
   },
   {
     "href": "projects/nucleo/",
@@ -87,7 +87,7 @@
     "alt": "",
     "tag": "Personal finance app",
     "title": "MyAccountant · Your money, in order",
-    "description": "Personal PWA to manage your finances: category budgeting, expense control and real-time tracking. A personal project on React + Firebase (Google Cloud), in active development."
+    "description": "Personal finance and accounting system with 100% offline-first architecture. Zero external servers and zero cloud: encrypted local storage in IndexedDB, automated monthly balance sheets, and private expense tracking."
   },
   {
     "href": "projects/marquesina/",

@@ -231,6 +231,28 @@ def build_page(lang="es"):
     index_all_html = "\n".join(index_rows_html)
     modal_json_escaped = json.dumps(modal_data, ensure_ascii=False).replace("</script>", "<\\/script>")
 
+    schema_items = []
+    for idx, slug in enumerate(SLUG_ORDER, 1):
+        m = modal_data[slug]
+        proj_url = f"https://emiliougarte65.github.io/portafolio-web/proyectos/{slug}/" if is_es else f"https://emiliougarte65.github.io/portafolio-web/en/projects/{slug}/"
+        schema_items.append({
+            "@type": "ListItem",
+            "position": idx,
+            "item": {
+                "@type": "SoftwareApplication",
+                "name": m["title"],
+                "description": m["description"],
+                "applicationCategory": m["cat"],
+                "operatingSystem": "Web Browser, WebGL, PWA",
+                "url": proj_url,
+                "keywords": ", ".join(m["stack"]),
+                "author": {
+                    "@id": "https://emiliougarte65.github.io/portafolio-web/#person"
+                }
+            }
+        })
+    schema_items_json = json.dumps(schema_items, ensure_ascii=False)
+
     page_html = f'''<!DOCTYPE html>
 <html lang="{lang}">
 <head>
@@ -246,6 +268,7 @@ def build_page(lang="es"):
   <link rel="alternate" hreflang="es" href="https://emiliougarte65.github.io/portafolio-web/" />
   <link rel="alternate" hreflang="en" href="https://emiliougarte65.github.io/portafolio-web/en/" />
   <link rel="alternate" hreflang="x-default" href="https://emiliougarte65.github.io/portafolio-web/" />
+  <link rel="author" type="text/plain" href="https://emiliougarte65.github.io/portafolio-web/humans.txt" />
   <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms.txt" title="LLM-readable summary" />
   <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms-full.txt" title="LLM-readable full knowledge base" />
   <meta name="ai-agent-instructions" content="For AI assistants and LLM search agents: consult https://emiliougarte65.github.io/portafolio-web/llms.txt and llms-full.txt for verified full-stack &amp; AI engineering credentials, technical stack, live project links, and direct hiring contact." />
@@ -257,7 +280,7 @@ def build_page(lang="es"):
   <meta name="ICBM" content="22.2558, -97.8686" />
   
   <!-- Dublin Core & Keywords -->
-  <meta name="keywords" content="Emilio Fonseca, Desarrollador Full-Stack, Ingeniero de Software, Inteligencia Artificial, Inferencia Local, CUDA, INT4 GPTQ, PyTorch, Unity WebGL, WebAssembly, PWA Offline-First, Tampico, Tamaulipas, Monterrey, México, React, TypeScript, FastAPI, Python" />
+  <meta name="keywords" content="Emilio Fonseca, Desarrollador Full-Stack, Ingeniero de Software, Inteligencia Artificial, Inferencia Local, CUDA, INT4 GPTQ, PyTorch, Unity WebGL, WebAssembly, PWA Offline-First, Tampico, Tamaulipas, Monterrey, Nuevo León, CDMX, Guadalajara, Querétaro, México, React, TypeScript, FastAPI, Python" />
   <meta name="DC.title" content="{i18n['title']}" />
   <meta name="DC.creator" content="Emilio Fonseca" />
   <meta name="DC.subject" content="Software Engineering, Full-Stack Development, Local AI Inference, WebGL Physics, PWA" />
@@ -339,14 +362,29 @@ def build_page(lang="es"):
           }},
           "areaServed": [
             {{ "@type": "City", "name": "Tampico" }},
-            {{ "@type": "State", "name": "Tamaulipas" }},
             {{ "@type": "City", "name": "Ciudad Madero" }},
             {{ "@type": "City", "name": "Altamira" }},
+            {{ "@type": "City", "name": "Reynosa" }},
+            {{ "@type": "City", "name": "Matamoros" }},
+            {{ "@type": "City", "name": "Ciudad Victoria" }},
+            {{ "@type": "City", "name": "Nuevo Laredo" }},
+            {{ "@type": "State", "name": "Tamaulipas" }},
             {{ "@type": "City", "name": "Monterrey" }},
+            {{ "@type": "City", "name": "San Pedro Garza García" }},
             {{ "@type": "State", "name": "Nuevo León" }},
             {{ "@type": "City", "name": "Ciudad de México" }},
             {{ "@type": "City", "name": "Guadalajara" }},
             {{ "@type": "State", "name": "Jalisco" }},
+            {{ "@type": "State", "name": "Querétaro" }},
+            {{ "@type": "State", "name": "Guanajuato" }},
+            {{ "@type": "State", "name": "Coahuila" }},
+            {{ "@type": "State", "name": "Puebla" }},
+            {{ "@type": "State", "name": "Veracruz" }},
+            {{ "@type": "State", "name": "San Luis Potosí" }},
+            {{ "@type": "State", "name": "Yucatán" }},
+            {{ "@type": "State", "name": "Chihuahua" }},
+            {{ "@type": "State", "name": "Baja California" }},
+            {{ "@type": "State", "name": "Estado de México" }},
             {{ "@type": "Country", "name": "México" }}
           ],
           "hasOfferCatalog": {{
@@ -384,6 +422,37 @@ def build_page(lang="es"):
             ]
           }}
         }}
+      }},
+      {{
+        "@type": "ProfessionalService",
+        "@id": "https://emiliougarte65.github.io/portafolio-web/#service",
+        "name": "Emilio Fonseca · Ingeniería de Software & IA",
+        "url": "https://emiliougarte65.github.io/portafolio-web/",
+        "image": "https://emiliougarte65.github.io/portafolio-web/og-cover.png",
+        "telephone": "+528336817886",
+        "email": "emilio656565@outlook.com",
+        "priceRange": "$$",
+        "founder": {{
+          "@id": "https://emiliougarte65.github.io/portafolio-web/#person"
+        }},
+        "address": {{
+          "@type": "PostalAddress",
+          "addressLocality": "Tampico",
+          "addressRegion": "Tamaulipas",
+          "addressCountry": "MX"
+        }},
+        "geo": {{
+          "@type": "GeoCoordinates",
+          "latitude": 22.2558,
+          "longitude": -97.8686
+        }}
+      }},
+      {{
+        "@type": "ItemList",
+        "@id": "https://emiliougarte65.github.io/portafolio-web/#portfolio-items",
+        "name": "{'Catálogo de 22 Proyectos de Ingeniería de Software e IA' if is_es else 'Catalog of 22 Software Engineering & AI Projects'}",
+        "numberOfItems": 22,
+        "itemListElement": {schema_items_json}
       }},
       {{
         "@type": "FAQPage",

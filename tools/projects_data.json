@@ -51,7 +51,7 @@
     "alt": "",
     "tag": "BI por WhatsApp",
     "title": "Brújula · Tus números por WhatsApp",
-    "description": ""
+    "description": "Sistema de inteligencia de negocios conversacional que conecta el ERP empresarial con WhatsApp para consultar ventas, márgenes, inventarios y KPIs ejecutivos en tiempo real."
   },
   {
     "href": "proyectos/nucleo/",
@@ -87,7 +87,7 @@
     "alt": "",
     "tag": "App de finanzas personales",
     "title": "MyAccountant · Tus finanzas en orden",
-    "description": "App personal (PWA) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. Proyecto propio en React + Firebase (Google Cloud), en desarrollo activo."
+    "description": "Sistema de gestión financiera y contabilidad personal con arquitectura 100% offline-first. Cero servidores externos y cero nube: almacenamiento local cifrado en IndexedDB, balances mensuales automatizados y control de gastos privado."
   },
   {
     "href": "proyectos/marquesina/",

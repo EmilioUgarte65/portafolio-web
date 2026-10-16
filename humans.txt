@@ -1,0 +1,22 @@
+/* TEAM & AUTHOR */
+Name: Emilio Fonseca
+Role: Full-Stack Developer, AI Engineer & Creative Technologist
+Email: emilio656565@outlook.com
+WhatsApp / Phone: +52 833 681 7886
+Portfolio: https://emiliougarte65.github.io/portafolio-web/
+Interactive CV (ES): https://emiliougarte65.github.io/portafolio-web/cv/
+Interactive CV (EN): https://emiliougarte65.github.io/portafolio-web/cv/en/
+GitHub: https://github.com/EmilioUgarte65
+LinkedIn: https://www.linkedin.com/in/emilio-fonseca65
+
+/* LOCATION & GEOGRAPHIC COVERAGE */
+Base City: Tampico, Tamaulipas, Mexico (Zona Conurbada: Tampico, Ciudad Madero, Altamira)
+Coordinates: 22.2558, -97.8686 (MX-TAM)
+Regional & National Coverage: Tamaulipas, Nuevo Leon (Monterrey), CDMX (Ciudad de Mexico), Jalisco (Guadalajara), Queretaro, Guanajuato, Coahuila, Puebla, Veracruz, San Luis Potosi, Yucatan, Chihuahua, Baja California, Estado de Mexico, and 100% of Mexico + Worldwide Remote.
+
+/* SITE & AI AGENT STANDARDS */
+Language: Español (es-MX) / English (en-US)
+Standards: HTML5, CSS3, ES2024, WebGL, WebAssembly (WASM), Progressive Web Apps (PWA Offline-First), Schema.org JSON-LD, W3C Geo, Dublin Core
+LLM Summary: https://emiliougarte65.github.io/portafolio-web/llms.txt
+LLM Full Knowledge Base: https://emiliougarte65.github.io/portafolio-web/llms-full.txt
+Sitemap: https://emiliougarte65.github.io/portafolio-web/sitemap.xml
