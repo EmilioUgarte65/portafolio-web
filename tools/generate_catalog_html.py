@@ -84,6 +84,7 @@ def build_page(lang="es"):
         "contact_cv_interactive": "CV Interactivo" if is_es else "Interactive Resume",
         "contact_cv_pdf": "Descargar CV (PDF)" if is_es else "Download Resume (PDF)",
         "contact_meta_remote": "Disponible para contratos y trabajo remoto" if is_es else "Available for contracts & remote work",
+        "contact_coverage": "Base técnica en Tampico, Tamaulipas · Proyectos en sitio y remotos para Tamaulipas, Nuevo León (Monterrey), CDMX, Jalisco y contratos en todo México e internacional." if is_es else "Based in Tampico, Tamaulipas, Mexico · On-site & remote projects across Mexico (Monterrey, Mexico City, Guadalajara) and global remote contracts.",
         "jump_bottom": "Contacto y CV" if is_es else "Contact & CV",
         "jump_top": "Subir al inicio" if is_es else "Back to top",
         "nav_destacados": "Destacados" if is_es else "Flagships",
@@ -314,8 +315,55 @@ def build_page(lang="es"):
           }},
           "address": {{
             "@type": "PostalAddress",
+            "addressLocality": "Tampico",
             "addressRegion": "Tamaulipas",
             "addressCountry": "MX"
+          }},
+          "areaServed": [
+            {{ "@type": "City", "name": "Tampico" }},
+            {{ "@type": "State", "name": "Tamaulipas" }},
+            {{ "@type": "City", "name": "Ciudad Madero" }},
+            {{ "@type": "City", "name": "Altamira" }},
+            {{ "@type": "City", "name": "Monterrey" }},
+            {{ "@type": "State", "name": "Nuevo León" }},
+            {{ "@type": "City", "name": "Ciudad de México" }},
+            {{ "@type": "City", "name": "Guadalajara" }},
+            {{ "@type": "State", "name": "Jalisco" }},
+            {{ "@type": "Country", "name": "México" }}
+          ],
+          "hasOfferCatalog": {{
+            "@type": "OfferCatalog",
+            "name": "Servicios de Ingeniería de Software & Inteligencia Artificial",
+            "itemListElement": [
+              {{
+                "@type": "Offer",
+                "itemOffered": {{
+                  "@type": "Service",
+                  "name": "Desarrollo de Videojuegos WebGL y Físicas en Unity"
+                }}
+              }},
+              {{
+                "@type": "Offer",
+                "itemOffered": {{
+                  "@type": "Service",
+                  "name": "Inteligencia Artificial Aplicada, Inferencia Local CUDA y LLMs"
+                }}
+              }},
+              {{
+                "@type": "Offer",
+                "itemOffered": {{
+                  "@type": "Service",
+                  "name": "Desarrollo Web Full-Stack, SaaS y Aplicaciones PWA Offline-First"
+                }}
+              }},
+              {{
+                "@type": "Offer",
+                "itemOffered": {{
+                  "@type": "Service",
+                  "name": "Automatización Empresarial, Dashboards BI y WhatsApp Business API"
+                }}
+              }}
+            ]
           }}
         }}
       }}
@@ -922,6 +970,12 @@ def build_page(lang="es"):
     .contact-links-grid {{
       display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;
     }}
+    .contact-coverage-banner {{
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      margin: 0 auto 24px; padding: 10px 20px; border-radius: 999px;
+      background: var(--surface-2); color: var(--ink-muted);
+      font-size: var(--step-sm); line-height: 1.45; max-width: 820px; text-align: center;
+    }}
     .contact-meta-row {{
       display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; font-size: var(--step-sm); color: var(--ink-muted);
     }}
@@ -1332,6 +1386,10 @@ def build_page(lang="es"):
           <a class="btn btn-ghost" href="{root_prefix}cv/Emilio-Fonseca-CV-ES.pdf" download>{i18n['contact_cv_pdf']}</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/emilio-fonseca65" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn btn-ghost" href="https://github.com/EmilioUgarte65" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="contact-coverage-banner">
+          <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15" style="flex-shrink:0;color:var(--accent)" aria-hidden="true"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+          <span>{i18n['contact_coverage']}</span>
         </div>
         <div class="contact-meta-row">
           <a href="mailto:emilio656565@outlook.com">emilio656565@outlook.com</a>
