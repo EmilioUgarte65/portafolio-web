@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Carta · Distrito</title>
+  <meta name="description" content="Mira la carta que me salió en Distrito">
+  <meta name="theme-color" content="#06205c">
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="./img/web-dev-eyes.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" media="print" onload="this.media='all'">
+  <style>
+    /* Pagina publica de una carta compartida (enlace /c/<token>): sin sesion, solo la imagen que hizo su dueño. */
+    :root { --navy: #06205c; --navy-2: #0d2f80; --navy-3: #031540; --rojo: #e1211c; --oro: #ffc21a; --tx: #0a1a4a; --tx-2: #5b6a92; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body { font-family: Nunito, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--tx); background: #eef2fb; min-height: 100dvh;
+      display: flex; flex-direction: column; align-items: center; -webkit-font-smoothing: antialiased; }
+    .cab { width: 100%; background: radial-gradient(120% 140% at 50% 0%, var(--navy-2) 0%, var(--navy) 55%, var(--navy-3) 100%); padding: 14px 16px 64px;
+      display: flex; justify-content: center; position: relative; overflow: hidden; }
+    .cab::before { content: ""; position: absolute; left: 50%; top: 100%; width: 1400px; aspect-ratio: 1; translate: -50% -50%; opacity: .07;
+      background: repeating-conic-gradient(#fff 0 6deg, transparent 6deg 20deg); pointer-events: none; }
+    .cab::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: var(--rojo); }
+    .logo { position: relative; display: block; width: 132px; aspect-ratio: 640 / 492; overflow: hidden; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, .35)); }
+    .logo img { display: block; width: 100%; height: auto; }   /* el lema de abajo (azul sobre azul) queda fuera */
+    main { width: 100%; max-width: 460px; padding: 0 16px 28px; margin-top: -48px; position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .marco { width: 100%; aspect-ratio: 1080 / 1350; border-radius: 26px; overflow: hidden; background: radial-gradient(120% 90% at 50% 40%, var(--navy-2), var(--navy-3));
+      box-shadow: 0 22px 44px rgba(3, 21, 64, .32), 0 2px 0 rgba(255, 255, 255, .6) inset; }
+    .marco img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0; transition: opacity .35s; }
+    .marco img.lista { opacity: 1; }
+    .texto { text-align: center; }
+    h1 { margin: 0; font-size: clamp(22px, 6vw, 28px); line-height: 1.15; font-weight: 900; color: var(--navy); }
+    .pildora { display: inline-block; margin-top: 10px; padding: 6px 14px; border-radius: 99px; font-weight: 900; font-size: 13px; letter-spacing: .06em; text-transform: uppercase;
+      background: var(--oro); color: #3d2700; }
+    .pildora.leyenda { background: #8fd8ff; color: var(--navy); } .pildora.plata { background: #e6ebf3; color: var(--navy); }
+    .pildora.bronce { background: #c98a55; color: #fff; } .pildora.icono { background: linear-gradient(100deg, #a9740f, #ffd65a 40%, #fff1b8 50%, #ffd65a 60%, #a9740f); color: #2a1700; }
+    .sub { margin: 8px 0 0; color: var(--tx-2); font-weight: 800; font-size: 14px; }
+    .cta { margin-top: 4px; text-align: center; color: var(--tx-2); font-size: 13px; font-weight: 700; }
+    .cta a { color: var(--navy-2); font-weight: 900; text-decoration: none; border-bottom: 2px solid rgba(13, 47, 128, .25); }
+    .error { padding: 40px 20px; text-align: center; color: #fff; font-weight: 800; }
+  </style>
+</head>
+<body>
+  <header class="cab"><span class="logo"><img src="./img/web-dev-eyes.svg" alt="Distrito" width="640" height="666" onerror="this.onerror=null;this.src='./img/web-dev-eyes.svg'"></span></header>
+  <main>
+    <div class="marco" id="marco"><img id="img" alt="Carta de Distrito"></div>
+    <div class="texto"><h1 id="titulo">¡Mira esta carta!</h1><span class="pildora" id="nivel" hidden></span><p class="sub" id="sub"></p></div>
+    <p class="cta">¿Trabajas en DE? <a href="/">Únete a Distrito</a> y colecciona las cartas de tus compañeros.</p>
+  </main>
+  <script>
+    (function () {
+      var token = location.pathname.split('/')[2] || '';
+      var img = document.getElementById('img');
+      img.onload = function () { img.classList.add('lista'); };
+      img.onerror = function () { document.getElementById('marco').innerHTML = '<div class="error">Esta carta ya no está disponible</div>'; };
+      img.src = '/c/' + encodeURIComponent(token) + '/carta.jpg';   // la imagen sale al instante, sin esperar los datos
+      fetch('/api/compartida?t=' + encodeURIComponent(token)).then(function (r) { return r.json().then(function (d) { if (!r.ok) throw new Error(d.error); return d; }); })
+        .then(function (d) {
+          img.src = '/c/' + encodeURIComponent(token) + '/carta.jpg?v=' + d.version;
+          img.alt = d.titulo;
+          document.getElementById('titulo').textContent = d.propia ? d.dueno + ' sacó su propia carta' : d.dueno + ' sacó la carta de ' + d.nombre;
+          var n = document.getElementById('nivel'); n.textContent = d.nivel_txt + ' · Media ' + d.media; n.className = 'pildora ' + d.nivel; n.hidden = false;
+          document.getElementById('sub').textContent = 'Edición ' + d.edicion + ' · Distrito';
+        })
+        .catch(function () { document.getElementById('titulo').textContent = 'Esta carta ya no está disponible'; });
+    })();
+  </script>
+</body>
+</html>

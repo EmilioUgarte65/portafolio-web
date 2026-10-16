@@ -1,0 +1,143 @@
+{
+  "plan": {
+    "proyecto": {
+      "nombre": "Proyecto demo",
+      "ancho": 1280,
+      "alto": 720,
+      "fps": 30
+    },
+    "fuentes": {
+      "escena": "demo.mp4"
+    },
+    "timeline": [
+      {
+        "id": "g0",
+        "etiqueta": "Secuencia",
+        "tomas": [
+          {
+            "fuente": "escena",
+            "inicio": 0,
+            "dur": 5
+          }
+        ]
+      }
+    ],
+    "overlays": [],
+    "musica": {
+      "tramos": []
+    },
+    "sfx": [],
+    "efectos": [],
+    "flashes": [],
+    "clips": [],
+    "marcadores": []
+  },
+  "vista": {
+    "total": 5.0,
+    "duracion": null,
+    "W": 1280,
+    "H": 720,
+    "VW": 1280,
+    "VH": 720,
+    "pad_y": 0,
+    "fps": 30,
+    "bpm": null,
+    "spb": null,
+    "bpc": 4,
+    "clips": [],
+    "marcadores": [],
+    "secuencias": [
+      {
+        "id": "principal",
+        "nombre": "Secuencia principal",
+        "activa": true
+      }
+    ],
+    "area_trabajo": null,
+    "pistas_audio": 0,
+    "pistas_video": 0,
+    "primer_beat": null,
+    "beats": [],
+    "grupos": [
+      {
+        "g": 0,
+        "id": "g0",
+        "etiqueta": "Secuencia",
+        "t0": 0.0,
+        "dur": 5.0,
+        "transicion": null,
+        "efectos": [],
+        "tomas": [
+          {
+            "g": 0,
+            "k": 0,
+            "ti": 0,
+            "si": null,
+            "serie_n": 0,
+            "t0": 0.0,
+            "dur": 5.0,
+            "fuente": "escena",
+            "inicio": 0,
+            "negro": false,
+            "velocidad": 1.0,
+            "rampa": null,
+            "beats": null,
+            "consumo": 5.0,
+            "movimiento": null,
+            "zoom": null,
+            "shake": 0,
+            "efectos": [],
+            "cam": [1.0, 1.0, [0.0, 0.0], [0.0, 0.0]],
+            "keyframes": [],
+            "congelar": false,
+            "desenfoque": 0,
+            "oscurecer": 0,
+            "voz": false
+          }
+        ]
+      }
+    ],
+    "overlays": [],
+    "efectos": [],
+    "flashes": [],
+    "musica": [],
+    "sfx": [],
+    "voz": null,
+    "posiciones": {
+      "centro": 360.0,
+      "arriba": 108.0,
+      "abajo": 612.0,
+      "tercio_inferior": 576.0,
+      "barra_superior": 50.4,
+      "barra_inferior": 648.0
+    },
+    "look": {},
+    "fundidos": [0.3, 1.3]
+  },
+  "hash": "demo-1",
+  "fuentes": {
+    "escena": {
+      "ruta": "demo.mp4",
+      "existe": true,
+      "tipo": "video",
+      "dur": 5
+    }
+  },
+  "medios": [
+    {
+      "nombre": "demo.mp4",
+      "ruta": "demo.mp4",
+      "tipo": "video",
+      "dur": 5,
+      "rol": "video"
+    }
+  ],
+  "errores": [],
+  "avisos": [],
+  "version": {
+    "n": 1,
+    "resumen": "Proyecto demo"
+  },
+  "bloqueado": null,
+  "tiene_plan": true
+}

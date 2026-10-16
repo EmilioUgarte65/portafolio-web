@@ -1,22 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>https://emiliougarte65.github.io/portafolio-web/</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://emiliougarte65.github.io/portafolio-web/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://emiliougarte65.github.io/portafolio-web/en/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://emiliougarte65.github.io/portafolio-web/" />
-  </url>
-  <url>
-    <loc>https://emiliougarte65.github.io/portafolio-web/en/</loc>
-    <lastmod>2026-06-13</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="es" href="https://emiliougarte65.github.io/portafolio-web/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://emiliougarte65.github.io/portafolio-web/en/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://emiliougarte65.github.io/portafolio-web/" />
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://emiliougarte65.github.io/portafolio-web/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/cv/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/cv/en/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/brujula/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/dexter/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/dino-ai/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/distrito/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/festo/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/inferencia/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/juego-construccion/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/lumen/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/marquesina/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/mundial/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/myaccountant/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/nexo/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/nucleo/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/ourway/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/pulso/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/radar/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/ruta-clara/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/totem/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/vertice/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/vitrina/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/proyectos/web-studio/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/brujula/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/dexter/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/dino-ai/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/distrito/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/festo/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/inferencia/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/juego-construccion/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/lumen/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/marquesina/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/mundial/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/myaccountant/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/nexo/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/nucleo/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/ourway/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/pulso/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/radar/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/ruta-clara/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/totem/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/vertice/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/vitrina/</loc></url>
+<url><loc>https://emiliougarte65.github.io/portafolio-web/en/projects/web-studio/</loc></url>
 </urlset>

@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="es">
+<head><meta http-equiv="Content-Security-Policy" content="connect-src 'self'; object-src 'none'; form-action 'none'">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Web Studio · Demo</title>
+<link rel="icon" href="../../assets/web-dev-eyes.svg">
+<link rel="preload" href="vendor/inter/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="chat.css">
+<script src="vendor/lucide/lucide.js"></script>
+</head>
+<body class="en-inicio">
+<a class="saltar" href="#principal">Saltar al contenido</a>
+<!-- ============================================================ BARRA ÚNICA (app.js; el editor monta sus acciones en #appbar-editor) -->
+<header class="appbar" id="appbar">
+  <button class="marca" id="ir-inicio" title="Inicio: tus proyectos"><span class="logo"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span><span class="marca-txt">Web Studio</span></button>
+  <div class="menu" id="menu-archivo">
+    <button class="menu-btn" data-menu aria-haspopup="menu" aria-expanded="false">Archivo</button>
+    <div class="menu-lista" role="menu">
+      <button data-cmd="nuevo" role="menuitem"><span>Nuevo proyecto…</span><kbd>Ctrl+N</kbd></button>
+      <button data-cmd="abrir" role="menuitem"><span>Abrir proyecto…</span><kbd>Ctrl+O</kbd></button>
+      <button data-cmd="plantillas" role="menuitem"><span>Nuevo desde plantilla…</span></button>
+      <button data-cmd="importar" role="menuitem"><span>Importar proyecto (.wsproj)…</span></button>
+      <hr>
+      <button data-cmd="guardar" data-proy role="menuitem"><span>Guardar versión</span><kbd>Ctrl+S</kbd></button>
+      <button data-cmd="regenerar" data-proy role="menuitem"><span>Regenerar con IA…</span></button>
+      <button data-cmd="exportar" data-proy role="menuitem"><span>Exportar…</span><kbd>Ctrl+E</kbd></button>
+      <button data-cmd="final" data-proy role="menuitem"><span>Render final (1080p)</span></button>
+      <button data-cmd="descargar" data-proy role="menuitem"><span>Descargar video final</span></button>
+      <hr>
+      <button data-cmd="duplicar" data-proy role="menuitem"><span>Duplicar proyecto</span></button>
+      <button data-cmd="mnproj" data-proy role="menuitem"><span>Exportar proyecto (.wsproj)…</span></button>
+      <hr data-proy>
+      <button data-cmd="revision" data-proy role="menuitem"><span>Revisión y comentarios…</span></button>
+      <button data-cmd="comparar" data-proy role="menuitem"><span>Comparar versiones…</span></button>
+      <button data-cmd="aprobacion" data-proy role="menuitem"><span>Aprobación…</span></button>
+      <button data-cmd="historial" data-proy role="menuitem"><span>Quién cambió qué…</span></button>
+      <button data-cmd="funciono" data-proy role="menuitem"><span>Este video funcionó</span></button>
+      <hr data-proy>
+      <button data-cmd="plantilla-huecos" data-proy role="menuitem"><span>Huecos de la plantilla…</span></button>
+      <button data-cmd="guardar-plantilla" data-proy role="menuitem"><span>Guardar como plantilla…</span></button>
+      <button data-cmd="plan" data-proy data-dev role="menuitem"><span>Ver plan JSON (desarrollador)</span></button>
+      <hr>
+      <button data-cmd="marca" role="menuitem"><span>Kit de marca…</span></button>
+      <button data-cmd="perfil" role="menuitem"><span>Cambiar de perfil…</span></button>
+      <button data-cmd="ajustes" role="menuitem"><span>Ajustes</span><kbd>Ctrl+,</kbd></button>
+    </div>
+  </div>
+  <div class="proy-nombre" id="proy-nombre-caja" hidden>
+    <input id="proy-nombre" spellcheck="false" title="Nombre del proyecto (clic para cambiarlo)" aria-label="Nombre del proyecto">
+  </div>
+  <div class="segmentado modo-caja" id="modo-caja" role="group" aria-label="Nivel de detalle de la interfaz" hidden>
+    <button data-modo="simple" aria-pressed="true" title="Modo Simple: solo lo esencial">Simple</button>
+    <button data-modo="avanzado" aria-pressed="false" title="Modo Avanzado: fotogramas clave, ripple, rango, calidad del visor y todas las opciones">Avanzado</button>
+  </div>
+  <div class="espacio"></div>
+  <div class="appbar-editor" id="appbar-editor"></div>
+  <div class="tareas-caja">
+    <button class="tareas-btn" id="tareas-btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="tareas-panel" title="Centro de tareas: análisis, IA, vistas previas, render y exportación">
+      <svg class="anillo" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="15" class="anillo-fondo"/><circle cx="18" cy="18" r="15" class="anillo-avance" id="tareas-anillo"/></svg>
+      <span class="tareas-ico" id="tareas-ico"></span>
+      <span class="tareas-num" id="tareas-num" hidden>0</span>
+    </button>
+    <span class="tareas-resumen" id="tareas-resumen" aria-live="polite"></span>
+    <section class="tareas-panel" id="tareas-panel" role="dialog" aria-label="Centro de tareas" hidden>
+      <div class="tp-cab"><b>Tareas</b><span class="tenue pequeno">Sigue editando mientras trabajan</span>
+        <button class="btn fantasma chico" id="tareas-limpiar" title="Quita de la lista las tareas terminadas">Limpiar</button></div>
+      <div class="tp-lista" id="tareas-lista"></div>
+      <div class="tp-pie"><label class="interruptor pequeno"><input type="checkbox" id="tareas-notif"> <span>Avisarme con una notificación de Windows al terminar</span></label></div>
+    </section>
+  </div>
+  <button class="claude-chip" id="claude-chip" title="Uso de Claude hoy (clic para ver el detalle)"><span class="punto" id="claude-punto"></span><span id="claude-txt">Claude</span></button>
+  <button class="btn ia" id="btn-ia" hidden title="Asistente IA: pide cambios con tus palabras (Ctrl+K)"><span data-ico="sparkles"></span><span class="txt">Asistente IA</span></button>
+  <button class="icono-btn btn-perfil" id="btn-perfil" aria-haspopup="menu" title="Perfil" aria-label="Perfil"></button>
+  <button class="icono-btn" id="btn-ayuda" title="Ayuda y atajos de teclado (?)" aria-label="Ayuda y atajos"><span data-ico="circle-help" data-tam="18"></span></button>
+  <button class="icono-btn" id="btn-ajustes" title="Ajustes (Ctrl+,)" aria-label="Ajustes"><span data-ico="settings" data-tam="18"></span></button>
+</header>
+
+<!-- ============================================================ INICIO (app.js) -->
+<main id="inicio" class="inicio">
+  <div class="inicio-cont" id="principal" tabindex="-1">
+    <section class="hero">
+      <div class="hero-txt">
+        <div id="hola-perfil" aria-live="polite"></div>
+        <h1>¿Qué video hacemos hoy?</h1>
+        <p class="tenue">Sube tus grabaciones, platica con la IA y ajusta el resultado en el editor.</p>
+      </div>
+      <div class="hero-acciones">
+        <button class="tarjeta-nueva primaria" id="btn-nuevo-ia"><span class="t-ico" data-ico="sparkles" data-tam="22"></span>
+          <span><b>Crear con IA</b><span class="tenue">Agrega tus videos y cuéntale qué quieres</span></span></button>
+        <button class="tarjeta-nueva" id="btn-nuevo-grande"><span class="t-ico" data-ico="plus" data-tam="22"></span>
+          <span><b>Nuevo proyecto</b><span class="tenue">Ponle nombre y elige: con IA o en blanco</span></span></button>
+        <button class="tarjeta-nueva" id="btn-desde-plantilla" data-abrir-plantillas><span class="t-ico" data-ico="layout-template" data-tam="22"></span>
+          <span><b>Desde plantilla</b><span class="tenue">Reel de producto, testimonio, promoción…</span></span></button>
+      </div>
+    </section>
+    <div class="fila-titulo"><h2>Proyectos recientes</h2>
+      <span class="fila sin-margen"><button class="btn chico fantasma" data-importar-mnproj title="Abrir un proyecto exportado desde otra PC (.wsproj)"><span data-ico="upload" data-tam="14"></span> Importar</button>
+      <div class="buscar"><span data-ico="search" data-tam="14"></span><input id="buscar-proy" type="search" placeholder="Buscar proyecto…" aria-label="Buscar proyecto"></div></span></div>
+    <div id="rejilla-proy" class="rejilla-proy" aria-busy="true">
+      <div class="tarjeta-proy skel-tarjeta"><div class="mini skel"></div><div class="info"><div class="skel l1"></div><div class="skel l2"></div></div></div>
+      <div class="tarjeta-proy skel-tarjeta"><div class="mini skel"></div><div class="info"><div class="skel l1"></div><div class="skel l2"></div></div></div>
+      <div class="tarjeta-proy skel-tarjeta"><div class="mini skel"></div><div class="info"><div class="skel l1"></div><div class="skel l2"></div></div></div>
+      <div class="tarjeta-proy skel-tarjeta"><div class="mini skel"></div><div class="info"><div class="skel l1"></div><div class="skel l2"></div></div></div>
+    </div>
+    <p class="muy-tenue pequeno pie-inicio"><span id="raiz-proyectos"></span> · Arrastra archivos a la ventana para empezar · <kbd>Ctrl+N</kbd> nuevo · <kbd>?</kbd> ayuda</p>
+  </div>
+</main>
+
+<!-- ============================================================ ESPACIO DE TRABAJO: editor.js construye aquí todo el editor
+     (y carga por su cuenta editor_insp.js, editor_player.js y editor.css) -->
+<div id="workspace" hidden></div>
+
+<!-- cajón del asistente IA (respaldo si el editor no monta su propio panel) -->
+<aside id="cajon-ia" class="cajon-ia" hidden aria-label="Asistente IA">
+  <div class="cajon-cab"><b>Asistente IA</b><span class="tenue pequeno">Pide cambios con tus palabras</span>
+    <button class="icono-btn" id="cajon-cerrar" title="Cerrar (Esc)" aria-label="Cerrar"><span data-ico="x"></span></button></div>
+  <div id="cajon-chat" class="cajon-chat"></div>
+</aside>
+
+<!-- ============================================================ AYUDA (panel lateral: atajos y recorrido) -->
+<aside id="panel-ayuda" class="panel-ayuda" hidden aria-label="Ayuda y atajos de teclado">
+  <div class="cajon-cab"><b>Ayuda</b><span class="tenue pequeno">Atajos de teclado</span>
+    <button class="icono-btn" id="ayuda-cerrar" title="Cerrar (Esc)" aria-label="Cerrar"><span data-ico="x"></span></button></div>
+  <div class="ayuda-cuerpo">
+    <div class="ayuda-acciones"><button class="btn chico" id="ayuda-tour"><span data-ico="play" data-tam="14"></span> Ver el recorrido de nuevo</button></div>
+    <input type="search" id="ayuda-buscar" placeholder="Buscar atajo…" aria-label="Buscar atajo">
+    <div id="ayuda-lista" class="ayuda-lista"></div>
+  </div>
+</aside>
+
+<!-- ============================================================ RECORRIDO DE PRIMER USO -->
+<div id="tour" class="tour" hidden>
+  <div class="tour-foco" id="tour-foco"></div>
+  <div class="tour-caja" id="tour-caja" role="dialog" aria-modal="true" aria-labelledby="tour-tit">
+    <div class="tour-paso" id="tour-paso"></div>
+    <h3 id="tour-tit"></h3>
+    <p id="tour-txt"></p>
+    <div class="tour-botones"><button class="btn fantasma chico" id="tour-saltar">Saltar recorrido</button><span class="espacio"></span>
+      <button class="btn chico" id="tour-atras">Atrás</button><button class="btn primario chico" id="tour-sig">Siguiente</button></div>
+  </div>
+</div>
+
+<!-- ============================================================ MODAL: nuevo video con IA -->
+<dialog id="dlg-nuevo" class="dlg-grande" aria-labelledby="nuevo-titulo">
+  <div class="dlg-cab">
+    <div class="dlg-cab-tit"><span class="t-ico" data-ico="sparkles" data-tam="18"></span><div><h2 id="nuevo-titulo">Nuevo video con IA</h2><div class="tenue pequeno" id="nuevo-sub">Arrastra aquí tus videos, música o logo y cuéntame qué quieres.</div></div></div>
+    <span class="fila sin-margen"><button class="btn chico" id="nuevo-editar" title="Cierra el chat y abre el proyecto en el editor"><span data-ico="film" data-tam="14"></span> Abrir en el editor</button>
+    <button class="icono-btn" data-cerrar title="Cerrar (Esc)" aria-label="Cerrar"><span data-ico="x"></span></button></span>
+  </div>
+  <div id="nuevo-chat" class="nuevo-chat"></div>
+</dialog>
+
+<!-- ============================================================ AJUSTES -->
+<dialog id="dlg-ajustes" class="dlg-ajustes" aria-label="Ajustes">
+  <div class="aj">
+    <nav class="aj-nav" id="aj-nav">
+      <h2>Ajustes</h2>
+      <button data-sec="general" class="activa"><span data-ico="sliders-horizontal" data-tam="15"></span><span>General</span></button>
+      <button data-sec="claude"><span data-ico="bot" data-tam="15"></span><span>Claude Code</span><span class="sem" id="nav-sem-claude"></span></button>
+      <button data-sec="deps"><span data-ico="hard-drive" data-tam="15"></span><span>Dependencias</span><span class="sem" id="nav-sem-deps"></span></button>
+      <button data-sec="uso"><span data-ico="gauge" data-tam="15"></span><span>Uso de Claude</span></button>
+      <button data-sec="estilo"><span data-ico="palette" data-tam="15"></span><span>Mi estilo</span></button>
+      <button data-sec="metricas"><span data-ico="gauge" data-tam="15"></span><span>Métricas</span></button>
+      <button data-sec="avanzado"><span data-ico="cpu" data-tam="15"></span><span>Avanzado</span></button>
+      <div class="espacio"></div>
+      <button class="btn" data-cerrar>Cerrar</button>
+    </nav>
+    <div class="aj-cuerpo">
+      <div id="aj-aviso" class="banner" hidden></div>
+
+      <section class="aj-sec" data-sec="general">
+        <h3>General</h3>
+        <form id="form-ajustes" class="aj-form">
+          <p class="ancho tenue pequeno" id="aj-perfil-nota">La IA (proveedor, modelo, esfuerzos e idioma) y la carpeta de proyectos se guardan en tu perfil; lo demás es de esta PC.</p>
+          <label>Proveedor de IA
+            <select name="proveedor"><option value="claude">Claude (Claude Code, recomendado)</option><option value="chatgpt">ChatGPT (próximamente; por ahora se usa Claude)</option></select>
+            <small>De este perfil.</small></label>
+          <label>Modelo de Claude para armar videos
+            <select name="modelo"><option value="sonnet">Sonnet (recomendado)</option><option value="opus">Opus (más cuidadoso, más lento)</option><option value="haiku">Haiku (rápido y económico)</option></select>
+            <small>Toda la conversación con la IA (entrevista, plan, ajustes) usa este modelo.</small></label>
+          <label>Esfuerzo al crear el video
+            <select name="esfuerzo_plan"><option value="low">Bajo</option><option value="medium">Medio (recomendado)</option><option value="high">Alto</option></select>
+            <small>Más esfuerzo = más razonamiento y más tokens.</small></label>
+          <label>Esfuerzo en ajustes
+            <select name="esfuerzo_ajuste"><option value="low">Bajo (recomendado)</option><option value="medium">Medio</option><option value="high">Alto</option></select>
+            <small>Para cambios pequeños basta el bajo.</small></label>
+          <label>Codificador de video
+            <select name="encoder"><option value="auto">Automático (NVENC si hay GPU NVIDIA)</option><option value="nvenc">NVENC (GPU NVIDIA)</option><option value="cpu">CPU (x264)</option></select>
+            <small>La GPU renderiza varias veces más rápido.</small></label>
+          <label>Calidad de la vista previa
+            <select name="calidad_preview"><option value="baja">Baja (más rápida)</option><option value="media">Media, 960x540</option><option value="alta">Alta</option></select>
+            <small>Solo afecta a las vistas previas, no al video final.</small></label>
+          <label>Idioma de los textos del video
+            <select name="idioma"><option value="es">Español</option><option value="en">Inglés</option></select>
+            <small>El idioma en que la IA escribe los títulos.</small></label>
+          <label class="ancho">Carpeta de proyectos
+            <span class="fila sin-margen"><input name="carpeta_proyectos" placeholder="Vacío = carpeta «proyectos» de la app"><button class="btn" type="button" id="aj-examinar-carpeta"><span data-ico="folder-open" data-tam="14"></span> Examinar…</button></span>
+            <small>De este perfil; se aplica al momento.</small></label>
+          <label>Puerto local
+            <input name="puerto" type="number" min="1024" max="65535"><small>Se aplica al reiniciar (iniciar.bat).</small></label>
+          <div class="ancho fila derecha"><span class="muy-tenue pequeno" id="aj-ruta"></span><button class="btn primario" type="submit">Guardar</button></div>
+        </form>
+      </section>
+
+      <section class="aj-sec" data-sec="claude" hidden>
+        <h3>Claude Code <span class="tenue pequeno">el cerebro que arma tus videos con tu licencia</span></h3>
+        <ol class="pasos-cli">
+          <li id="cli-p1"><div class="paso-cab"><span class="num">1</span><b>Detectar</b><span class="sem" id="cli-sem"></span><button class="btn chico" id="cli-detectar">Volver a buscar</button></div>
+            <div id="cli-estado" class="paso-cuerpo tenue">Buscando…</div></li>
+          <li id="cli-p2"><div class="paso-cab"><span class="num">2</span><b>Instalar</b><span class="tenue pequeno">métodos oficiales</span></div>
+            <div class="paso-cuerpo">
+              <div id="cli-metodos" class="metodos"></div>
+              <p class="tenue pequeno">Fuente: <a class="enlace" href="https://code.claude.com/docs/en/setup" target="_blank" rel="noopener">code.claude.com/docs/en/setup</a>.
+                En Windows se recomienda <b>Git for Windows</b> (si falta, Claude usa PowerShell). No hace falta ser administrador.</p>
+            </div></li>
+          <li id="cli-p3"><div class="paso-cab"><span class="num">3</span><b>Iniciar sesión</b><span class="tenue pequeno">con la cuenta de Claude de tu empresa</span></div>
+            <div class="paso-cuerpo">
+              <p>Se abrirá una ventana negra con Claude y luego el navegador: entra con tu cuenta, y cuando diga
+                <i>Login successful</i> pulsa Enter, escribe <code>/exit</code> y cierra la ventana.</p>
+              <div class="fila"><button class="btn primario" id="cli-login">Abrir inicio de sesión</button>
+                <button class="btn" id="cli-setup-token" title="Genera un token de 1 año para uso sin navegador">Generar token (opcional)</button></div>
+              <details class="pequeno"><summary>Usar un token de larga duración (opcional)</summary>
+                <p class="tenue">«Generar token» ejecuta <code>claude setup-token</code>; copia el token que imprime y pégalo aquí. Se guarda
+                  cifrado con Windows (DPAPI) en tu perfil (%APPDATA%\MNVideoStudio), nunca en la carpeta del proyecto, y la app se lo pasa a Claude
+                  como <code>CLAUDE_CODE_OAUTH_TOKEN</code>. Fuente: <a class="enlace" href="https://code.claude.com/docs/en/authentication" target="_blank" rel="noopener">authentication</a>.</p>
+                <div class="fila"><input id="cli-token" type="password" placeholder="Pega aquí el token" autocomplete="off" aria-label="Token de Claude">
+                  <button class="btn" id="cli-token-guardar">Guardar cifrado</button><button class="btn" id="cli-token-borrar">Quitar</button></div>
+              </details>
+            </div></li>
+          <li id="cli-p4"><div class="paso-cab"><span class="num">4</span><b>Probar conexión</b></div>
+            <div class="paso-cuerpo"><div class="fila"><button class="btn primario" id="cli-probar">Probar conexión</button>
+              <span class="tenue pequeno">Hace una llamada mínima (unos cientos de tokens).</span></div>
+              <div id="cli-prueba"></div></div></li>
+        </ol>
+      </section>
+
+      <section class="aj-sec" data-sec="deps" hidden>
+        <div class="fila entre"><h3>Dependencias</h3><button class="btn chico" id="deps-recargar">Revisar de nuevo</button></div>
+        <table class="tabla" id="tabla-deps"><thead><tr><th></th><th>Componente</th><th>Versión</th><th>Estado</th><th></th></tr></thead><tbody></tbody></table>
+      </section>
+
+      <section class="aj-sec" data-sec="uso" hidden>
+        <h3>Uso de Claude</h3>
+        <p class="tenue pequeno" id="uso-log"></p>
+        <div class="dos-col">
+          <div><h4>Por día</h4><table class="tabla pequeno" id="tabla-uso-dia"><thead><tr><th>Día</th><th>Llamadas</th><th>Entrada</th><th>Caché (lee / escribe)</th><th>Salida</th></tr></thead><tbody></tbody></table></div>
+          <div><h4>Por día y proyecto</h4><table class="tabla pequeno" id="tabla-uso-proy"><thead><tr><th>Día</th><th>Proyecto</th><th>Llamadas</th><th>Entrada + caché</th><th>Salida</th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </section>
+
+      <section class="aj-sec" data-sec="estilo" hidden><div id="aj-estilo"></div></section>
+      <section class="aj-sec" data-sec="metricas" hidden><div id="aj-metricas"></div></section>
+      <section class="aj-sec" data-sec="avanzado" hidden>
+        <h3>Avanzado</h3>
+        <label class="interruptor"><input type="checkbox" id="modo-dev"> <span>Modo desarrollador</span></label>
+        <p class="tenue pequeno">Muestra «Ver plan JSON» en el menú Archivo y los detalles técnicos de los errores.</p>
+        <p class="pequeno">Configuración: <code id="av-config"></code><br>Documentación de la API local: <a class="enlace" href="../../proyectos/web-studio/" target="_blank">Información de la demo</a></p>
+      </section>
+
+      <!-- registro en vivo de instalaciones -->
+      <div id="instalacion" class="instalacion" hidden>
+        <div class="fila entre"><b id="inst-titulo"></b><span><span id="inst-estado" class="tenue pequeno"></span>
+          <button class="btn chico" id="inst-cancelar">Cancelar</button><button class="btn chico" id="inst-cerrar" hidden>Cerrar</button></span></div>
+        <pre id="inst-log" class="log"></pre>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ============================================================ otros diálogos -->
+<dialog id="dlg-confirmar" class="dlg-chico" aria-labelledby="conf-titulo">
+  <h3 id="conf-titulo"></h3>
+  <div id="conf-cuerpo" class="pequeno"></div>
+  <input id="conf-input" hidden autocomplete="off" aria-labelledby="conf-titulo">
+  <div class="fila derecha"><button class="btn" id="conf-no">Cancelar</button><button class="btn primario" id="conf-si">Aceptar</button></div>
+</dialog>
+
+<!-- nuevo proyecto: nombre + dos caminos -->
+<dialog id="dlg-proy-nuevo" class="dlg-chico dlg-proy-nuevo" aria-labelledby="pn-titulo">
+  <form id="form-proy-nuevo">
+    <h3 id="pn-titulo">Nuevo proyecto</h3>
+    <label class="campo">Nombre del proyecto
+      <input id="pn-nombre" maxlength="80" autocomplete="off" spellcheck="false"></label>
+    <div class="tenue pequeno" id="pn-archivos"></div>
+    <div class="pn-opciones">
+      <button type="submit" value="ia" class="pn-op primaria"><span data-ico="sparkles" data-tam="20"></span><b>Crear con IA</b>
+        <span>Agrega tus videos y cuéntale a la IA qué quieres: arma el primer corte por ti.</span></button>
+      <button type="submit" value="blanco" class="pn-op"><span data-ico="film" data-tam="20"></span><b>Proyecto en blanco</b>
+        <span>Entra directo al editor, importa tus videos y edita a mano.</span></button>
+    </div>
+    <div class="fila derecha"><span class="muy-tenue pequeno">Enter = Crear con IA</span><span class="espacio"></span><button type="button" class="btn" data-cerrar>Cancelar</button></div>
+  </form>
+</dialog>
+
+<dialog id="dlg-plan" class="dlg-grande">
+  <div class="dlg-cab"><h2>Plan JSON <span class="tenue pequeno">(modo desarrollador)</span></h2>
+    <span class="fila sin-margen"><button class="btn chico" id="btn-validar">Validar (motor + análisis)</button>
+    <button class="icono-btn" data-cerrar title="Cerrar" aria-label="Cerrar"><span data-ico="x"></span></button></span></div>
+  <div id="validacion" class="pequeno"></div>
+  <pre id="plan-json" class="log alto"></pre>
+</dialog>
+
+<div id="soltar" class="soltar" hidden><div><span data-ico="upload" data-tam="36"></span><b>Suelta tus archivos aquí</b><span class="tenue">Videos, música o logo PNG</span></div></div>
+<div id="toasts" class="toasts" aria-live="polite"></div>
+
+
+
+
+
+
+
+
+<script src="demo-adapter.js"></script></body>
+</html>

@@ -1,0 +1,872 @@
+[
+  {
+    "slug": "web-studio",
+    "name": "Web Studio",
+    "category": "ai",
+    "kind": "studio",
+    "stack": [
+      "Python",
+      "FastAPI",
+      "OpenAI · Claude",
+      "FFmpeg"
+    ],
+    "summary": [
+      "Un editor de video que convierte instrucciones en planes de edición y una línea de tiempo editable.",
+      "A video editor that turns instructions into structured editing plans and an editable timeline."
+    ],
+    "problem": [
+      "Pasar de una idea a un montaje exige coordinar medios, cortes, audio y exportación.",
+      "Turning an idea into an edit requires coordinating media, cuts, audio and export."
+    ],
+    "solution": [
+      [
+        "Diseñé una interfaz web local y una API en Python para organizar el proyecto.",
+        "Integré proveedores de IA, planes JSON validados y procesamiento audiovisual.",
+        "Incorporé subtítulos y exportación a video y formatos de edición."
+      ],
+      [
+        "Built a local web interface and a Python API to manage editing projects.",
+        "Integrated AI providers, validated JSON plans and media processing.",
+        "Added subtitles and exports to video and editing formats."
+      ]
+    ],
+    "featured": true,
+    "palette": [
+      "#211637",
+      "#C4A7FF",
+      "#FF92D0",
+      "#7DE4FF"
+    ],
+    "ink": "#6D28D9"
+  },
+  {
+    "slug": "nexo",
+    "name": "Nexo",
+    "category": "ai",
+    "kind": "chat",
+    "stack": [
+      "React",
+      "Node.js",
+      "LLMs",
+      "APIs REST"
+    ],
+    "summary": [
+      "Asistentes y una bandeja compartida que conectan conversación, herramientas y gestión de clientes.",
+      "Assistants and a shared inbox connecting conversations, tools and customer management."
+    ],
+    "problem": [
+      "La atención se fragmenta cuando conversaciones, consultas y seguimiento viven por separado.",
+      "Customer support gets fragmented when conversations, queries and follow-ups live separately."
+    ],
+    "solution": [
+      [
+        "Integré modelos de lenguaje con herramientas y memoria conversacional.",
+        "Construí flujos y una bandeja para coordinar atención automática y humana.",
+        "Separé configuración, permisos y conexiones entre organizaciones."
+      ],
+      [
+        "Integrated language models with tools and conversational memory.",
+        "Built workflows and an inbox to coordinate automated and human support.",
+        "Separated configuration, permissions and connections across organizations."
+      ]
+    ],
+    "featured": true,
+    "palette": [
+      "#2C1E28",
+      "#FFB09A",
+      "#FFD789",
+      "#B5A7FF"
+    ],
+    "ink": "#9A3412"
+  },
+  {
+    "slug": "vertice",
+    "name": "Vértice",
+    "category": "web",
+    "kind": "dashboard",
+    "stack": [
+      "React",
+      "TypeScript",
+      "FastAPI",
+      "PostgreSQL",
+      "Docker"
+    ],
+    "summary": [
+      "Gestión de proyectos, presupuestos y solicitudes de pago en una aplicación full-stack.",
+      "Projects, budgets and payment requests in a full-stack application."
+    ],
+    "problem": [
+      "Un equipo necesita seguir solicitudes y aprobaciones sin perder el contexto del proyecto.",
+      "Teams need to track requests and approvals without losing project context."
+    ],
+    "solution": [
+      [
+        "Desarrollé una PWA con almacenamiento local para el trabajo sin conexión.",
+        "Construí una API FastAPI con autenticación y persistencia PostgreSQL.",
+        "Organicé migraciones y despliegue con contenedores Docker."
+      ],
+      [
+        "Developed a PWA with local storage for offline work.",
+        "Built a FastAPI backend with authentication and PostgreSQL persistence.",
+        "Organized migrations and deployment with Docker containers."
+      ]
+    ],
+    "featured": true,
+    "palette": [
+      "#15253B",
+      "#9FDFFF",
+      "#B8B5FF",
+      "#7DE6C7"
+    ],
+    "ink": "#075985"
+  },
+  {
+    "slug": "distrito",
+    "name": "Distrito",
+    "category": "web",
+    "kind": "city",
+    "stack": [
+      "Python",
+      "SQLite",
+      "PWA",
+      "APIs"
+    ],
+    "summary": [
+      "Gamificación que convierte actividades y objetivos de un equipo en misiones y progreso.",
+      "Gamification that turns team activities and goals into missions and progress."
+    ],
+    "problem": [
+      "Dar seguimiento a objetivos resulta más claro cuando cada actividad tiene una consecuencia visible.",
+      "Goals become easier to follow when each activity has a visible consequence."
+    ],
+    "solution": [
+      [
+        "Construí reglas para misiones, puntos y progresión.",
+        "Separé el motor del juego, la persistencia y la interfaz.",
+        "Diseñé una experiencia instalable y adaptable al teléfono."
+      ],
+      [
+        "Built rules for missions, points and progression.",
+        "Separated the game engine, persistence and interface.",
+        "Designed an installable experience that adapts to phones."
+      ]
+    ],
+    "featured": true,
+    "palette": [
+      "#193128",
+      "#FFDB83",
+      "#9AE6B4",
+      "#FFAD91"
+    ],
+    "ink": "#854D0E"
+  },
+  {
+    "slug": "ruta-clara",
+    "name": "Ruta Clara",
+    "category": "web",
+    "kind": "map",
+    "stack": [
+      "React",
+      "Node.js",
+      "MapLibre",
+      "Grafos / Graphs"
+    ],
+    "summary": [
+      "Planeación de entregas con mapas, restricciones de vehículos y rutas calculadas sobre un grafo.",
+      "Delivery planning with maps, vehicle restrictions and graph-based routing."
+    ],
+    "problem": [
+      "El orden de las paradas debe considerar recorridos y restricciones, además de las distancias.",
+      "Stop order needs to consider roads and restrictions as well as distance."
+    ],
+    "solution": [
+      [
+        "Modelé calles y giros como un grafo con costos.",
+        "Desarrollé una API y una interfaz de planeación sobre mapas.",
+        "Incorporé restricciones de vehículos y organización de carga."
+      ],
+      [
+        "Modeled roads and turns as a weighted graph.",
+        "Developed an API and a map-based planning interface.",
+        "Added vehicle constraints and load organization."
+      ]
+    ],
+    "featured": true,
+    "palette": [
+      "#113039",
+      "#75E8D8",
+      "#A1CDFF",
+      "#FFDE92"
+    ],
+    "ink": "#0F766E"
+  },
+  {
+    "slug": "lumen",
+    "name": "Lumen",
+    "category": "data",
+    "kind": "chart",
+    "stack": [
+      "Node.js",
+      "LLMs",
+      "SQL",
+      "Chart.js"
+    ],
+    "summary": [
+      "Preguntas en lenguaje natural que se convierten en consultas, tablas y visualizaciones.",
+      "Natural-language questions turned into queries, tables and visualizations."
+    ],
+    "problem": [
+      "Los datos aportan poco si obtener una respuesta exige preparar cada reporte a mano.",
+      "Data has limited value when every answer requires manually preparing another report."
+    ],
+    "solution": [
+      [
+        "Conecté lenguaje natural con consultas y explicación de resultados.",
+        "Desarrollé tableros y exportaciones de información.",
+        "Incorporé autenticación y separación de accesos."
+      ],
+      [
+        "Connected natural language to queries and result explanations.",
+        "Developed dashboards and information exports.",
+        "Added authentication and access separation."
+      ]
+    ],
+    "featured": true,
+    "palette": [
+      "#182644",
+      "#98C2FF",
+      "#98EFDF",
+      "#D2B7FF"
+    ],
+    "ink": "#1D4ED8"
+  },
+  {
+    "slug": "dexter",
+    "name": "Dexter",
+    "category": "ai",
+    "kind": "nodes",
+    "stack": [
+      "Python",
+      "MCP",
+      "Multi-LLM",
+      "Ollama"
+    ],
+    "summary": [
+      "Un ecosistema extensible de herramientas, memoria y enrutamiento para agentes de IA.",
+      "An extensible ecosystem of tools, memory and routing for AI agents."
+    ],
+    "problem": [
+      "Los agentes necesitan herramientas y contexto que puedan reutilizar entre tareas.",
+      "Agents need tools and context they can reuse across tasks."
+    ],
+    "solution": [
+      [
+        "Integré y extendí componentes open-source con habilidades bajo demanda.",
+        "Incorporé memoria persistente y conexiones MCP.",
+        "Añadí enrutamiento entre proveedores de nube y modelos locales."
+      ],
+      [
+        "Integrated and extended open-source components with on-demand skills.",
+        "Added persistent memory and MCP connections.",
+        "Added routing between cloud providers and local models."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#202B22",
+      "#C2F18C",
+      "#BDB2FF",
+      "#79DDD2"
+    ],
+    "ink": "#3F6212"
+  },
+  {
+    "slug": "radar",
+    "name": "Radar",
+    "category": "data",
+    "kind": "chart",
+    "stack": [
+      "Python",
+      "SQLite",
+      "SQL",
+      "APIs"
+    ],
+    "summary": [
+      "Priorización comercial explicable a partir de históricos y reglas transparentes.",
+      "Explainable commercial prioritization using historical data and transparent rules."
+    ],
+    "problem": [
+      "Una lista extensa de oportunidades requiere criterios claros para decidir qué revisar primero.",
+      "A long opportunity list needs clear criteria to decide what to review first."
+    ],
+    "solution": [
+      [
+        "Construí un snapshot local para consultas y búsqueda.",
+        "Diseñé reglas de prioridad y motivos comprensibles.",
+        "Separé la lectura de datos de la navegación del portal."
+      ],
+      [
+        "Built a local snapshot for queries and search.",
+        "Designed priority rules with understandable reasons.",
+        "Separated data reads from portal navigation."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#302035",
+      "#FFB2CD",
+      "#D3B5FF",
+      "#9CE5D3"
+    ],
+    "ink": "#9D174D"
+  },
+  {
+    "slug": "pulso",
+    "name": "Pulso",
+    "category": "web",
+    "kind": "dashboard",
+    "stack": [
+      "React",
+      "TypeScript",
+      "IndexedDB",
+      "PWA"
+    ],
+    "summary": [
+      "Encuestas que conservan respuestas sin conexión y las sincronizan al reconectar.",
+      "Surveys that retain responses offline and synchronize when connectivity returns."
+    ],
+    "problem": [
+      "La recopilación de respuestas no debería depender de tener conexión permanente.",
+      "Collecting responses should not depend on a permanent connection."
+    ],
+    "solution": [
+      [
+        "Desarrollé captura offline y sincronización.",
+        "Implementé preguntas configurables y resultados visuales.",
+        "Construí acceso autenticado y exportaciones."
+      ],
+      [
+        "Developed offline capture and synchronization.",
+        "Implemented configurable questions and visual results.",
+        "Built authenticated access and exports."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#18322E",
+      "#9DE4C6",
+      "#F7D694",
+      "#A9CFFF"
+    ],
+    "ink": "#166534"
+  },
+  {
+    "slug": "myaccountant",
+    "name": "MyAccountant",
+    "category": "web",
+    "kind": "chart",
+    "stack": [
+      "React",
+      "Firebase",
+      "PWA"
+    ],
+    "summary": [
+      "Finanzas personales organizadas por presupuesto, movimientos y períodos.",
+      "Personal finance organized around budgets, transactions and periods."
+    ],
+    "problem": [
+      "El registro de gastos necesita una vista que ayude a entender el presupuesto.",
+      "Expense tracking needs a view that makes budgets easier to understand."
+    ],
+    "solution": [
+      [
+        "Desarrollé presupuestos por categoría y registro de movimientos.",
+        "Integré autenticación y reglas de acceso por usuario.",
+        "Construí gráficos y una experiencia instalable."
+      ],
+      [
+        "Developed category budgets and transaction tracking.",
+        "Integrated authentication and per-user access rules.",
+        "Built charts and an installable experience."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#153333",
+      "#91E4BF",
+      "#95D5E9",
+      "#F6DD95"
+    ],
+    "ink": "#065F46"
+  },
+  {
+    "slug": "ourway",
+    "name": "Ourway",
+    "category": "web",
+    "kind": "map",
+    "stack": [
+      "React",
+      "Three.js",
+      "MapLibre"
+    ],
+    "summary": [
+      "Un atlas de viajes que une un globo 3D, mapas y recuerdos.",
+      "A travel atlas connecting a 3D globe, maps and memories."
+    ],
+    "problem": [
+      "Organizar recuerdos de un viaje puede ser más visual que una lista de archivos.",
+      "Organizing travel memories can be more visual than a file list."
+    ],
+    "solution": [
+      [
+        "Construí la transición entre un globo interactivo y un mapa.",
+        "Organicé viajes, fuentes y recuerdos en una interfaz adaptable.",
+        "Separé las funciones existentes de las integraciones de álbumes previstas."
+      ],
+      [
+        "Built the transition between an interactive globe and a map.",
+        "Organized trips, sources and memories in a responsive interface.",
+        "Separated existing features from planned album integrations."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#20283F",
+      "#B7CBFF",
+      "#E5B7EF",
+      "#9CE9E8"
+    ],
+    "ink": "#3730A3"
+  },
+  {
+    "slug": "vitrina",
+    "name": "Vitrina",
+    "category": "web",
+    "kind": "dashboard",
+    "stack": [
+      "React",
+      "Node.js",
+      "APIs"
+    ],
+    "summary": [
+      "Una experiencia de compra con catálogo, búsqueda y carrito.",
+      "A shopping experience with a catalog, search and a cart."
+    ],
+    "problem": [
+      "Un catálogo necesita facilitar el descubrimiento y conservar la selección del usuario.",
+      "A catalog needs to help discovery and preserve user selections."
+    ],
+    "solution": [
+      [
+        "Desarrollé catálogo y navegación por categorías.",
+        "Implementé búsqueda y manejo del carrito.",
+        "Construí una interfaz adaptable a móvil."
+      ],
+      [
+        "Developed a catalog and category navigation.",
+        "Implemented search and cart management.",
+        "Built a mobile-responsive interface."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#33271E",
+      "#FFC49A",
+      "#A5DEC1",
+      "#D6BCFF"
+    ],
+    "ink": "#9A3412"
+  },
+  {
+    "slug": "totem",
+    "name": "Totem",
+    "category": "web",
+    "kind": "dashboard",
+    "stack": [
+      "Electron",
+      "React Native",
+      "Firebase"
+    ],
+    "summary": [
+      "Administración de contenido para pantallas desde web y móvil.",
+      "Screen content management from web and mobile."
+    ],
+    "problem": [
+      "Actualizar varias pantallas requiere coordinar contenido y programación.",
+      "Updating multiple screens requires coordinating content and schedules."
+    ],
+    "solution": [
+      [
+        "Integré un cliente de escritorio con administración web.",
+        "Desarrollé una aplicación móvil y sincronización de contenido.",
+        "Organicé permisos y almacenamiento en la nube."
+      ],
+      [
+        "Integrated a desktop client with web administration.",
+        "Developed a mobile app and content synchronization.",
+        "Organized permissions and cloud storage."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#25213D",
+      "#D8B6FF",
+      "#8CD8F4",
+      "#FFBD99"
+    ],
+    "ink": "#6B21A8"
+  },
+  {
+    "slug": "brujula",
+    "name": "Brújula",
+    "category": "data",
+    "kind": "chart",
+    "stack": [
+      "Python",
+      "Node.js",
+      "APIs",
+      "Automatización / Automation"
+    ],
+    "summary": [
+      "Reportes programados que llevan información resumida al canal de trabajo.",
+      "Scheduled reports that bring summarized information to the working channel."
+    ],
+    "problem": [
+      "Preparar y distribuir reportes repetitivos consume tiempo y genera diferencias de formato.",
+      "Preparing and distributing repeated reports takes time and creates inconsistent formats."
+    ],
+    "solution": [
+      [
+        "Automaticé la preparación de indicadores y reportes.",
+        "Integré programación y distribución de mensajes.",
+        "Separé configuración, consulta y presentación."
+      ],
+      [
+        "Automated indicator and report preparation.",
+        "Integrated scheduling and message distribution.",
+        "Separated configuration, queries and presentation."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#162E3F",
+      "#8FD7FF",
+      "#A0E2CE",
+      "#EBC3FF"
+    ],
+    "ink": "#075985"
+  },
+  {
+    "slug": "festo",
+    "name": "Festo",
+    "category": "web",
+    "kind": "nodes",
+    "stack": [
+      "Node.js",
+      "React",
+      "Docker"
+    ],
+    "summary": [
+      "Comunicaciones programadas con plantillas y revisión de contenido.",
+      "Scheduled communications with templates and content review."
+    ],
+    "problem": [
+      "Las tareas recurrentes de comunicación necesitan consistencia y supervisión.",
+      "Recurring communication tasks need consistency and oversight."
+    ],
+    "solution": [
+      [
+        "Construí plantillas y generación de contenido visual.",
+        "Integré programación y ejecución en contenedores.",
+        "Añadí controles para la operación manual."
+      ],
+      [
+        "Built templates and visual content generation.",
+        "Integrated scheduling and containerized execution.",
+        "Added controls for manual operation."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#352031",
+      "#FFACD3",
+      "#FFD88F",
+      "#B2C4FF"
+    ],
+    "ink": "#9D174D"
+  },
+  {
+    "slug": "arco",
+    "name": "Arco",
+    "category": "creative",
+    "kind": "city",
+    "stack": [
+      "Unity",
+      "C#",
+      "WebGL"
+    ],
+    "summary": [
+      "Un juego de plataformas y construcción pensado para la web.",
+      "A platform and building game designed for the web."
+    ],
+    "problem": [
+      "Un juego necesita coordinar reglas, interacción y progreso de forma clara.",
+      "A game needs to coordinate rules, interaction and progression clearly."
+    ],
+    "solution": [
+      [
+        "Desarrollé mecánicas, interfaz y guardado.",
+        "Trabajé con generación de niveles y arte modular.",
+        "Preparé la distribución web y controles táctiles."
+      ],
+      [
+        "Developed mechanics, interface and saving.",
+        "Worked with level generation and modular art.",
+        "Prepared web distribution and touch controls."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#1E3033",
+      "#9FE3D6",
+      "#FFD29B",
+      "#B9BDFF"
+    ],
+    "ink": "#115E59"
+  },
+  {
+    "slug": "marquesina",
+    "name": "Marquesina",
+    "category": "creative",
+    "kind": "studio",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "summary": [
+      "Un portafolio audiovisual con catálogo y reproducción de contenido.",
+      "An audiovisual portfolio with a content catalog and playback."
+    ],
+    "problem": [
+      "El trabajo audiovisual necesita una presentación que facilite explorar piezas.",
+      "Audiovisual work needs a presentation that makes individual pieces easy to explore."
+    ],
+    "solution": [
+      [
+        "Diseñé una interfaz inspirada en un catálogo audiovisual.",
+        "Integré reproducción y navegación adaptable.",
+        "Preparé metadatos para compartir y posicionar el sitio."
+      ],
+      [
+        "Designed an interface inspired by an audiovisual catalog.",
+        "Integrated playback and responsive navigation.",
+        "Prepared metadata for sharing and search."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#311F2C",
+      "#FFB0C6",
+      "#FBD792",
+      "#B8BAFF"
+    ],
+    "ink": "#9F1239"
+  },
+  {
+    "slug": "dino-ai",
+    "name": "Dino AI",
+    "category": "research",
+    "kind": "nodes",
+    "stack": [
+      "Python",
+      "PPO",
+      "OpenCV"
+    ],
+    "summary": [
+      "Aprendizaje por refuerzo y visión por computadora en un entorno de juego.",
+      "Reinforcement learning and computer vision in a game environment."
+    ],
+    "problem": [
+      "Evaluar un agente exige observar cómo interactúa y cómo cambia su comportamiento.",
+      "Evaluating an agent requires observing its interactions and behavioral changes."
+    ],
+    "solution": [
+      [
+        "Construí un entorno de interacción a partir de imágenes.",
+        "Trabajé con políticas de aprendizaje por refuerzo.",
+        "Organicé entrenamiento y observación del comportamiento."
+      ],
+      [
+        "Built an interaction environment using images.",
+        "Worked with reinforcement-learning policies.",
+        "Organized training and behavior observation."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#243121",
+      "#BCE89B",
+      "#FFD99B",
+      "#9ED7EF"
+    ],
+    "ink": "#3F6212"
+  },
+  {
+    "slug": "mundial",
+    "name": "Mundial 2026",
+    "category": "research",
+    "kind": "chart",
+    "stack": [
+      "Python",
+      "XGBoost",
+      "Elo",
+      "Monte Carlo"
+    ],
+    "summary": [
+      "Modelado y simulación probabilística de un torneo de fútbol.",
+      "Probabilistic modeling and simulation of a football tournament."
+    ],
+    "problem": [
+      "Una predicción necesita expresar incertidumbre y poder compararse con una referencia.",
+      "A prediction needs to express uncertainty and allow comparison with a baseline."
+    ],
+    "solution": [
+      [
+        "Combiné ratings y modelos de aprendizaje automático.",
+        "Implementé simulación de resultados y eliminatorias.",
+        "Construí una interfaz para explorar probabilidades."
+      ],
+      [
+        "Combined ratings and machine-learning models.",
+        "Implemented outcome and knockout simulations.",
+        "Built an interface for exploring probabilities."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#182F37",
+      "#9BE6E0",
+      "#F8DA92",
+      "#A6BDFF"
+    ],
+    "ink": "#115E59"
+  },
+  {
+    "slug": "criatura",
+    "name": "Criatura",
+    "category": "research",
+    "kind": "nodes",
+    "stack": [
+      "Python",
+      "MuJoCo",
+      "Aprendizaje por refuerzo / Reinforcement learning"
+    ],
+    "summary": [
+      "Laboratorio de aprendizaje por refuerzo en entornos simulados.",
+      "A reinforcement-learning laboratory in simulated environments."
+    ],
+    "problem": [
+      "Explorar aprendizaje autónomo requiere separar experimentos, observaciones y límites.",
+      "Exploring autonomous learning requires separating experiments, observations and limitations."
+    ],
+    "solution": [
+      [
+        "Construí entornos y registros de entrenamiento.",
+        "Exploré comportamiento en simulación y aprendizaje por refuerzo.",
+        "Documenté límites; no presento lenguaje con significado como un resultado confirmado."
+      ],
+      [
+        "Built environments and training records.",
+        "Explored simulated behavior and reinforcement learning.",
+        "Documented limitations; meaningful language is not presented as a confirmed result."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#30223A",
+      "#E8BAF7",
+      "#AABFFF",
+      "#A7E4D1"
+    ],
+    "ink": "#86198F"
+  },
+  {
+    "slug": "inferencia",
+    "name": "Inferencia eficiente / Efficient inference",
+    "category": "research",
+    "kind": "chart",
+    "stack": [
+      "Python",
+      "PyTorch",
+      "Cuantización / Quantization"
+    ],
+    "summary": [
+      "Experimentos de cuantización y evaluación bajo restricciones de hardware.",
+      "Quantization and evaluation experiments under hardware constraints."
+    ],
+    "problem": [
+      "La eficiencia debe compararse con calidad y una línea base reproducible.",
+      "Efficiency must be compared with quality and a reproducible baseline."
+    ],
+    "solution": [
+      [
+        "Preparé experimentos de cuantización y evaluación.",
+        "Comparé estrategias con métricas y referencias.",
+        "Documenté resultados negativos y preguntas abiertas."
+      ],
+      [
+        "Prepared quantization and evaluation experiments.",
+        "Compared strategies using metrics and baselines.",
+        "Documented negative results and open questions."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#23283C",
+      "#B9C5FF",
+      "#9CE5DB",
+      "#F2C5A2"
+    ],
+    "ink": "#3730A3"
+  },
+  {
+    "slug": "nucleo",
+    "name": "Núcleo",
+    "category": "web",
+    "kind": "dashboard",
+    "stack": [
+      "React",
+      "Calendar",
+      "APIs"
+    ],
+    "summary": [
+      "Agenda y administración de recursos en un solo espacio.",
+      "Scheduling and resource management in one workspace."
+    ],
+    "problem": [
+      "Coordinar citas y recursos requiere una vista compartida y clara.",
+      "Coordinating appointments and resources requires a clear shared view."
+    ],
+    "solution": [
+      [
+        "Desarrollé una interfaz de agenda y gestión de recursos.",
+        "Integré calendarios y sincronización en la aplicación completa.",
+        "Preparé una demo autónoma con citas ficticias."
+      ],
+      [
+        "Developed a scheduling and resource-management interface.",
+        "Integrated calendars and synchronization in the full application.",
+        "Prepared an autonomous demo with fictional appointments."
+      ]
+    ],
+    "featured": false,
+    "palette": [
+      "#17263D",
+      "#9FD5FF",
+      "#9BE9D4",
+      "#C4B7FF"
+    ],
+    "ink": "#1D4ED8"
+  }
+]

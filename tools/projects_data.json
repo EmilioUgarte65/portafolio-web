@@ -1,0 +1,191 @@
+[
+  {
+    "href": "proyectos/dino-ai/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Inteligencia artificial",
+    "title": "Dino AI · Una IA que aprende sola",
+    "description": "Una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de Chrome: mira la pantalla como lo haría una persona y mejora con cada intento."
+  },
+  {
+    "href": "proyectos/mundial/",
+    "badge": "● Demo",
+    "image": "",
+    "alt": "",
+    "tag": "Machine Learning · Simulación",
+    "title": "Mundial 2026 · Predicción con IA",
+    "description": "Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBoost, modela el minuto de cada gol y simula las eliminatorias con Monte Carlo (sobre 49k+ partidos de historia). Web estilo Mundial con bracket, grupos, favoritos y detalle por partido."
+  },
+  {
+    "href": "proyectos/dexter/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Inteligencia artificial",
+    "title": "Dexter · Asistentes de IA a tu medida",
+    "description": "Una colección de asistentes de inteligencia artificial que cualquiera puede instalar y combinar según lo que necesite, con más de 44 habilidades listas para usar."
+  },
+  {
+    "href": "proyectos/nexo/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Atención al cliente",
+    "title": "Nexo · Tu asistente por WhatsApp",
+    "description": "Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. También como plataforma centralizada multi-agente."
+  },
+  {
+    "href": "proyectos/lumen/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Reportes inteligentes",
+    "title": "Lumen · Pregúntale a tus números",
+    "description": "Haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo."
+  },
+  {
+    "href": "proyectos/brujula/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "BI por WhatsApp",
+    "title": "Brújula · Tus números por WhatsApp",
+    "description": ""
+  },
+  {
+    "href": "proyectos/nucleo/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Gestión de negocio",
+    "title": "Núcleo · Tu negocio en una pantalla",
+    "description": "Organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita."
+  },
+  {
+    "href": "proyectos/vertice/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "App de gestión",
+    "title": "Vértice · App a la medida",
+    "description": "Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro."
+  },
+  {
+    "href": "proyectos/vitrina/",
+    "badge": "● Demo",
+    "image": "",
+    "alt": "",
+    "tag": "Tienda en línea",
+    "title": "Vitrina · Tu tienda en internet",
+    "description": "Tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento."
+  },
+  {
+    "href": "proyectos/myaccountant/",
+    "badge": "● Demo",
+    "image": "",
+    "alt": "",
+    "tag": "App de finanzas personales",
+    "title": "MyAccountant · Tus finanzas en orden",
+    "description": "App personal (PWA) para gestionar tus finanzas: presupuesto por categorías, control de gastos y seguimiento en tiempo real. Proyecto propio en React + Firebase (Google Cloud), en desarrollo activo."
+  },
+  {
+    "href": "proyectos/marquesina/",
+    "badge": "● Sitio en vivo",
+    "image": "",
+    "alt": "",
+    "tag": "Sitio web · Landing page",
+    "title": "Landing page · Portafolio audiovisual",
+    "description": "Landing page estilo Netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y SEO completo (Open Graph + datos estructurados). Diseño, frontend y publicación de principio a fin."
+  },
+  {
+    "href": "proyectos/festo/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Automatización",
+    "title": "Festo · Felicita cumpleaños solo",
+    "description": "Cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada por chat, automáticamente. Nadie del equipo tiene que acordarse."
+  },
+  {
+    "href": "proyectos/pulso/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Encuestas",
+    "title": "Pulso · Encuestas sin internet",
+    "description": "Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión."
+  },
+  {
+    "href": "proyectos/totem/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Pantallas digitales",
+    "title": "Totem · Controla tu pantalla espectacular",
+    "description": "Control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular, transmite videos de Facebook y muestra el clima en tiempo real."
+  },
+  {
+    "href": "proyectos/web-studio/",
+    "badge": "● Demo",
+    "image": "assets/previews/web-studio.jpg",
+    "alt": "Web Studio",
+    "tag": "IA & Video Editor",
+    "title": "Web Studio",
+    "description": "Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio."
+  },
+  {
+    "href": "proyectos/distrito/",
+    "badge": "● Demo",
+    "image": "assets/previews/distrito.jpg",
+    "alt": "Distrito",
+    "tag": "Experiencia 3D",
+    "title": "Distrito",
+    "description": "El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios."
+  },
+  {
+    "href": "proyectos/ruta-clara/",
+    "badge": "● Demo",
+    "image": "assets/previews/ruta-clara.jpg",
+    "alt": "Ruta Clara",
+    "tag": "Logística y mapas",
+    "title": "Ruta Clara",
+    "description": "Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias."
+  },
+  {
+    "href": "proyectos/ourway/",
+    "badge": "● Demo",
+    "image": "assets/previews/ourway.jpg",
+    "alt": "Ourway",
+    "tag": "Atlas y viajes 3D",
+    "title": "Ourway",
+    "description": "La escena orbital, los planetas, las texturas y la navegación son los originales. El viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. La conexión a álbumes privados no está habilitada."
+  },
+  {
+    "href": "proyectos/radar/",
+    "badge": "● Demo",
+    "image": "assets/previews/radar.jpg",
+    "alt": "Radar",
+    "tag": "Analítica comercial",
+    "title": "Radar",
+    "description": "Conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. Los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún ERP ni base empresarial."
+  },
+  {
+    "href": "proyectos/inferencia/",
+    "badge": "● Showcase",
+    "image": "assets/web-dev-eyes.svg",
+    "alt": "Inferencia eficiente",
+    "tag": "Investigación en IA",
+    "title": "Inferencia eficiente",
+    "description": "Investigación aplicada para romper el muro de 4 GB de VRAM en GPUs de consumo: cuantización INT4/INT3/INT2, GPTQ y parches residuales de bajo rango para correr modelos 7B en ~2.4 GB."
+  },
+  {
+    "href": "proyectos/juego-construccion/",
+    "badge": "● Demo jugable",
+    "image": "assets/previews/juego-construccion.jpg",
+    "alt": "Obra Maestra MN",
+    "tag": "Videojuego · Unity & WebGL",
+    "title": "Obra Maestra MN",
+    "description": "Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador."
+  }
+]

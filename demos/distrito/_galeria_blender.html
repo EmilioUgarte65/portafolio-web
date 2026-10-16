@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Galeria Blender (temporal)</title>
+<style>
+body{margin:0;background:#f3f1f8;font:13px system-ui,sans-serif;color:#334}
+h2{margin:8px 10px 4px;font-size:15px}
+.lado{display:grid;grid-template-columns:1.45fr 1fr;gap:4px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;padding:4px}
+.g8{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;padding:4px}
+.g8 .c b{font-size:10px}
+.c{background:#fff;border-radius:10px;text-align:center;padding:2px}
+.c img{width:100%;display:block}
+.c b{display:block;font-size:12px;padding-bottom:3px}
+.v{display:grid;grid-template-columns:1fr 1.6fr;gap:6px;padding:6px}
+.v div{height:330px;background:#fff;border-radius:10px;position:relative}
+pre{color:#b00;white-space:pre-wrap;padding:6px;margin:0}
+</style></head><body>
+<pre id="err"></pre>
+<div class="lado"><div><h2>Modelos Blender (GLB) — sin accesorios</h2><div class="g4" id="todas"></div></div>
+<div><h2>Mismos accesorios (casco+bufanda / gorra+lentes+mochila / corona+collar+alas), pelajes y ojos</h2><div class="g8" id="acc"></div></div></div>
+<div class="v"><div id="vista"></div><div id="cuarto"></div></div>
+<script>
+const err = document.getElementById('err');
+window.addEventListener('error', (e) => { err.textContent += 'ERROR ' + e.message + ' ' + (e.filename || '') + ':' + (e.lineno || '') + '\n'; });
+window.addEventListener('unhandledrejection', (e) => { err.textContent += 'PROMESA ' + (e.reason?.stack || e.reason) + '\n'; });
+const ow = console.warn; console.warn = (...a) => { err.textContent += 'WARN ' + a.map(String).join(' ') + '\n'; ow(...a); };
+</script>
+<script type="module">
+import './monstruos3d.js';
+const M = window.Monstruos;
+const ORDEN = ['obra','pisos','pintura','ferreteria','patito','ajolote','pinguino','panda','gatito','plomeria','cocodrilo','xolo','conejito','unicornio','murcielago','capibara','mapache','tiburon'];
+const ESP = ORDEN.filter((k) => M.ESPECIES[k]);
+const lista = new URLSearchParams(location.search).get('lista');
+if (lista) { document.body.innerHTML = `<pre id="err2"></pre><div id="g" style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;padding:4px"></div>`; const g = document.getElementById('g');
+  document.getElementById('err2').textContent = document.getElementById('err')?.textContent || '';
+  const t = (src) => { const i = new Image(); i.src = src; i.style.width = '100%'; i.style.background = '#fff'; g.appendChild(i); };
+  for (const k of lista.split(',')) { t(M.foto({ especie: k }, 290)); t(M.foto({ especie: k, ojos: 'feliz', color: 'morado', equipo: { cabeza: 'casco', cuello: 'bufanda' } }, 290));
+    t(M.foto({ especie: k, ojos: 'estrella', color: 'azul', equipo: { cabeza: 'gorra', cara: 'lentes', espalda: 'mochila' } }, 290)); t(M.foto({ especie: k, ojos: 'corazon', equipo: { cabeza: 'corona', cuello: 'collar', espalda: 'alas' } }, 290)); }
+  throw new Error('fin (modo lista)'); }
+const solo = new URLSearchParams(location.search).get('esp');
+if (solo) { document.body.innerHTML = `<div id="g" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:6px"></div>`; const g = document.getElementById('g');
+  const t = (src) => { const i = new Image(); i.src = src; i.style.width = '100%'; i.style.background = '#fff'; g.appendChild(i); };
+  t(M.foto({ especie: solo }, 590)); t(M.foto({ especie: solo, ojos: 'feliz', color: 'morado', equipo: { cabeza: 'casco', cuello: 'bufanda' } }, 590));
+  t(M.foto({ especie: solo, ojos: 'estrella', color: 'azul', equipo: { cabeza: 'gorra', cara: 'lentes', espalda: 'mochila' } }, 590)); t(M.foto({ especie: solo, ojos: 'corazon', equipo: { cabeza: 'corona', cuello: 'collar', espalda: 'alas' } }, 590));
+  throw new Error('fin (modo una especie)'); }
+const err = document.getElementById('err');
+err.textContent += 'GLB registrados: ' + Object.keys(M.MODELOS_EXTERNOS).join(', ') + '\n';
+const tarjeta = (dest, src, nombre) => { const d = document.createElement('div'); d.className = 'c'; d.innerHTML = `<img src="${src}"><b>${nombre}</b>`; dest.appendChild(d); };
+for (const k of ESP) tarjeta(document.getElementById('todas'), M.foto({ especie: k }, 220), M.ESPECIES[k].nombre + (M.MODELOS_EXTERNOS[k] ? ' ●' : ''));
+const sets = [{ cabeza: 'casco', cuello: 'bufanda' }, { cabeza: 'gorra', cara: 'lentes', espalda: 'mochila' }, { cabeza: 'corona', cuello: 'collar', espalda: 'alas' }];
+const ojos = ['normal', 'feliz', 'estrella', 'corazon', 'dormilon'];
+const pelos = ['', 'morado', 'azul', 'rosa'];
+const glb = ESP.filter((k) => M.MODELOS_EXTERNOS[k]);
+sets.forEach((eq, i) => { for (const k of glb) tarjeta(document.getElementById('acc'), M.foto({ especie: k, equipo: eq, ojos: ojos[(i + glb.indexOf(k)) % 5], color: pelos[(i + glb.indexOf(k)) % 4] }, 120), M.ESPECIES[k].nombre); });
+const k0 = glb[0] || 'gatito';
+const v = M.montar(document.getElementById('vista'), { especie: k0, equipo: { cabeza: 'flores', cuello: 'mono' }, etapa: 2 });
+setTimeout(() => v.saludar?.(), 300);
+M.montarCuarto(document.getElementById('cuarto'), { mascota: { especie: glb[1] || k0, equipo: {} }, muebles: { tapete: 'redondo', cama: 'nube' }, pared: 'lavanda', piso: 'madera' });
+</script>
+</body></html>

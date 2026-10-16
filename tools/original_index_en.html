@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emilio Fonseca ÔÇö Full-Stack Developer</title>
+  <meta name="description" content="Emilio Fonseca ÔÇö Full-Stack Developer. Production web apps (ERP, e-commerce, PWAs), data & BI, AI agents and automation, with live demos you can explore." />
+  <meta name="author" content="Emilio Fonseca" />
+  <meta name="keywords" content="Emilio Fonseca, Full-Stack Developer, Software Engineer, Web Developer, React, Node.js, Python, FastAPI, TypeScript, AI Developer, PWA, ERP, e-commerce, portfolio, hire developer, Mexico, remote" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#070a11" />
+  <link rel="canonical" href="https://emiliougarte65.github.io/portafolio-web/en/" />
+  <link rel="alternate" hreflang="en" href="https://emiliougarte65.github.io/portafolio-web/en/" />
+  <link rel="alternate" hreflang="es" href="https://emiliougarte65.github.io/portafolio-web/" />
+  <link rel="alternate" hreflang="x-default" href="https://emiliougarte65.github.io/portafolio-web/" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236ea8fe'/%3E%3Ctext x='50' y='72' font-size='54' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <!-- Open Graph (LinkedIn, Facebook, WhatsApp) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Emilio Fonseca ÔÇö Portfolio" />
+  <meta property="og:title" content="Emilio Fonseca ÔÇö Full-Stack Developer" />
+  <meta property="og:description" content="Production web apps, data & BI, and applied AI ÔÇö with live demos you can explore. Open to new opportunities." />
+  <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/" />
+  <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Emilio Fonseca ÔÇö Full-Stack Developer" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_MX" />
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Emilio Fonseca ÔÇö Full-Stack Developer" />
+  <meta name="twitter:description" content="Production web apps, data & BI, and applied AI ÔÇö with live demos you can explore." />
+  <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
+  <!-- Structured data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Emilio Fonseca",
+    "jobTitle": "Full-Stack Developer",
+    "url": "https://emiliougarte65.github.io/portafolio-web/en/",
+    "image": "https://emiliougarte65.github.io/portafolio-web/og-cover.png",
+    "email": "mailto:emilio656565@outlook.com",
+    "sameAs": [
+      "https://github.com/EmilioUgarte65",
+      "https://www.linkedin.com/in/emilio-fonseca65"
+    ],
+    "knowsAbout": ["Full-Stack Development","Python","TypeScript","JavaScript","React","Node.js","FastAPI","SQL","Docker","REST APIs","Progressive Web Apps","Artificial Intelligence","Machine Learning","Large Language Models"],
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad Aut├│noma de Tamaulipas" },
+    "address": { "@type": "PostalAddress", "addressRegion": "Tamaulipas", "addressCountry": "MX" },
+    "knowsLanguage": ["Spanish","English"]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070a11;
+      --bg-soft: #0d1320;
+      --card: #121a2b;
+      --card-2: #0f1626;
+      --border: #1f2940;
+      --border-soft: #18203450;
+      --text: #eaf0fb;
+      --muted: #93a2bd;
+      --accent: #6ea8fe;
+      --accent-2: #59e6c3;
+      --accent-3: #a78bfa;
+      --radius: 18px;
+      --grad: linear-gradient(115deg, #6ea8fe, #59e6c3 52%, #a78bfa);
+    }
+    [data-theme="light"]{
+      --bg:#f5f7fc; --bg-soft:#eef2fa; --card:#ffffff; --card-2:#f7f9fe;
+      --border:#dfe6f3; --border-soft:#e7edf8; --text:#0e1726; --muted:#566179;
+    }
+    [data-theme="light"] nav{ background:rgba(245,247,252,.80); }
+    [data-theme="light"] body::after{
+      background-image:
+        linear-gradient(rgba(20,30,50,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(20,30,50,.05) 1px,transparent 1px);
+    }
+    [data-theme="light"] .badge,
+    [data-theme="light"] .chip{ background:rgba(20,30,50,.04); }
+    [data-theme="light"] .btn-ghost{ background:rgba(20,30,50,.03); }
+    [data-theme="light"] .btn-ghost:hover{ background:rgba(20,30,50,.06); }
+    body{ transition:background .4s,color .4s; }
+    .theme-toggle{
+      background:none; border:1px solid var(--border); color:var(--text);
+      width:34px; height:34px; border-radius:999px; cursor:pointer; padding:0;
+      font-size:.95rem; line-height:1; display:inline-flex; align-items:center; justify-content:center;
+      transition:border-color .2s,transform .15s;
+    }
+    .theme-toggle:hover{ border-color:var(--accent); transform:translateY(-1px); }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+      overflow-x: hidden;
+    }
+    /* Capa de fondo: malla de degradados + cuadr├¡cula sutil */
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(48% 38% at 82% -6%, rgba(110,168,254,.16), transparent 60%),
+        radial-gradient(42% 38% at -4% 14%, rgba(89,230,195,.10), transparent 60%),
+        radial-gradient(46% 50% at 50% 116%, rgba(167,139,250,.13), transparent 62%);
+    }
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none; opacity: .6;
+      background-image:
+        linear-gradient(rgba(255,255,255,.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.022) 1px, transparent 1px);
+      background-size: 56px 56px;
+      -webkit-mask-image: radial-gradient(100% 55% at 50% 0%, #000, transparent 78%);
+      mask-image: radial-gradient(100% 55% at 50% 0%, #000, transparent 78%);
+    }
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: rgba(110,168,254,.3); color: #fff; }
+    .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(14px) saturate(140%);
+      background: rgba(7,10,17,0.66);
+      border-bottom: 1px solid var(--border-soft);
+    }
+    nav .container { display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .logo { font-weight: 800; letter-spacing: -0.02em; font-size: 1.08rem; }
+    .logo span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: 0.92rem; font-weight: 500; transition: color .2s; position: relative; }
+    .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -7px; height: 2px; width: 0; background: var(--grad); border-radius: 2px; transition: width .25s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    @media (max-width: 640px) { .nav-links a[href^="#"] { display: none; } }
+
+    /* HERO */
+    .hero { padding: 52px 0 84px; position: relative; }
+    .badge {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: rgba(255,255,255,.03); border: 1px solid var(--border);
+      padding: 7px 15px; border-radius: 999px; font-size: 0.82rem; color: var(--muted);
+      margin-bottom: 26px; backdrop-filter: blur(6px);
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-2); box-shadow: 0 0 0 0 rgba(89,230,195,.5); animation: ping 2.6s ease-out infinite; }
+    @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(89,230,195,.5); } 70%, 100% { box-shadow: 0 0 0 9px rgba(89,230,195,0); } }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6.4vw, 4rem); font-weight: 800;
+      letter-spacing: -0.035em; line-height: 1.04; margin-bottom: 22px;
+    }
+    .hero h1 .grad {
+      background: var(--grad); background-size: 220% auto;
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      animation: shimmer 9s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: 220% center; } }
+    .hero p.lead { font-size: 1.16rem; color: var(--muted); max-width: 640px; margin-bottom: 34px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 24px; border-radius: 12px; font-weight: 600; font-size: 0.95rem;
+      transition: transform .15s, box-shadow .25s, background .2s, border-color .2s; cursor: pointer;
+    }
+    .btn-primary { background: var(--grad); color: #07101f; box-shadow: 0 8px 24px rgba(110,168,254,.28); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(110,168,254,0.42); }
+    .btn-ghost { background: rgba(255,255,255,.02); border: 1px solid var(--border); color: var(--text); }
+    .btn-ghost:hover { background: rgba(255,255,255,.05); border-color: var(--accent); transform: translateY(-2px); }
+
+    /* SECTIONS */
+    section { padding: 72px 0; }
+    .section-head { margin-bottom: 48px; }
+    .section-head .eyebrow { display: inline-block; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .section-head h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.025em; margin-top: 10px; }
+    .section-head p { color: var(--muted); margin-top: 12px; max-width: 620px; }
+
+    /* PROJECT GRID */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(322px, 1fr)); gap: 24px; }
+    .card {
+      position: relative; background: linear-gradient(180deg, var(--card), var(--card-2)); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; transition: transform .25s, box-shadow .25s; display: flex; flex-direction: column;
+    }
+    .card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; background: var(--grad); opacity: 0; transition: opacity .25s; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 28px 60px rgba(0,0,0,0.5); }
+    .card:hover::before { opacity: .9; }
+    .card .preview { height: 172px; position: relative; overflow: hidden; border-bottom: 1px solid var(--border-soft); background: #0a0f1b; }
+    .card .preview::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 62%, rgba(10,15,27,.55)); pointer-events: none; }
+    .card .preview svg { width: 100%; height: 100%; display: block; transition: transform .5s ease; }
+    .card:hover .preview svg { transform: scale(1.04); }
+    .card-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+    .card .tag { font-size: 0.72rem; color: var(--accent-2); font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; }
+    .card h3 { font-size: 1.22rem; font-weight: 700; margin: 9px 0 9px; letter-spacing: -0.01em; }
+    .card p { color: var(--muted); font-size: 0.93rem; flex: 1; }
+    .card .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .chip { font-size: 0.75rem; background: rgba(255,255,255,.03); border: 1px solid var(--border); color: var(--muted); padding: 5px 11px; border-radius: 8px; }
+    a.card .go { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 0.83rem; font-weight: 700; color: var(--accent); transition: gap .2s; }
+    a.card:hover .go { gap: 11px; }
+    .card .live { position: absolute; top: 14px; right: 14px; z-index: 2; font-size: 0.67rem; font-weight: 700; color: #07101f; background: var(--accent-2); padding: 4px 11px; border-radius: 999px; box-shadow: 0 4px 14px rgba(0,0,0,0.4); }
+    /* Motion: en reposo nada se anima (1-2 elementos por vista). Solo el mockup de la tarjeta activa cobra vida. */
+    .anim-pulse, .anim-move { animation: none; transform-origin: center; }
+    .card:hover .anim-pulse, .card:focus-within .anim-pulse { animation: cardpulse 2s ease-in-out infinite; }
+    .card:hover .anim-move, .card:focus-within .anim-move { animation: cardmove 2.4s ease-in-out infinite; }
+    @keyframes cardpulse { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+    @keyframes cardmove { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-12px); } }
+    /* Estados de foco visibles para navegaci├│n con teclado */
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 8px; }
+    .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    /* Que los anclajes no queden ocultos bajo el nav fijo */
+    section[id], header[id] { scroll-margin-top: 84px; }
+    @media (prefers-reduced-motion: reduce) { .anim-pulse, .anim-move, .card:hover .preview svg, .hero h1 .grad, .badge .dot { animation: none !important; transform: none !important; } }
+
+    /* SKILLS */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(184px, 1fr)); gap: 16px; }
+    .skill { position: relative; background: linear-gradient(180deg, var(--card), var(--card-2)); border: 1px solid var(--border); border-radius: 14px; padding: 20px; overflow: hidden; transition: transform .2s, border-color .2s; }
+    .skill::before { content: ""; position: absolute; left: 0; top: 0; height: 100%; width: 3px; background: var(--grad); opacity: 0; transition: opacity .2s; }
+    .skill:hover { transform: translateY(-3px); }
+    .skill:hover::before { opacity: 1; }
+    .skill h4 { font-size: 0.96rem; margin-bottom: 7px; }
+    .skill p { color: var(--muted); font-size: 0.85rem; }
+
+    /* CONTACT */
+    .contact-card {
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, var(--card), var(--card-2));
+      border: 1px solid var(--border); border-radius: 24px; padding: 56px 48px; text-align: center;
+    }
+    .contact-card::before { content: ""; position: absolute; inset: 0; background: radial-gradient(62% 90% at 50% 0%, rgba(110,168,254,.16), transparent 70%); pointer-events: none; }
+    .contact-card h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); font-weight: 800; margin-bottom: 14px; position: relative; }
+    .contact-card p { color: var(--muted); margin-bottom: 30px; position: relative; }
+    .contact-card .cta-row { position: relative; }
+
+    footer { border-top: 1px solid var(--border-soft); padding: 36px 0; text-align: center; color: var(--muted); font-size: 0.88rem; }
+    /* project category headings */
+    .cat-title{ font-size:.82rem; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--accent); margin:46px 0 20px; display:flex; align-items:center; gap:14px; }
+    .cat-title:first-of-type{ margin-top:10px; }
+    .cat-title::after{ content:""; flex:1; height:1px; background:var(--border); }
+  </style>
+  <script>
+    (function(){
+      try{ if(localStorage.getItem('site-theme')==='light') document.documentElement.setAttribute('data-theme','light'); }catch(e){}
+      document.addEventListener('DOMContentLoaded',function(){
+        var b=document.getElementById('themeToggle'); if(!b) return;
+        b.addEventListener('click',function(){
+          var light=document.documentElement.getAttribute('data-theme')==='light';
+          if(light){document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('site-theme','dark')}catch(e){}}
+          else{document.documentElement.setAttribute('data-theme','light');try{localStorage.setItem('site-theme','light')}catch(e){}}
+        });
+      });
+    })();
+  </script>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">Emilio<span>.</span>dev</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#proyectos">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contacto">Contact</a>
+        <a href="../" title="Ver en espa├▒ol" style="color: var(--accent); font-weight: 700;">ES</a>
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle light or dark mode">ÔùÉ</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="badge"><span class="dot"></span> Open to new opportunities ┬À Full-Stack Developer</div>
+      <h1>I build <span class="grad">production apps and data tools</span> that real businesses run on.</h1>
+      <p class="lead">Full-Stack Developer with broad range: complete applications (ERP, e-commerce, management systems), data analytics & BI, AI agents and assistants, automations, and offline-first PWAs. I turn manual operations into software that runs itself and into data-driven decisions. Every project below is a real system ÔÇö and most have a live demo you can open and explore.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#proyectos">View my work</a>
+        <a class="btn btn-ghost" href="https://github.com/EmilioUgarte65" target="_blank" rel="noopener">GitHub Ôåù</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">About me</div>
+        <h2>Hi, I'm Emilio Fonseca</h2>
+      </div>
+      <div style="display: flex; gap: 30px; align-items: center; flex-wrap: wrap;">
+        <div style="width: 120px; height: 120px; border-radius: 26px; background: var(--grad); display: grid; place-items: center; font-weight: 800; font-size: 2.6rem; color: #07101f; flex: none; box-shadow: 0 14px 36px rgba(110,168,254,.32);">EF</div>
+        <div style="flex: 1; min-width: 280px;">
+          <p style="color: var(--text); font-size: 1.08rem; line-height: 1.75; margin-bottom: 14px;"><strong>Full-Stack Developer</strong>, currently working and shipping production software since 2025. I design and build real systems end to end ÔÇö web apps (ERP, e-commerce, management tools), data & BI, AI agents and automations ÔÇö and I care about turning manual, repetitive work into software that runs itself.</p>
+          <p style="color: var(--muted); font-size: 0.98rem; line-height: 1.7;">Comfortable across the stack (React/TypeScript, Node.js, Python/FastAPI, PostgreSQL, Firebase, Docker) and with applied AI. Most of the projects below are live and explorable. Open to remote roles.</p>
+          <div class="stack" style="margin-top: 18px;">
+            <span class="chip">Full-Stack</span>
+            <span class="chip">AI & Automation</span>
+            <span class="chip">Data & BI</span>
+            <span class="chip">Remote-friendly</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Selected work</div>
+        <h2>Featured projects</h2>
+        <p>A selection of systems I have designed and built end to end. Several are private (business logic), but most have a live, explorable demo ÔÇö click any card.</p>
+      </div>
+            <div class="cat-title">Artificial Intelligence &amp; Machine Learning</div>
+      <div class="grid">
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/dino/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <text x="20" y="30" font-size="11" fill="#a78bfa" font-family="monospace">PPO ┬À reward Ôåæ</text>
+              <polyline points="20,72 50,70 80,62 110,58 140,46 170,44 200,34 230,30 260,22 290,20" fill="none" stroke="#59e6c3" stroke-width="2"/>
+              <line x1="20" y1="124" x2="300" y2="124" stroke="#3a4663" stroke-width="2"/>
+              <!-- dino -->
+              <g fill="#6ea8fe">
+                <rect x="46" y="96" width="20" height="22" rx="2"/><rect x="60" y="90" width="14" height="14" rx="2"/><rect x="72" y="94" width="5" height="4"/>
+                <rect x="48" y="118" width="5" height="8"/><rect x="58" y="118" width="5" height="8"/>
+              </g>
+              <!-- detection box -->
+              <rect class="anim-pulse" x="216" y="92" width="34" height="34" rx="2" fill="none" stroke="#ff6b6b" stroke-width="1.6" stroke-dasharray="4 3"/>
+              <!-- cactus -->
+              <g class="anim-move" fill="#59e6c3"><rect x="226" y="96" width="8" height="28" rx="2"/><rect x="220" y="104" width="6" height="10" rx="2"/><rect x="234" y="100" width="6" height="12" rx="2"/></g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Artificial intelligence</span>
+            <h3>Dino AI ┬À An AI that learns on its own</h3>
+            <p>An AI that learns, all by itself, to play ChromeÔÇÖs dinosaur game: it looks at the screen like a person would and gets better with every attempt. Reinforcement learning (PPO) + computer vision.</p>
+            <div class="stack"><span class="chip">Python</span><span class="chip">Reinforcement Learning</span><span class="chip">OpenCV</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/prediccion-mundial-2026-demo/">
+          <span class="live">ÔùÅ Demo</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0a0f17"/>
+              <rect x="0" y="0" width="320" height="18" fill="#101826"/>
+              <circle cx="11" cy="9" r="3" fill="#e8c468"/>
+              <text x="20" y="12.5" font-size="8.5" fill="#e8c468" font-family="monospace" font-weight="700">MUNDIAL 2026 ┬À PREDICCI├ôN</text>
+              <rect x="12" y="30" width="56" height="14" rx="3" fill="#16202e"/><text x="18" y="40" font-family="monospace" font-size="7" fill="#cdd7e6">BRA</text><text x="62" y="40" text-anchor="end" font-family="monospace" font-size="7" fill="#5cd6a0" font-weight="700">2</text>
+              <rect x="12" y="48" width="56" height="14" rx="3" fill="#0d1420"/><text x="18" y="58" font-family="monospace" font-size="7" fill="#8a93a6">MEX</text><text x="62" y="58" text-anchor="end" font-family="monospace" font-size="7" fill="#8a93a6">1</text>
+              <rect x="12" y="92" width="56" height="14" rx="3" fill="#16202e"/><text x="18" y="102" font-family="monospace" font-size="7" fill="#cdd7e6">ARG</text><text x="62" y="102" text-anchor="end" font-family="monospace" font-size="7" fill="#5cd6a0" font-weight="700">3</text>
+              <rect x="12" y="110" width="56" height="14" rx="3" fill="#0d1420"/><text x="18" y="120" font-family="monospace" font-size="7" fill="#8a93a6">ESP</text><text x="62" y="120" text-anchor="end" font-family="monospace" font-size="7" fill="#8a93a6">2</text>
+              <path d="M70 37 H80 V55 H70 M80 46 H94" stroke="#2a3850" fill="none" stroke-width="1.2"/>
+              <path d="M70 99 H80 V117 H70 M80 108 H94" stroke="#2a3850" fill="none" stroke-width="1.2"/>
+              <rect x="94" y="39" width="52" height="14" rx="3" fill="#16202e"/><text x="100" y="49" font-family="monospace" font-size="7" fill="#cdd7e6">BRA</text>
+              <rect x="94" y="101" width="52" height="14" rx="3" fill="#16202e"/><text x="100" y="111" font-family="monospace" font-size="7" fill="#cdd7e6">ARG</text>
+              <path d="M146 46 H158 V108 H146 M158 77 H172" stroke="#2a3850" fill="none" stroke-width="1.2"/>
+              <rect x="172" y="68" width="64" height="18" rx="4" fill="#13241a" stroke="#5cd6a0"/><text x="180" y="80" font-family="monospace" font-size="8" fill="#5cd6a0" font-weight="700">BRA ┬À 38%</text>
+              <g transform="translate(258,48)" fill="#e8c468"><path d="M4 4 h18 v5 a9 9 0 0 1 -18 0 z"/><rect x="11" y="15" width="4" height="7"/><rect x="6" y="22" width="14" height="4" rx="1.5"/></g>
+              <text x="267" y="40" font-size="6.5" fill="#8a93a6" font-family="monospace" text-anchor="middle">CAMPE├ôN</text>
+              <text x="12" y="140" font-size="6.5" fill="#8a93a6" font-family="monospace">Favoritos ┬À prob. t├¡tulo</text>
+              <rect x="12" y="146" width="130" height="6" rx="3" fill="#16202e"/><rect class="anim-move" x="12" y="146" width="50" height="6" rx="3" fill="#5cd6a0"/>
+              <rect x="12" y="156" width="130" height="6" rx="3" fill="#16202e"/><rect x="12" y="156" width="36" height="6" rx="3" fill="#6ea8fe"/>
+              <rect x="150" y="146" width="130" height="6" rx="3" fill="#16202e"/><rect x="150" y="146" width="28" height="6" rx="3" fill="#a78bfa"/>
+              <rect x="150" y="156" width="130" height="6" rx="3" fill="#16202e"/><rect x="150" y="156" width="20" height="6" rx="3" fill="#e8c468"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Machine Learning ┬À Simulation</span>
+            <h3>World Cup 2026 ┬À AI prediction</h3>
+            <p>Machine-learning model that predicts the 2026 World Cup: blends Elo ratings with XGBoost regressors, models the minute of each goal and simulates the knockouts with Monte Carlo (50k+ historical matches). World-Cup-style web with bracket, groups, favorites and per-match detail.</p>
+            <div class="stack"><span class="chip">XGBoost</span><span class="chip">Elo + Poisson</span><span class="chip">Monte Carlo</span><span class="chip">Python</span></div>
+            <span class="go">View demo ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/dexter/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <text x="20" y="28" font-size="11" fill="#8a96ad" font-family="monospace">44+ skills</text>
+              <g>
+                <g transform="translate(20,40)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#6ea8fe"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(118,40)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#59e6c3"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(216,40)"><rect class="anim-pulse" width="84" height="50" rx="9" fill="#1a2238" stroke="#6ea8fe"/><circle cx="20" cy="20" r="9" fill="#a78bfa"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(20,100)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#ffd166"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(118,100)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#ff6b6b"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+                <g transform="translate(216,100)"><rect width="84" height="50" rx="9" fill="#151d2f" stroke="#2e3a52"/><circle cx="20" cy="20" r="9" fill="#6ea8fe"/><rect x="36" y="14" width="38" height="5" rx="2" fill="#3a4663"/><rect x="36" y="24" width="28" height="5" rx="2" fill="#2e3a52"/><rect x="14" y="36" width="56" height="6" rx="3" fill="#22304d"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Artificial intelligence</span>
+            <h3>Dexter ┬À Custom AI assistants</h3>
+            <p>A collection of AI assistants anyone can install and combine as needed, with 46+ ready-to-use skills, persistent memory and multi-agent support. Open source.</p>
+            <div class="stack"><span class="chip">Python</span><span class="chip">Agentes IA</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/cora-showcase/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="0" y="0" width="320" height="32" fill="#151d2f"/>
+              <circle cx="22" cy="16" r="9" fill="#6ea8fe"/><text x="22" y="20" font-size="10" fill="#07101f" text-anchor="middle" font-family="sans-serif" font-weight="700">C</text>
+              <rect x="40" y="12" width="74" height="7" rx="3" fill="#3a4663"/>
+              <rect x="20" y="46" width="158" height="28" rx="11" fill="#1f2940"/>
+              <rect x="32" y="56" width="120" height="6" rx="3" fill="#54607c"/>
+              <rect x="124" y="86" width="176" height="38" rx="11" fill="#6ea8fe"/>
+              <rect x="136" y="96" width="120" height="6" rx="3" fill="#dceaff"/>
+              <rect x="136" y="108" width="80" height="6" rx="3" fill="#dceaff" opacity=".7"/>
+              <rect x="20" y="132" width="58" height="24" rx="11" fill="#1f2940"/>
+              <circle class="anim-pulse" cx="36" cy="144" r="4" fill="#59e6c3"/>
+              <circle class="anim-pulse" cx="49" cy="144" r="4" fill="#59e6c3" style="animation-delay:.3s"/>
+              <circle class="anim-pulse" cx="62" cy="144" r="4" fill="#59e6c3" style="animation-delay:.6s"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Customer support</span>
+            <h3>CORA ┬À Your WhatsApp assistant</h3>
+            <p>Serves customers on WhatsApp 24/7 using the official WhatsApp Business API: understands text, voice notes and photos, and resolves with no human in the loop. Also works as a centralized multi-agent platform.</p>
+            <div class="stack"><span class="chip">WhatsApp API oficial</span><span class="chip">IA generativa</span><span class="chip">Voz + Imagen</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+      </div>
+      <div class="cat-title">Web Apps, Business &amp; BI</div>
+      <div class="grid">
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/lumen/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="20" y="16" width="280" height="28" rx="9" fill="#1b2334" stroke="#2e3a52"/>
+              <circle cx="38" cy="30" r="6" fill="none" stroke="#59e6c3" stroke-width="2"/><line x1="42" y1="34" x2="47" y2="39" stroke="#59e6c3" stroke-width="2"/>
+              <rect x="56" y="27" width="150" height="6" rx="3" fill="#54607c"/>
+              <text x="288" y="34" font-size="13" fill="#a78bfa" text-anchor="middle" font-family="monospace">SQL</text>
+              <g>
+                <rect x="40"  y="120" width="20" height="32" rx="3" fill="#3a4663"/>
+                <rect x="72"  y="96"  width="20" height="56" rx="3" fill="#6ea8fe"/>
+                <rect x="104" y="108" width="20" height="44" rx="3" fill="#3a4663"/>
+                <rect x="136" y="80"  width="20" height="72" rx="3" fill="#6ea8fe"/>
+                <rect x="168" y="100" width="20" height="52" rx="3" fill="#3a4663"/>
+                <rect class="anim-pulse" x="200" y="64" width="20" height="88" rx="3" fill="#59e6c3"/>
+                <rect x="232" y="92"  width="20" height="60" rx="3" fill="#3a4663"/>
+                <rect x="264" y="76"  width="20" height="76" rx="3" fill="#6ea8fe"/>
+              </g>
+              <polyline points="50,112 82,92 114,100 146,72 178,94 210,60 242,84 274,70" fill="none" stroke="#e6e9f0" stroke-width="2" opacity=".5"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Smart reporting</span>
+            <h3>Lumen ┬À Ask your numbers</h3>
+            <p>Ask about your sales or finances in plain language ÔÇö typing or speaking ÔÇö and get a clear answer instantly, no spreadsheets required. Charts, tables and natural-language reporting over your ERP data.</p>
+            <div class="stack"><span class="chip">IA + SQL</span><span class="chip">Voz</span><span class="chip">Dashboards</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/brujula/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="0" y="0" width="320" height="22" fill="#0b2e27"/>
+              <circle cx="14" cy="11" r="6" fill="#25d366"/><text x="14" y="14.5" font-size="7" fill="#063a25" text-anchor="middle" font-family="sans-serif" font-weight="700">B</text>
+              <text x="28" y="14.5" font-size="8" fill="#9fc7bd" font-family="sans-serif" font-weight="700">Br├║jula ┬À Daily report</text>
+              <rect x="14" y="34" width="172" height="66" rx="10" fill="#152e27"/>
+              <text x="26" y="50" font-size="8" fill="#bfe3da" font-family="sans-serif" font-weight="700">Your sales today</text>
+              <rect x="26" y="58" width="13" height="30" rx="2" fill="#1f4a3e"/><rect x="26" y="72" width="13" height="16" rx="2" fill="#25d366"/>
+              <rect x="44" y="58" width="13" height="30" rx="2" fill="#1f4a3e"/><rect x="44" y="66" width="13" height="22" rx="2" fill="#25d366"/>
+              <rect x="62" y="58" width="13" height="30" rx="2" fill="#1f4a3e"/><rect x="62" y="61" width="13" height="27" rx="2" fill="#59e6c3"/>
+              <text x="90" y="68" font-size="7" fill="#8aa39b" font-family="sans-serif">Goal</text>
+              <text x="90" y="83" font-size="14" fill="#fff" font-family="sans-serif" font-weight="800">87%</text>
+              <rect class="anim-pulse" x="142" y="78" width="36" height="14" rx="7" fill="#25d366"/><text x="160" y="88" font-size="6.5" fill="#063a25" text-anchor="middle" font-family="sans-serif" font-weight="700">2x/day</text>
+              <rect x="198" y="34" width="108" height="120" rx="10" fill="#11212e" stroke="#1f3340"/>
+              <text x="210" y="50" font-size="7.5" fill="#a5b4fc" font-family="sans-serif" font-weight="700">Admin report</text>
+              <text x="210" y="62" font-size="6.5" fill="#6b7a90" font-family="sans-serif">End of day</text>
+              <rect x="210" y="70" width="84" height="11" rx="3" fill="#172433"/><rect x="214" y="73" width="40" height="5" rx="2.5" fill="#3a4663"/><text x="290" y="78.5" font-size="6.5" fill="#59e6c3" text-anchor="end" font-family="sans-serif" font-weight="700">+12%</text>
+              <rect x="210" y="85" width="84" height="11" rx="3" fill="#172433"/><rect x="214" y="88" width="54" height="5" rx="2.5" fill="#3a4663"/><text x="290" y="93.5" font-size="6.5" fill="#6ea8fe" text-anchor="end" font-family="sans-serif" font-weight="700">56</text>
+              <rect x="210" y="100" width="84" height="11" rx="3" fill="#172433"/><rect x="214" y="103" width="32" height="5" rx="2.5" fill="#3a4663"/><text x="290" y="108.5" font-size="6.5" fill="#fbbf77" text-anchor="end" font-family="sans-serif" font-weight="700">2x</text>
+              <polyline points="210,142 228,136 246,138 264,128 282,121 298,115" fill="none" stroke="#59e6c3" stroke-width="2"/>
+              <circle class="anim-pulse" cx="298" cy="115" r="2.6" fill="#59e6c3"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">BI over WhatsApp</span>
+            <h3>Br├║jula ┬À Your numbers on WhatsApp</h3>
+            <p>Every sales rep gets their KPIs on WhatsApp <b>twice a day</b> ÔÇösales, targets and progressÔÇö and at end of day the manager receives a consolidated report. <b>~56 reps</b> and 110+ automated messages daily, with no one logging into a system.</p>
+            <div class="stack"><span class="chip">WhatsApp Business API</span><span class="chip">Automated BI</span><span class="chip">Scheduled delivery</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/nucleo/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="24" y="18" width="272" height="132" rx="12" fill="#151d2f" stroke="#2e3a52"/>
+              <rect x="24" y="18" width="272" height="26" rx="12" fill="#1b2540"/>
+              <circle cx="42" cy="31" r="5" fill="#59e6c3"/><rect x="54" y="28" width="90" height="6" rx="3" fill="#3a4663"/>
+              <path d="M250 25 a8 8 0 1 1 -6 13" fill="none" stroke="#6ea8fe" stroke-width="2"/><path d="M250 25 l4 -3 l1 5 z" fill="#6ea8fe"/>
+              <path d="M276 38 a8 8 0 1 1 6 -13" fill="none" stroke="#6ea8fe" stroke-width="2"/><path d="M276 38 l-4 3 l-1 -5 z" fill="#6ea8fe"/>
+              <g>
+                <!-- calendar cells 7x3 -->
+                <g fill="#1f2940">
+                  <rect x="36"  y="56" width="32" height="24" rx="4"/><rect x="74"  y="56" width="32" height="24" rx="4"/><rect x="112" y="56" width="32" height="24" rx="4"/><rect x="150" y="56" width="32" height="24" rx="4"/><rect x="188" y="56" width="32" height="24" rx="4"/><rect x="226" y="56" width="32" height="24" rx="4"/><rect x="264" y="56" width="20" height="24" rx="4"/>
+                  <rect x="36"  y="86" width="32" height="24" rx="4"/><rect x="74"  y="86" width="32" height="24" rx="4"/><rect x="112" y="86" width="32" height="24" rx="4"/><rect x="150" y="86" width="32" height="24" rx="4"/><rect x="188" y="86" width="32" height="24" rx="4"/><rect x="226" y="86" width="32" height="24" rx="4"/><rect x="264" y="86" width="20" height="24" rx="4"/>
+                  <rect x="36"  y="116" width="32" height="24" rx="4"/><rect x="74"  y="116" width="32" height="24" rx="4"/><rect x="112" y="116" width="32" height="24" rx="4"/><rect x="150" y="116" width="32" height="24" rx="4"/><rect x="188" y="116" width="32" height="24" rx="4"/><rect x="226" y="116" width="32" height="24" rx="4"/><rect x="264" y="116" width="20" height="24" rx="4"/>
+                </g>
+                <rect x="112" y="56" width="32" height="24" rx="4" fill="#6ea8fe"/>
+                <rect class="anim-pulse" x="188" y="86" width="32" height="24" rx="4" fill="#59e6c3"/>
+                <rect x="74" y="116" width="32" height="24" rx="4" fill="#a78bfa"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Business management</span>
+            <h3>N├║cleo ┬À Your business in one screen</h3>
+            <p>Organizes your schedule, resources and day-to-day operations in one real-time place, synced with your calendar so no appointment slips through.</p>
+            <div class="stack"><span class="chip">React</span><span class="chip">Firebase</span><span class="chip">Serverless</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/vertice/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="22" y="18" width="276" height="132" rx="12" fill="#151d2f" stroke="#2e3a52"/>
+              <rect x="22" y="18" width="276" height="22" rx="12" fill="#1b2540"/>
+              <circle cx="36" cy="29" r="4" fill="#ff6b6b"/><circle cx="50" cy="29" r="4" fill="#ffd166"/><circle cx="64" cy="29" r="4" fill="#59e6c3"/>
+              <rect x="34" y="52" width="58" height="86" rx="8" fill="#1b2540"/>
+              <rect x="44" y="64" width="38" height="6" rx="3" fill="#3a4663"/><rect x="44" y="78" width="30" height="6" rx="3" fill="#3a4663"/><rect x="44" y="92" width="38" height="6" rx="3" fill="#6ea8fe"/><rect x="44" y="106" width="26" height="6" rx="3" fill="#3a4663"/>
+              <rect x="104" y="52" width="86" height="40" rx="8" fill="#1f2940"/><rect x="114" y="64" width="60" height="6" rx="3" fill="#54607c"/><rect x="114" y="76" width="40" height="6" rx="3" fill="#3a4663"/>
+              <rect x="104" y="100" width="86" height="38" rx="8" fill="#1f2940"/><rect x="114" y="112" width="50" height="6" rx="3" fill="#54607c"/>
+              <rect x="202" y="52" width="84" height="22" rx="11" fill="none" stroke="#6ea8fe" stroke-width="1.5"/><text x="244" y="67" font-size="11" fill="#6ea8fe" text-anchor="middle" font-family="monospace">FastAPI</text>
+              <path d="M214 92 h60 v22 a30 8 0 0 1 -60 0 z" fill="#1f2940" stroke="#59e6c3" stroke-width="1.5"/><ellipse cx="244" cy="92" rx="30" ry="8" fill="#243049" stroke="#59e6c3" stroke-width="1.5"/>
+              <text x="244" y="132" font-size="10" fill="#8a96ad" text-anchor="middle" font-family="monospace">PostgreSQL</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Management app</span>
+            <h3>V├®rtice ┬À A custom-built app</h3>
+            <p>A custom application to manage a teamÔÇÖs internal processes (projects, quotes, payments). Keeps working offline and protects access with secure authentication. React + FastAPI + PostgreSQL + Docker.</p>
+            <div class="stack"><span class="chip">React</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Docker</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/vitrina-demo/">
+          <span class="live">ÔùÅ Demo</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="20" y="16" width="220" height="22" rx="8" fill="#1b2334" stroke="#2e3a52"/><rect x="32" y="24" width="120" height="6" rx="3" fill="#3a4663"/>
+              <circle cx="270" cy="27" r="13" fill="#1b2540"/><path d="M263 23 h12 l-2 9 h-8 z" fill="none" stroke="#59e6c3" stroke-width="1.6"/><circle cx="265" cy="35" r="1.6" fill="#59e6c3"/><circle cx="272" cy="35" r="1.6" fill="#59e6c3"/>
+              <g>
+                <rect x="20"  y="52" width="86" height="98" rx="10" fill="#151d2f" stroke="#2e3a52"/>
+                <rect x="20"  y="52" width="86" height="52" rx="10" fill="#22304d"/><rect x="20" y="92" width="86" height="12" fill="#22304d"/>
+                <rect x="32"  y="116" width="50" height="6" rx="3" fill="#54607c"/><text x="32" y="140" font-size="13" fill="#59e6c3" font-family="monospace" font-weight="700">$248</text>
+                <rect x="117" y="52" width="86" height="98" rx="10" fill="#151d2f" stroke="#2e3a52"/>
+                <rect x="117" y="52" width="86" height="52" rx="10" fill="#2a2350"/><rect x="117" y="92" width="86" height="12" fill="#2a2350"/>
+                <rect x="150" y="44" width="40" height="16" rx="8" fill="#ff6b6b"/><text x="170" y="56" font-size="9" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="700">-20%</text>
+                <rect x="129" y="116" width="50" height="6" rx="3" fill="#54607c"/><text x="129" y="140" font-size="13" fill="#59e6c3" font-family="monospace" font-weight="700">$99</text>
+                <rect x="214" y="52" width="86" height="98" rx="10" fill="#151d2f" stroke="#2e3a52"/>
+                <rect x="214" y="52" width="86" height="52" rx="10" fill="#1d3a3a"/><rect x="214" y="92" width="86" height="12" fill="#1d3a3a"/>
+                <rect x="226" y="116" width="50" height="6" rx="3" fill="#54607c"/><text x="226" y="140" font-size="13" fill="#59e6c3" font-family="monospace" font-weight="700">$540</text>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Online store</span>
+            <h3>Vitrina ┬À Your online store</h3>
+            <p>A complete, ready-to-sell online store: category catalog, cart with promotions, stock alerts and instant product search. Fully responsive.</p>
+            <div class="stack"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">E-commerce</span></div>
+            <span class="go">Explore the store ÔåÆ</span>
+          </div>
+        </a>
+        <div class="card">
+          <span class="live" style="background:var(--accent-3);color:#0a0f17">ÔùÅ In development</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="0" y="0" width="320" height="22" fill="#101a2e"/>
+              <circle cx="14" cy="11" r="6" fill="#59e6c3"/><text x="14" y="14.5" font-size="8" fill="#06223f" text-anchor="middle" font-family="sans-serif" font-weight="800">$</text>
+              <text x="28" y="14.5" font-size="8.5" fill="#93a2bd" font-family="sans-serif" font-weight="700">MyAccountant ┬À Presupuesto</text>
+              <text x="20" y="46" font-size="8" fill="#7d8aa5" font-family="sans-serif">Disponible ┬À quincena</text>
+              <text x="20" y="66" font-size="20" fill="#eaf0fb" font-family="sans-serif" font-weight="800">$4,250</text>
+              <text x="20" y="82" font-size="7.5" fill="#59e6c3" font-family="sans-serif">Ôû▓ dentro de presupuesto</text>
+              <text x="176" y="40" font-size="8" fill="#7d8aa5" font-family="sans-serif">Regla 50 / 30 / 20</text>
+              <text x="176" y="55" font-size="7" fill="#9fb2d6" font-family="sans-serif">Necesidades 50%</text><rect x="176" y="58" width="126" height="8" rx="4" fill="#16202e"/><rect x="176" y="58" width="63" height="8" rx="4" fill="#6ea8fe"/>
+              <text x="176" y="79" font-size="7" fill="#9fb2d6" font-family="sans-serif">Deseos 30%</text><rect x="176" y="82" width="126" height="8" rx="4" fill="#16202e"/><rect x="176" y="82" width="38" height="8" rx="4" fill="#a78bfa"/>
+              <text x="176" y="103" font-size="7" fill="#9fb2d6" font-family="sans-serif">Ahorro 20%</text><rect x="176" y="106" width="126" height="8" rx="4" fill="#16202e"/><rect class="anim-move" x="176" y="106" width="25" height="8" rx="4" fill="#59e6c3"/>
+              <text x="20" y="108" font-size="7.5" fill="#7d8aa5" font-family="sans-serif" font-weight="600">Movimientos</text>
+              <rect x="20" y="114" width="128" height="15" rx="4" fill="#131c2c"/><text x="27" y="124" font-size="7" fill="#cdd7e6" font-family="sans-serif">­ƒìö Comida</text><text x="141" y="124" font-size="7" fill="#f28b82" text-anchor="end" font-family="sans-serif">-$180</text>
+              <rect x="20" y="132" width="128" height="15" rx="4" fill="#131c2c"/><text x="27" y="142" font-size="7" fill="#cdd7e6" font-family="sans-serif">­ƒÜî Transporte</text><text x="141" y="142" font-size="7" fill="#f28b82" text-anchor="end" font-family="sans-serif">-$45</text>
+              <rect x="20" y="150" width="128" height="15" rx="4" fill="#122318"/><text x="27" y="160" font-size="7" fill="#cdd7e6" font-family="sans-serif">­ƒÆ░ Ahorro</text><text x="141" y="160" font-size="7" fill="#5cd6a0" text-anchor="end" font-family="sans-serif">+$500</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Personal finance app</span>
+            <h3>MyAccountant ┬À Your money, in order</h3>
+            <p>Personal PWA to manage your finances: <b>50/30/20</b> budgeting, expense categories and real-time tracking. A personal project on React + Firebase (Google Cloud), in active development.</p>
+            <div class="stack"><span class="chip">React</span><span class="chip">Firebase / Google Cloud</span><span class="chip">PWA</span><span class="chip">50/30/20</span></div>
+            <span style="display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:.83rem;font-weight:700;color:var(--muted)">­ƒÅù´©Å In development</span>
+          </div>
+        </div>
+        <a class="card" href="https://almacast.github.io/portafolio/">
+          <span class="live">ÔùÅ Live site</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#05070d"/>
+              <rect x="0" y="0" width="320" height="16" fill="#0b0f1a"/>
+              <rect x="12" y="6" width="22" height="5" rx="2" fill="#e63946"/>
+              <circle cx="302" cy="8.5" r="3" fill="#1f7a3a"/>
+              <rect x="16" y="28" width="3" height="38" fill="#e63946"/>
+              <text x="28" y="48" font-size="19" fill="#ffffff" font-family="sans-serif" font-weight="800" letter-spacing="1">PORTAFOLIO</text>
+              <text x="28" y="64" font-size="10.5" fill="#e63946" font-family="sans-serif" font-weight="700">2026 ┬À Producci├│n audiovisual</text>
+              <rect class="anim-pulse" x="28" y="74" width="46" height="15" rx="7" fill="#e63946"/><text x="51" y="84.5" font-size="8" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="700">ÔûÂ Ver</text>
+              <rect x="80" y="74" width="50" height="15" rx="7" fill="none" stroke="#2a3140"/><text x="105" y="84.5" font-size="8" fill="#aab2c0" text-anchor="middle" font-family="sans-serif">Trabajos</text>
+              <text x="16" y="111" font-size="8" fill="#8a93a6" font-family="sans-serif" font-weight="600">Comerciales &amp; Reels</text>
+              <rect x="16"  y="118" width="40" height="42" rx="5" fill="#1d1d2b"/>
+              <rect x="62"  y="118" width="40" height="42" rx="5" fill="#0e2a3a"/>
+              <rect x="108" y="118" width="40" height="42" rx="5" fill="#2a1230"/>
+              <rect x="154" y="118" width="40" height="42" rx="5" fill="#10261f"/>
+              <rect x="200" y="118" width="40" height="42" rx="5" fill="#2a2010"/>
+              <rect x="246" y="118" width="40" height="42" rx="5" fill="#1a1f2e"/>
+              <circle cx="36" cy="139" r="9" fill="#000000" opacity="0.38"/><path d="M33 134.5 l6.5 4.5 l-6.5 4.5 z" fill="#fff"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Website ┬À Landing page</span>
+            <h3>Landing page ┬À Audiovisual portfolio</h3>
+            <p>Netflix-style landing page for an audiovisual marketing creative: billboard hero, video catalog with a built-in player, animated hover and full SEO (Open Graph + structured data). Design, frontend and deployment end to end.</p>
+            <div class="stack"><span class="chip">HTML ┬À CSS ┬À JS</span><span class="chip">Plyr ┬À Video</span><span class="chip">SEO + OG</span><span class="chip">Responsive</span></div>
+            <span class="go">View site ÔåÆ</span>
+          </div>
+        </a>
+      </div>
+      <div class="cat-title">Automation &amp; Integrations</div>
+      <div class="grid">
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/nexo/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="0" y="0" width="320" height="20" fill="#0b2e27"/><circle cx="12" cy="10" r="3" fill="#25d366"/><text x="26" y="14" font-size="9" fill="#9fc7bd" font-family="sans-serif">Nexo ┬À Panel de asesores</text>
+              <!-- lista -->
+              <rect x="0" y="20" width="84" height="148" fill="#11212e"/>
+              <rect x="8" y="28" width="68" height="24" rx="6" fill="#128C7E"/><circle cx="20" cy="40" r="6" fill="#fff"/><rect x="30" y="36" width="38" height="4" rx="2" fill="#bfe3da"/>
+              <circle cx="20" cy="70" r="6" fill="#2a3f4a"/><rect x="30" y="66" width="40" height="4" rx="2" fill="#3a4f5a"/>
+              <circle cx="20" cy="94" r="6" fill="#2a3f4a"/><rect x="30" y="90" width="34" height="4" rx="2" fill="#3a4f5a"/>
+              <!-- chat con cotizaci├│n -->
+              <rect x="92" y="34" width="120" height="26" rx="8" fill="#1c3a32"/><rect x="100" y="42" width="80" height="4" rx="2" fill="#5aa890"/><rect x="100" y="50" width="56" height="4" rx="2" fill="#3f7a68"/>
+              <rect x="92" y="70" width="120" height="56" rx="9" fill="#152431" stroke="#243a48"/>
+              <rect x="100" y="78" width="16" height="16" rx="4" fill="#1E40AF"/>
+              <text x="122" y="86" font-size="8" fill="#cfe0ff" font-family="sans-serif" font-weight="700">Cotizaci├│n COT-1042</text>
+              <text x="100" y="106" font-size="7" fill="#8aa39b" font-family="sans-serif">Precio cliente (RFC)</text>
+              <text x="100" y="119" font-size="12" fill="#25d366" font-family="sans-serif" font-weight="800">$7,560.00</text>
+              <rect class="anim-pulse" x="160" y="100" width="44" height="18" rx="6" fill="#25d366"/><text x="182" y="112" font-size="7.5" fill="#063a25" text-anchor="middle" font-family="sans-serif" font-weight="700">Enviar PDF</text>
+              <rect x="92" y="134" width="120" height="22" rx="7" fill="#152431" stroke="#243a48"/><text x="100" y="148" font-size="8" fill="#cfe0ff" font-family="sans-serif">Asistente IA</text><rect x="178" y="139" width="26" height="13" rx="7" fill="#25d366"/><circle cx="197" cy="145.5" r="5" fill="#fff"/>
+              <!-- panel ERP -->
+              <rect x="220" y="20" width="100" height="148" fill="#0b2e27"/>
+              <text x="230" y="38" font-size="8" fill="#9fc7bd" font-family="sans-serif" font-weight="700">ERP ┬À Business Central</text>
+              <circle class="anim-pulse" cx="232" cy="52" r="3" fill="#25d366"/><text x="240" y="55" font-size="7" fill="#7fce9f" font-family="sans-serif">Conectado</text>
+              <rect x="230" y="66" width="80" height="34" rx="7" fill="#143b33"/><text x="238" y="80" font-size="6.5" fill="#9fc7bd" font-family="sans-serif">Existencia</text><text x="238" y="94" font-size="12" fill="#fff" font-family="sans-serif" font-weight="800">128 pzas</text>
+              <rect x="230" y="108" width="80" height="34" rx="7" fill="#1E40AF"/><text x="270" y="129" font-size="8" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="700">Ôåæ Insertar pedido</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">CRM ┬À WhatsApp + ERP</span>
+            <h3>Nexo ┬À WhatsApp CRM</h3>
+            <p>Centralizes all your sales reps on WhatsApp, connected to the ERP (Microsoft Dynamics 365 Business Central): checks prices, sends quotes and invoices, recognizes audio and images, and toggles the AI per conversation.</p>
+            <div class="stack"><span class="chip">WhatsApp API oficial</span><span class="chip">Business Central</span><span class="chip">Multi-agente</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/festo/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <!-- confetti -->
+              <rect x="40" y="24" width="6" height="6" rx="1" fill="#6ea8fe" transform="rotate(20 43 27)"/>
+              <rect x="120" y="18" width="6" height="6" rx="1" fill="#59e6c3" transform="rotate(-15 123 21)"/>
+              <rect x="250" y="30" width="6" height="6" rx="1" fill="#ffd166" transform="rotate(35 253 33)"/>
+              <rect x="280" y="60" width="6" height="6" rx="1" fill="#ff6b6b" transform="rotate(10 283 63)"/>
+              <rect x="22" y="70" width="6" height="6" rx="1" fill="#a78bfa" transform="rotate(25 25 73)"/>
+              <!-- chat bubble -->
+              <rect x="40" y="44" width="240" height="96" rx="14" fill="#1f2940"/>
+              <path d="M58 140 l0 18 l18 -18 z" fill="#1f2940"/>
+              <!-- generated image frame: cake -->
+              <rect x="56" y="60" width="80" height="64" rx="8" fill="#11182a" stroke="#2e3a52"/>
+              <g transform="translate(72,74)">
+                <rect x="0" y="20" width="48" height="24" rx="4" fill="#a78bfa"/>
+                <rect x="0" y="30" width="48" height="14" fill="#8b6df0"/>
+                <rect x="6" y="14" width="36" height="8" rx="3" fill="#dbe9ff"/>
+                <rect x="22" y="2" width="4" height="12" fill="#ffd166"/>
+                <circle class="anim-pulse" cx="24" cy="0" r="3" fill="#ff9f43"/>
+              </g>
+              <rect x="150" y="72" width="116" height="7" rx="3" fill="#54607c"/>
+              <rect x="150" y="88" width="96" height="6" rx="3" fill="#3a4663"/>
+              <rect x="150" y="102" width="104" height="6" rx="3" fill="#3a4663"/>
+              <text x="150" y="126" font-size="12" fill="#59e6c3" font-family="monospace">­ƒÄë ┬íFeliz cumplea├▒os!</text>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Automation</span>
+            <h3>Festo ┬À Automatic birthday wishes</h3>
+            <p>Every morning it checks whose birthday it is and sends a greeting with a personalized image over chat, automatically. Nobody on the team has to remember.</p>
+            <div class="stack"><span class="chip">Node.js</span><span class="chip">Automatizaci├│n</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+      </div>
+      <div class="cat-title">Other Projects</div>
+      <div class="grid">
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/pulso/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <rect x="46" y="20" width="228" height="128" rx="12" fill="#151d2f" stroke="#2e3a52"/>
+              <rect x="62" y="36" width="120" height="7" rx="3" fill="#54607c"/>
+              <rect x="62" y="52" width="180" height="6" rx="3" fill="#2e3a52"/>
+              <!-- stars -->
+              <g transform="translate(62,76)">
+                <path class="star" d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#59e6c3"/>
+                <g transform="translate(34,0)"><path d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#59e6c3"/></g>
+                <g transform="translate(68,0)"><path d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#59e6c3"/></g>
+                <g transform="translate(102,0)"><path d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#2e3a52"/></g>
+                <g transform="translate(136,0)"><path d="M12 0 l3.5 7.5 8 1 -6 5.5 1.6 8 -7.1 -4 -7.1 4 1.6 -8 -6 -5.5 8 -1 z" fill="#2e3a52"/></g>
+              </g>
+              <rect x="62" y="112" width="150" height="22" rx="6" fill="#1f2940"/><rect x="72" y="120" width="80" height="6" rx="3" fill="#54607c"/>
+              <circle cx="236" cy="123" r="13" fill="#6ea8fe"/><path d="M230 123 l4 4 l8 -8" fill="none" stroke="#07101f" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <!-- offline cloud badge -->
+              <g class="anim-pulse" transform="translate(232,28)"><path d="M6 10 a6 6 0 0 1 11 -2 a5 5 0 0 1 1 10 h-12 a4.5 4.5 0 0 1 0 -8 z" fill="#243049" stroke="#59e6c3" stroke-width="1.4"/></g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Surveys</span>
+            <h3>Pulso ┬À Offline-first surveys</h3>
+            <p>Run satisfaction surveys anywhere, even with no signal. Responses are saved locally and sync automatically the moment the connection returns. Offline-first PWA.</p>
+            <div class="stack"><span class="chip">TypeScript</span><span class="chip">PWA</span><span class="chip">Offline-first</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/app-showcases/totem/en/">
+          <span class="live">ÔùÅ Showcase</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0d1320"/>
+              <!-- totem body -->
+              <rect x="120" y="14" width="80" height="124" rx="12" fill="#151d2f" stroke="#2e3a52"/>
+              <rect x="150" y="138" width="20" height="14" fill="#1b2540"/>
+              <rect x="132" y="150" width="56" height="8" rx="3" fill="#22304d"/>
+              <!-- screen -->
+              <rect x="130" y="24" width="60" height="104" rx="6" fill="#0c1018"/>
+              <rect x="138" y="32" width="44" height="22" rx="4" fill="#6ea8fe"/>
+              <rect x="138" y="60" width="20" height="20" rx="4" fill="#59e6c3"/>
+              <rect x="162" y="60" width="20" height="20" rx="4" fill="#a78bfa"/>
+              <rect x="138" y="86" width="20" height="20" rx="4" fill="#ffd166"/>
+              <rect x="162" y="86" width="20" height="20" rx="4" fill="#22304d"/>
+              <!-- touch ring -->
+              <circle class="anim-pulse" cx="172" cy="96" r="14" fill="none" stroke="#fff" stroke-width="1.6" opacity=".6"/>
+              <circle cx="172" cy="96" r="4" fill="#fff" opacity=".8"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Digital signage</span>
+            <h3>Totem ┬À Control your billboard screen</h3>
+            <p>A remote control for digital billboards: change content instantly from your phone, stream Facebook videos and show live weather.</p>
+            <div class="stack"><span class="chip">React Native</span><span class="chip">Firebase</span></div>
+            <span class="go">View showcase ÔåÆ</span>
+          </div>
+        </a>
+        <a class="card" href="https://emiliougarte65.github.io/JukeRun/">
+          <span class="live">ÔùÅ Playable</span>
+          <div class="preview">
+            <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <rect width="320" height="168" fill="#0c1018"/>
+              <rect x="0" y="0" width="320" height="168" fill="#10151f"/>
+              <line x1="160" y1="0" x2="160" y2="168" stroke="#1c2740" stroke-width="2" stroke-dasharray="10 12"/>
+              <rect x="0" y="0" width="320" height="22" fill="#0a0e16"/>
+              <text x="14" y="16" font-size="11" fill="#ffd166" font-family="monospace">SCORE 04820</text>
+              <text x="250" y="16" font-size="11" fill="#59e6c3" font-family="monospace">ÔÖÑ ÔÖÑ ÔÖÑ</text>
+              <!-- enemies -->
+              <circle class="anim-pulse" cx="70" cy="60" r="7" fill="#ff6b6b"/>
+              <circle class="anim-pulse" cx="248" cy="48" r="7" fill="#ff6b6b" style="animation-delay:.4s"/>
+              <circle class="anim-pulse" cx="220" cy="118" r="7" fill="#ff6b6b" style="animation-delay:.7s"/>
+              <circle class="anim-pulse" cx="96" cy="128" r="7" fill="#ff6b6b" style="animation-delay:.2s"/>
+              <!-- coin -->
+              <circle cx="190" cy="80" r="8" fill="#ffd166"/><text x="190" y="84" font-size="9" fill="#7a5b00" text-anchor="middle" font-family="sans-serif" font-weight="700">$</text>
+              <!-- car -->
+              <g transform="translate(146,76)">
+                <rect x="0" y="0" width="28" height="42" rx="6" fill="#6ea8fe"/>
+                <rect x="5" y="6" width="18" height="12" rx="3" fill="#bcd6ff"/>
+                <rect x="5" y="26" width="18" height="10" rx="3" fill="#2a4a80"/>
+                <rect x="-3" y="6" width="4" height="10" rx="2" fill="#243049"/><rect x="27" y="6" width="4" height="10" rx="2" fill="#243049"/>
+                <rect x="-3" y="28" width="4" height="10" rx="2" fill="#243049"/><rect x="27" y="28" width="4" height="10" rx="2" fill="#243049"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-body">
+            <span class="tag">Video game</span>
+            <h3>JukeRun ┬À A game you can play right now</h3>
+            <p>An action game you can play right now in the browser, nothing to install: dodge enemies, grab rewards and survive as long as you can. Built with Canvas.</p>
+            <div class="stack"><span class="chip">JavaScript</span><span class="chip">Vite</span><span class="chip">Canvas</span></div>
+            <span class="go">Play now ÔåÆ</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="background: var(--bg-soft);">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Stack</div>
+        <h2>What I build with</h2>
+      </div>
+      <div class="skills">
+        <div class="skill"><h4>Full applications</h4><p>End-to-end full-stack: ERP, e-commerce, admin dashboards and custom systems.</p></div>
+        <div class="skill"><h4>Data analytics & BI</h4><p>Dashboards, metrics, reports, trends and KPIs ÔÇö including conversational BI (ask your data).</p></div>
+        <div class="skill"><h4>AI agents & assistants</h4><p>Claude and OpenAI: conversational assistants, agents and configurable skill ecosystems.</p></div>
+        <div class="skill"><h4>Automation</h4><p>Bots and processes that run themselves 24/7: quotes, reports, reminders and API integrations.</p></div>
+        <div class="skill"><h4>PWA & offline-first</h4><p>Installable web apps that work without internet and sync on their own when reconnected.</p></div>
+        <div class="skill"><h4>Backend & databases</h4><p>Node.js, Python, FastAPI, PostgreSQL, Firebase and SQL Server.</p></div>
+        <div class="skill"><h4>Frontend</h4><p>React, TypeScript and modern, accessible, responsive interfaces.</p></div>
+        <div class="skill"><h4>Machine Learning</h4><p>Reinforcement learning and computer vision (OpenCV).</p></div>
+        <div class="skill"><h4>Integrations</h4><p>Official WhatsApp Business API, Google Calendar and enterprise systems.</p></div>
+        <div class="skill"><h4>Infrastructure</h4><p>Docker, deployments and serverless cloud architectures.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Certifications</div>
+        <h2>Verified credentials</h2>
+        <p>Online certifications across development, AI, data and cybersecurity. Click the Coursera ones to verify.</p>
+      </div>
+      <div class="skills">
+        <a class="skill" href="https://www.coursera.org/account/accomplishments/certificate/S2IK20RJF5E9" target="_blank" rel="noopener" style="display: block;">
+          <h4>Coursera</h4>
+          <p>Verified certificate ┬À <span style="color: var(--accent); font-weight: 600;">Verify ÔåÆ</span></p>
+        </a>
+        <a class="skill" href="https://www.coursera.org/account/accomplishments/certificate/86ATB6JRX8R4" target="_blank" rel="noopener" style="display: block;">
+          <h4>Coursera</h4>
+          <p>Verified certificate ┬À <span style="color: var(--accent); font-weight: 600;">Verify ÔåÆ</span></p>
+        </a>
+        <a class="skill" href="https://www.coursera.org/account/accomplishments/certificate/P35S6QXBFD79" target="_blank" rel="noopener" style="display: block;">
+          <h4>Coursera</h4>
+          <p>Verified certificate ┬À <span style="color: var(--accent); font-weight: 600;">Verify ÔåÆ</span></p>
+        </a>
+        <div class="skill">
+          <h4>Building My First Video Game</h4>
+          <p>Mastermind ┬À Game development ┬À 2023</p>
+        </div>
+        <div class="skill">
+          <h4>Staying Safe Online (Cybersecurity)</h4>
+          <p>Mastermind ┬À Cybersecurity ┬À 2023</p>
+        </div>
+        <div class="skill">
+          <h4>Git: From Noob to Pro</h4>
+          <p>Mastermind ┬À Development ┬À 2023</p>
+        </div>
+        <div class="skill">
+          <h4>Build Your First FPS Video Game</h4>
+          <p>Mastermind ┬À Game development ┬À 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-card">
+        <h2>Let's work together</h2>
+        <p>I'm open to <strong>Full-Stack Developer</strong> / Software Engineer roles (remote-friendly). Happy to walk you through any project or send my CV.</p>
+        <div class="cta-row" style="justify-content: center;">
+          <a class="btn btn-primary" href="../cv/Emilio-Fonseca-CV-EN.pdf" download>Download CV</a>
+          <a class="btn btn-ghost" href="../cv/en/">Interactive CV Ôåù</a>
+          <a class="btn btn-ghost" href="mailto:emilio656565@outlook.com?subject=Job%20opportunity%20for%20Emilio%20Fonseca">Email me</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/emilio-fonseca65" target="_blank" rel="noopener">LinkedIn Ôåù</a>
+          <a class="btn btn-ghost" href="https://github.com/EmilioUgarte65" target="_blank" rel="noopener">GitHub Ôåù</a>
+        </div>
+        <div style="margin-top: 20px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; font-size: 0.9rem;">
+          <a href="mailto:emilio656565@outlook.com" style="color: var(--muted);">emilio656565@outlook.com</a>
+          <span style="color: var(--border);">┬À</span>
+          <a href="https://www.linkedin.com/in/emilio-fonseca65" target="_blank" rel="noopener" style="color: var(--muted);">linkedin.com/in/emilio-fonseca65</a>
+          <span style="color: var(--border);">┬À</span>
+          <a href="https://github.com/EmilioUgarte65" target="_blank" rel="noopener" style="color: var(--muted);">github.com/EmilioUgarte65</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">┬® <span id="year"></span> Emilio Fonseca ┬À Full-Stack Developer</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

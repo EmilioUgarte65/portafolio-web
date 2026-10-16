@@ -1,0 +1,53 @@
+/* Web Studio — chat con la IA (chat.js), estilo asistente integrado (Descript/Copilot): los mensajes de la IA son
+   texto con un ícono, no burbujas; el usuario va en una burbuja compacta; los eventos son líneas discretas. */
+.chat { position: relative; display: flex; flex-direction: column; flex: 1; min-height: 0; width: 100%; }
+.chat-barra { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 8px 6px 12px; border-bottom: 1px solid var(--line); flex: none; }
+.chat-titulo { display: inline-flex; gap: 6px; align-items: center; font-size: var(--fs-sm); font-weight: 600; color: var(--tx-2); } .chat-titulo .ico { color: var(--ac); }
+#der-ia .chat-titulo, .cajon-chat .chat-titulo { visibility: hidden; }
+.chat.grande .chat-barra { border: 0; padding: 4px max(20px, calc((100% - 720px) / 2)) 0; } .chat.grande .chat-titulo { visibility: hidden; }
+.chat-msgs { flex: 1; min-height: 0; overflow: auto; padding: 12px 12px 8px; display: flex; flex-direction: column; gap: 12px; }
+.chat.grande .chat-msgs { padding: 20px max(20px, calc((100% - 720px) / 2)) 8px; }
+.msg { display: flex; gap: 9px; max-width: 100%; }
+.msg .texto { white-space: pre-wrap; word-break: break-word; line-height: 1.5; }
+.msg.ia { align-self: stretch; }
+.msg.ia .avatar { flex: none; display: grid; place-items: center; width: 22px; height: 22px; margin-top: 1px; border-radius: var(--r2); background: var(--ac-soft); color: var(--ac); }
+.msg.ia .cuerpo { min-width: 0; flex: 1; }
+.msg.ia.error .avatar { background: var(--err-soft); color: var(--err); } .msg.ia.error .texto { color: #FFC9CB; }
+.msg-acciones { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.msg.yo { align-self: flex-end; max-width: 85%; }
+.msg.yo .texto { background: var(--bg-3); border: 1px solid var(--line-2); padding: 6px 11px; border-radius: 12px 12px 4px 12px; }
+.msg.sistema { align-self: center; font-size: var(--fs-sm); color: var(--tx-2); }
+.msg.evento { align-self: stretch; align-items: flex-start; gap: 7px; font-size: var(--fs-sm); color: var(--tx-3); padding: 0 2px 0 6px; white-space: pre-wrap; }
+.msg.evento .ico { margin-top: 2px; }
+.msg.progreso { flex-direction: column; gap: 6px; align-self: stretch; background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--r3); padding: 9px 11px; }
+.msg.progreso .p-txt { display: flex; gap: 8px; align-items: center; } .msg.progreso .p-txt > span:nth-child(2) { flex: 1; min-width: 0; }
+.msg.progreso .chat-cancelar { margin-left: 4px; }
+.escribiendo .texto { display: flex; gap: 4px; align-items: center; height: 22px; }
+.escribiendo i { width: 6px; height: 6px; border-radius: 50%; background: var(--tx-3); animation: salto 1s infinite; }
+.escribiendo i:nth-child(2) { animation-delay: .15s; } .escribiendo i:nth-child(3) { animation-delay: .3s; }
+@keyframes salto { 0%, 60%, 100% { opacity: .3; transform: none; } 30% { opacity: 1; transform: translateY(-3px); } }
+/* compositor: sugerencias + campo + barra de adjuntos */
+.chat-compositor { flex: none; padding: 6px 10px 10px; }
+.chat.grande .chat-compositor { padding: 6px max(20px, calc((100% - 720px) / 2)) 16px; }
+.chat-chips { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 0 8px; }
+.chat-chips:empty { display: none; }
+.chip-op { height: 26px; background: transparent; color: var(--tx-1); border: 1px solid var(--line-2); border-radius: var(--r-pill); padding: 0 11px; font-size: var(--fs-sm); cursor: pointer; transition: border-color var(--t-fast), background var(--t-fast); }
+.chip-op:hover { border-color: var(--ac-line); background: var(--ac-soft); }
+.chat-pie { display: flex; flex-direction: column; margin: 0; background: var(--bg-2); border: 1px solid var(--line-2); border-radius: var(--r3); transition: border-color var(--t-fast), box-shadow var(--t-fast); }
+.chat-pie:focus-within { border-color: var(--ac); box-shadow: 0 0 0 3px var(--ac-soft); }
+.chat-pie textarea { background: transparent !important; border: 0 !important; box-shadow: none !important; resize: none; min-height: 38px; max-height: 140px; padding: 9px 11px 2px; }
+.chat-pie-barra { display: flex; align-items: center; gap: 6px; padding: 2px 6px 6px; }
+.chat-hint { flex: 1; font-size: var(--fs-xs); display: flex; gap: 4px; align-items: center; } .chat-hint kbd { height: 16px; font-size: 10px; }
+.chat-enviar { width: 30px; padding: 0; }
+.chat-soltar { position: absolute; inset: 6px; display: grid; place-items: center; align-content: center; gap: 6px; border: 2px dashed var(--ac); border-radius: var(--r3); background: rgba(14,15,17,.9); font-size: var(--fs-lg); pointer-events: none; z-index: 5; }
+.chat-soltar .ico { color: var(--ac); }
+.chat-vacio { align-self: center; margin: auto 0; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; padding: 26px 32px; border: 1px dashed var(--line-2); border-radius: var(--r3); max-width: 520px; color: var(--tx-2); }
+.chat-vacio .ico { color: var(--tx-3); } .chat-vacio b { color: var(--tx-1); }
+.chat-barra .chat-nueva { color: var(--tx-3); } .chat-barra .chat-nueva:hover { color: var(--tx-1); }
+@media (max-width: 1400px) { .chat-hint { display: none; } .chat-pie-barra { justify-content: space-between; } }
+/* cerebro distinto de Claude (ChatGPT u OpenAI), error recuperable (el trabajo de la IA quedó guardado) y trabajos
+   del chat en segundo plano (regla que revisa los videos, efecto que se está programando) */
+.chat-prov { font-weight: 400; font-size: var(--fs-xs); }
+.msg.ia.error.recuperable .avatar { background: var(--ac-soft); color: var(--ac); }
+.msg.ia.error.recuperable .texto { color: var(--tx-1); }
+.msg.progreso.trabajo { padding: 8px 10px; }

@@ -1,0 +1,1984 @@
+<!doctype html>
+<html lang="es">
+<head><meta http-equiv="Content-Security-Policy" content="connect-src 'self'; object-src 'none'; form-action 'none'"><script>sessionStorage.setItem("tourVisto","1");</script><script src="demo-data.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Radar</title>
+  <style>
+    :root{--navy:#111c33;--blue:#417e79;--blue-soft:#edf2ff;--ink:#1c2638;--muted:#7a8495;--line:#e9edf3;--bg:#f6f7fb;--card:#fff;--green:#138a68;--green-soft:#e9f8f2;--orange:#b86a00;--orange-soft:#fff3df;--red:#c94a59;--red-soft:#fff0f2;--shadow:0 10px 30px rgba(25,39,67,.07)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}.app{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}
+    .sidebar{position:sticky;top:0;height:100vh;padding:23px 15px;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column}.logo{display:flex;align-items:center;gap:10px;padding:0 9px 27px;font-weight:790;color:var(--navy);letter-spacing:-.03em}.logo-mark{width:35px;height:35px;display:grid;place-items:center;background:linear-gradient(135deg,#28635e,#76b9a9);color:#fff;border-radius:11px;font-size:17px;box-shadow:0 8px 18px #3867e63d}.logo small{display:block;color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.nav-label{padding:0 10px;margin:0 0 8px;color:#9ca4b0;font-size:10px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.nav{display:grid;gap:3px}.nav button{width:100%;border:0;background:transparent;color:#5f6a7d;padding:11px 10px;border-radius:10px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:690;text-align:left}.nav button:hover{background:#f6f8fd;color:var(--blue)}.nav button.active{background:var(--blue-soft);color:#2956cc}.icon{width:18px;text-align:center;font-size:15px}.side-note{margin-top:auto;padding:13px;border-radius:12px;background:#f5f7fc;color:#58657a;font-size:11px;line-height:1.45}.side-note strong{display:block;margin-bottom:4px;color:var(--navy);font-size:12px}.safe-dot{display:inline-block;width:7px;height:7px;margin-right:5px;border-radius:50%;background:#35bf8b}
+    main{max-width:1400px;width:100%;margin:0 auto;padding:27px 36px 48px}.topline{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:27px}.eyebrow{margin-bottom:6px;color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.topline h1{margin:0;color:var(--navy);font-size:28px;letter-spacing:-.045em}.topline p{max-width:660px;margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.5}.cutoff{min-width:188px;padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--muted);font-size:11px}.cutoff strong{display:block;margin-top:3px;color:var(--navy);font-size:13px}.view{display:none;animation:enter .3s ease both}.view.active{display:block}.section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:28px 0 12px}.section-title h2{margin:0;color:var(--navy);font-size:18px;letter-spacing:-.025em}.section-title p{margin:4px 0 0;color:var(--muted);font-size:12px}.trabajo-fila{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:#fff;margin-bottom:8px}.trabajo-fila.vencida{border-color:#f3c2c8;background:#fdf5f6}.trabajo-cuerpo{flex:1;min-width:0}.trabajo-cuerpo h4{margin:0 0 3px;font-size:13px;color:var(--navy)}.trabajo-cuerpo p{margin:0;font-size:12px;color:var(--muted);line-height:1.5}.trabajo-acciones{display:flex;flex-direction:column;gap:5px;flex-shrink:0}.mini-btn{padding:5px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--navy);font-size:11px;font-weight:760;cursor:pointer;white-space:nowrap}.mini-btn:hover{border-color:var(--blue);color:var(--blue)}.mini-btn.primario{border-color:var(--blue);background:var(--blue);color:#fff}.asignar{display:flex;gap:7px;flex-wrap:wrap;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}.asignar input,.asignar select{padding:7px 10px;border:1px solid var(--line);border-radius:8px;font-size:12px;font-family:inherit}.asignar input{min-width:150px}.mensaje-bot{white-space:pre-wrap;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.65;background:#f6f7fb;border:1px solid var(--line);border-radius:11px;padding:14px;color:var(--ink);max-height:340px;overflow:auto}.frescura{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--green-soft);color:var(--green)}.frescura.viejo{background:var(--orange-soft);color:var(--orange)}.tour-velo{position:fixed;inset:0;background:rgba(17,28,51,.55);z-index:60;display:flex;align-items:flex-end;justify-content:center;padding:0 18px 22px;animation:enter .2s ease both}.tour-caja{width:100%;max-width:720px;background:#fff;border-radius:16px;box-shadow:0 18px 50px rgba(17,28,51,.3);padding:22px 24px 18px}.tour-paso{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}.tour-caja h3{margin:0 0 4px;color:var(--navy);font-size:19px;letter-spacing:-.02em}.tour-para{margin:0 0 10px;color:var(--muted);font-size:13px;line-height:1.6}.tour-para strong{color:var(--ink)}.tour-usar{background:var(--blue-soft);border-radius:11px;padding:11px 13px;margin-bottom:9px;font-size:12.5px;line-height:1.6;color:var(--ink)}.tour-ojo{background:var(--orange-soft);border-radius:11px;padding:11px 13px;margin-bottom:12px;font-size:12.5px;line-height:1.6;color:#7a4600}.tour-pie{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:12px}.tour-barra{flex:1;height:4px;background:var(--line);border-radius:99px;overflow:hidden}.tour-barra span{display:block;height:100%;background:var(--blue);border-radius:99px;transition:width .25s ease}.tour-btns{display:flex;gap:7px;flex-shrink:0}.tour-btn{padding:8px 15px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--navy);font-size:12.5px;font-weight:760;cursor:pointer;font-family:inherit}.tour-btn:hover{border-color:var(--blue);color:var(--blue)}.tour-btn.primario{border-color:var(--blue);background:var(--blue);color:#fff}.tour-btn:disabled{opacity:.4;cursor:default}.tour-saltar{border:0;background:transparent;color:var(--muted);font-size:12px;cursor:pointer;font-family:inherit;text-decoration:underline}@media(max-width:640px){.tour-pie{flex-wrap:wrap}.tour-barra{order:3;width:100%;flex:none}}.alarma{margin:0 0 20px;padding:14px 16px;border-radius:12px;display:flex;gap:12px;align-items:flex-start;border:1px solid}.alarma.grave{background:#fdecee;border-color:#f3c2c8;color:#8c1c2b}.alarma.aviso{background:var(--orange-soft);border-color:#f0d5a8;color:#7a4600}.alarma-icono{font-size:18px;line-height:1.1}.alarma strong{display:block;margin-bottom:3px;font-size:13px}.alarma p{margin:0;font-size:12px;line-height:1.55}.chart{width:100%;height:auto;display:block;overflow:visible}.chart .eje{stroke:var(--line);stroke-width:1}.chart .rejilla{stroke:var(--line);stroke-width:1;stroke-dasharray:3 4}.chart .etiqueta{fill:var(--muted);font-size:9.5px;font-weight:700}.chart .serie{fill:none;stroke-width:2.4;stroke-linejoin:round;stroke-linecap:round}.chart .area{opacity:.13}.chart .punto{stroke:#fff;stroke-width:1.6}.chart .parcial{stroke-dasharray:4 3}.chart-legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;color:var(--muted);font-size:11px;font-weight:700}.chart-legend i{display:inline-block;width:11px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}.chart-wrap{padding:16px 18px 6px}.heat{display:grid;gap:2px;overflow-x:auto;padding-bottom:4px}.heat-cell{position:relative;min-width:26px;height:26px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;cursor:default;transition:transform .08s ease}.heat-cell:hover{transform:scale(1.35);z-index:5;box-shadow:0 3px 10px rgba(0,0,0,.28)}.heat-cell.vacia{background:#eef1f6}.heat-head{min-width:26px;height:20px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:10px;font-weight:700}.heat-row-label{padding-right:8px;color:var(--navy);font-size:11px;font-weight:760;display:flex;align-items:center;white-space:nowrap}.heat-controls{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}.heat-chip{padding:5px 11px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-size:11px;font-weight:760;cursor:pointer}.heat-chip.on{border-color:var(--blue);background:var(--blue);color:#fff}.heat-legend{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:11px;margin-top:10px}.heat-scale{display:flex;gap:2px}.heat-scale span{width:18px;height:10px;border-radius:2px}.link-button{border:0;background:transparent;color:var(--blue);font-size:12px;font-weight:760;padding:5px;cursor:pointer}.link-button:hover{text-decoration:underline}
+    .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.metric{position:relative;overflow:hidden;min-height:126px;padding:18px;border:1px solid var(--line);border-radius:15px;background:var(--card);box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s;text-align:left;cursor:pointer}.metric:hover{transform:translateY(-2px);box-shadow:0 15px 30px rgba(25,39,67,.11)}.metric::after{position:absolute;right:-17px;bottom:-18px;width:66px;height:66px;border-radius:50%;background:var(--blue-soft);content:""}.metric.orange::after{background:var(--orange-soft)}.metric.red::after{background:var(--red-soft)}.metric-label{color:var(--muted);font-size:12px;font-weight:700}.metric-value{margin-top:13px;color:var(--navy);font-size:32px;font-weight:800;letter-spacing:-.06em}.metric-foot{position:relative;z-index:1;margin-top:7px;color:#667286;font-size:11px}.metric .arrow{position:absolute;right:17px;top:18px;color:#8697bd;font-size:17px}
+    .action-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:16px}.card{border:1px solid var(--line);border-radius:16px;background:var(--card);box-shadow:var(--shadow)}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:18px 18px 12px}.card-head h3{margin:0;color:var(--navy);font-size:15px;letter-spacing:-.015em}.card-head p{margin:4px 0 0;color:var(--muted);font-size:11px}.list{padding:0 10px 10px}.list-row{width:100%;border:0;border-top:1px solid #f0f2f6;background:transparent;padding:13px 9px;display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;text-align:left;transition:background .15s;cursor:pointer}.list-row:hover{background:#f8faff}.entity{display:flex;align-items:center;gap:10px}.avatar{display:grid;place-items:center;width:31px;height:31px;border-radius:9px;background:#eaf0ff;color:#355bc1;font-size:12px;font-weight:800}.entity strong{display:block;color:#2d3a50;font-size:12px}.entity small{display:block;margin-top:3px;color:var(--muted);font-size:10px}.right{text-align:right}.right strong{display:block;font-size:12px;color:var(--navy)}.right small{display:block;margin-top:3px;font-size:10px}.pill{display:inline-block;padding:5px 8px;border-radius:999px;font-size:10px;font-weight:800}.pill.today{color:var(--orange);background:var(--orange-soft)}.pill.next{color:var(--green);background:var(--green-soft)}.pill.late{color:var(--red);background:var(--red-soft)}.empty{margin:9px;padding:15px;border:1px dashed #dce2ec;border-radius:11px;background:#fbfcfe;color:var(--muted);font-size:12px;text-align:center}
+    .project-list{display:grid;gap:7px;padding:0 13px 13px}.project{border:1px solid var(--line);border-radius:11px;padding:11px;background:linear-gradient(135deg,#fff,#f9fbff)}.project-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.project h4{margin:0;color:var(--navy);font-size:12px}.project p{margin:5px 0 0;color:var(--muted);font-size:10px;line-height:1.4}.tags{display:flex;gap:4px;flex-wrap:wrap;margin-top:8px}.tags span{border-radius:5px;background:#edf2ff;color:#4a639b;padding:3px 5px;font-size:9px;font-weight:700}
+    .client-layout{display:grid;grid-template-columns:350px minmax(0,1fr);gap:16px}.search-box{padding:18px}.input-group{display:flex;gap:7px;margin-top:12px}.input{width:100%;border:1px solid #dce3ef;border-radius:10px;padding:10px 11px;color:var(--ink);outline:0}.input:focus{border-color:#84a2ee;box-shadow:0 0 0 3px #3a67e81a}.primary{border:0;border-radius:10px;padding:10px 13px;background:var(--blue);color:#fff;font-size:12px;font-weight:800;box-shadow:0 5px 12px #3266e538}.primary:hover{background:#2858d4}.client-result{padding:18px}.client-result .result-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}.client-result h3{margin:0;color:var(--navy);font-size:16px}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{padding:12px;border-radius:11px;background:#f6f8fc}.stat span{display:block;color:var(--muted);font-size:10px}.stat strong{display:block;margin-top:5px;color:var(--navy);font-size:16px}.purchase-history{margin:15px 0 0;padding:0;list-style:none}.purchase-history li{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid #eff1f5;color:#536076;font-size:12px}.purchase-history strong{color:var(--navy)}
+    .promo-card{margin-top:14px;padding:16px;border:1px solid #cddafa;border-radius:14px;background:linear-gradient(135deg,#f5f8ff,#fff)}.promo-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}.promo-head h4{margin:4px 0 0;color:var(--navy);font-size:15px;font-weight:700}.promo-gain{text-align:right;min-width:150px}.promo-gain span{display:block;color:var(--muted);font-size:10px}.promo-gain strong{display:block;margin-top:2px;color:var(--green);font-size:23px;font-weight:800;letter-spacing:-.03em}.promo-gain small{display:block;margin-top:2px;color:var(--muted);font-size:10px}.promo-why{margin-top:12px;padding-top:12px;border-top:1px solid #e2e9f7}.promo-why>strong{display:block;margin-bottom:8px;color:var(--navy);font-size:12px}.why-row{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-top:1px solid #eef2f9;font-size:12px;color:#3d4a61}.why-row:first-of-type{border-top:0}.why-row.why-alert{color:var(--red)}.why-icon{flex:0 0 20px;text-align:center;opacity:.75}.offer-card{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;margin-top:14px;padding:14px;border:1px solid #cddafa;border-radius:13px;background:linear-gradient(135deg,#f4f7ff,#fff)}.offer-card h4{margin:0;color:var(--navy);font-size:13px}.offer-card p{max-width:670px;margin:5px 0 0;color:#5f6d84;font-size:11px;line-height:1.5}.offer-meta{margin-top:8px;color:#4661a3;font-size:10px;font-weight:760}.whatsapp-action{display:inline-flex;align-items:center;justify-content:center;min-width:160px;border-radius:10px;padding:10px 12px;background:#18a86a;color:#fff;font-size:11px;font-weight:800;text-decoration:none;box-shadow:0 6px 14px #18a86a35}.whatsapp-action:hover{background:#108d58}.offer-disabled{min-width:160px;padding:9px 11px;border:1px solid #e3e7ee;border-radius:10px;background:#fafbfc;color:#8490a1;font-size:10px;font-weight:700;text-align:center}.client-tabs{display:flex;gap:7px;overflow:auto;margin-top:18px;padding-bottom:3px}.client-tab{white-space:nowrap;border:1px solid #e0e6f0;border-radius:999px;background:#fff;padding:8px 11px;color:#68758a;font-size:11px;font-weight:800;cursor:pointer}.client-tab.active{border-color:#aabff7;background:var(--blue-soft);color:#2d59ca}.client-panel{display:none;margin-top:13px}.client-panel.active{display:block}.category-list{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.category-item{padding:12px;border:1px solid var(--line);border-radius:11px;background:#fafcff}.category-item strong{display:block;color:var(--navy);font-size:12px}.category-item span{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.45}.history-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:13px;color:var(--muted);font-size:11px}.page-button{border:1px solid #dce3ef;border-radius:8px;background:#fff;padding:7px 10px;color:#365fc8;font-size:11px;font-weight:800;cursor:pointer}.page-button:disabled{color:#a8b1bf;cursor:not-allowed}.data-card{overflow:hidden}.tools{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px;border-bottom:1px solid var(--line);background:#fcfdff}.tools-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.picker{border:1px solid #dce3ef;border-radius:9px;background:#fff;padding:8px 9px;color:#54617a;font:inherit;font-size:11px;font-weight:700;cursor:pointer}.toggle{display:flex;align-items:center;gap:5px;color:#68758a;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer}.pager{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:12px 14px;border-top:1px solid var(--line);color:var(--muted);font-size:11px}.pager-controls{display:flex;gap:6px;align-items:center}.filter .count{margin-left:5px;opacity:.62;font-weight:800}.refresh-link{border:0;background:transparent;color:var(--blue);font-size:11px;font-weight:800;padding:0;cursor:pointer;text-decoration:underline}.tools-left{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.filter{border:1px solid #e0e5ed;border-radius:999px;background:#fff;padding:7px 10px;color:#667286;font-size:11px;font-weight:750;cursor:pointer}.filter.active,.filter:hover{border-color:#aabff7;background:var(--blue-soft);color:#2e58c3}.search{min-width:230px;border:1px solid #dce3ef;border-radius:9px;padding:8px 10px;outline:0}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;min-width:800px}th{padding:11px 14px;background:#f8f9fc;color:#8a94a4;font-size:10px;font-weight:800;letter-spacing:.07em;text-align:left;text-transform:uppercase}td{padding:13px 14px;border-top:1px solid #eff1f5;color:#58657a;font-size:12px}tbody tr:hover{background:#f9fbff}.number{text-align:right}.client-btn{border:0;border-radius:7px;padding:6px 8px;background:var(--blue-soft);color:#2b57c8;font-size:11px;font-weight:800;cursor:pointer}.client-btn:hover{background:#dce7ff}.date{font-weight:750;color:#34435d}.status-text{font-size:11px;color:var(--muted)}
+    .health-intro{padding:20px}.health-intro strong{color:var(--navy);font-size:17px}.health-intro p{max-width:650px;margin:7px 0 0;color:var(--muted);font-size:13px;line-height:1.5}.health-rules{display:grid;grid-template-columns:repeat(2,1fr);gap:11px;padding:0 20px 20px}.health-rule{padding:14px;border:1px solid var(--line);border-radius:12px;background:#fcfdff}.health-rule .state{font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.07em}.health-rule h3{margin:7px 0 4px;color:var(--navy);font-size:13px}.health-rule p{margin:0;color:var(--muted);font-size:11px;line-height:1.4}.red{color:var(--red)}.green{color:var(--green)}.orange-text{color:var(--orange)}.radar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.radar-card{padding:18px}.radar-card h3{margin:0;color:var(--navy);font-size:15px}.radar-card p{margin:5px 0 13px;color:var(--muted);font-size:11px}.bar-row{display:grid;grid-template-columns:110px 1fr auto;align-items:center;gap:9px;padding:8px 0;border-top:1px solid #f0f2f6;font-size:11px}.bar-row:first-of-type{border:0}.bar-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#516078;font-weight:700}.bar-track{height:7px;overflow:hidden;border-radius:99px;background:#edf0f5}.bar{height:100%;border-radius:99px;background:linear-gradient(90deg,#507cea,#38b5c5)}.bar.negative{background:linear-gradient(90deg,#f3a147,#e66767)}.bar-value{color:var(--navy);font-weight:800;font-variant-numeric:tabular-nums}.insight-callout{margin-top:13px;padding:11px;border-radius:10px;background:#f4f7ff;color:#4d6190;font-size:11px;line-height:1.45}@media(max-width:640px){.radar-grid{grid-template-columns:1fr}.bar-row{grid-template-columns:92px 1fr auto}}
+    .mobile-nav{display:none}@keyframes enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@media(max-width:980px){.app{grid-template-columns:1fr}.sidebar{display:none}.mobile-nav{position:sticky;top:0;z-index:9;display:flex;overflow:auto;gap:7px;padding:10px;background:#fff;border-bottom:1px solid var(--line)}.mobile-nav button{white-space:nowrap;border:1px solid var(--line);border-radius:999px;background:#fff;padding:7px 10px;color:#617088;font-size:11px;font-weight:750}.mobile-nav button.active{background:var(--blue-soft);color:var(--blue)}main{padding:22px}.action-grid,.client-layout{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(2,1fr)}.category-list{grid-template-columns:repeat(2,1fr)}}@media(max-width:640px){main{padding:18px 14px 34px}.topline{display:block;margin-bottom:20px}.cutoff{display:inline-block;margin-top:14px}.metrics{grid-template-columns:1fr}.metric{min-height:99px}.action-grid{gap:12px}.health-rules,.category-list{grid-template-columns:1fr;padding:0 13px 13px}.summary{grid-template-columns:1fr 1fr}.offer-card{grid-template-columns:1fr}.whatsapp-action,.offer-disabled{width:100%}.search{min-width:0;width:100%}.tools{align-items:stretch;flex-direction:column}.tools-left{align-items:stretch}.client-layout{gap:12px}}
+  </style>
+<link rel="icon" href="../../assets/web-dev-eyes.svg"></head>
+<body>
+  <div class="app"><aside class="sidebar"><div class="logo"><div class="logo-mark">↗</div><div>Radar<small>Web Dev-Eyes</small></div></div><nav class="nav"><button data-tour="1"><span class="icon">?</span>Cómo se usa</button></nav><div class="nav-label" style="margin-top:14px">Operación</div><nav class="nav"><button class="active" data-view="home"><span class="icon">⌂</span>Hoy</button><button data-view="client"><span class="icon">◉</span>Clientes</button><button data-view="quotes"><span class="icon">↗</span>Cotizaciones</button><button data-view="trabajo"><span class="icon">☑</span>Trabajo del día</button></nav><div class="nav-label" style="margin-top:14px">Análisis</div><nav class="nav"><button data-view="product"><span class="icon">◇</span>Producto y afinidad</button><button data-view="stores"><span class="icon">⌂</span>Sucursales</button><button data-view="recovery"><span class="icon">↺</span>Recuperación</button><button data-view="uplift"><span class="icon">✦</span>Promociones</button><button data-view="wallet"><span class="icon">◑</span>Bolsillo y surtido</button><button data-view="oculto"><span class="icon">◐</span>Venta fuera de caja</button><button data-view="growth"><span class="icon">↑</span>Crecimiento</button></nav><div class="nav-label" style="margin-top:14px">Sistema</div><nav class="nav"><button data-view="health"><span class="icon">✓</span>Datos y modelo</button></nav><div class="side-note"><strong><span class="safe-dot"></span>Lectura segura</strong>Datos ficticios en memoria. Sin conexión a sistemas reales.<div id="snapshotNote" style="margin-top:9px;padding-top:9px;border-top:1px solid #e6eaf2"></div></div></aside>
+  <nav class="mobile-nav"><button data-tour="1">Cómo se usa</button><button class="active" data-view="home">Hoy</button><button data-view="client">Clientes</button><button data-view="quotes">Cotizaciones</button><button data-view="trabajo">Trabajo</button><button data-view="product">Producto</button><button data-view="stores">Sucursales</button><button data-view="recovery">Recuperación</button><button data-view="uplift">Promociones</button><button data-view="wallet">Bolsillo</button><button data-view="oculto">Fuera de caja</button><button data-view="growth">Crecimiento</button><button data-view="health">Datos</button></nav>
+  <main><div id="alarmaDatos"></div><header class="topline"><div><div class="eyebrow">Operación comercial</div><h1>¿Qué oportunidad trabajamos hoy?</h1><p>Empieza por recuperar cotizaciones y activar clientes que ya están listos para volver a comprar.</p></div><div class="cutoff">Información al corte<strong id="cutoff">Cargando...</strong></div></header>
+    <section class="view active" id="view-home"><div class="metrics" id="metrics"><div class="metric"></div><div class="metric"></div><div class="metric"></div></div><div id="trendPanel"></div><div class="section-title"><div><h2>Tu lista de trabajo</h2><p>Las oportunidades más claras, sin saturar la pantalla.</p></div></div><div class="action-grid"><article class="card"><div class="card-head"><div><h3>Clientes para reactivar</h3><p>Cadencia de compra ya alcanzada.</p></div><button class="link-button" data-go="client">Ver clientes →</button></div><div class="list" id="priorityList"><div class="empty">Cargando oportunidades...</div></div></article><article class="card"><div class="card-head"><div><h3>Cotizaciones por recuperar</h3><p>Primero las citas vencidas o próximas.</p></div><button class="link-button" data-go="quotes">Ver cotizaciones →</button></div><div class="list" id="quoteList"><div class="empty">Cargando cotizaciones...</div></div></article></div></section>
+    <section class="view" id="view-quotes"><div class="section-title"><div><h2>Cotizaciones por recuperar</h2><p>Separa las vencidas de las próximas y asigna foco por asesor.</p></div></div><div class="action-grid"><article class="card"><div class="card-head"><div><h3>Cola de seguimiento</h3><p id="quoteSummary">Cargando...</p></div></div><div class="list" id="quoteRecoveryList"></div></article><article class="card radar-card"><h3>Carga por asesor</h3><p>Vencidas y próximas por código de asesor.</p><div id="ownerRadar"><div class="empty">Cargando...</div></div></article></div><div id="quoteQueuePanel"></div></section>
+    <section class="view" id="view-trabajo"><div id="trabajoPanel"></div><div id="digestPanel"></div></section><section class="view" id="view-product"><div id="basketPanel"></div><div id="storeMix"></div><div class="section-title"><div><h2>Producto y afinidad</h2><p>Qué se mueve, qué se compra junto y qué complemento se está dejando ir.</p></div></div><div class="action-grid"><article class="card radar-card"><h3>Movimiento por categoría</h3><p>Venta de 90 días y variación contra el periodo anterior.</p><div id="categoryRadar"><div class="empty">Cargando...</div></div></article><article class="card"><div class="card-head"><div><h3>Paquetes de proyecto</h3><p>Complementos explicables para elevar ticket.</p></div></div><div class="project-list" id="projectList"></div></article></div></section>
+    <section class="view" id="view-stores"><div id="peakPanel"></div><div id="hourlyPanel"></div><div id="storeDetail"></div><div class="section-title"><div><h2>Tiendas</h2><p>Comparación de operación, clientes identificados y venta neta.</p></div></div><div class="action-grid"><article class="card radar-card"><h3>Tracción por tienda</h3><p>Venta neta acumulada en los últimos 365 días.</p><div id="storeRadar"><div class="empty">Cargando...</div></div></article><article class="card"><div class="card-head"><div><h3>Cómo usar la lectura</h3><p>Comparar para aprender, no para castigar.</p></div></div><div class="list"><div class="list-row"><div class="entity"><div class="avatar">1</div><div><strong>Replica lo que funciona</strong><small>Identifica categorías y paquetes con mayor tracción por tienda.</small></div></div></div><div class="list-row"><div class="entity"><div class="avatar">2</div><div><strong>Cuida la mezcla local</strong><small>Ticket y frecuencia dependen del tipo de cliente y proyecto predominante.</small></div></div></div><div class="list-row"><div class="entity"><div class="avatar">3</div><div><strong>Activa clientes identificados</strong><small>La oportunidad no es solo tráfico: es recompra y proyecto completo.</small></div></div></div></div></article></div></section>
+    <section class="view" id="view-client"><div class="section-title"><div><h2>Clientes y frecuencia de compra</h2><p>La base completa de comportamiento, segmentos y consulta individual.</p></div></div><div class="action-grid"><article class="card radar-card"><h3>Segmentos por comportamiento</h3><p>Nuevo, ocasional, recurrente, alto valor y en riesgo.</p><div id="strategyRadar"><div class="empty">Cargando...</div></div></article><article class="card search-box"><div class="eyebrow">Búsqueda rápida</div><h2 style="margin:0;color:var(--navy);font-size:19px">Conoce su historial</h2><p style="color:var(--muted);font-size:12px;line-height:1.5">Busca sobre los 65,170 clientes con historial, no solo sobre la cola. Acepta parte del nombre, la clave, la ciudad, la tienda o el código de asesor.</p><div class="input-group"><input id="customerInput" class="input" maxlength="60" placeholder="Nombre, clave, ciudad o asesor"><button id="searchCustomer" class="primary">Buscar</button></div><div id="customerHits"></div><div id="frequencyInfo" class="insight-callout">Cargando frecuencia de compra...</div></article></div><div class="section-title"><div><h2>Clientes priorizados</h2><p id="oppScope">Busca por cliente o tienda; filtra por segmento.</p></div></div><article class="card data-card"><div class="tools"><div class="tools-left" id="segmentFilters"></div><div class="tools-right"><input id="oppSearch" class="search" placeholder="Buscar en toda la base: clave, nombre o tienda"><select id="oppStore" class="picker"><option value="">Todas las tiendas</option></select><select id="oppSort" class="picker"><option value="priority">Prioridad</option><option value="expected">Utilidad esperada</option><option value="margin">Margen histórico</option><option value="value">Venta histórica</option><option value="overdue">Atraso</option><option value="recent">Compra reciente</option><option value="name">Nombre</option></select><label class="toggle"><input type="checkbox" id="oppInclude"> Incluir no elegibles</label><a class="page-button" id="exportCsv" href="demo-oportunidades.csv" title="Descarga la selección completa, no la página">Exportar CSV</a></div></div><div class="pager" id="oppPagerTop"></div><div class="table-wrap"><table><thead><tr><th>Cliente</th><th>Tienda</th><th>Última compra</th><th class="number">Atraso</th><th class="number">Ticket prom.</th><th class="number">Margen</th><th class="number">Utilidad esperada</th><th>Palanca de reactivación</th><th>Segmento</th><th class="number">Prioridad</th></tr></thead><tbody id="oppTable"></tbody></table></div><div class="pager" id="oppPager"></div><div class="insight-callout" id="priorityNote" style="margin:0 14px 14px"></div></article><article class="card client-result" id="customerResult" style="margin-top:16px"><div class="empty">Selecciona un cliente para ver su resumen de compras recientes.</div></article></section>
+    <section class="view" id="view-recovery"><div id="prospectPanel"></div><div id="firstTimePanel"></div><div id="dropPanel"></div><div id="recoveryPanel"></div></section><section class="view" id="view-uplift"><div id="gapPanel"></div><div id="liftPanel"></div><div id="upliftPanel"></div></section><section class="view" id="view-wallet"><div id="walletPanel"></div><div id="reorderPanel"></div><div id="transferPanel"></div><div id="replenishPanel"></div><div id="discountPanel"></div></section><section class="view" id="view-oculto"><div id="offCounterPanel"></div><div id="seasonPanel"></div></section><section class="view" id="view-growth"><div id="costPanel"></div><div class="section-title"><div><h2>Crecimiento</h2><p>Retención medida, valor de cada punto y capacidad de contacto. Sin tasas supuestas.</p></div></div><article class="card"><div class="insight-callout" id="growthPanel" style="margin:18px"></div></article><div id="offerPanel"></div></section><section class="view" id="view-health"><div id="freshnessPanel"></div><div class="section-title"><div><h2>Datos y modelo</h2><p>Qué puede usar el sistema, qué protege, y con qué se entrenó la predicción.</p></div></div><article class="card"><div id="healthContent" class="health-intro">Cargando estado de las fuentes...</div></article></section>
+  </main></div>
+  <script>
+    const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+    const date=v=>v?new Date(v).toLocaleDateString('es-MX',{day:'2-digit',month:'short',year:'numeric'}):'—';const money=v=>new Intl.NumberFormat('es-MX',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Number(v||0));const number=v=>new Intl.NumberFormat('es-MX').format(Number(v||0));
+    const translate=s=>({ready:'Lista',warning:'Requiere revisión',blocked:'Bloqueada',conditional:'Uso condicionado',review:'En revisión'}[s]||s);let quotes=[],frequency=null;
+    async function api(path,opciones){return window.demoRadarAPI(path,opciones)}
+    // Azucar para las tres escrituras del portal, que siempre son JSON.
+    const enviar=(path,cuerpo)=>api(path,{method:'POST',
+      headers:{'Content-Type':'application/json'},body:JSON.stringify(cuerpo)});
+    function show(view){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===`view-${view}`));document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===view));window.scrollTo({top:0,behavior:'smooth'})}
+    function metric(label,value,detail,tone,view){return `<button class="metric ${tone}" data-open="${view}"><span class="metric-label">${label}</span><span class="metric-value">${value}</span><span class="metric-foot">${detail}</span><span class="arrow">→</span></button>`}
+    const customerName=x=>x.customer_name||`Cliente ${x.customer_no}`;
+    const SEGMENTS={'En ventana':{pill:'next',hint:'Su cadencia se acaba de cumplir: es el mejor momento de contacto.'},'Vencido':{pill:'today',hint:'Pasó entre 1.5 y 3 veces su cadencia. Requiere una oferta que justifique el regreso.'},'En riesgo':{pill:'late',hint:'Entre 3 y 5 veces su cadencia. Trátalo como reactivación, no como recompra.'},'Probable perdida':{pill:'late',hint:'Más de 5 veces su cadencia. Valida que siga siendo cliente antes de invertir contacto.'}};
+    const segmentPill=x=>(SEGMENTS[x.recency_segment]||{pill:'next'}).pill;
+    const overdue=x=>x.overdue_ratio==null?'—':`${Number(x.overdue_ratio).toFixed(1)}×`;
+    const estimatedNext=x=>{if(x.estimated_next_purchase)return x.estimated_next_purchase;if(!x.last_purchase||!x.average_gap_days)return null;const d=new Date(x.last_purchase);d.setDate(d.getDate()+Math.round(x.average_gap_days));return d};
+    function priorityRow(x){return `<button class="list-row" data-client="${esc(x.customer_no)}"><span class="entity"><span class="avatar">${esc(x.store_no)}</span><span><strong>${esc(customerName(x))}</strong><small>ID ${esc(x.customer_no)} · Última compra: ${date(x.last_purchase)}</small></span></span><span class="right"><strong>${date(estimatedNext(x))}</strong><small><span class="pill ${segmentPill(x)}">${esc(x.recency_segment||x.suggested_action)} · ${overdue(x)}</span></small></span></button>`}
+    const QUOTE_PILL={'Vencida':'late','Hoy':'today','Esta semana':'next','Proxima':'next'};
+    function quoteRow(q){const state=q.queue_state||(q.expired_appointment?'Vencida':'Proxima'),owner=q.salesperson_code&&q.salesperson_code!=='SIN ASESOR'?` · Asesor ${esc(q.salesperson_code)}`:'';return `<div class="list-row"><span class="entity"><span class="avatar">$</span><span><strong>Cotización ${esc(q.quote_no)}</strong><small>Importe: ${money(q.amount_including_vat)} · moneda base${owner}</small></span></span><span class="right"><strong>${date(q.next_appointment_date)}</strong><small><span class="pill ${QUOTE_PILL[state]||'next'}">${esc(state)}</span></small></span></div>`}
+    function renderHome(){const opp=oppData.rows||[];const now=(oppData.segments||[]).reduce((n,s)=>n+(s.segment==='En ventana'?Number(s.customers||0):0),0),expired=quotes.filter(x=>x.expired_appointment).length,customers=frequency?number(frequency.customers):'—',repeat=frequency?number(frequency.repeat_customers):'—',active=frequency?`${number(frequency.active_90_days)} activos en 90 días`:'Calculando recurrencia...',cadence=frequency?`Mediana: ${number(frequency.median_gap_days)} días entre compras`:'Calculando frecuencia...';document.getElementById('metrics').innerHTML=[metric('Clientes que compran',customers,active,'','client'),metric('Clientes recurrentes',repeat,cadence,'','client'),metric('Clientes para contactar',number(now),'Su fecha estimada ya llegó','', 'client'),metric('Cotizaciones vencidas',number(expired),'Prioridad de recuperación','red','quotes')].join('');document.getElementById('priorityList').innerHTML=opp.filter(x=>x.recency_segment==='En ventana').slice(0,4).map(priorityRow).join('')||'<div class="empty">No hay clientes urgentes para este corte.</div>';document.getElementById('quoteList').innerHTML=quotes.slice(0,4).map(quoteRow).join('')||'<div class="empty">No hay cotizaciones por recuperar.</div>';document.querySelectorAll('[data-client]').forEach(b=>b.onclick=()=>loadCustomer(b.dataset.client));document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>show(b.dataset.open))}
+    // Estado de la cola. Todo filtro viaja al servidor: la busqueda anterior solo
+    // alcanzaba las filas ya descargadas, asi que un cliente fuera de la primera
+    // pagina era ilocalizable.
+    const oppState={q:'',segment:null,store:null,sort:'priority',page:1,size:50,include:false};
+    let oppData={rows:[],total:0,pages:1,page:1,page_size:50,segments:[],offers:[],snapshot:{},degraded:false};
+    let oppToken=0,searchTimer=null;
+    function oppQuery(extra={}){
+      const p=new URLSearchParams({sort:oppState.sort,page:String(oppState.page),size:String(oppState.size)});
+      if(oppState.q)p.set('q',oppState.q);
+      if(oppState.segment)p.set('segment',oppState.segment);
+      if(oppState.store)p.set('store',oppState.store);
+      if(oppState.include)p.set('include','todos');
+      for(const [k,v] of Object.entries(extra))p.set(k,v);
+      return p.toString();
+    }
+    async function loadOpportunities(){
+      const token=++oppToken;
+      const body=document.getElementById('oppTable');
+      if(body&&!oppData.rows.length)body.innerHTML='<tr><td colspan="10" class="empty">Consultando...</td></tr>';
+      try{
+        const data=await api('/api/opportunities?'+oppQuery());
+        if(token!==oppToken)return;
+        oppData=data;oppState.page=data.page;
+        renderRecovery();renderSnapshotNote();
+        if(!oppState.q&&!oppState.segment&&!oppState.store)renderHome();
+      }catch(e){
+        if(token!==oppToken)return;
+        if(body)body.innerHTML=`<tr><td colspan="10" class="empty red">${esc(e.message)}</td></tr>`;
+      }
+    }
+    function scheduleSearch(){clearTimeout(searchTimer);searchTimer=setTimeout(()=>{oppState.page=1;loadOpportunities()},250)}
+    function renderSegmentFilters(){
+      const host=document.getElementById('segmentFilters');if(!host)return;
+      const counts=Object.fromEntries((oppData.segments||[]).map(s=>[s.segment,s.customers]));
+      const total=(oppData.segments||[]).reduce((n,s)=>n+Number(s.customers||0),0);
+      const buttons=[['','Todos',total],...Object.keys(SEGMENTS).map(name=>[name,name,counts[name]||0])];
+      // Con la casilla activa los segmentos no aplican: se filtra por motivo.
+      host.innerHTML=buttons.map(([value,label,count])=>
+        `<button class="filter ${(oppState.segment||'')===value?'active':''}" data-segment="${esc(value)}">`+
+        `${esc(label)}<span class="count">${number(count)}</span></button>`).join('');
+      host.querySelectorAll('[data-segment]').forEach(b=>b.onclick=()=>{
+        oppState.segment=b.dataset.segment||null;oppState.page=1;loadOpportunities()});
+    }
+    function renderPager(){
+      // Se pinta arriba y abajo: con cincuenta filas, el de abajo queda fuera
+      // de pantalla y parece que no hubiera mas paginas.
+      for(const id of ['oppPagerTop','oppPager']) renderPagerEn(id);
+    }
+    function renderPagerEn(id){
+      const host=document.getElementById(id);if(!host)return;
+      const from=oppData.total?((oppData.page-1)*oppData.page_size)+1:0;
+      const to=Math.min(oppData.page*oppData.page_size,oppData.total);
+      host.innerHTML=`<span>Mostrando ${number(from)}–${number(to)} de ${number(oppData.total)} clientes`+
+        `${oppData.pages>1?` · página ${number(oppData.page)} de ${number(oppData.pages)}`:''}</span>`+
+        `<span class="pager-controls">`+
+        `<select id="oppSize-${id}" class="picker">${[25,50,100,200].map(n=>`<option value="${n}"${n===oppData.page_size?' selected':''}>${n} por página</option>`).join('')}</select>`+
+        `<button class="page-button" data-page="1" ${oppData.page<=1?'disabled':''}>« Primera</button>`+
+        `<button class="page-button" data-page="${oppData.page-1}" ${oppData.page<=1?'disabled':''}>← Anterior</button>`+
+        `<button class="page-button" data-page="${oppData.page+1}" ${oppData.page>=oppData.pages?'disabled':''}>Siguiente →</button>`+
+        `<button class="page-button" data-page="${oppData.pages}" ${oppData.page>=oppData.pages?'disabled':''}>Última »</button>`+
+        `</span>`;
+      host.querySelectorAll('[data-page]').forEach(b=>b.onclick=()=>{oppState.page=Number(b.dataset.page);loadOpportunities()});
+      const size=document.getElementById('oppSize-'+id);
+      if(size)size.onchange=()=>{oppState.size=Number(size.value);oppState.page=1;loadOpportunities()};
+    }
+    // Palancas de reactivacion. El color no es decorativo: separa lo que cuesta
+    // margen (descuento) de lo que no (financiamiento, paquete) y de lo que
+    // impide ofertar (saldo vencido).
+    const OFFERS={
+      'Financiamiento a plazos':{pill:'next',hint:'Ya paga a plazos o su ticket lo justifica. Ofrece meses sin intereses antes que descuento: no cuesta margen.'},
+      'Descuento dirigido':{pill:'today',hint:'Ha comprado en promoción y su margen lo permite. Es el único caso donde el descuento está justificado por evidencia.'},
+      'Descuento disponible':{pill:'today',hint:'Hay margen para ceder, pero no hay historial de que responda a promoción. Prueba primero con valor.'},
+      'Paquete o servicio, sin descuento':{pill:'next',hint:'Margen ajustado. Un descuento aquí destruye utilidad: ofrece complemento, entrega o instalación.'},
+      'Regularizar saldo':{pill:'late',hint:'Tiene partidas vencidas abiertas. Empujar una recompra antes de cobrar agrava el problema.'},
+      'No contactar':{pill:'late',hint:'Bloqueado en el maestro de clientes.'}
+    };
+    function offerCell(x){
+      if(!x.eligible)return '<span class="status-text">—</span>';
+      const conf=OFFERS[x.offer_type]||{pill:'next'};
+      const room=Number(x.discount_headroom_pct||0);
+      const extra=room>=1?`<br><span class="status-text">hasta ${room.toFixed(1)}% · ${money(x.max_discount_amount)}</span>`
+                         :'<br><span class="status-text">sin margen que ceder</span>';
+      const via=x.dominant_tender?`<br><span class="status-text">paga con ${esc(x.dominant_tender)}</span>`:'';
+      // Ofrecer lo que no hay cuesta mas que no ofrecer.
+      const falta=x.stock_status&&x.stock_status!=='Con existencia'
+        ?`<br><span class="status-text red">${esc(x.stock_status)}</span>`:'';
+      const servicio=x.service_alert?`<br><span class="status-text red">${esc(x.service_alert)}</span>`:'';
+      return `<span class="pill ${conf.pill}" title="${esc(x.offer_detail||'')}">${esc(x.offer_type||'—')}</span>${extra}${via}${falta}${servicio}`;
+    }
+    function renderOfferSummary(){
+      const host=document.getElementById('offerSummary');if(!host)return;
+      const offers=oppData.offers||[];
+      if(!offers.length){host.innerHTML='';return}
+      const total=offers.reduce((n,o)=>n+Number(o.expected_margin||0),0);
+      host.innerHTML=`<strong>Palancas de reactivación sobre la cola elegible.</strong> `+
+        `Utilidad esperada total: ${money(total)}.<br>`+
+        offers.map(o=>{
+          const hint=(OFFERS[o.offer_type]||{}).hint||'';
+          return `<div style="margin-top:7px"><span class="pill ${(OFFERS[o.offer_type]||{pill:'next'}).pill}">${esc(o.offer_type)}</span> `+
+            `<strong>${number(o.customers)}</strong> clientes · utilidad esperada <strong>${money(o.expected_margin)}</strong>`+
+            `${Number(o.avg_headroom_pct||0)>=1?` · margen cedible promedio ${Number(o.avg_headroom_pct).toFixed(1)}%`:''}`+
+            `${hint?`<br><span class="status-text">${esc(hint)}</span>`:''}</div>`;
+        }).join('');
+    }
+    function renderRecovery(){
+      const rows=oppData.rows||[];
+      document.getElementById('oppTable').innerHTML=rows.map(x=>`<tr>`+
+        `<td><button class="client-btn" data-client="${esc(x.customer_no)}">${esc(customerName(x))}</button><br><span class="status-text">ID ${esc(x.customer_no)}${x.city?` · ${esc(x.city)}`:''}</span></td>`+
+        `<td>${esc(x.store_no)}</td>`+
+        `<td>${date(x.last_purchase)}<br><span class="status-text">cada ${number(Math.round(x.average_gap_days||0))} d</span></td>`+
+        `<td class="number" title="${number(x.days_since_purchase)} días sin comprar contra una cadencia de ${number(Math.round(x.average_gap_days||0))} días">${overdue(x)}</td>`+
+        `<td class="number">${money(x.average_ticket)}</td>`+
+        `<td class="number">${x.margin_pct==null?'<span class="status-text">s/costo</span>':`${Number(x.margin_pct).toFixed(1)}%`}</td>`+
+        `<td class="number"><strong>${money(x.expected_margin)}</strong><br><span class="status-text">${money(x.margin_per_purchase)} por compra</span></td>`+
+        `<td>${offerCell(x)}</td>`+
+        `<td>${x.eligible?`<span class="pill ${segmentPill(x)}">${esc(x.recency_segment||'—')}</span>`:`<span class="pill late">${esc(x.exclusion_reason||'No elegible')}</span>`}</td>`+
+        `<td class="number">${number(x.priority_score)}</td></tr>`).join('')
+        ||`<tr><td colspan="10" class="empty">${oppState.q?`Sin coincidencias para “${esc(oppState.q)}”. Prueba con la clave del cliente o activa «Incluir no elegibles».`:'Sin resultados con los filtros activos.'}</td></tr>`;
+      document.querySelectorAll('[data-client]').forEach(b=>b.onclick=()=>loadCustomer(b.dataset.client));
+      renderSegmentFilters();renderPager();renderOfferSummary();renderPriorityNote();
+      const csv=document.getElementById('exportCsv');
+      if(csv)csv.href='demo-oportunidades.csv';
+      const quoted=quotes[0];
+      const lag=quoted&&quoted.pos_lag_days!=null?` · Citas medidas al ${date(quoted.reference_today)}; corte POS ${date(quoted.pos_cutoff)} (${number(quoted.pos_lag_days)} días de diferencia)`:'';
+      const summary=document.getElementById('quoteSummary');
+      if(summary)summary.textContent=`${number(quotes.filter(x=>x.expired_appointment).length)} vencidas · ${number(quotes.filter(x=>!x.expired_appointment).length)} próximas${lag}`;
+      const recovery=document.getElementById('quoteRecoveryList');
+      if(recovery)recovery.innerHTML=quotes.slice(0,8).map(quoteRow).join('')||'<div class="empty">No hay cotizaciones disponibles.</div>';
+    }
+    function renderPriorityNote(){
+      const box=document.getElementById('priorityNote');if(!box)return;
+      const hint=SEGMENTS[oppState.segment]?`<br><strong>${esc(oppState.segment)}:</strong> ${esc(SEGMENTS[oppState.segment].hint)}`:'';
+      const scope=document.getElementById('oppScope');
+      const eligible=(oppData.snapshot&&oppData.snapshot.eligible)||oppData.total;
+      const perfiles=(oppData.snapshot&&oppData.snapshot.profiles)||0;
+      if(scope)scope.innerHTML=oppState.include
+        ?`Mostrando <strong>${number(oppData.total)}</strong> clientes, incluidos los que no cumplen la regla de recompra.`
+        :`<strong>${number(eligible)}</strong> clientes cumplen la regla de recompra`+
+         `${perfiles?` de <strong>${number(perfiles)}</strong> con historial`:''}. `+
+         `El resto compró una o dos veces y no tiene cadencia que medir: actívalos con «Incluir no elegibles».`;
+      box.innerHTML=`<strong>Cómo se calcula la prioridad.</strong> Atraso = días sin comprar ÷ cadencia propia del cliente. `+
+        `El puntaje multiplica la probabilidad de retorno según ese atraso (1.00 en ventana, 0.65 vencido, 0.35 en riesgo, 0.10 probable pérdida) `+
+        `por el valor histórico del cliente (0.5 a 1.0). No se recorta: un cliente 10× vencido baja de prioridad en lugar de empatar con uno recién vencido.${hint}`;
+    }
+    function renderSnapshotNote(){
+      const box=document.getElementById('snapshotNote');if(!box)return;
+      const s=oppData.snapshot||{};
+      if(!s.available){box.innerHTML='<strong>Foto local</strong><br>Construyéndose por primera vez...';return}
+      box.innerHTML=`<strong>Foto local</strong><br>${number(s.profiles)} perfiles · ${number(s.eligible)} elegibles`+
+        `<br>Corte ${esc(s.data_as_of||'—')} · ${esc(String(s.history_months||36))} meses de historia`+
+        `<br>${s.refreshing?'Actualizando...':'<button class="refresh-link" id="refreshSnapshot">Actualizar ahora</button>'}`;
+      const button=document.getElementById('refreshSnapshot');
+      if(button)button.onclick=async()=>{
+        button.textContent='Solicitando...';button.disabled=true;
+        try{await api('/api/snapshot/refresh',{method:'POST'});
+          box.innerHTML='<strong>Foto local</strong><br>Reconstruyendo en segundo plano...';
+          setTimeout(loadOpportunities,8000);
+        }catch(e){button.textContent='No fue posible actualizar'}
+      };
+    }
+    // Mensaje de reactivacion derivado de la palanca real del cliente, no de un
+    // texto generico. Cada rama dice algo distinto porque cuesta algo distinto.
+    function offerMessage(profile, category){
+      const name=profile.customer_name||'',cat=prettyCategory(category);
+      const room=Number(profile.discount_headroom_pct||0);
+      const monto=money(profile.max_discount_amount);
+      switch(profile.offer_type){
+        case 'Financiamiento a plazos':
+          return `Hola ${name}, tenemos meses sin intereses para tu proyecto de ${cat}. `+
+                 `Con tu ticket habitual puedes diferirlo sin costo adicional. ¿Te preparo la cotización?`;
+        case 'Descuento dirigido':
+          return `Hola ${name}, preparamos una promoción para ti en ${cat}: hasta ${room.toFixed(0)}% `+
+                 `(alrededor de ${monto} en tu compra habitual). ¿Te la aparto?`;
+        case 'Descuento disponible':
+          return `Hola ${name}, queremos que retomes tu proyecto de ${cat}. `+
+                 `Tenemos condiciones especiales para ti esta semana. ¿Te comparto la propuesta?`;
+        case 'Regularizar saldo':
+          return `Hola ${name}, antes de tu siguiente pedido queremos ayudarte a poner al corriente tu saldo. `+
+                 `¿Te comunico con el área de crédito?`;
+        default:
+          return `Hola ${name}, tenemos el paquete completo para tu proyecto de ${cat}, `+
+                 `con entrega e instalación. ¿Te preparo la propuesta?`;
+      }
+    }
+    // La promocion del cliente, con su utilidad incremental y su porque. Si un
+    // asesor no puede explicar en una linea por que ofrece justo eso, no lo va
+    // a ofrecer: por eso cada razon lleva el dato que la sostiene.
+    const ICONO_RAZON={momento:'⏱',afinidad:'🔗',utilidad:'▲',existencia:'📦',
+      descuento:'%',cartera:'⚠',servicio:'⚠',momento_contacto:'✉'};
+    function pintarFrescura(q){
+      // El origen se dice junto al dato: no es lo mismo mirar algo de hace un
+      // minuto que de hace ocho horas, y en cotizaciones esa diferencia decide.
+      const caja=document.getElementById('quoteSummary');
+      if(!caja||!q||!q.source)return;
+      const viejo=q.source!=='consulta al momento';
+      const edad=q.age_seconds!=null
+        ? (q.age_seconds<90?'hace un momento':`hace ${Math.round(q.age_seconds/60)} min`)
+        : '';
+      const marca=document.createElement('span');
+      marca.className='frescura'+(viejo?' viejo':'');
+      marca.textContent=`${q.source}${edad?' · '+edad:''}`;
+      caja.appendChild(document.createTextNode(' '));
+      caja.appendChild(marca);
+    }
+    function asignarPanel(resumen){
+      // Sin dueno y sin fecha, todo lo anterior se queda en informacion.
+      return `<div class="offer-card" style="display:block">`+
+        `<h4 style="margin:0 0 4px">Ponerle dueño</h4>`+
+        `<p style="margin:0;color:var(--muted);font-size:12px">`+
+        `Una lista sin responsable no se trabaja. Al asignarlo entra a "Trabajo del día" `+
+        `con fecha límite, y el resultado queda registrado.</p>`+
+        `<div class="asignar">`+
+        `<input id="asignarDueno" placeholder="¿A quién se le asigna?" autocomplete="off">`+
+        `<select id="asignarDias">`+
+        `<option value="3">Vence en 3 días</option>`+
+        `<option value="7" selected>Vence en 7 días</option>`+
+        `<option value="14">Vence en 14 días</option></select>`+
+        `<select id="asignarPrioridad">`+
+        `<option value="normal">Prioridad normal</option>`+
+        `<option value="alta">Prioridad alta</option></select>`+
+        `<button class="mini-btn primario" id="asignarBtn" `+
+        `data-cliente="${esc(resumen.customer_no)}">Asignar</button>`+
+        `<span id="asignarAviso" class="status-text"></span>`+
+        `</div></div>`;
+    }
+    function engancharAsignar(caja,promo){
+      const btn=caja.querySelector('#asignarBtn');if(!btn)return;
+      btn.onclick=async()=>{
+        const dueno=(caja.querySelector('#asignarDueno').value||'').trim();
+        const aviso=caja.querySelector('#asignarAviso');
+        if(!dueno){aviso.textContent='Escribe a quién se le asigna.';return}
+        btn.disabled=true;aviso.textContent='Asignando...';
+        try{
+          // El motivo se toma de la promocion: asi el asesor recibe el porque
+          // ya escrito y no tiene que reconstruirlo el dia que llame.
+          const motivo=promo&&promo.reasons&&promo.reasons.length
+            ? promo.reasons[0].text : undefined;
+          await enviar('/api/assignments',{
+            customer_no:btn.dataset.cliente,owner:dueno,reason:motivo,
+            days:Number(caja.querySelector('#asignarDias').value),
+            priority:caja.querySelector('#asignarPrioridad').value});
+          aviso.textContent=`Asignado a ${dueno}.`;
+          loadTrabajo();loadDigest();
+        }catch(e){aviso.textContent=e.message;btn.disabled=false}
+      };
+    }
+    function promoPanel(promo){
+      if(!promo)return '';
+      const puntos=Number(promo.promo_margin_points||0);
+      const sinStock=!(promo.promo_stock_items>0);
+      return `<div class="promo-card">`+
+        `<div class="promo-head">`+
+        `<div><div class="eyebrow">Promoción sugerida</div>`+
+        `<h4>Agregar <strong>${esc(promo.promo_category)}</strong> a su compra de ${esc(promo.anchor_category)}</h4></div>`+
+        `<div class="promo-gain"><span>Utilidad extra por compra</span>`+
+        `<strong>$${money(promo.promo_margin_gain)}</strong>`+
+        `<small>${puntos>=0?'+':''}${puntos.toFixed(1)} pts de margen</small></div></div>`+
+        `<div class="summary" style="margin:12px 0">`+
+        `<div class="stat"><span>Su ticket</span><strong>$${money(promo.average_ticket)}</strong></div>`+
+        `<div class="stat"><span>Complemento</span><strong>$${money(promo.promo_sale)}</strong></div>`+
+        `<div class="stat"><span>Margen del complemento</span><strong>${(promo.promo_margin_pct||0).toFixed(1)}%</strong></div>`+
+        `<div class="stat"><span>Utilidad esperada 90 d</span><strong>$${money(promo.promo_expected_gain)}</strong></div>`+
+        `</div>`+
+        (promo.supply_text
+          ? `<div class="promo-why" style="margin-bottom:10px">`+
+            `<strong>Qué ofrecerle exactamente</strong>`+
+            `<div class="why-row ${promo.supply&&promo.supply.available?'':'why-alert'}">`+
+            `<span class="why-icon">${promo.supply&&promo.supply.available?'▣':'!'}</span>`+
+            `<span><strong>${esc(promo.supply_text)}</strong>`+
+            ((promo.supply&&promo.supply.items||[]).length
+              ? `<br><span class="status-text">Artículos con existencia: `+
+                promo.supply.items.map(i=>`${esc(i.item_no)} (${number(i.quantity)})`).join(' · ')+
+                `</span>`
+              : '')+
+            `</span></div></div>`
+          : '')+
+        `<div class="promo-why"><strong>Por qué esta promoción</strong>`+
+        (promo.reasons||[]).map(r=>
+          `<div class="why-row ${r.key==='cartera'||r.key==='servicio'||(r.key==='existencia'&&sinStock)?'why-alert':''}">`+
+          `<span class="why-icon">${ICONO_RAZON[r.key]||'•'}</span>`+
+          `<span><strong>${esc(r.text)}</strong><br>`+
+          `<span class="status-text">${esc(r.evidence)}</span></span></div>`).join('')+
+        `</div></div>`;
+    }
+    function offerPanel(profile){
+      if(!profile)return '';
+      const conf=OFFERS[profile.offer_type]||{pill:'next',hint:''};
+      const room=Number(profile.discount_headroom_pct||0);
+      const rows=[
+        ['Utilidad por compra', money(profile.margin_per_purchase)],
+        ['Utilidad esperada hoy', money(profile.expected_margin)],
+        ['Margen histórico', profile.margin_pct==null?'sin datos de costo':`${Number(profile.margin_pct).toFixed(1)}%`],
+        ['Descuento máximo', room>=1?`${room.toFixed(1)}% · ${money(profile.max_discount_amount)}`:'sin margen que ceder'],
+        ['Forma de pago', profile.dominant_tender||'—'],
+        ['Cartera', profile.payment_status||'—'],
+        ['Cuándo contactar', profile.contact_window||'sin patrón horario'],
+        ['Ritmo de compra', profile.shopping_rhythm||'—'],
+        ['Existencia en su tienda', profile.stock_status||'—'],
+        ['Servicio', profile.service_alert||'sin devoluciones'],
+      ];
+      return `<div class="offer-card" style="display:block"><div>`+
+        `<h4><span class="pill ${conf.pill}">${esc(profile.offer_type||'—')}</span> ${esc(profile.offer_detail||'')}</h4>`+
+        `<p>${esc(conf.hint||'')}</p>`+
+        `<div class="summary" style="margin-top:10px">`+
+        rows.map(([k,v])=>`<div class="stat"><span>${esc(k)}</span><strong>${esc(String(v))}</strong></div>`).join('')+
+        `</div></div></div>`;
+    }
+    function prettyCategory(value){return String(value||'su último proyecto').replace(/_/g,' ').replace(/\b\w/g,c=>c.toUpperCase())}
+    function recoveryOffer(summary,categories){const category=prettyCategory(categories?.[0]?.category_code),frequent=Number(summary.purchase_count)>=8;return{category,title:frequent?'Recuperación de cliente frecuente':'Oferta de recompra personalizada',body:frequent?`Retoma su proyecto de ${category} con una solución completa y atención prioritaria. Empieza con valor y complemento; evita un descuento general.`:`Invítalo a retomar ${category} con una propuesta simple y un complemento útil. La primera oferta debe resolver su proyecto, no solo bajar precio.`,meta:`Señal: ${number(summary.purchase_count)} compras · ticket promedio ${money(summary.average_ticket)} · categoría reciente ${category}.`}}
+    function whatsappLink(phone,name,offer,message){const digits=String(phone||'').replace(/\D/g,'');if(!digits)return null;const recipient=digits.length===10?`52${digits}`:digits;const texto=message||`Hola ${name}, vimos que podrías retomar tu proyecto de ${offer.category}. Tenemos una propuesta personalizada para ayudarte a completarlo. ¿Te gustaría que te la compartiéramos?`;return `https://wa.me/${recipient}?text=${encodeURIComponent(message)}`}
+    // El cuadro de busqueda aceptaba unicamente la clave exacta: escribir un
+    // nombre devolvia error. Ahora busca por clave, nombre, ciudad, tienda o
+    // asesor sobre la base completa, y ofrece los resultados para elegir.
+    let buscaTimer=null;
+    async function buscarClientes(termino){
+      const caja=document.getElementById('customerHits');if(!caja)return;
+      termino=(termino||'').trim();
+      if(termino.length<2){caja.innerHTML='';return}
+      caja.innerHTML='<div class="empty">Buscando en toda la base...</div>';
+      try{
+        const p=new URLSearchParams({q:termino,include:'todos',size:'25',sort:'expected'});
+        const d=await api('/api/opportunities?'+p);
+        if(!d.rows.length){
+          caja.innerHTML=`<div class="empty">Sin coincidencias para “${esc(termino)}”. `+
+            `Prueba con parte del nombre, la clave, la ciudad o el código de asesor.</div>`;
+          return;
+        }
+        caja.innerHTML=`<div class="status-text" style="margin:8px 0">`+
+          `${number(d.total)} coincidencia${d.total===1?'':'s'}`+
+          `${d.total>d.rows.length?`; se muestran las ${d.rows.length} de mayor utilidad esperada`:''}.</div>`+
+          d.rows.map(x=>{
+            const motivo=x.eligible?`<span class="pill ${segmentPill(x)}">${esc(x.recency_segment||'—')}</span>`
+                                   :`<span class="pill late">${esc(x.exclusion_reason||'No elegible')}</span>`;
+            return `<button class="list-row" data-hit="${esc(x.customer_no)}">`+
+              `<span class="entity"><span class="avatar">${esc(x.store_no||'—')}</span>`+
+              `<span><strong>${esc(customerName(x))}</strong>`+
+              `<small>ID ${esc(x.customer_no)}${x.city?` · ${esc(x.city)}`:''} · `+
+              `${number(x.purchase_days)} día(s) con compra · última ${date(x.last_purchase)}</small></span></span>`+
+              `<span class="right"><strong>${money(x.total_sales)}</strong><small>${motivo}</small></span></button>`;
+          }).join('');
+        caja.querySelectorAll('[data-hit]').forEach(b=>b.onclick=()=>{
+          caja.innerHTML='';
+          document.getElementById('customerInput').value=b.dataset.hit;
+          loadCustomer(b.dataset.hit);
+        });
+      }catch(e){caja.innerHTML=`<div class="empty red">${esc(e.message)}</div>`}
+    }
+    function programarBusqueda(valor){
+      clearTimeout(buscaTimer);
+      buscaTimer=setTimeout(()=>buscarClientes(valor),250);
+    }
+    async function loadCustomer(customer,page=1){show('client');const box=document.getElementById('customerResult'),input=document.getElementById('customerInput');input.value=customer;box.innerHTML='<div class="empty">Cargando ficha completa...</div>';try{const d=await api('/api/customer/'+encodeURIComponent(customer)+'?page='+page);if(!d.summary){box.innerHTML='<div class="empty">No hay historial válido para este cliente.</div>';return}const s=d.summary,profile=d.profile||null,offer=recoveryOffer(s,d.categories||[]),mensaje=profile?offerMessage({...profile,customer_name:s.customer_name},(d.categories||[])[0]&&(d.categories||[])[0].category_code):null,link=Number(s.privacy_blocked)?null:whatsappLink(s.whatsapp_phone,s.customer_name,offer,mensaje),contact=link?`<a class="whatsapp-action" href="${esc(link)}" target="_blank" rel="noopener">WhatsApp preparado ↗</a>`:`<div class="offer-disabled">${Number(s.privacy_blocked)?'No contactar: privacidad':'Sin móvil para WhatsApp'}</div>`,pageSize=Number(d.page_size||50),currentPage=Number(d.page||1),total=Number(s.purchase_count||0),start=total?((currentPage-1)*pageSize)+1:0,end=Math.min(currentPage*pageSize,total),history=d.purchases.map(p=>`<li><span>${date(p.purchase_date)} · ${esc(p.store_no)} · ${number(p.item_count)} artículos</span><strong>${money(p.net_sales)}</strong></li>`).join('')||'<li><span>Sin compras en esta página.</span></li>',categories=(d.categories||[]).map(c=>`<article class="category-item"><strong>${esc(prettyCategory(c.category_code))}</strong><span>${money(c.category_sales)} vendido<br>Última: ${date(c.last_category_purchase)}</span></article>`).join('')||'<div class="empty">No hay categorías con líneas válidas.</div>';box.innerHTML=`<div class="result-header"><div><div class="eyebrow">Ficha comercial completa</div><h3>${esc(s.customer_name)}</h3><span class="status-text">ID ${esc(s.customer_no)}</span></div><span class="pill next">Historial validado</span></div><div class="summary"><div class="stat"><span>Compras</span><strong>${number(s.purchase_count)}</strong></div><div class="stat"><span>Venta histórica</span><strong>${money(s.total_sales)}</strong></div><div class="stat"><span>Ticket promedio</span><strong>${money(s.average_ticket)}</strong></div><div class="stat"><span>Primera compra</span><strong>${date(s.first_purchase)}</strong></div><div class="stat"><span>Última compra</span><strong>${date(s.last_purchase)}</strong></div></div><div class="client-tabs"><button class="client-tab active" data-client-tab="overview">Resumen y oferta</button><button class="client-tab" data-client-tab="history">Historial completo (${number(total)})</button><button class="client-tab" data-client-tab="categories">Categorías (${number((d.categories||[]).length)})</button></div><div class="client-panel active" data-client-panel="overview">${promoPanel(d.promo)}${asignarPanel(s)}${offerPanel(profile)}<div class="offer-card"><div><h4>${esc(offer.title)}</h4><p>${esc(offer.body)}</p><div class="offer-meta">${esc(offer.meta)}</div></div>${contact}</div></div><div class="client-panel" data-client-panel="history"><ul class="purchase-history">${history}</ul><div class="history-footer"><span>Mostrando ${number(start)}–${number(end)} de ${number(total)} compras.</span><span><button class="page-button" data-page="${currentPage-1}" ${currentPage<=1?'disabled':''}>← Anterior</button> <button class="page-button" data-page="${currentPage+1}" ${end>=total?'disabled':''}>Siguiente →</button></span></div></div><div class="client-panel" data-client-panel="categories"><div class="category-list">${categories}</div></div>`;engancharAsignar(box,d.promo);box.querySelectorAll('[data-client-tab]').forEach(tab=>tab.onclick=()=>{box.querySelectorAll('[data-client-tab]').forEach(x=>x.classList.toggle('active',x===tab));box.querySelectorAll('[data-client-panel]').forEach(x=>x.classList.toggle('active',x.dataset.clientPanel===tab.dataset.clientTab))});box.querySelectorAll('[data-page]').forEach(button=>button.onclick=()=>loadCustomer(customer,Number(button.dataset.page)))}catch(e){box.innerHTML=`<div class="empty red">${esc(e.message)}</div>`}}
+    async function loadGrowth(){
+      const box=document.getElementById('growthPanel');if(!box)return;
+      try{
+        const g=await api('/api/growth');
+        if(!g.retention||!g.retention.measured){box.innerHTML='';return}
+        const r=g.retention,q=g.queue,c=g.capacity;
+        box.innerHTML=
+          `<strong>Cuánto puede crecer esto.</strong> Todo lo de abajo está medido; no hay tasas supuestas.<br><br>`+
+          `De <strong>${number(r.prior_active)}</strong> clientes activos el periodo anterior, regresaron `+
+          `<strong>${number(r.returned)}</strong>: una retención del <strong>${r.retention_pct}%</strong>. `+
+          `Se perdieron ${number(r.lapsed)}.<br>`+
+          `Cada cliente retenido deja <strong>$${money(r.margin_per_returned)}</strong> de margen al año `+
+          `($${money(r.sales_per_returned)} de venta al ${r.margin_pct_used}% de margen de la base).<br><br>`+
+          `<strong>Subir la retención un solo punto vale $${money(r.value_per_point)} de margen al año.</strong><br><br>`+
+          `La cola de reactivación tiene <strong>${number(q.customers)}</strong> clientes y `+
+          `<strong>$${money(q.expected_margin)}</strong> de utilidad esperada. Recorrerla una vez al mes exige `+
+          `<strong>${c.advisors_to_cover_queue_monthly} asesores</strong> dedicados a ${c.contacts_per_advisor_day} `+
+          `contactos útiles por día. Un asesor solo alcanza el `+
+          `<strong>${(c.queue_share_one_advisor*100).toFixed(1)}%</strong>.`;
+      }catch(e){box.innerHTML=''}
+    }
+    const DIA_SEMANA={1:'Domingo',2:'Lunes',3:'Martes',4:'Miércoles',5:'Jueves',6:'Viernes',7:'Sábado'};
+    async function loadHourly(){
+      const box=document.getElementById('hourlyPanel');if(!box)return;
+      try{
+        const h=await api('/api/hourly');
+        if(!h.by_hour||!h.by_hour.length){box.innerHTML='';return}
+        const maxV=Math.max(...h.by_hour.map(r=>r.sales||0));
+        const maxU=Math.max(...h.by_hour.map(r=>r.profit||0));
+        const totV=h.by_hour.reduce((n,r)=>n+(r.sales||0),0);
+        const totU=h.by_hour.reduce((n,r)=>n+(r.profit||0),0);
+        const picoT=h.by_hour.reduce((a,b)=>b.tickets>a.tickets?b:a);
+        const picoU=h.by_hour.reduce((a,b)=>(b.profit||0)>(a.profit||0)?b:a);
+        const picoA=h.by_hour.reduce((a,b)=>(b.average_ticket||0)>(a.average_ticket||0)?b:a);
+        const maxDia=Math.max(...h.by_weekday.map(r=>r.sales||0));
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Venta y utilidad por hora</h2>`+
+          `<p>Últimos 12 meses · ${'$'}${money(totV)} de venta y ${'$'}${money(totU)} de utilidad `+
+          `(${(100*totU/totV).toFixed(1)}%). Barra azul: venta. Barra naranja: utilidad.</p></div></div>`+
+          `<article class="card">`+
+          `<div class="chart-wrap">`+
+          lineChart(h.by_hour.filter(r=>r.tickets>50).map(r=>({...r,label:r.hour+':00'})),[
+            {key:'sales',label:'Venta',color:'#417e79',area:true,fmt:v=>'$'+money(v)},
+            {key:'profit',label:'Utilidad',color:'#b86a00',area:true,fmt:v=>'$'+money(v)},
+          ],{height:210,titulo:'Venta y utilidad por hora',
+             etiqueta:p=>p.hour+'h',fmtEje:v=>'$'+compact(v)})+
+          `<div class="status-text" style="margin-top:10px;margin-bottom:4px">`+
+          `Ticket promedio por hora — dónde la venta vale más, no dónde hay más gente</div>`+
+          lineChart(h.by_hour.filter(r=>r.tickets>50).map(r=>({...r,label:r.hour+':00'})),[
+            {key:'average_ticket',label:'Ticket promedio',color:'#138a68',fmt:v=>'$'+money(v)},
+          ],{height:140,etiqueta:p=>p.hour+'h',fmtEje:v=>'$'+compact(v),desdeCero:false})+
+          `</div>`+
+          `</article><article class="card radar-card">`+
+          h.by_hour.filter(r=>r.tickets>50).map(r=>
+            `<div class="bar-row"><span class="bar-label">${r.hour}:00</span>`+
+            `<span class="bar-track"><span class="bar" style="width:${Math.max(3,(r.sales||0)*100/maxV)}%"></span>`+
+            `<span class="bar negative" style="width:${Math.max(3,(r.profit||0)*100/maxU)}%;margin-top:2px"></span></span>`+
+            `<span class="bar-value">${'$'}${money(r.sales)} · ${'$'}${money(r.profit)} · ${(r.margin_pct||0).toFixed(1)}%</span></div>`).join('')+
+          `<div class="insight-callout"><strong>El margen es plano; lo que cambia es el ticket.</strong><br>`+
+          `El porcentaje se mueve poco durante el día (${Math.min(...h.by_hour.filter(r=>r.tickets>50).map(r=>r.margin_pct||0)).toFixed(1)}% a `+
+          `${Math.max(...h.by_hour.filter(r=>r.tickets>50).map(r=>r.margin_pct||0)).toFixed(1)}%), así que la utilidad sigue a la venta. `+
+          `El pico de utilidad son las <strong>${picoU.hour}:00</strong> con ${'$'}${money(picoU.profit)}. `+
+          `Pero el ticket más alto es a las <strong>${picoA.hour}:00</strong> (${'$'}${money(picoA.average_ticket)}, `+
+          `${(picoA.average_ticket/picoT.average_ticket).toFixed(1)}× el del pico de tráfico de las ${picoT.hour}:00): `+
+          `la tarde vende menos veces pero más grande.</div>`+
+          `<h3 style="margin-top:14px">Por día</h3>`+
+          h.by_weekday.map(r=>
+            `<div class="bar-row"><span class="bar-label">${esc(DIA_SEMANA[r.weekday]||r.weekday)}</span>`+
+            `<span class="bar-track"><span class="bar" style="width:${Math.max(3,(r.sales||0)*100/maxDia)}%"></span></span>`+
+            `<span class="bar-value">${'$'}${money(r.sales)} · ${'$'}${money(r.profit)} · ${'$'}${money(r.average_ticket)} tkt</span></div>`).join('')+
+          `<h3 style="margin-top:14px">Ritmo de la clientela</h3>`+
+          h.rhythm.map(r=>
+            `<div class="bar-row"><span class="bar-label">${esc(r.shopping_rhythm)}</span>`+
+            `<span class="bar-track"><span class="bar" style="width:${Math.max(3,r.customers*100/Math.max(...h.rhythm.map(x=>x.customers)))}%"></span></span>`+
+            `<span class="bar-value">${number(r.customers)} · ticket ${'$'}${money(r.average_ticket)}</span></div>`).join('')+
+          `<div class="insight-callout">Cada cliente trae su <strong>ventana de contacto</strong> en la ficha y en el CSV: `+
+          `el día y la franja en que realmente compra. Un mensaje fuera de esa ventana no se lee.<br>`+
+          `<span class="status-text">Utilidad ${esc(h.profit_basis||'')}. El costo del POS no se usa: está vacío en el 31.6% `+
+          `de los renglones, que cargan el 62% de la venta.</span></div>`+
+          `</article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadStoreDetail(){
+      const box=document.getElementById('storeDetail');if(!box)return;
+      try{
+        const tiendas=await api('/api/stores/detail');
+        if(!tiendas.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Por sucursal</h2>`+
+          `<p>Ticket promedio, hora pico y mezcla de venta. Últimos 12 meses.</p></div></div>`+
+          `<div class="radar-grid">`+
+          tiendas.map(t=>{
+            const maxH=Math.max(...t.hours.map(h=>h.tickets||0),1);
+            const maxA=Math.max(...t.hours.map(h=>h.average_ticket||0),1);
+            const horas=t.hours.filter(h=>h.tickets>30);
+            return `<article class="card radar-card">`+
+              `<h3>${esc(t.store_name)}</h3>`+
+              `<p>${number(t.tickets)} tickets · $${money(t.sales)} · `+
+              `ticket promedio <strong>$${money(t.average_ticket)}</strong></p>`+
+              `<div class="insight-callout" style="margin:0 0 12px">`+
+              `Más gente a las <strong>${t.peak_traffic_hour}:00</strong>; `+
+              `ticket más alto a las <strong>${t.peak_value_hour}:00</strong>.</div>`+
+              horas.map(h=>
+                `<div class="bar-row"><span class="bar-label">${h.hour}:00</span>`+
+                `<span class="bar-track"><span class="bar" style="width:${Math.max(3,(h.tickets||0)*100/maxH)}%"></span>`+
+                `<span class="bar negative" style="width:${Math.max(3,(h.average_ticket||0)*100/maxA)}%;margin-top:2px"></span></span>`+
+                `<span class="bar-value">${number(h.tickets)} · $${money(h.average_ticket)}</span></div>`).join('')+
+              `</article>`;
+          }).join('')+`</div>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadStoreMix(){
+      const box=document.getElementById('storeMix');if(!box)return;
+      try{
+        const tiendas=await api('/api/stores/detail');
+        if(!tiendas.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Mezcla de venta por sucursal</h2>`+
+          `<p>Porcentaje sobre el total de cada tienda, no sobre el de la cadena. `+
+          `La jerarquía es división → categoría → producto.</p></div></div>`+
+          `<div class="radar-grid">`+
+          tiendas.map(t=>{
+            const cats=t.categories.filter(c=>c.share>=0.5);
+            const maxC=Math.max(...cats.map(c=>c.share||0),1);
+            const prods=(t.products||[]).slice(0,8);
+            const maxP=Math.max(...prods.map(p=>p.share||0),1);
+            return `<article class="card radar-card"><h3>${esc(t.store_name)}</h3>`+
+              `<p>Categorías con 0.5% o más de la venta de la sucursal.</p>`+
+              cats.map(c=>
+                `<div class="bar-row"><span class="bar-label">${esc(c.category_code)}</span>`+
+                `<span class="bar-track"><span class="bar" style="width:${Math.max(3,(c.share||0)*100/maxC)}%"></span></span>`+
+                `<span class="bar-value">${(c.share||0).toFixed(1)}% · $${money(c.sales)}</span></div>`).join('')+
+              `<h3 style="margin-top:14px">Subcategorías principales</h3>`+
+              prods.map(p=>
+                `<div class="bar-row"><span class="bar-label" title="${esc(p.category_code)}">${esc(p.product_code)}</span>`+
+                `<span class="bar-track"><span class="bar negative" style="width:${Math.max(3,(p.share||0)*100/maxP)}%"></span></span>`+
+                `<span class="bar-value">${(p.share||0).toFixed(1)}% · $${money(p.sales)}</span></div>`).join('')+
+              `</article>`;
+          }).join('')+`</div>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadBasket(){
+      const box=document.getElementById('basketPanel');if(!box)return;
+      try{
+        const pares=await api('/api/basket');
+        if(!pares.length){box.innerHTML='';return}
+        const maxF=Math.max(...pares.map(p=>p.missed_tickets||0),1);
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Qué se compra junto</h2>`+
+          `<p>Últimos 12 meses. El <em>lift</em> dice cuántas veces más probable es que aparezcan `+
+          `juntas que por azar. Lo accionable es la última columna: tickets que se fueron sin el complemento.</p></div></div>`+
+          `<article class="card data-card"><div class="table-wrap"><table>`+
+          `<thead><tr><th>Si lleva</th><th>Suele llevar</th><th class="number">Lift</th>`+
+          `<th class="number">Lo lleva</th><th class="number">Tickets</th>`+
+          `<th class="number">Se fueron sin él</th><th>Oportunidad</th></tr></thead><tbody>`+
+          pares.map(p=>{
+            const fuerza=Math.max(3,(p.missed_tickets||0)*100/maxF);
+            return `<tr><td><strong>${esc(p.anchor)}</strong></td><td>${esc(p.complement)}</td>`+
+              `<td class="number"><span class="pill ${p.lift>=4?'today':'next'}">${(p.lift||0).toFixed(1)}×</span></td>`+
+              `<td class="number">${(p.attach_rate||0).toFixed(0)}%</td>`+
+              `<td class="number">${number(p.anchor_tickets)}</td>`+
+              `<td class="number"><strong>${number(p.missed_tickets)}</strong></td>`+
+              `<td><span class="bar-track" style="display:block;width:110px">`+
+              `<span class="bar negative" style="width:${fuerza}%"></span></span></td></tr>`;
+          }).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Cómo se lee.</strong> Si el lift es 16, esas dos categorías aparecen juntas dieciséis veces `+
+          `más de lo que explicaría el azar: no es coincidencia, es un proyecto. `+
+          `La columna «lo lleva» es el porcentaje de tickets del ancla que sí incluyen el complemento; `+
+          `el resto son ventas que se fueron incompletas y son la oportunidad más barata que existe, `+
+          `porque el cliente ya está en el mostrador.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadOfferPanel(){
+      const box=document.getElementById('offerPanel');if(!box)return;
+      box.innerHTML=`<div class="section-title"><div><h2>Palancas de reactivación</h2>`+
+        `<p>Qué ofrecer a cada cliente elegible y cuánta utilidad esperada representa.</p></div></div>`+
+        `<article class="card"><div class="insight-callout" id="offerSummary" style="margin:18px"></div></article>`;
+      renderOfferSummary();
+      // El desglose sale del agregado sobre la base completa, no de la pagina
+      // que se este viendo: son 11,564 elegibles, no los 50 en pantalla.
+      try{
+        const filas=await api('/api/offers');
+        if(!filas.length)return;
+        const total=filas.reduce((n,f)=>n+(f.expected_margin||0),0);
+        box.insertAdjacentHTML('beforeend',
+          `<article class="card data-card"><div class="table-wrap"><table>`+
+          `<thead><tr><th>Palanca</th><th class="number">Clientes</th>`+
+          `<th class="number">Utilidad esperada</th><th class="number">Del total</th>`+
+          `<th class="number">Margen cedible</th><th class="number">Tope de descuento</th>`+
+          `</tr></thead><tbody>`+
+          filas.map(f=>
+            `<tr><td><strong>${esc(f.offer_type)}</strong></td>`+
+            `<td class="number">${number(f.customers)}</td>`+
+            `<td class="number"><strong>$${money(f.expected_margin)}</strong></td>`+
+            `<td class="number">${total?((100*f.expected_margin/total).toFixed(1)+'%'):'—'}</td>`+
+            `<td class="number">${(f.avg_headroom_pct||0).toFixed(1)}%</td>`+
+            `<td class="number">$${money(f.max_discount_amount)}</td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>El tope de descuento no es una meta.</strong><br>`+
+          `Es cuánto se puede ceder <em>sin perder dinero</em> en esa venta, sumado sobre `+
+          `todos los clientes de esa palanca. Cederlo completo dejaría la venta en cero de `+
+          `utilidad. Sirve como límite, no como oferta.</div></article>`);
+      }catch(e){}
+    }
+    async function loadRecovery(){
+      const box=document.getElementById('recoveryPanel');if(!box)return;
+      try{
+        const d=await api('/api/recovery');
+        if(!d.groups||!d.groups.length){box.innerHTML='';return}
+        const max=Math.max(...d.groups.map(g=>g.customers||0),1);
+        const total=d.groups.reduce((n,g)=>n+(g.expected_margin||0),0);
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Recuperación de clientes</h2>`+
+          `<p>Cuántos se perdieron y qué probabilidad hay de que regresen, medida sobre `+
+          `clientes que estuvieron en la misma situación.</p></div></div>`+
+          `<article class="card data-card"><div class="table-wrap"><table>`+
+          `<thead><tr><th>Situación</th><th class="number">Clientes</th>`+
+          `<th class="number">Regresan</th><th class="number">Ticket</th>`+
+          `<th class="number">Utilidad por compra</th><th class="number">Utilidad esperada</th>`+
+          `<th>Peso</th></tr></thead><tbody>`+
+          d.groups.map(g=>
+            `<tr><td><strong>${esc(g.grupo)}</strong></td>`+
+            `<td class="number">${number(g.customers)}</td>`+
+            `<td class="number">${g.probability==null?'<span class="status-text">sin medir</span>'
+              :`<span class="pill ${g.probability>=0.3?'next':g.probability>=0.15?'today':'late'}">${(g.probability*100).toFixed(0)}%</span>`}</td>`+
+            `<td class="number">$${money(g.average_ticket)}</td>`+
+            `<td class="number">$${money(g.margin_per_return)}</td>`+
+            `<td class="number"><strong>$${money(g.expected_margin)}</strong></td>`+
+            `<td><span class="bar-track" style="display:block;width:100px">`+
+            `<span class="bar" style="width:${Math.max(3,(g.customers||0)*100/max)}%"></span></span></td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px"><strong>Qué es este porcentaje y qué no es.</strong><br>`+
+          `Es la fracción de clientes que volvió a comprar en 90 días <strong>sin que nadie los contactara</strong>. `+
+          `Es la línea base contra la que se debe medir una campaña, no el resultado que promete. `+
+          `Cuánto sube con una promoción se mide contra el grupo reservado: una parte de cada campaña `+
+          `se deja deliberadamente sin ofrecer, y la diferencia entre las dos tasas es el efecto real. `+
+          `Utilidad esperada total del universo: `+
+          `<strong>$${money(total)}</strong>.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadWallet(){
+      const box=document.getElementById('walletPanel');if(!box)return;
+      try{
+        const d=await api('/api/wallet');
+        if(!d.rows||!d.rows.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Lo que le compran a alguien más</h2>`+
+          `<p>No hay forma de ver la factura de la competencia, así que se estima comparando: `+
+          `entre clientes del mismo tamaño de gasto, qué categorías compra la mayoría y cuáles `+
+          `no compra éste.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Clientes con hueco</span>`+
+          `<strong class="kpi-value">${number(d.customers)}</strong>`+
+          `<span class="kpi-foot">les falta algo que sus pares sí llevan</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Utilidad estimada</span>`+
+          `<strong class="kpi-value">$${money(d.opportunity)}</strong>`+
+          `<span class="kpi-foot">si compraran aquí lo que sus pares compran aquí</span></div></div>`+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th>Cliente</th><th>Sucursal</th><th>Tamaño</th>`+
+          `<th class="number">Categorías</th><th class="number">Nuestra parte</th>`+
+          `<th>Qué no nos compra</th><th class="number">Utilidad estimada</th></tr></thead><tbody>`+
+          d.rows.slice(0,60).map(f=>
+            `<tr><td><button class="link-button" data-client="${esc(f.customer_no)}">`+
+            `<strong>${esc(f.customer_name||f.customer_no)}</strong></button>`+
+            `${f.city?`<div class="status-text">${esc(f.city)}</div>`:''}</td>`+
+            `<td>${esc(f.store_name||f.store_no)}</td>`+
+            `<td>${esc(String(f.banda||'').replace(/^[A-D] /,''))}</td>`+
+            `<td class="number">${number(f.categories_bought)} de ${number(f.categories_expected)}`+
+            `<div class="status-text">${number(f.categories_total)} en total</div></td>`+
+            `<td class="number"><span class="pill ${(f.share_pct||0)>=70?'next':(f.share_pct||0)>=40?'today':'late'}">`+
+            `${(f.share_pct||0).toFixed(0)}%</span></td>`+
+            `<td>${(f.missing||[]).slice(0,3).map(m=>
+              `${esc(prettyCategory(m.category_code))} <span class="status-text">`+
+              `(${m.peer_penetration.toFixed(0)}% de sus pares)</span>`).join('<br>')}</td>`+
+            `<td class="number"><strong>$${money(f.missing_margin)}</strong></td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px"><strong>Es una estimación, no una medición.</strong><br>`+
+          `Un cliente puede no comprar una categoría simplemente porque su giro no la usa: un `+
+          `electricista no necesita cemento. Por eso sólo se cuentan categorías que <em>más de la `+
+          `mitad</em> de sus pares sí compra — cuanto más alta la penetración entre pares, menos `+
+          `probable es que sea cuestión de giro. La primera llamada sirve para averiguar cuál de `+
+          `las dos cosas es. ${esc(d.basis||'')}.</div></article>`;
+        box.querySelectorAll('[data-client]').forEach(b=>b.onclick=()=>loadCustomer(b.dataset.client));
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadReplenish(){
+      const box=document.getElementById('replenishPanel');if(!box)return;
+      try{
+        const d=await api('/api/replenishment');
+        if(!d.rows||!d.rows.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Qué le falta a cada sucursal</h2>`+
+          `<p>La comparación es contra la mezcla de la cadena, no contra un objetivo inventado: `+
+          `si una categoría pesa 8% de la venta en las cuatro tiendas y en ésta pesa 2%, la `+
+          `diferencia es venta que no se está haciendo.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Promociones que no se pueden surtir</span>`+
+          `<strong class="kpi-value">${number(d.blocked_promos)}</strong>`+
+          `<span class="kpi-foot">recomendadas sin existencia en su tienda</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Utilidad detenida</span>`+
+          `<strong class="kpi-value">$${money(d.blocked_gain)}</strong>`+
+          `<span class="kpi-foot">esperada de esas promociones</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Hueco de mezcla</span>`+
+          `<strong class="kpi-value">$${money(d.margin_gap)}</strong>`+
+          `<span class="kpi-foot">utilidad, si igualara a la cadena</span></div></div>`+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th>Sucursal</th><th>Categoría</th><th class="number">Aquí</th>`+
+          `<th class="number">En la cadena</th><th class="number">Hueco de venta</th>`+
+          `<th class="number">Artículos con existencia</th><th>Situación</th>`+
+          `<th class="number">Promos pendientes</th></tr></thead><tbody>`+
+          d.rows.slice(0,50).map(f=>
+            `<tr><td><strong>${esc(f.store_name||f.store_no)}</strong></td>`+
+            `<td>${esc(prettyCategory(f.category_code))}</td>`+
+            `<td class="number">${(f.store_share||0).toFixed(1)}%</td>`+
+            `<td class="number">${(f.chain_share||0).toFixed(1)}%</td>`+
+            `<td class="number">${f.sales_gap>0?`$${money(f.sales_gap)}`:'—'}</td>`+
+            `<td class="number">${f.items_with_stock===0
+              ?'<span class="pill late">ninguno</span>':number(f.items_with_stock)}</td>`+
+            `<td>${f.actionable?`<span class="pill late">${esc(f.urgency||'')}</span>`
+              :`<span class="status-text">${esc(f.urgency||'')}</span>`}</td>`+
+            `<td class="number">${f.promo_customers?`<strong>${number(f.promo_customers)}</strong>`:'—'}</td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px"><strong>Qué leer primero.</strong><br>`+
+          `<em>Sin existencia y con promociones pendientes</em> es lo urgente: el sistema ya le `+
+          `está recomendando esa categoría a clientes de esa tienda y no hay con qué cumplir. `+
+          `El resto es un hueco de mezcla, y ahí conviene el sentido común: una sucursal puede `+
+          `vender distinto porque su zona es distinta, no porque le falte surtido. ${esc(d.basis||'')}.`+
+          `</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadDiscount(){
+      const box=document.getElementById('discountPanel');if(!box)return;
+      try{
+        const d=await api('/api/discount-response');
+        if(!d.bands||!d.bands.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>¿El descuento trae más compras?</h2>`+
+          `<p>La pregunta que casi nadie hace antes de autorizar uno. Se responde con lo ya `+
+          `ocurrido: dentro de la misma banda de gasto, quién recibió más descuento y si eso `+
+          `se tradujo en comprar más veces.</p></div></div>`+
+          d.bands.map(b=>
+            `<article class="card data-card"><div style="padding:18px 18px 0">`+
+            `<h3 style="margin:0">${esc(String(b.banda).replace(/^[A-D] /,''))}</h3>`+
+            `<div class="status-text" style="margin-top:6px"><span class="pill `+
+            `${/no trae|cuesta mas/.test(b.verdict)?'late':'next'}">${esc(b.verdict)}</span>`+
+            `${b.evidence?` ${esc(b.evidence)}`:''}</div></div>`+
+            `<div class="table-wrap"><table>`+
+            `<thead><tr><th>Descuento recibido</th><th class="number">Clientes</th>`+
+            `<th class="number">Descuento real</th><th class="number">Compras en el año</th>`+
+            `<th class="number">Ticket</th><th class="number">Margen</th>`+
+            `<th class="number">Cadencia</th></tr></thead><tbody>`+
+            b.groups.map(g=>
+              `<tr><td><strong>${esc(g.profundidad)}</strong></td>`+
+              `<td class="number">${number(g.clientes)}</td>`+
+              `<td class="number">${(g.descuento_pct||0).toFixed(1)}%</td>`+
+              `<td class="number">${(g.compras_al_ano||0).toFixed(1)}</td>`+
+              `<td class="number">$${money(g.ticket)}</td>`+
+              `<td class="number">${(g.margen_pct||0).toFixed(1)}%</td>`+
+              `<td class="number">${g.cadencia==null?'—':`${Math.round(g.cadencia)} d`}</td></tr>`).join('')+
+            `</tbody></table></div></article>`).join('')+
+          ((d.price_position||[]).length
+            ? `<div class="section-title"><div><h2>Dónde está el descuento de verdad</h2>`+
+              `<p>${esc(d.price_note||'')}.</p></div></div>`+
+              `<article class="card data-card"><div class="table-wrap"><table>`+
+              `<thead><tr><th>Tamaño de cliente</th><th class="number">Clientes</th>`+
+              `<th class="number">Margen</th><th class="number">Puntos que cede</th>`+
+              `<th class="number">Compras en el año</th><th class="number">Ticket</th>`+
+              `<th class="number">Venta anual</th><th class="number">Utilidad al año por cliente</th>`+
+              `</tr></thead><tbody>`+
+              d.price_position.map(f=>
+                `<tr><td><strong>${esc(f.banda)}</strong></td>`+
+                `<td class="number">${number(f.clientes)}</td>`+
+                `<td class="number">${(f.margen_pct||0).toFixed(1)}%</td>`+
+                `<td class="number">${f.margin_given_up
+                  ?`<span class="pill late">−${f.margin_given_up.toFixed(1)} pts</span>`
+                  :'<span class="status-text">ninguno</span>'}</td>`+
+                `<td class="number">${(f.compras_al_ano||0).toFixed(1)}</td>`+
+                `<td class="number">$${money(f.ticket)}</td>`+
+                `<td class="number">$${money(f.venta_anual)}</td>`+
+                `<td class="number"><strong>$${money(f.annual_margin_per_customer)}</strong></td></tr>`).join('')+
+              `</tbody></table></div>`+
+              `<div class="insight-callout" style="margin:14px"><strong>Cómo leer esta escalera.</strong><br>`+
+              `La línea de descuento del POS está casi vacía, pero la concesión existe: se hace como `+
+              `precio negociado y aterriza en el margen. Cada renglón cede más margen que el de abajo `+
+              `y a cambio compra más veces y más grande. Lo que hay que vigilar no es que el margen `+
+              `baje —eso es esperado— sino que un cliente ceda los puntos del tramo de arriba sin `+
+              `comprar como el tramo de arriba.</div></article>`
+            : '')+
+          `<article class="card"><div class="insight-callout" style="margin:18px">`+
+          `<strong>Esto describe una relación, no una causa.</strong><br>`+
+          `Un cliente puede recibir más descuento <em>porque</em> compra mucho, y no comprar `+
+          `mucho porque recibe descuento. Separar las dos cosas requiere el grupo de control: `+
+          `ofrecerle a unos sí y a otros no, y comparar. Lo que esta tabla sí resuelve es lo `+
+          `contrario: si aquí no aparece ninguna relación, difícilmente aparecerá descontando `+
+          `más. ${esc(d.basis||'')}.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    // Trazador SVG minimo. Se dibuja a mano en lugar de traer una libreria:
+    // el tablero se sirve desde la propia aplicacion, sin internet, y una
+    // grafica de lineas son cuarenta lineas de codigo.
+    function lineChart(puntos, series, opciones={}){
+      if(!puntos.length)return '<div class="empty">Sin serie para graficar.</div>';
+      const An=opciones.width||760, Al=opciones.height||230;
+      const mI=opciones.left||56, mD=18, mS=14, mB=30;
+      const anchoUtil=An-mI-mD, altoUtil=Al-mS-mB;
+      // Todas las series comparten escala solo si comparten unidad; si no, cada
+      // una se normaliza contra su propio maximo y se dice en la leyenda.
+      const escalas=series.map(s=>{
+        const vals=puntos.map(p=>Number(p[s.key])).filter(v=>Number.isFinite(v));
+        const max=Math.max(...vals,0), min=Math.min(...vals,0);
+        return {max:max||1,min:opciones.desdeCero===false?min:0};
+      });
+      const x=i=>mI+(puntos.length===1?anchoUtil/2:i*anchoUtil/(puntos.length-1));
+      const y=(v,e)=>mS+altoUtil-((Number(v)-e.min)/((e.max-e.min)||1))*altoUtil;
+
+      const rejilla=[0,.25,.5,.75,1].map(t=>{
+        const yy=mS+altoUtil-t*altoUtil;
+        const ref=escalas[0], val=ref.min+t*(ref.max-ref.min);
+        return `<line class="rejilla" x1="${mI}" y1="${yy}" x2="${An-mD}" y2="${yy}"/>`+
+               `<text class="etiqueta" x="${mI-8}" y="${yy+3}" text-anchor="end">`+
+               `${opciones.fmtEje?opciones.fmtEje(val):compact(val)}</text>`;
+      }).join('');
+
+      // Una etiqueta de cada N para que no se encimen en pantallas angostas.
+      const paso=Math.max(1,Math.ceil(puntos.length/12));
+      const ejeX=puntos.map((p,i)=>i%paso?'':
+        `<text class="etiqueta" x="${x(i)}" y="${Al-10}" text-anchor="middle">`+
+        `${esc(opciones.etiqueta?opciones.etiqueta(p):p.label||'')}</text>`).join('');
+
+      const trazos=series.map((s,si)=>{
+        const e=escalas[si];
+        const validos=puntos.map((p,i)=>({i,v:Number(p[s.key])})).filter(o=>Number.isFinite(o.v));
+        if(!validos.length)return '';
+        const d=validos.map((o,k)=>`${k?'L':'M'}${x(o.i).toFixed(1)},${y(o.v,e).toFixed(1)}`).join(' ');
+        const area=s.area?`<path class="area" fill="${s.color}" d="${d} L${x(validos.at(-1).i).toFixed(1)},`+
+          `${(mS+altoUtil).toFixed(1)} L${x(validos[0].i).toFixed(1)},${(mS+altoUtil).toFixed(1)} Z"/>`:'';
+        // El ultimo tramo va punteado si el ultimo punto es un mes incompleto:
+        // sin eso la grafica parece dar una mala noticia cada mes.
+        const parcial=puntos.at(-1)&&puntos.at(-1).partial;
+        const puntosVis=validos.map(o=>
+          `<circle class="punto" cx="${x(o.i).toFixed(1)}" cy="${y(o.v,e).toFixed(1)}" r="${
+            o.i===validos.at(-1).i?3.6:2.2}" fill="${s.color}">`+
+          `<title>${esc(puntos[o.i].label||'')}: ${s.fmt?s.fmt(o.v):compact(o.v)}</title></circle>`).join('');
+        return area+`<path class="serie${parcial?' parcial':''}" stroke="${s.color}" d="${d}"/>`+puntosVis;
+      }).join('');
+
+      return `<svg class="chart" viewBox="0 0 ${An} ${Al}" role="img" aria-label="${esc(opciones.titulo||'')}">`+
+        rejilla+
+        `<line class="eje" x1="${mI}" y1="${mS+altoUtil}" x2="${An-mD}" y2="${mS+altoUtil}"/>`+
+        ejeX+trazos+`</svg>`+
+        `<div class="chart-legend">`+series.map(s=>
+          `<span><i style="background:${s.color}"></i>${esc(s.label)}</span>`).join('')+
+        (puntos.at(-1)&&puntos.at(-1).partial
+          ?`<span style="opacity:.75">— el último mes va incompleto</span>`:'')+
+        `</div>`;
+    }
+    let trabajoDueno='';
+    async function loadTransfers(){
+      const box=document.getElementById('transferPanel');if(!box)return;
+      try{
+        const d=await api('/api/transfers');
+        if(!d.routes||!d.routes.length){box.innerHTML='';return}
+        const tiendas=d.routes.filter(r=>r.to_name&&!/^\d+$/.test(r.to_name));
+        box.innerHTML=
+          `<div class="section-title"><div><h2>De dónde se surte cada tienda</h2>`+
+          `<p>Cuando un artículo no está en la sucursal del cliente, esto dice a quién `+
+          `pedírselo. Antes el sistema decía "pedir traspaso" sin nombrar a nadie.</p></div></div>`+
+          `<article class="card"><div class="table-wrap"><table>`+
+          `<thead><tr><th>Bodega</th><th>Surte a</th><th class="number">Líneas</th>`+
+          `<th class="number">Piezas</th><th class="number">En camino</th></tr></thead><tbody>`+
+          (tiendas.length?tiendas:d.routes).slice(0,20).map(r=>
+            `<tr><td><strong>${esc(r.from_name||r.origen)}</strong></td>`+
+            `<td>${esc(r.to_name||r.destino)}</td>`+
+            `<td class="number">${number(r.lines)}</td>`+
+            `<td class="number">${number(Math.round(r.quantity))}</td>`+
+            `<td class="number">${r.pending_lines?number(r.pending_lines):'—'}</td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Cuánto tarda un traspaso: no se puede saber con estos datos.</strong><br>`+
+          `De 72,691 líneas enviadas en doce meses, 72,626 se registran recibidas <em>el mismo `+
+          `día</em>, y ninguna de las 860 rutas da un promedio mayor a cero. Eso no significa `+
+          `que el traspaso sea instantáneo: significa que la fecha de recepción es una `+
+          `convención de captura y no el momento en que la mercancía llegó al anaquel. `+
+          `Se dice aquí para que nadie le prometa a un cliente que su material llega hoy. `+
+          `${esc(d.basis||'')}.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadFreshness(){
+      const box=document.getElementById('freshnessPanel');if(!box)return;
+      try{
+        const d=await api('/api/freshness');
+        if(!d.sources||!d.sources.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>¿Están llegando los datos?</h2>`+
+          `<p>Esto no mide el negocio: mide la tubería. Si una sola fuente se atrasa es esa `+
+          `integración; si se atrasan todas a la misma fecha, es la copia completa.</p></div></div>`+
+          `<article class="card"><div class="table-wrap"><table>`+
+          `<thead><tr><th>Fuente</th><th>Última fecha</th><th class="number">Atraso</th>`+
+          `<th>Estado</th></tr></thead><tbody>`+
+          d.sources.map(f=>
+            `<tr><td><strong>${esc(f.source)}</strong></td>`+
+            `<td>${esc(String(f.last_date||'—'))}</td>`+
+            `<td class="number">${f.days_behind==null?'—':number(f.days_behind)+' d'}</td>`+
+            `<td><span class="pill ${f.state==='al dia'?'next':f.state==='atrasada'?'today':'late'}">`+
+            `${esc(f.state)}</span></td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout ${d.stalled?'':''}" style="margin:14px">`+
+          `<strong>${esc(d.diagnosis||'')}</strong></div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadReorder(){
+      const box=document.getElementById('reorderPanel');if(!box)return;
+      try{
+        const d=await api('/api/reorder');
+        if(!d.rows||!d.rows.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Debajo del mínimo</h2>`+
+          `<p>Artículos por debajo del punto de reorden que ustedes mismos configuraron. `+
+          `A diferencia del hueco de mezcla, esto sí es una lista de tareas: el mínimo no `+
+          `lo inventó el sistema.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Bajo el mínimo en tienda</span>`+
+          `<strong class="kpi-value">${number(d.items_below_stores)}</strong>`+
+          `<span class="kpi-foot">${number(d.items_below)} contando bodegas</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Agotados en tienda</span>`+
+          `<strong class="kpi-value">${number(d.items_out_stores)}</strong>`+
+          `<span class="kpi-foot">sin una sola pieza en el piso de venta</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Con mínimo definido</span>`+
+          `<strong class="kpi-value">${number(d.points_configured)}</strong>`+
+          `<span class="kpi-foot">de más de 500,000 combinaciones posibles</span></div></div>`+
+          ((d.by_store||[]).length?`<div class="heat-controls" style="padding:0 18px 4px">`+
+            d.by_store.map(t=>`<span class="heat-chip" style="cursor:default`+
+              `${t.is_store?'':';opacity:.6'}">`+
+              `${esc(t.store_name)}${t.is_store?'':' (bodega)'}: `+
+              `${number(t.items)} bajos, ${number(t.agotados)} agotados`+
+              `</span>`).join('')+`</div>`:'')+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th>Artículo</th><th>Sucursal</th><th>Categoría</th>`+
+          `<th class="number">En piso</th><th class="number">Su mínimo</th>`+
+          `<th class="number">Falta</th><th class="number">Sugerido pedir</th>`+
+          `<th>Estado</th></tr></thead><tbody>`+
+          d.rows.slice(0,60).map(f=>
+            `<tr><td><strong>${esc(f.item_no)}</strong></td>`+
+            `<td>${esc(f.store_name||f.store_no)}`+
+            `${f.is_store?'':'<div class="status-text">bodega</div>'}</td>`+
+            `<td>${f.category_code?esc(prettyCategory(f.category_code)):'—'}</td>`+
+            `<td class="number">${number(f.on_hand)}</td>`+
+            `<td class="number">${number(f.reorder_point)}</td>`+
+            `<td class="number"><strong>${number(Math.round(f.shortfall))}</strong></td>`+
+            `<td class="number">${number(Math.round(f.suggested_order))}</td>`+
+            `<td><span class="pill ${f.state==='agotado'?'late':'today'}">${esc(f.state)}</span></td>`+
+            `</tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Lo que esta lista no cubre.</strong><br>`+
+          `Solo ${number(d.points_configured)} combinaciones artículo/tienda tienen punto de `+
+          `reorden definido en el ERP, de más de 500,000 posibles. Lo que no está configurado `+
+          `no aparece aquí, y su ausencia <em>no</em> significa que esté bien: significa que `+
+          `nadie le puso mínimo. ${esc(d.basis||'')}.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadOffCounter(){
+      const box=document.getElementById('offCounterPanel');if(!box)return;
+      try{
+        const d=await api('/api/off-counter');
+        if(!d.rows||!d.rows.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>La venta que no pasa por caja</h2>`+
+          `<p>Era el punto ciego más grande: todo el motor de clientes se construía sobre el `+
+          `mostrador. Aquí están las cuentas que casi nunca hacen fila.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Clientes con factura</span>`+
+          `<strong class="kpi-value">${number(d.customers_with_invoice)}</strong>`+
+          `<span class="kpi-foot">compran también fuera del mostrador</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Facturado a 12 meses</span>`+
+          `<strong class="kpi-value">$${money(d.invoiced_sales)}</strong>`+
+          `<span class="kpi-foot">${(d.invoiced_share_pct||0).toFixed(1)}% de todo lo que venden</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Mostrador</span>`+
+          `<strong class="kpi-value">$${money(d.counter_sales)}</strong>`+
+          `<span class="kpi-foot">lo único que el sistema veía antes</span></div></div>`+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th>Cliente</th><th>Sucursal</th><th class="number">Mostrador</th>`+
+          `<th class="number">Facturado</th><th class="number">Total</th>`+
+          `<th class="number">% en piso</th><th>Cómo leerlo</th>`+
+          `<th class="number">Última factura</th><th></th></tr></thead><tbody>`+
+          d.rows.slice(0,60).map(f=>
+            `<tr><td><strong>${esc(f.customer_name||f.customer_no)}</strong>`+
+            `${f.city?`<div class="status-text">${esc(f.city)}</div>`:''}</td>`+
+            `<td>${esc(f.store_name||f.store_no)}</td>`+
+            `<td class="number">$${money(f.sales_12m)}</td>`+
+            `<td class="number"><strong>$${money(f.invoice_sales_12m)}</strong></td>`+
+            `<td class="number">$${money(f.total_12m)}</td>`+
+            `<td class="number"><span class="pill ${(f.pos_share_pct||0)<10?'late':'today'}">`+
+            `${(f.pos_share_pct||0).toFixed(1)}%</span></td>`+
+            `<td class="status-text">${esc(f.reading||'')}</td>`+
+            `<td class="number">${esc(String(f.last_invoice||'—').slice(0,10))}</td>`+
+            `<td><button class="mini-btn" data-client="${esc(f.customer_no)}">Ver</button></td>`+
+            `</tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Por qué esto cambia las alertas.</strong><br>`+
+          `Un cliente con 0.6% en piso no es un cliente chico: es un cliente que el sistema `+
+          `estaba viendo por la rendija equivocada. Su cadencia, su promoción y su alerta de `+
+          `caída se calculaban sólo con la parte que pasa por caja. Por eso la alerta de `+
+          `consumo ahora excluye a quien tiene factura reciente: marcar como fuga a alguien `+
+          `que compró esa misma semana por otra vía hace quedar mal al asesor. `+
+          `${esc(d.basis||'')}.</div></article>`;
+        box.querySelectorAll('[data-client]').forEach(b=>b.onclick=()=>loadCustomer(b.dataset.client));
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadSeason(){
+      const box=document.getElementById('seasonPanel');if(!box)return;
+      try{
+        const d=await api('/api/seasonality');
+        if(!d.months||!d.months.length){box.innerHTML='';return}
+        const puntos=d.months.map(m=>({...m,label:m.month_name}));
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Temporada: qué meses son buenos</h2>`+
+          `<p>Hay ${number(d.years)} años completos de historia y nunca se habían usado para `+
+          `medir temporada. En materiales, mayo siempre gana a enero: leer esa diferencia `+
+          `como crecimiento es leer el clima como si fuera el negocio.</p></div></div>`+
+          `<article class="card"><div class="chart-wrap">`+
+          lineChart(puntos,[
+            {key:'index',label:'Índice de temporada (1.00 = mes promedio)',color:'#417e79',
+             fmt:v=>v.toFixed(2)},
+          ],{height:190,etiqueta:p=>p.month_name.slice(0,3),fmtEje:v=>v.toFixed(2),
+             desdeCero:false,titulo:'Temporada por mes'})+
+          `</div>`+
+          (d.best?`<div class="status-text" style="padding:0 18px 10px">`+
+            `El mes más fuerte es <strong>${esc(d.best.month_name)}</strong> `+
+            `(${d.best.pct_vs_average>0?'+':''}${d.best.pct_vs_average.toFixed(1)}% sobre el promedio) `+
+            `y el más flojo <strong>${esc(d.worst.month_name)}</strong> `+
+            `(${d.worst.pct_vs_average.toFixed(1)}%).</div>`:'')+
+          ((d.next_months||[]).length?`<div class="table-wrap"><table>`+
+            `<thead><tr><th>Próximos meses</th><th class="number">Índice</th>`+
+            `<th class="number">Vs promedio</th><th class="number">Venta esperada</th>`+
+            `<th>Confianza</th></tr></thead><tbody>`+
+            d.next_months.map(m=>
+              `<tr><td><strong>${esc(m.month_name)}</strong></td>`+
+              `<td class="number">${m.index.toFixed(2)}</td>`+
+              `<td class="number"><span class="pill ${m.vs_average_pct>=0?'next':'late'}">`+
+              `${m.vs_average_pct>0?'+':''}${m.vs_average_pct.toFixed(1)}%</span></td>`+
+              `<td class="number"><strong>$${money(m.expected)}</strong></td>`+
+              `<td>${m.reliable?'<span class="status-text">medida en varios años</span>'
+                :'<span class="pill late">poco confiable</span>'}</td></tr>`).join('')+
+            `</tbody></table></div>`:'')+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Para qué sirve y para qué no.</strong><br>`+
+          `Sirve para <em>anticipar</em>: si noviembre vende 26% arriba del promedio, el `+
+          `inventario y el personal se preparan antes, no después. <strong>No</strong> sirve `+
+          `para ajustar una comparación contra el mismo mes del año pasado — ésa ya trae la `+
+          `temporada descontada de los dos lados, y volver a restarla diría que un mayo mejor `+
+          `que el mayo anterior no creció. ${esc(d.basis||'')}.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    let ftDias=180;
+    // Recorrido guiado. Cada paso lleva a la seccion de verdad en lugar de
+    // describirla de lejos: se aprende viendo los propios datos, no una captura.
+    const TOUR=[
+      {vista:'home',titulo:'Bienvenido. Esto es lo que hace el programa',
+       texto:`Toma la información que ya está en su ERP —ventas, cotizaciones, inventario, `+
+             `cartera— y contesta tres preguntas: <strong>a quién le toca comprar</strong>, `+
+             `<strong>qué ofrecerle</strong> y <strong>si sirvió</strong>.`,
+       usar:`Esta pantalla abre con la tendencia mensual: venta facturada y utilidad. `+
+             `Es lo único del tablero que muestra hacia dónde va el negocio; el resto son `+
+             `fotos de un instante.`,
+       ojo:`Si ve una franja roja arriba, los datos vienen atrasados. El programa lo avisa `+
+            `en lugar de fingir que sus números son de hoy.`},
+      {vista:'client',titulo:'Clientes: la ficha completa',
+       texto:`Busque a cualquiera por nombre, ciudad o número. La ficha trae su historial, `+
+             `sus categorías, y —lo importante— <strong>la promoción que le toca y por qué</strong>.`,
+       usar:`Cada promoción viene con sus razones, y cada razón con el dato que la sostiene: `+
+             `cuándo le toca volver, qué suele llevar junto, cuánta utilidad agrega, si hay `+
+             `existencia en su tienda. Ahí mismo puede asignarle un responsable.`,
+       ojo:`El sistema nunca inventa un precio. Si el ERP no lo tiene configurado, dice `+
+           `"por confirmar" en vez de arriesgar que un asesor prometa mal.`},
+      {vista:'trabajo',titulo:'Trabajo del día: quién le llama a quién',
+       texto:`Una lista sin responsable no se trabaja: cada quien supone que alguien más la `+
+             `está viendo. Aquí cada cliente tiene <strong>dueño, fecha límite y resultado</strong>.`,
+       usar:`Lo vencido sale en rojo. Se cierra con "Compró" o "Sin éxito" desde el mismo `+
+             `renglón, y la tabla de abajo muestra por persona cuántas cerró y con qué acierto.`,
+       ojo:`Abajo está el mensaje que el bot le manda a cada asesor en la mañana. Puede leerlo `+
+           `antes de que salga. Nadie abre un tablero todos los días; el trabajo debe salir a `+
+           `buscar a la persona.`},
+      {vista:'quotes',titulo:'Cotizaciones: la venta que se está enfriando',
+       texto:`Cotizaciones abiertas, con las citas vencidas primero.`,
+       usar:`Esta sección consulta el ERP <strong>al momento</strong>, no la foto de la `+
+             `madrugada. La etiqueta le dice de dónde salieron los datos y hace cuánto.`,
+       ojo:`El 98.9% de las cotizaciones que se cierran se cierran <strong>el mismo día</strong>. `+
+           `Por eso se consulta en vivo: mañana ya es tarde.`},
+      {vista:'recovery',titulo:'Recuperación: las tres bolsas de crecimiento',
+       texto:`Tres listas distintas, de mayor a menor tamaño: quienes <strong>cotizaron y nunca `+
+             `compraron</strong>, quienes <strong>compraron una sola vez</strong>, y quienes `+
+             `<strong>siguen comprando pero gastan menos</strong>.`,
+       usar:`La última es la más valiosa y la más invisible: por recencia están al corriente, `+
+             `así que no aparecen en ninguna otra lista. Cada renglón dice si es una obra que `+
+             `ya entregó o un cliente que se está yendo.`,
+       ojo:`Ninguna de las tres inventa una probabilidad. Ordenan por lo que vale cada caso y `+
+           `dejan que el grupo de control conteste si funciona.`},
+      {vista:'uplift',titulo:'Promociones: y si de verdad sirven',
+       texto:`Qué producto agregar a qué venta para que el ticket deje más utilidad, medido `+
+             `sobre lo que sus clientes ya compran juntos.`,
+       usar:`Arriba está el <strong>efecto medido</strong>: cuando registre contactos con nombre `+
+             `de campaña, el sistema aparta solo un grupo al que no se le ofrece nada, y compara. `+
+             `Esa diferencia es el único número que prueba que la promoción sirvió.`,
+       ojo:`Mientras no haya campañas con compras en los dos grupos, esa tabla estará vacía. `+
+           `Es correcto: sin grupo de control, cualquier resultado se explica diciendo que esos `+
+           `clientes ya iban a comprar.`},
+      {vista:'product',titulo:'Producto: qué se lleva junto',
+       texto:`Qué categorías se compran juntas, cuántas veces más que por azar, y cuántos tickets `+
+             `se van sin el complemento.`,
+       usar:`De aquí sale la promoción de cada cliente. Si ve que "quien lleva puertas suele `+
+             `llevar herrajes 16 veces más que por azar", ese es el motivo que el asesor le va `+
+             `a decir al cliente.`},
+      {vista:'stores',titulo:'Sucursales: cuándo y dónde se vende mejor',
+       texto:`El mapa cruza <strong>día de la semana por hora</strong>. Las tablas de "por hora" `+
+             `y "por día" por separado esconden justo esto.`,
+       usar:`Sirve para decidir dónde poner gente en piso y cuándo no agendar entregas ni `+
+             `inventarios. Las horas pálidas de un día que en otros está encendido son las que `+
+             `vale la pena empujar.`,
+       ojo:`La utilidad de cada cuadro se <strong>asigna</strong>, no se mide: compara cuadros `+
+           `entre sí, no cuadra contra contabilidad.`},
+      {vista:'wallet',titulo:'Inventario y precio',
+       texto:`Cuatro cosas: el <strong>monedero de lealtad</strong> de sus clientes, los artículos `+
+             `<strong>debajo del mínimo</strong> que ustedes mismos configuraron, quién surte a `+
+             `cada tienda, y qué margen cede cada tramo de cliente.`,
+       usar:`La lista de agotados es la única del sistema que es literalmente una lista de tareas: `+
+             `un artículo en cero con un mínimo que alguien puso a propósito es venta que no se `+
+             `puede hacer.`,
+       ojo:`Solo el 3.4% de las combinaciones artículo/tienda tiene mínimo configurado. Lo que no `+
+           `aparece no significa que esté bien: significa que nadie le puso mínimo.`},
+      {vista:'oculto',titulo:'Venta fuera de caja y temporada',
+       texto:`El <strong>34% de lo que venden no pasa por el mostrador</strong>: se factura. Son `+
+             `las cuentas grandes, y todo el motor de clientes se construía sin verlas.`,
+       usar:`Un cliente con 0.6% en piso no es chico: es un cliente que el sistema estaba viendo `+
+             `por la rendija equivocada. Abajo, qué meses son buenos: noviembre vende 26% arriba `+
+             `del promedio y febrero 17% abajo.`,
+       ojo:`La temporada sirve para <strong>anticipar</strong>, no para ajustar comparaciones `+
+           `contra el mismo mes del año pasado: ésas ya la traen descontada de los dos lados.`},
+      {vista:'growth',titulo:'Crecimiento: cuánto vale mover la aguja',
+       texto:`Qué pasa si la retención sube un punto, y cuánta gente hace falta para trabajar `+
+             `la cola completa.`,
+       usar:`Úselo para dimensionar: cuántos asesores, cuántos contactos al día, cuánto rinde `+
+             `cada punto de retención.`},
+      {vista:'health',titulo:'Datos y modelo: qué tan confiable es todo esto',
+       texto:`Con qué se entrenó la predicción, qué tan bien acierta, y —arriba— `+
+             `<strong>si los datos están llegando</strong>.`,
+       usar:`Si algún día las secciones se ven raras, empiece aquí. La sección de frescura le `+
+             `dice fuente por fuente hasta qué fecha llegó cada una.`,
+       ojo:`Si <strong>todas</strong> las fuentes paran el mismo día, no es un módulo: es la `+
+           `carga del ERP. Reconstruir la foto no lo arregla; hay que avisarle a sistemas.`},
+      {vista:'home',titulo:'Por dónde empezar mañana',
+       texto:`Tres pasos, en este orden:`,
+       usar:`<strong>1.</strong> Abra <em>Recuperación</em> y tome los diez primeros de "gastan `+
+            `menos". <strong>2.</strong> Asígnelos desde su ficha, con nombre de campaña. `+
+            `<strong>3.</strong> En seis semanas, <em>Promociones</em> le dice si sirvió — `+
+            `comparado contra el grupo que se apartó solo.`,
+       ojo:`Ese tercer paso es el que convierte esto en una herramienta y no en un reporte. `+
+           `Sin registrar los contactos, el sistema no puede aprender nada.`},
+    ];
+    let tourPaso=0;
+    function tourPintar(){
+      const t=TOUR[tourPaso];
+      show(t.vista);
+      let velo=document.getElementById('tourVelo');
+      if(!velo){velo=document.createElement('div');velo.id='tourVelo';velo.className='tour-velo';
+        document.body.appendChild(velo)}
+      velo.innerHTML=
+        `<div class="tour-caja">`+
+        `<div class="tour-paso">Paso ${tourPaso+1} de ${TOUR.length}</div>`+
+        `<h3>${esc(t.titulo)}</h3>`+
+        `<p class="tour-para">${t.texto}</p>`+
+        (t.usar?`<div class="tour-usar"><strong>Cómo se usa.</strong> ${t.usar}</div>`:'')+
+        (t.ojo?`<div class="tour-ojo"><strong>Ojo con esto.</strong> ${t.ojo}</div>`:'')+
+        `<div class="tour-pie">`+
+        `<button class="tour-saltar" id="tourSalir">Salir del recorrido</button>`+
+        `<span class="tour-barra"><span style="width:${(tourPaso+1)*100/TOUR.length}%"></span></span>`+
+        `<span class="tour-btns">`+
+        `<button class="tour-btn" id="tourAtras" ${tourPaso?'':'disabled'}>Atrás</button>`+
+        `<button class="tour-btn primario" id="tourSig">`+
+        `${tourPaso===TOUR.length-1?'Terminar':'Siguiente'}</button>`+
+        `</span></div></div>`;
+      velo.querySelector('#tourSalir').onclick=tourCerrar;
+      velo.querySelector('#tourAtras').onclick=()=>{if(tourPaso){tourPaso--;tourPintar()}};
+      velo.querySelector('#tourSig').onclick=()=>{
+        if(tourPaso===TOUR.length-1){tourCerrar();return}
+        tourPaso++;tourPintar()};
+      // Se puede cerrar tocando fuera o con Escape: nadie debe sentirse atrapado.
+      velo.onclick=e=>{if(e.target===velo)tourCerrar()};
+    }
+    function tourCerrar(){
+      const velo=document.getElementById('tourVelo');
+      if(velo)velo.remove();
+      try{sessionStorage.setItem('tourVisto','1')}catch(e){}
+    }
+    function tourAbrir(){tourPaso=0;tourPintar()}
+    document.addEventListener('keydown',e=>{
+      if(!document.getElementById('tourVelo'))return;
+      if(e.key==='Escape')tourCerrar();
+      if(e.key==='ArrowRight'&&tourPaso<TOUR.length-1){tourPaso++;tourPintar()}
+      if(e.key==='ArrowLeft'&&tourPaso>0){tourPaso--;tourPintar()}
+    });
+    let colaPag=1,colaFiltro='',colaTam=50;
+    async function loadColaCotizaciones(){
+      const box=document.getElementById('quoteQueuePanel');if(!box)return;
+      try{
+        const d=await api(`/api/quotes/live?page=${colaPag}&limit=${colaTam}`);
+        const filas=(d.rows||[]).filter(f=>
+          colaFiltro==='vencidas'?f.expired_appointment:
+          colaFiltro==='proximas'?!f.expired_appointment:true);
+        const total=Number(d.total||0),vencidas=Number(d.expired_total||0);
+        const paginas=Math.max(1,Math.ceil(total/colaTam));
+        const desde=total?((colaPag-1)*colaTam)+1:0, hasta=Math.min(colaPag*colaTam,total);
+        const pager=`<div class="history-footer" style="padding:0 18px 4px">`+
+          `<span>Mostrando ${number(desde)}–${number(hasta)} de <strong>${number(total)}</strong> `+
+          `cotizaciones en la cola.</span>`+
+          `<span><button class="page-button" data-cola="${colaPag-1}" `+
+          `${colaPag<=1?'disabled':''}>← Anterior</button> `+
+          `<button class="page-button" data-cola="${colaPag+1}" `+
+          `${colaPag>=paginas?'disabled':''}>Siguiente →</button></span></div>`;
+        box.innerHTML=
+          `<div class="section-title"><div><h2>La cola completa</h2>`+
+          `<p>Todas las cotizaciones con cita, no solo las primeras. `+
+          `Página ${number(colaPag)} de ${number(paginas)}.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">En la cola</span>`+
+          `<strong class="kpi-value">${number(total)}</strong>`+
+          `<span class="kpi-foot">${number(vencidas)} ya vencidas</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Monto en juego</span>`+
+          `<strong class="kpi-value">$${money(d.queue_amount)}</strong>`+
+          `<span class="kpi-foot">suma de la cola completa</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Origen</span>`+
+          `<strong class="kpi-value" style="font-size:15px">${esc(d.source||'—')}</strong>`+
+          `<span class="kpi-foot">${d.age_seconds!=null&&d.age_seconds<90?'hace un momento'
+            :d.age_seconds!=null?`hace ${Math.round(d.age_seconds/60)} min`:''}</span></div></div>`+
+          `<div class="heat-controls" style="padding:0 18px">`+
+          [['','Todas'],['vencidas','Solo vencidas'],['proximas','Solo próximas']].map(([v,t])=>
+            `<button class="heat-chip ${colaFiltro===v?'on':''}" data-colaf="${v}">${t}</button>`).join('')+
+          `</div>`+pager+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th class="number">#</th><th>Cotización</th><th>Asesor</th>`+
+          `<th class="number">Monto</th><th class="number">Cita</th>`+
+          `<th class="number">Días</th><th>Estado</th></tr></thead><tbody>`+
+          (filas.length?filas.map(f=>
+            `<tr><td class="number status-text">${number(f.queue_position)}</td>`+
+            `<td><strong>${esc(f.quote_no)}</strong>`+
+            `${f.warehouse_id?`<div class="status-text">${esc(f.warehouse_id)}</div>`:''}</td>`+
+            `<td>${esc(f.salesperson_code||'—')}</td>`+
+            `<td class="number">$${money(f.amount_including_vat)}</td>`+
+            `<td class="number">${esc(String(f.next_appointment_date||'').slice(0,10))}</td>`+
+            `<td class="number">${f.days_to_appointment==null?'—':number(f.days_to_appointment)}</td>`+
+            `<td><span class="pill ${f.expired_appointment?'late':'next'}">`+
+            `${esc(f.queue_state||'')}</span></td></tr>`).join('')
+            :`<tr><td colspan="7"><div class="empty">Ninguna en esta página con ese filtro.</div></td></tr>`)+
+          `</tbody></table></div>`+pager+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Por qué antes solo veía 50.</strong><br>`+
+          `La consulta partía el tope a la mitad entre vencidas y próximas. Con `+
+          `${number(vencidas)} vencidas contra ${number(total-vencidas)} próximas, eso mostraba `+
+          `25 de cada una y escondía el resto. Ahora recorre la cola completa por páginas.<br><br>`+
+          `El filtro es de esta página, no de la cola: para ver todas las vencidas, avance con `+
+          `el paginador — están ordenadas primero.</div></article>`;
+        box.querySelectorAll('[data-cola]').forEach(b=>b.onclick=()=>{
+          const n=Number(b.dataset.cola);
+          if(n>=1&&n<=paginas){colaPag=n;loadColaCotizaciones();
+            box.scrollIntoView({behavior:'smooth',block:'start'})}});
+        box.querySelectorAll('[data-colaf]').forEach(b=>b.onclick=()=>{
+          colaFiltro=b.dataset.colaf;loadColaCotizaciones()});
+      }catch(e){box.innerHTML=`<div class="empty red">${esc(e.message)}</div>`}
+    }
+    async function loadCosto(){
+      const box=document.getElementById('costPanel');if(!box)return;
+      try{
+        const d=await api('/api/operating-cost');
+        if(!d.branches||!d.branches.length){box.innerHTML='';return}
+        const p=d.promotion||{};
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Lo que cuesta operar</h2>`+
+          `<p>Del mayor contable, cuentas 601 y 602. Hasta ahora el sistema hablaba de `+
+          `utilidad sin saber qué cuesta tener la tienda abierta.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Gasto de operación</span>`+
+          `<strong class="kpi-value">$${money(d.total_expense)}</strong>`+
+          `<span class="kpi-foot">$${money(d.monthly_expense)} al mes</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Ya gastan en promoción</span>`+
+          `<strong class="kpi-value">$${money(p.annual_spend)}</strong>`+
+          `<span class="kpi-foot">$${money(p.monthly_spend)} al mes</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Retorno de esa promoción</span>`+
+          `<strong class="kpi-value" style="font-size:15px">`+
+          `${p.measured_return==null?'sin medir':'$'+money(p.measured_return)}</strong>`+
+          `<span class="kpi-foot">${p.measured_return==null?'falta grupo de control con compras'
+            :'medido contra el grupo apartado'}</span></div></div>`+
+          `<div class="insight-callout" style="margin:0 18px 14px;background:var(--green-soft);`+
+          `border-radius:11px;padding:13px 15px;color:var(--green)">`+
+          `<strong>No necesita presupuesto nuevo para probar si la promoción sirve.</strong><br>`+
+          `${esc(p.note||'')}</div>`+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th>Concepto</th><th class="number">12 meses</th>`+
+          `<th class="number">Al mes</th></tr></thead><tbody>`+
+          (d.accounts||[]).slice(0,10).map(a=>
+            `<tr><td>${esc(a.account_name||a.account_no)}`+
+            `<div class="status-text">${esc(a.account_no)}</div></td>`+
+            `<td class="number"><strong>$${money(a.amount)}</strong></td>`+
+            `<td class="number">$${money((a.amount||0)/12)}</td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="section-title" style="margin:20px 18px 8px"><div>`+
+          `<h2 style="font-size:15px">Reparto por sucursal`+
+          `${d.branches_comparable?'':' — <span style="color:#b86a00">no comparable</span>'}</h2>`+
+          `</div></div>`+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th>Sucursal</th><th class="number">Gasto 12 meses</th>`+
+          `<th class="number">Al mes</th><th class="number">% de su venta</th></tr></thead><tbody>`+
+          d.branches.map(b=>
+            `<tr><td><strong>${esc(b.store_name)}</strong></td>`+
+            `<td class="number">$${money(b.total_expense)}</td>`+
+            `<td class="number">$${money(b.monthly_expense)}</td>`+
+            `<td class="number">${b.expense_over_sales_pct==null?'—'
+              :`<span class="pill late">${b.expense_over_sales_pct.toFixed(2)}%</span>`}</td>`+
+            `</tr>`).join('')+
+          `</tbody></table></div>`+
+          (d.branches_comparable?'':
+            `<div class="alarma aviso" style="margin:14px 18px">`+
+            `<span class="alarma-icono">▲</span><div>`+
+            `<strong>Este reparto no dice lo que cuesta cada tienda</strong>`+
+            `<p>${esc(d.branch_caveat||'')}</p></div></div>`)+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Por qué aquí no hay utilidad de operación.</strong><br>`+
+          `${esc(d.caveat||'')}</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadProspects(){
+      const box=document.getElementById('prospectPanel');if(!box)return;
+      try{
+        const d=await api('/api/prospects?limit=200');
+        if(!d.rows||!d.rows.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Pidieron precio y nunca compraron</h2>`+
+          `<p>Lo más cerca que se puede estar de un cliente nuevo sin salir a buscarlo: `+
+          `levantaron el teléfono, dijeron qué necesitaban, alguien les puso precio, `+
+          `y se fueron.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Prospectos</span>`+
+          `<strong class="kpi-value">${number(d.prospects)}</strong>`+
+          `<span class="kpi-foot">nunca aparecen en una venta</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Cotizado sin cerrar</span>`+
+          `<strong class="kpi-value">$${money(d.quoted)}</strong>`+
+          `<span class="kpi-foot">monto real, no estimado</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Utilidad si cerraran</span>`+
+          `<strong class="kpi-value">$${money(d.margin_estimate)}</strong>`+
+          `<span class="kpi-foot">estimada al ${(d.margin_pct_used||0).toFixed(1)}% del negocio</span></div></div>`+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th class="number">Cotizado</th><th class="number">Cotizaciones</th>`+
+          `<th class="number">Categorías</th><th class="number">Última</th>`+
+          `<th>Asesor</th><th class="number">Si cerrara</th></tr></thead><tbody>`+
+          d.rows.slice(0,80).map(f=>
+            `<tr><td class="number"><strong>$${money(f.quoted)}</strong></td>`+
+            `<td class="number">${number(f.quotes)}</td>`+
+            `<td class="number">${number(f.categories)}</td>`+
+            `<td class="number">${esc(String(f.last_quote||'').slice(0,10))}</td>`+
+            `<td>${esc(f.salesperson_code||'—')}</td>`+
+            `<td class="number">$${money(f.margin_estimate)}</td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Qué es real y qué es estimado.</strong><br>`+
+          `El monto cotizado es real: alguien pidió eso y se le puso precio. La utilidad `+
+          `<em>no</em>: se aplica el margen promedio del negocio porque de quien nunca `+
+          `compró no hay margen propio que usar.<br><br>`+
+          `<strong>Lo que no se puede saber:</strong> ${esc(d.caveat||'')}<br><br>`+
+          `Estos no llevan nombre en la lista porque no son clientes del maestro; ábralos `+
+          `con su asesor, que es quien levantó la cotización y se acuerda del caso.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadFirstTime(){
+      const box=document.getElementById('firstTimePanel');if(!box)return;
+      try{
+        const d=await api(`/api/first-time?days=${ftDias}&limit=200`);
+        if(!d.rows||!d.rows.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Compraron una sola vez</h2>`+
+          `<p>Son ${number(d.total)} clientes: la bolsa más grande del negocio, más que los `+
+          `activos. Ya conocen la tienda, ya pasaron por caja. Traerlos cuesta menos que `+
+          `conseguir a alguien que nunca ha oído de ustedes.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Contactables ahora</span>`+
+          `<strong class="kpi-value">${number(d.contactable)}</strong>`+
+          `<span class="kpi-foot">compraron en los últimos ${number(d.window_days)} días</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Si volvieran</span>`+
+          `<strong class="kpi-value">$${money(d.margin_if_return)}</strong>`+
+          `<span class="kpi-foot">al margen de su primera compra</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Total sin trabajar</span>`+
+          `<strong class="kpi-value">${number(d.total)}</strong>`+
+          `<span class="kpi-foot">de todas las antigüedades</span></div></div>`+
+          `<div class="heat-controls" style="padding:0 18px">`+
+          [[180,'Últimos 6 meses'],[365,'Hasta 1 año'],[730,'Hasta 2 años'],[9999,'Todos']]
+            .map(([v,t])=>`<button class="heat-chip ${ftDias===v?'on':''}" data-ft="${v}">${t}</button>`).join('')+
+          `</div>`+
+          `<div class="table-wrap" style="margin-top:12px"><table>`+
+          `<thead><tr><th>Cliente</th><th>Sucursal</th><th class="number">Su única compra</th>`+
+          `<th class="number">Hace</th><th>Qué se llevó</th>`+
+          `<th class="number">Si vuelve</th><th></th></tr></thead><tbody>`+
+          d.rows.slice(0,80).map(f=>
+            `<tr><td><button class="link-button" data-client="${esc(f.customer_no)}">`+
+            `<strong>${esc(f.customer_name||f.customer_no)}</strong></button>`+
+            `${f.city?`<div class="status-text">${esc(f.city)}</div>`:''}</td>`+
+            `<td>${esc(f.store_name||f.store_no)}</td>`+
+            `<td class="number">$${money(f.average_ticket)}</td>`+
+            `<td class="number">${number(f.days_since_purchase)} d</td>`+
+            `<td>${f.top_category?esc(prettyCategory(f.top_category)):'—'}</td>`+
+            `<td class="number"><strong>$${money(f.margin_if_return)}</strong></td>`+
+            `<td><button class="mini-btn" data-client="${esc(f.customer_no)}">Ver</button></td>`+
+            `</tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px">`+
+          `<strong>Esto no es una probabilidad, y la diferencia importa.</strong><br>`+
+          `La columna dice lo que deja su segunda compra, no qué tan probable es. `+
+          `Cuál de ellos vuelve <em>no se puede predecir</em> con los datos que hay, y `+
+          `prefiero decirlo a inventar un porcentaje.<br><br>`+
+          `Dos señales que parecían servir y no sirven: que el 31.5% de quienes vuelven `+
+          `tenga tarjeta de lealtad es <strong>causalidad al revés</strong> —el saldo se `+
+          `acumula porque uno vuelve, y hay 1,882 clientes con tarjeta que nunca `+
+          `regresaron—; y comparar tickets tampoco vale, porque para quien volvió ese `+
+          `número es el promedio de todas sus compras, no de la primera.<br><br>`+
+          `<strong>Cómo se contesta de verdad:</strong> ${esc(d.how_to_test||'')}</div></article>`;
+        box.querySelectorAll('[data-ft]').forEach(b=>b.onclick=()=>{
+          ftDias=Number(b.dataset.ft);loadFirstTime()});
+        box.querySelectorAll('[data-client]').forEach(b=>b.onclick=()=>loadCustomer(b.dataset.client));
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadTrabajo(){
+      const box=document.getElementById('trabajoPanel');if(!box)return;
+      try{
+        const d=await api('/api/assignments'+(trabajoDueno?`?owner=${encodeURIComponent(trabajoDueno)}`:''));
+        const pend=d.pending||[],res=d.summary||d;
+        const duenos=(res.by_owner||[]).map(x=>x.owner);
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Trabajo del día</h2>`+
+          `<p>A quién le toca cada cliente, con fecha y resultado. Una lista sin dueño `+
+          `no se trabaja: cada quien supone que alguien más la está viendo.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Sin atender</span>`+
+          `<strong class="kpi-value">${number(res.pending)}</strong>`+
+          `<span class="kpi-foot">de ${number(res.total)} asignados en total</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Ya vencidos</span>`+
+          `<strong class="kpi-value">${number(res.overdue)}</strong>`+
+          `<span class="kpi-foot">pasaron su fecha y siguen abiertos</span></div></div>`+
+          (duenos.length?`<div class="heat-controls" style="padding:0 18px">`+
+            `<button class="heat-chip ${trabajoDueno?'':'on'}" data-dueno="">Todos</button>`+
+            duenos.map(o=>`<button class="heat-chip ${trabajoDueno===o?'on':''}" `+
+              `data-dueno="${esc(o)}">${esc(o)}</button>`).join('')+`</div>`:'')+
+          `<div style="padding:14px 18px">`+
+          (pend.length?pend.map(a=>
+            `<div class="trabajo-fila ${a.overdue?'vencida':''}">`+
+            `<div class="trabajo-cuerpo">`+
+            `<h4>${esc(a.customer_name||a.customer_no)}`+
+            `${a.priority==='alta'?' <span class="pill late">alta</span>':''}</h4>`+
+            `<p>${esc(a.owner)} · ${a.overdue
+              ?`<strong style="color:#8c1c2b">venció hace ${number(Math.abs(a.days_left))} días</strong>`
+              :`vence en ${number(a.days_left)} días`}`+
+            `${a.reason?`<br>${esc(a.reason)}`:''}`+
+            `${a.expected_margin?`<br>Utilidad esperada $${money(a.expected_margin)}`:''}</p></div>`+
+            `<div class="trabajo-acciones">`+
+            `<button class="mini-btn" data-ficha="${esc(a.customer_no)}">Ver ficha</button>`+
+            `<button class="mini-btn primario" data-cerrar="${a.id}" data-estado="atendida">Compró</button>`+
+            `<button class="mini-btn" data-cerrar="${a.id}" data-estado="sin exito">Sin éxito</button>`+
+            `</div></div>`).join('')
+            :`<div class="empty">No hay clientes asignados. Asigna desde la ficha de un cliente `+
+             `o desde las listas de recuperación y caída de consumo.</div>`)+
+          `</div>`+
+          ((res.by_owner||[]).length?`<div class="table-wrap"><table>`+
+            `<thead><tr><th>Persona</th><th class="number">Pendientes</th>`+
+            `<th class="number">Vencidas</th><th class="number">Cerradas</th>`+
+            `<th class="number">Acierto</th><th class="number">Utilidad pendiente</th>`+
+            `</tr></thead><tbody>`+
+            res.by_owner.map(o=>
+              `<tr><td><strong>${esc(o.owner)}</strong></td>`+
+              `<td class="number">${number(o.pendientes)}</td>`+
+              `<td class="number">${o.vencidas?`<span class="pill late">${number(o.vencidas)}</span>`:'—'}</td>`+
+              `<td class="number">${number((o.atendidas||0)+(o.sin_exito||0))}</td>`+
+              `<td class="number">${o.hit_rate==null?'<span class="status-text">sin cerrar</span>'
+                :`${o.hit_rate.toFixed(0)}%`}</td>`+
+              `<td class="number">$${money(o.margen_pendiente)}</td></tr>`).join('')+
+            `</tbody></table></div>`:'')+
+          `<div class="insight-callout" style="margin:14px">${esc(res.basis||'')}.</div></article>`;
+
+        box.querySelectorAll('[data-dueno]').forEach(b=>b.onclick=()=>{
+          trabajoDueno=b.dataset.dueno;loadTrabajo()});
+        box.querySelectorAll('[data-ficha]').forEach(b=>b.onclick=()=>loadCustomer(b.dataset.ficha));
+        box.querySelectorAll('[data-cerrar]').forEach(b=>b.onclick=async()=>{
+          b.disabled=true;
+          try{
+            await enviar('/api/assignments/close',
+              {id:Number(b.dataset.cerrar),state:b.dataset.estado});
+            loadTrabajo();loadDigest();
+          }catch(e){b.disabled=false;alert(e.message)}
+        });
+      }catch(e){box.innerHTML=`<div class="empty red">${esc(e.message)}</div>`}
+    }
+    async function loadDigest(){
+      const box=document.getElementById('digestPanel');if(!box)return;
+      try{
+        const d=await api('/api/digest'+(trabajoDueno?`?owner=${encodeURIComponent(trabajoDueno)}`:''));
+        box.innerHTML=
+          `<div class="section-title"><div><h2>El mensaje que se envía</h2>`+
+          `<p>Esto es lo que recibe ${trabajoDueno?'esa persona en la mañana':'usted el viernes'}, `+
+          `tal cual. El sistema arma el texto; el bot lo manda.</p></div></div>`+
+          `<article class="card"><div style="padding:18px">`+
+          `<div class="mensaje-bot">${esc(d.text||'')}</div>`+
+          `<div class="status-text" style="margin-top:10px">`+
+          `Nadie abre un tablero todos los días. Por eso el trabajo sale a buscar a la persona `+
+          `y no al revés.</div></div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadTrend(){
+      const box=document.getElementById('trendPanel');if(!box)return;
+      try{
+        const d=await api('/api/monthly');
+        const m=(d.months||[]).map(x=>({...x,label:x.period}));
+        if(!m.length){box.innerHTML='';return}
+        const cambio=d.prior_12_sales?100*(d.last_12_sales-d.prior_12_sales)/d.prior_12_sales:null;
+        const cambioU=d.prior_12_margin?100*(d.last_12_margin-d.prior_12_margin)/d.prior_12_margin:null;
+        const ultimo=m.filter(x=>!x.partial).at(-1)||{};
+        box.innerHTML=
+          `<article class="card"><div class="card-head" style="padding:18px 18px 0">`+
+          `<div><h3>Hacia dónde va el negocio</h3>`+
+          `<p>Venta y utilidad mes a mes. Lo demás del tablero son fotos de un instante; `+
+          `esto es lo único que muestra la dirección.</p></div>`+
+          `<div style="text-align:right">`+
+          `${cambio==null?'':`<div class="pill ${cambio>=0?'next':'late'}">`+
+            `Venta ${cambio>=0?'+':''}${cambio.toFixed(1)}% vs 12 meses antes</div>`}`+
+          `${cambioU==null?'':`<div class="status-text" style="margin-top:6px">`+
+            `Utilidad ${cambioU>=0?'+':''}${cambioU.toFixed(1)}%</div>`}`+
+          `</div></div>`+
+          `<div class="chart-wrap">`+
+          lineChart(m,[
+            {key:'margin_sales',label:'Venta facturada',color:'#417e79',area:true,fmt:v=>'$'+money(v)},
+            {key:'margin_amount',label:'Utilidad',color:'#138a68',area:true,fmt:v=>'$'+money(v)},
+          ],{titulo:'Venta facturada y utilidad por mes',etiqueta:p=>p.period.slice(2).replace('-','/'),
+             fmtEje:v=>'$'+compact(v)})+
+          `</div>`+
+          `<div class="chart-wrap" style="padding-top:0">`+
+          `<div class="status-text" style="margin-bottom:6px">Tickets del mostrador</div>`+
+          lineChart(m,[
+            {key:'tickets',label:'Tickets',color:'#7a8495',fmt:v=>number(v)},
+          ],{height:130,titulo:'Tickets por mes',etiqueta:p=>p.period.slice(2).replace('-','/'),
+             fmtEje:v=>compact(v)})+
+          `</div>`+
+          `<div class="chart-wrap" style="padding-top:0">`+
+          `<div class="status-text" style="margin-bottom:6px">Margen y ticket promedio</div>`+
+          lineChart(m,[
+            {key:'margin_pct',label:'Margen %',color:'#b86a00',fmt:v=>v.toFixed(1)+'%'},
+          ],{height:150,titulo:'Margen por mes',etiqueta:p=>p.period.slice(2).replace('-','/'),
+             fmtEje:v=>v.toFixed(0)+'%',desdeCero:false})+
+          `</div>`+
+          ((d.stores||[]).length>1
+            ? `<div class="chart-wrap" style="padding-top:0">`+
+              `<div class="status-text" style="margin-bottom:6px">Venta de mostrador por sucursal</div>`+
+              (()=>{
+                // Se cruzan las series en una sola grafica: el punto es comparar
+                // sucursales entre si, y cuatro graficas separadas obligarian a
+                // recordar la escala de cada una.
+                const colores=['#417e79','#138a68','#b86a00','#8a4bd8','#c2334d'];
+                const meses=d.months.map(x=>x.period);
+                const puntos=meses.map((per,i)=>{
+                  const fila={label:per,period:per,partial:d.months[i].partial};
+                  d.stores.forEach((t,k)=>{
+                    const m=t.months.find(z=>z.period===per);
+                    fila['t'+k]=m?m.sales:null;
+                  });
+                  return fila;
+                });
+                return lineChart(puntos,d.stores.map((t,k)=>(
+                  // Una sucursal con menos de dos años no se puede comparar
+                  // contra el año pasado: no existía. Se dice en la leyenda.
+                  {key:'t'+k,label:t.comparable?t.store_name:`${t.store_name} (abrió ${t.opened})`,
+                   color:colores[k%colores.length],fmt:v=>'$'+money(v)})),
+                  {height:190,titulo:'Venta por sucursal',
+                   etiqueta:p=>p.period.slice(2).replace('-','/'),fmtEje:v=>'$'+compact(v)});
+              })()+
+              `</div>`
+            : '')+
+          `<div class="insight-callout" style="margin:8px 18px 18px">`+
+          `<strong>Cómo leerla.</strong> El último mes va punteado porque está incompleto: `+
+          `sin eso la gráfica parecería dar una mala noticia cada mes. `+
+          `El último mes cerrado (${esc(ultimo.period||'—')}) facturó `+
+          `<strong>$${money(ultimo.margin_sales)}</strong> y dejó `+
+          `<strong>$${money(ultimo.margin_amount)}</strong> de utilidad, `+
+          `un margen de ${(ultimo.margin_pct||0).toFixed(1)}%.<br><br>`+
+          `<strong>Por qué la venta facturada es mayor que los tickets del mostrador.</strong> `+
+          `La venta facturada sale de Value Entry, que es donde está el costo real, e incluye `+
+          `lo que se factura fuera del POS. Ese mes el mostrador hizo `+
+          `<strong>$${money(ultimo.sales)}</strong> en ${number(ultimo.tickets)} tickets: `+
+          `la facturación vale ${(ultimo.margin_coverage_pct||0).toFixed(0)}% de eso. `+
+          `Son dos universos, y por eso el margen se calcula dentro del facturado y no `+
+          `dividiendo uno entre otro. ${esc(d.basis||'')}.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    let peakData=null,peakStore='',peakMetric='profit';
+    const PEAK_METRICS={
+      profit:{label:'Utilidad',fmt:v=>'$'+money(v),corto:v=>compact(v)},
+      sales:{label:'Venta',fmt:v=>'$'+money(v),corto:v=>compact(v)},
+      tickets:{label:'Tickets',fmt:v=>number(v),corto:v=>compact(v)},
+      average_ticket:{label:'Ticket promedio',fmt:v=>'$'+money(v),corto:v=>compact(v)},
+    };
+    function peakColor(t){
+      // De azul palido a azul intenso. La escala es de raiz cuadrada para que
+      // las celdas medianas no se pierdan detras de las dos o tres mas altas.
+      const x=Math.sqrt(Math.max(0,Math.min(1,t)));
+      const l=96-x*56, c=`hsl(214,${38+x*32}%,${l}%)`;
+      return {bg:c,fg:l<62?'#fff':'#33415a'};
+    }
+    function renderPeaks(){
+      const box=document.getElementById('peakPanel');if(!box||!peakData)return;
+      const fuente=peakStore?peakData.cells.filter(c=>c.store_no===peakStore):peakData.chain;
+      const m=PEAK_METRICS[peakMetric];
+      const porCelda=new Map(fuente.map(c=>[`${c.weekday}-${c.hour}`,c]));
+      const horas=[...new Set(fuente.map(c=>c.hour))].sort((a,b)=>a-b);
+      const dias=[2,3,4,5,6,7,1];
+      const valores=fuente.map(c=>Number(c[peakMetric]||0)).filter(v=>v>0);
+      const max=Math.max(...valores,1);
+      const total=fuente.reduce((n,c)=>n+Number(c.profit||0),0);
+      const mejor=fuente.reduce((a,c)=>(Number(c[peakMetric]||0)>Number(a?.[peakMetric]||0)?c:a),null);
+      const nombre=peakStore?(peakData.stores.find(t=>t.store_no===peakStore)||{}).store_name:'Toda la cadena';
+
+      const rejilla=
+        `<div class="heat" style="grid-template-columns:auto repeat(${horas.length},1fr)">`+
+        `<div class="heat-head"></div>`+
+        horas.map(h=>`<div class="heat-head">${h}</div>`).join('')+
+        dias.map(d=>
+          `<div class="heat-row-label">${esc(DIA_SEMANA[d])}</div>`+
+          horas.map(h=>{
+            const c=porCelda.get(`${d}-${h}`);
+            if(!c)return `<div class="heat-cell vacia" title="${esc(DIA_SEMANA[d])} ${h}:00 · cerrado o sin ventas"></div>`;
+            const v=Number(c[peakMetric]||0);
+            const col=peakColor(v/max);
+            return `<div class="heat-cell" style="background:${col.bg};color:${col.fg}" title="${esc(DIA_SEMANA[d])} ${h}:00 — `+
+              `${number(c.tickets)} tickets · $${money(c.sales)} de venta · $${money(c.profit)} de utilidad · `+
+              `ticket promedio $${money(c.average_ticket)}">${m.corto(v)}</div>`;
+          }).join('')).join('')+
+        `</div>`;
+
+      box.innerHTML=
+        `<div class="section-title"><div><h2>Picos de venta: cuándo y dónde</h2>`+
+        `<p>Cada cuadro es un día de la semana a una hora. Las tablas de "por hora" y "por día" `+
+        `por separado esconden justo esto: un martes flojo puede tener una hora excelente, y una `+
+        `hora buena en promedio puede serlo sólo por el sábado.</p></div></div>`+
+        `<article class="card"><div style="padding:18px 18px 0">`+
+        `<div class="heat-controls">`+
+        `<button class="heat-chip ${peakStore?'':'on'}" data-peak-store="">Toda la cadena</button>`+
+        peakData.stores.map(t=>
+          `<button class="heat-chip ${peakStore===t.store_no?'on':''}" data-peak-store="${esc(t.store_no)}">`+
+          `${esc(t.store_name)}</button>`).join('')+
+        `</div><div class="heat-controls">`+
+        Object.entries(PEAK_METRICS).map(([k,v])=>
+          `<button class="heat-chip ${peakMetric===k?'on':''}" data-peak-metric="${k}">${v.label}</button>`).join('')+
+        `</div>`+
+        (mejor?`<div class="status-text" style="margin-bottom:10px">`+
+          `<strong>${esc(nombre)}</strong> — su mejor momento es `+
+          `<strong>${esc(DIA_SEMANA[mejor.weekday])} a las ${mejor.hour}:00</strong>: `+
+          `${number(mejor.tickets)} tickets, $${money(mejor.sales)} de venta y `+
+          `$${money(mejor.profit)} de utilidad`+
+          `${total?` (${(100*Number(mejor.profit||0)/total).toFixed(1)}% de toda su semana)`:''}.`+
+          `</div>`:'')+
+        rejilla+
+        `<div class="heat-legend">Menos ${peakColor(0.02).bg?'':''}`+
+        `<span class="heat-scale">`+[0,.2,.4,.6,.8,1].map(t=>
+          `<span style="background:${peakColor(t).bg}"></span>`).join('')+
+        `</span> Más · pasa el cursor por un cuadro para ver el detalle`+
+        `</div></div>`+
+        `<div class="table-wrap" style="margin-top:16px"><table>`+
+        `<thead><tr><th>Sucursal</th><th class="number">Utilidad al año</th><th class="number">Margen</th>`+
+        `<th>Su mejor momento</th><th class="number">Utilidad de esa hora</th>`+
+        `<th class="number">Peso en su semana</th></tr></thead><tbody>`+
+        peakData.stores.map(t=>
+          `<tr><td><strong>${esc(t.store_name)}</strong></td>`+
+          `<td class="number">$${money(t.profit)}</td>`+
+          `<td class="number">${(t.margin_pct||0).toFixed(1)}%</td>`+
+          `<td>${esc(DIA_SEMANA[t.best_weekday]||'—')} ${t.best_hour}:00</td>`+
+          `<td class="number">$${money(t.best_profit)}</td>`+
+          `<td class="number">${(t.best_share_pct||0).toFixed(1)}%</td></tr>`).join('')+
+        `</tbody></table></div>`+
+        `<div class="insight-callout" style="margin:14px"><strong>Para qué sirve leerlo.</strong><br>`+
+        `Las horas más intensas dicen dónde poner gente en piso y cuándo <em>no</em> agendar `+
+        `entregas ni inventarios. Las horas pálidas de un día que en otros está encendido son `+
+        `las que vale la pena empujar: ya hay clientela en la zona, sólo no está entrando.<br><br>`+
+        `<strong>Cómo se calculó la utilidad.</strong> Se <em>asigna</em>, no se mide: la tasa de `+
+        `margen sale de esa misma hora en toda la cadena y se aplica a la venta de la sucursal. `+
+        `Sirve para comparar cuadros entre sí, no para cuadrar contra contabilidad. `+
+        `${esc(peakData.basis||'')}.</div></article>`;
+
+      box.querySelectorAll('[data-peak-store]').forEach(b=>b.onclick=()=>{
+        peakStore=b.dataset.peakStore;renderPeaks()});
+      box.querySelectorAll('[data-peak-metric]').forEach(b=>b.onclick=()=>{
+        peakMetric=b.dataset.peakMetric;renderPeaks()});
+    }
+    async function loadPeaks(){
+      const box=document.getElementById('peakPanel');if(!box)return;
+      try{
+        peakData=await api('/api/peaks');
+        if(!peakData.cells||!peakData.cells.length){box.innerHTML='';return}
+        renderPeaks();
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadDrops(){
+      const box=document.getElementById('dropPanel');if(!box)return;
+      try{
+        const d=await api('/api/consumption');
+        if(!d.rows||!d.rows.length){box.innerHTML='';return}
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Están gastando menos</h2>`+
+          `<p>Clientes que siguen comprando pero dejan menos que el trimestre pasado. `+
+          `Por recencia están al corriente, así que no aparecen en ninguna lista de vencidos: `+
+          `cuando por fin dejan de venir, la relación ya se perdió meses atrás.</p></div></div>`+
+          `<article class="card"><div class="kpi-row" style="margin:18px">`+
+          `<div class="kpi"><span class="kpi-label">Clientes cayendo</span>`+
+          `<strong class="kpi-value">${number(d.customers)}</strong>`+
+          `<span class="kpi-foot">bajaron ${d.threshold_pct}% o más</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Venta que se está yendo</span>`+
+          `<strong class="kpi-value">$${money(d.sales_lost)}</strong>`+
+          `<span class="kpi-foot">por trimestre, al ritmo actual</span></div>`+
+          `<div class="kpi"><span class="kpi-label">Utilidad en riesgo</span>`+
+          `<strong class="kpi-value">$${money(d.margin_lost)}</strong>`+
+          `<span class="kpi-foot">al margen propio de cada uno</span></div>`+
+          (d.margin_worth_calling!=null
+            ? `<div class="kpi"><span class="kpi-label">Vale la pena llamar por</span>`+
+              `<strong class="kpi-value">$${money(d.margin_worth_calling)}</strong>`+
+              `<span class="kpi-foot">el resto son obras que ya entregaron</span></div>`
+            : '')+
+          `</div>`+
+          ((d.by_pattern||[]).length
+            ? `<div class="heat-controls" style="padding:0 18px 4px">`+
+              d.by_pattern.map(g=>
+                `<span class="heat-chip" style="cursor:default">${esc(g.pattern_type)}: `+
+                `${number(g.customers)} · $${money(g.margin_at_risk)}</span>`).join('')+
+              `</div>`
+            : '')+
+          `<div class="table-wrap"><table>`+
+          `<thead><tr><th>Cliente</th><th>Sucursal</th><th class="number">Trimestre anterior</th>`+
+          `<th class="number">Este trimestre</th><th class="number">Cambio</th>`+
+          `<th>Qué está pasando</th><th>Tipo de cliente</th>`+
+          `<th class="number">Utilidad en riesgo</th>`+
+          `<th>Suele llevar</th><th></th></tr></thead><tbody>`+
+          d.rows.slice(0,60).map(f=>
+            `<tr><td><button class="link-button" data-client="${esc(f.customer_no)}">`+
+            `<strong>${esc(f.customer_name||f.customer_no)}</strong></button>`+
+            `${f.city?`<div class="status-text">${esc(f.city)}</div>`:''}</td>`+
+            `<td>${esc(f.store_name||f.store_no)}</td>`+
+            `<td class="number">$${money(f.sales_prior_90d)}`+
+            `<div class="status-text">${number(f.tickets_prior_90d)} compras</div></td>`+
+            `<td class="number">$${money(f.sales_90d)}`+
+            `<div class="status-text">${number(f.tickets_90d)} compras</div></td>`+
+            `<td class="number"><span class="pill late">${(f.spend_trend_pct||0).toFixed(0)}%</span></td>`+
+            `<td>${esc(f.pattern||'')}</td>`+
+            `<td>${f.pattern_type
+              ? `<span class="pill ${f.worth_calling?'next':'late'}">${esc(f.pattern_type)}</span>`+
+                `<div class="status-text">${esc(f.pattern_detail||'')}</div>`
+              : '<span class="status-text">sin clasificar</span>'}</td>`+
+            `<td class="number"><strong>$${money(f.margin_at_risk)}</strong></td>`+
+            `<td>${f.top_category?esc(prettyCategory(f.top_category)):'—'}</td>`+
+            `<td><button class="mini-btn" data-client="${esc(f.customer_no)}">Ver</button></td>`+
+            `</tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px"><strong>Cómo leerla.</strong><br>`+
+          `Cada cliente se compara contra sí mismo, no contra un promedio: quien siempre compró `+
+          `poco no aparece aquí. <em>Viene menos veces</em> se atiende con un recordatorio en su `+
+          `ventana; <em>deja menos en cada visita</em> es otra cosa, y vale la pena averiguar qué `+
+          `parte de su compra se está yendo a otro lado.<br><br>`+
+          `<strong>Obra terminada no es fuga, y la columna lo separa.</strong> `+
+          `Un constructor que compró una obra completa el trimestre pasado y este no, no se está `+
+          `yendo: entregó. El sistema lo deduce de la forma de su historia — quien compró en `+
+          `ráfaga y calló es obra; quien compraba parejo durante años y se apagó es un cliente `+
+          `que se va, y ese sí hay que llamar hoy. Es una inferencia de patrón, no un dato del `+
+          `ERP: sirve para ordenar a quién llamar primero, no para descartar a nadie sin `+
+          `preguntar. ${esc(d.basis||'')}.</div></article>`;
+        box.querySelectorAll('[data-client]').forEach(b=>b.onclick=()=>loadCustomer(b.dataset.client));
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadLift(){
+      const box=document.getElementById('liftPanel');if(!box)return;
+      try{
+        const d=await api('/api/contacts');
+        const filas=(d.lift||[]).filter(f=>f.treated>0||f.control>0);
+        if(!filas.length){
+          box.innerHTML=
+            `<div class="section-title"><div><h2>Efecto medido de las promociones</h2>`+
+            `<p>Todavía no hay campañas registradas.</p></div></div>`+
+            `<article class="card"><div class="insight-callout" style="margin:18px">`+
+            `<strong>Cómo se vuelve medible.</strong><br>`+
+            `Al registrar un contacto con nombre de campaña, el sistema aparta solo una parte `+
+            `y no le ofrece nada. Esos son el grupo reservado. Cuando ambos grupos tengan `+
+            `compras, aquí aparece cuánto compró de más el grupo tratado: esa diferencia, `+
+            `y no la venta total, es lo que la promoción agregó.</div></article>`;
+          return;
+        }
+        const medido=filas.filter(f=>f.incremental_margin!=null)
+                          .reduce((n,f)=>n+f.incremental_margin,0);
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Efecto medido de las promociones</h2>`+
+          `<p>Contra el grupo reservado, no contra la venta total. Quien iba a comprar de `+
+          `todos modos no cuenta como mérito de la promoción.</p></div></div>`+
+          `<article class="card data-card"><div class="table-wrap"><table>`+
+          `<thead><tr><th>Campaña</th><th class="number">Con promoción</th><th class="number">Compraron</th>`+
+          `<th class="number">Reservados</th><th class="number">Compraron</th>`+
+          `<th class="number">Diferencia</th><th class="number">Compras de más</th>`+
+          `<th class="number">Utilidad agregada</th><th>Certeza</th></tr></thead><tbody>`+
+          filas.map(f=>{
+            const dif=f.difference_points;
+            const cert=f.p_value==null
+              ? `<span class="status-text">falta el otro grupo</span>`
+              : f.conclusive
+                ? `<span class="pill next">sale del azar (p=${f.p_value.toFixed(3)})</span>`
+                : `<span class="pill late">cabe en el azar (p=${f.p_value.toFixed(3)})</span>`;
+            return `<tr><td><strong>${esc(f.campaign)}</strong></td>`+
+              `<td class="number">${number(f.treated)}</td>`+
+              `<td class="number">${number(f.treated_purchased)}`+
+              `${f.treated_rate==null?'':` <span class="status-text">${f.treated_rate.toFixed(1)}%</span>`}</td>`+
+              `<td class="number">${number(f.control)}</td>`+
+              `<td class="number">${number(f.control_purchased)}`+
+              `${f.control_rate==null?'':` <span class="status-text">${f.control_rate.toFixed(1)}%</span>`}</td>`+
+              `<td class="number">${dif==null?'<span class="status-text">sin medir</span>'
+                :`<span class="pill ${dif>0?'next':'late'}">${dif>0?'+':''}${dif.toFixed(1)} pts</span>`}</td>`+
+              `<td class="number">${f.extra_purchases==null?'—':number(Math.round(f.extra_purchases))}</td>`+
+              `<td class="number">${f.incremental_margin==null?'—'
+                :`<strong>$${money(f.incremental_margin)}</strong>`}</td>`+
+              `<td>${cert}</td></tr>`;
+          }).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px"><strong>Qué dice esta tabla.</strong><br>`+
+          `<em>Utilidad agregada</em> cuenta solo las compras de más: las del grupo tratado menos `+
+          `las que el grupo reservado hizo por su cuenta. Suma <strong>$${money(medido)}</strong>. `+
+          `Una diferencia marcada como <em>cabe en el azar</em> no es un resultado todavía; `+
+          `necesita más clientes o más tiempo antes de darla por buena.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadUplift(){
+      const box=document.getElementById('upliftPanel');if(!box)return;
+      try{
+        const filas=await api('/api/uplift');
+        if(!filas.length){box.innerHTML='';return}
+        const total=filas.reduce((n,f)=>n+(f.opportunity||0),0);
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Promociones que suben la utilidad</h2>`+
+          `<p>Qué pasa con el margen de un ticket normal cuando se le adjunta el complemento. `+
+          `Todo medido: cuántos se van sin él, cuánto suma cuando sí va, y con qué margen se vende cada categoría.</p></div></div>`+
+          `<article class="card data-card"><div class="table-wrap"><table>`+
+          `<thead><tr><th>Venta normal</th><th class="number">Ticket</th><th class="number">Margen</th>`+
+          `<th>Producto a agregar</th><th class="number">Suma</th><th class="number">Su margen</th>`+
+          `<th class="number">Margen final</th><th class="number">Gana</th>`+
+          `<th class="number">Tickets sin él</th><th class="number">Oportunidad</th></tr></thead><tbody>`+
+          filas.map(f=>
+            `<tr><td><strong>${esc(f.anchor)}</strong></td>`+
+            `<td class="number">$${money(f.anchor_sale)}</td>`+
+            `<td class="number">${(f.anchor_margin_pct||0).toFixed(1)}%</td>`+
+            `<td>${esc(f.complement)}</td>`+
+            `<td class="number">$${money(f.complement_sale)}</td>`+
+            `<td class="number">${(f.complement_margin_pct||0).toFixed(1)}%</td>`+
+            `<td class="number"><strong>${(f.blended_margin_pct||0).toFixed(1)}%</strong></td>`+
+            `<td class="number"><span class="pill ${f.margin_points_gained>0?'next':'late'}">`+
+            `${f.margin_points_gained>0?'+':''}${(f.margin_points_gained||0).toFixed(1)} pts</span></td>`+
+            `<td class="number">${number(f.missed_tickets)}</td>`+
+            `<td class="number"><strong>$${money(f.opportunity)}</strong></td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px"><strong>Cómo leerlo.</strong><br>`+
+          `«Margen final» es el del ticket completo, ancla más complemento. Cuando el complemento `+
+          `es más rentable que el ancla, adjuntarlo no solo sube la venta: <strong>sube el porcentaje</strong>, `+
+          `y esa es la columna «gana».<br>`+
+          `«Oportunidad» es el techo: la utilidad que dejarían los tickets que hoy se van sin el `+
+          `complemento si se cerrara el hueco por completo. Nadie adjunta al 100%, así que tómalo `+
+          `como el tamaño del premio, no como pronóstico. Suma de los pares mostrados: `+
+          `<strong>$${money(total)}</strong>.</div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    async function loadQuoteGaps(){
+      const box=document.getElementById('gapPanel');if(!box)return;
+      try{
+        const filas=await api('/api/quote-gaps');
+        if(!filas.length){box.innerHTML='';return}
+        const total=filas.reduce((n,f)=>n+(f.margin_at_stake||0),0);
+        const faltan=filas.reduce((n,f)=>n+(f.quotes_missing||0),0);
+        box.innerHTML=
+          `<div class="section-title"><div><h2>Cotizaciones a las que les falta el complemento</h2>`+
+          `<p>Últimos 90 días. Aquí no hay predicción: la oportunidad ya está escrita en el documento.</p></div></div>`+
+          `<article class="card data-card"><div class="table-wrap"><table>`+
+          `<thead><tr><th>Cotizó</th><th class="number">Cotizaciones</th><th>Le falta</th>`+
+          `<th class="number">Sin él</th><th class="number">Lo suele llevar</th>`+
+          `<th class="number">Valor típico</th><th class="number">Utilidad en juego</th></tr></thead><tbody>`+
+          filas.map(f=>
+            `<tr><td><strong>${esc(f.anchor)}</strong></td>`+
+            `<td class="number">${number(f.quotes_with_anchor)}</td>`+
+            `<td>${esc(f.complement)}</td>`+
+            `<td class="number"><strong>${number(f.quotes_missing)}</strong></td>`+
+            `<td class="number">${(f.attach_rate||0).toFixed(0)}%</td>`+
+            `<td class="number">$${money(f.complement_sale)}</td>`+
+            `<td class="number"><strong>$${money(f.margin_at_stake)}</strong></td></tr>`).join('')+
+          `</tbody></table></div>`+
+          `<div class="insight-callout" style="margin:14px"><strong>Por qué esta lista vale más que un modelo.</strong><br>`+
+          `El 98.9% de las cotizaciones se convierte <strong>el mismo día</strong>. Estas `+
+          `<strong>${number(faltan)}</strong> cotizaciones ya tienen el ancla y no tienen el complemento: `+
+          `no hay que adivinar quién lo querría, hay que preguntarlo en el mostrador antes de cerrar. `+
+          `Utilidad en juego: <strong>$${money(total)}</strong>.<br>`+
+          `<span class="status-text">La columna «lo suele llevar» es la tasa observada en las cotizaciones `+
+          `que sí lo incluyen; sirve para saber qué tan natural es el complemento, no como pronóstico.</span></div></article>`;
+      }catch(e){box.innerHTML=''}
+    }
+    function pintarAlarmaDatos(q){
+      const caja=document.getElementById('alarmaDatos');if(!caja)return;
+      if(!q||!q.server_today||!q.data_as_of){caja.innerHTML='';return}
+      const dias=Math.round((new Date(q.server_today)-new Date(q.data_as_of))/86400000);
+      // Un dia de diferencia es normal: la foto se arma de madrugada sobre el
+      // corte del dia anterior. A partir de tres, el sistema esta opinando
+      // sobre un negocio que ya cambio.
+      if(!(dias>=3)){caja.innerHTML='';return}
+      const grave=dias>=7;
+      caja.innerHTML=
+        `<div class="alarma ${grave?'grave':'aviso'}">`+
+        `<span class="alarma-icono">${grave?'■':'▲'}</span><div>`+
+        `<strong>Los datos tienen ${number(dias)} días de retraso`+
+        `${grave?' — no trabaje esta lista sin revisarlo':''}</strong>`+
+        `<p>El último movimiento registrado en el ERP es del `+
+        `<strong>${esc(date(q.data_as_of))}</strong>, y hoy es `+
+        `<strong>${esc(date(q.server_today))}</strong>. Todo lo que ve aquí ignora lo que se `+
+        `vendió en esos ${number(dias)} días.<br>`+
+        `En la práctica: un cliente que compró esta semana sigue apareciendo como vencido, `+
+        `y llamarle a alguien que acaba de comprar cuesta credibilidad. Los días sin comprar `+
+        `y las cotizaciones abandonadas están corridos ${number(dias)} días.<br>`+
+        `${grave?'Esto no se arregla reconstruyendo la foto: la información no ha llegado a la '+
+          'base. Hay que revisar la carga del ERP.':'Si el número sigue creciendo mañana, '+
+          'revise la carga del ERP.'}<span id="alarmaDetalle"></span></p></div></div>`;
+      // El diagnostico por fuente dice a quien hay que hablarle: una sola
+      // integracion caida no es lo mismo que la replicacion completa.
+      detallarAlarma();
+    }
+    async function detallarAlarma(){
+      const caja=document.getElementById('alarmaDetalle');if(!caja)return;
+      try{
+        const d=await api('/api/freshness');
+        if(!d.sources||!d.sources.length)return;
+        const detenidas=d.sources.filter(x=>x.state==='detenida');
+        caja.innerHTML=`<br><br><strong>${esc(d.diagnosis||'')}</strong>`+
+          (detenidas.length?`<br>`+d.sources.map(x=>
+            `${esc(x.source)}: ${esc(String(x.last_date||'—'))}`+
+            `${x.days_behind!=null?` (${number(x.days_behind)} d)`:''}`).join(' · '):'');
+      }catch(e){}
+    }
+    async function loadQuality(){try{const q=await api('/api/quality');pintarAlarmaDatos(q);const lag=q.server_today?Math.round((new Date(q.server_today)-new Date(q.data_as_of))/86400000):null;document.getElementById('cutoff').innerHTML=`${esc(date(q.data_as_of))}${lag!=null?`<br><span style="font-weight:400;font-size:10px;color:var(--muted)">${number(lag)} días detrás de hoy</span>`:''}`;const a=q.assessment;document.getElementById('healthContent').outerHTML=`<div id="healthContent"><div class="health-intro"><strong>Aptitud actual: ${esc(translate(a.readiness))}</strong><p>Las alertas no son fallas de pantalla: evitan ofrecer inventario o medir conversiones con fuentes que aún no están certificadas.</p></div><div class="health-rules">${a.rules.map(r=>`<article class="health-rule"><div class="state ${r.state==='blocked'?'red':r.state==='ready'?'green':'orange-text'}">${esc(translate(r.state))}</div><h3>${esc(r.title)}</h3><p>${esc(r.detail)}</p></article>`).join('')}</div></div>`}catch(e){document.getElementById('healthContent').innerHTML=`<span class="red">${esc(e.message)}</span>`}}
+    async function loadProjects(){
+      const box=document.getElementById('projectList');if(!box)return;
+      try{
+        const d=await api('/api/projects');
+        const cats=d.categories||[];
+        if(!cats.length){
+          box.innerHTML=`<div class="empty">El catálogo de paquetes se llena al reconstruir la foto.</div>`;
+          return;
+        }
+        box.innerHTML=
+          `<div class="insight-callout" style="margin-bottom:14px">`+
+          `<strong>${number(d.count)} paquetes configurados en el ERP.</strong><br>`+
+          `Ya no es una lista escrita a mano: son los paquetes que de verdad existen, con su `+
+          `nombre y su categoría. <strong>Ojo:</strong> ${esc(d.basis||'')}.</div>`+
+          cats.map(c=>
+            `<article class="project"><div class="project-top">`+
+            `<h4>${esc(prettyCategory(c.category_code))}</h4>`+
+            `<span class="pill ${c.stores_with_stock>0?'next':'late'}">`+
+            `${c.stores_with_stock>0?`${number(c.stores_with_stock)} tiendas con existencia`:'sin existencia'}`+
+            `</span></div>`+
+            `<p>${number(c.count)} paquetes · margen de la categoría ${(c.margin_pct||0).toFixed(1)}%</p>`+
+            `<div class="tags">${c.bundles.slice(0,6).map(b=>
+              `<span title="${esc(b.item_no)}">${esc(b.name)}</span>`).join('')}`+
+            `${c.count>6?`<span>y ${number(c.count-6)} más</span>`:''}</div></article>`).join('');
+      }catch(e){box.innerHTML=`<div class="empty red">${esc(e.message)}</div>`}
+    }
+    const compact=v=>new Intl.NumberFormat('es-MX',{notation:'compact',maximumFractionDigits:1}).format(Number(v||0));
+    function bars(rows,label,value,detail,negative=false){if(!rows.length)return'<div class="empty">Sin datos disponibles.</div>';const max=Math.max(...rows.map(value),1);return rows.map(r=>`<div class="bar-row"><span class="bar-label">${esc(label(r))}</span><span class="bar-track"><span class="bar ${negative&&detail(r)<0?'negative':''}" style="width:${Math.max(5,value(r)*100/max)}%"></span></span><span class="bar-value">${esc(String(detail(r)))}</span></div>`).join('')}
+    async function loadInsights(){try{const d=await api('/api/insights');frequency=d.customer_frequency||null;renderHome();document.getElementById('storeRadar').innerHTML=bars(d.stores,r=>r.store_no,r=>Number(r.net_sales),r=>compact(r.net_sales));document.getElementById('categoryRadar').innerHTML=bars(d.categories,r=>r.category_code,r=>Number(r.sales_last_90_days),r=>{const previous=Number(r.sales_previous_90_days);return previous?`${Math.round((Number(r.sales_last_90_days)-previous)*100/previous)}%`:'Nuevo'},true);document.getElementById('ownerRadar').innerHTML=bars(d.quote_owners,r=>r.salesperson_code,r=>Number(r.expired_quotes)+Number(r.upcoming_quotes),r=>`${number(r.expired_quotes)} venc.`);const groups=d.customer_groups||[],group=groups.find(g=>String(g.customer_group||'').toUpperCase().includes('SIN CLASIFICAR')),classified=groups.filter(g=>g!==group).reduce((n,g)=>n+Number(g.customers||0),0),segments=d.behavior_segments||[];document.getElementById('strategyRadar').innerHTML=bars(segments,r=>r.behavior_segment,r=>Number(r.net_sales),r=>number(r.customers))+`<div class="insight-callout"><strong>Segmentos por comportamiento.</strong><br>Son señales provisionales de compra; permiten priorizar reactivación y alto valor sin depender de un grupo manual inexistente.</div><div class="insight-callout"><strong>Dato a corregir:</strong><br>${group?`${number(group.customers)} clientes identificados siguen sin grupo comercial en el maestro, frente a ${number(classified)} ya clasificados.`:'Todos los clientes identificados tienen grupo comercial asignado.'}</div>`;const frequencyBox=document.getElementById('frequencyInfo');if(frequencyBox&&frequency){frequencyBox.innerHTML=`<strong>Frecuencia real de compra.</strong><br>${number(frequency.customers)} clientes compran; ${number(frequency.repeat_customers)} repiten. La cadencia mediana por cliente es de ${number(frequency.median_gap_days)} días (rango típico: ${number(frequency.p25_gap_days)} a ${number(frequency.p75_gap_days)} días), medida sobre ${number(frequency.customers_with_cadence)} clientes con al menos dos compras.`}}catch(e){for(const id of ['storeRadar','categoryRadar','ownerRadar','strategyRadar'])document.getElementById(id).innerHTML=`<div class="empty red">${esc(e.message)}</div>`}}
+    async function loadStores(){try{const stores=await api('/api/stores');const box=document.getElementById('oppStore');if(!box||!stores.length)return;box.innerHTML='<option value="">Todas las tiendas</option>'+stores.map(x=>`<option value="${esc(x)}">Tienda ${esc(x)}</option>`).join('')}catch(e){}}
+    async function boot(){try{const q=await api('/api/quotes/live');quotes=q.rows||[];pintarFrescura(q)}catch(e){quotes=[]}await loadOpportunities();loadTrend();loadStores();loadQuality();loadProjects();loadInsights();loadGrowth();loadHourly();loadStoreDetail();loadStoreMix();loadPeaks();loadBasket();loadOfferPanel();loadRecovery();loadCosto();loadColaCotizaciones();loadProspects();loadFirstTime();loadReorder();loadTransfers();loadFreshness();loadOffCounter();loadSeason();loadTrabajo();loadDigest();loadDrops();loadLift();loadWallet();loadReplenish();loadDiscount();loadUplift();loadQuoteGaps()}
+    document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>show(b.dataset.view));document.querySelectorAll('[data-tour]').forEach(b=>b.onclick=tourAbrir);try{if(!sessionStorage.getItem('tourVisto'))setTimeout(tourAbrir,700)}catch(e){}document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>show(b.dataset.go));const searchBox=document.getElementById('oppSearch');searchBox.oninput=()=>{oppState.q=searchBox.value.trim();scheduleSearch()};const storeBox=document.getElementById('oppStore');storeBox.onchange=()=>{oppState.store=storeBox.value||null;oppState.page=1;loadOpportunities()};const sortBox=document.getElementById('oppSort');sortBox.onchange=()=>{oppState.sort=sortBox.value;oppState.page=1;loadOpportunities()};const includeBox=document.getElementById('oppInclude');includeBox.onchange=()=>{oppState.include=includeBox.checked;oppState.page=1;loadOpportunities()};const cajaCliente=document.getElementById('customerInput');document.getElementById('searchCustomer').onclick=()=>buscarClientes(cajaCliente.value);cajaCliente.oninput=()=>programarBusqueda(cajaCliente.value);cajaCliente.onkeydown=e=>{if(e.key==='Enter'){clearTimeout(buscaTimer);buscarClientes(e.target.value)}};boot();
+  </script>
+</body>
+</html>

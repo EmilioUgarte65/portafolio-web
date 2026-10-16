@@ -1,0 +1,191 @@
+[
+  {
+    "href": "projects/dino-ai/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Artificial intelligence",
+    "title": "Dino AI · An AI that learns on its own",
+    "description": "An AI that learns, all by itself, to play Chrome’s dinosaur game: it looks at the screen like a person would and gets better with every attempt. Reinforcement learning (PPO) + computer vision."
+  },
+  {
+    "href": "projects/mundial/",
+    "badge": "● Demo",
+    "image": "",
+    "alt": "",
+    "tag": "Machine Learning · Simulation",
+    "title": "World Cup 2026 · AI prediction",
+    "description": "Machine-learning model that predicts the 2026 World Cup: blends Elo ratings with XGBoost regressors, models the minute of each goal and simulates the knockouts with Monte Carlo (50k+ historical matches). World-Cup-style web with bracket, groups, favorites and per-match detail."
+  },
+  {
+    "href": "projects/dexter/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Artificial intelligence",
+    "title": "Dexter · Custom AI assistants",
+    "description": "A collection of AI assistants anyone can install and combine as needed, with 46+ ready-to-use skills, persistent memory and multi-agent support. Open source."
+  },
+  {
+    "href": "projects/nexo/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Customer support",
+    "title": "Nexo · Your WhatsApp assistant",
+    "description": "Serves customers on WhatsApp 24/7 using the official WhatsApp Business API: understands text, voice notes and photos, and resolves with no human in the loop. Also works as a centralized multi-agent platform."
+  },
+  {
+    "href": "projects/lumen/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Smart reporting",
+    "title": "Lumen · Ask your numbers",
+    "description": "Ask about your sales or finances in plain language — typing or speaking — and get a clear answer instantly, no spreadsheets required. Charts, tables and natural-language reporting over your ERP data."
+  },
+  {
+    "href": "projects/brujula/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "BI over WhatsApp",
+    "title": "Brújula · Your numbers on WhatsApp",
+    "description": ""
+  },
+  {
+    "href": "projects/nucleo/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Business management",
+    "title": "Núcleo · Your business in one screen",
+    "description": "Organizes your schedule, resources and day-to-day operations in one real-time place, synced with your calendar so no appointment slips through."
+  },
+  {
+    "href": "projects/vertice/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Management app",
+    "title": "Vértice · A custom-built app",
+    "description": "A custom application to manage a team’s internal processes (projects, quotes, payments). Keeps working offline and protects access with secure authentication. React + FastAPI + PostgreSQL + Docker."
+  },
+  {
+    "href": "projects/vitrina/",
+    "badge": "● Demo",
+    "image": "",
+    "alt": "",
+    "tag": "Online store",
+    "title": "Vitrina · Your online store",
+    "description": "A complete, ready-to-sell online store: category catalog, cart with promotions, stock alerts and instant product search. Fully responsive."
+  },
+  {
+    "href": "projects/myaccountant/",
+    "badge": "● Demo",
+    "image": "",
+    "alt": "",
+    "tag": "Personal finance app",
+    "title": "MyAccountant · Your money, in order",
+    "description": "Personal PWA to manage your finances: category budgeting, expense control and real-time tracking. A personal project on React + Firebase (Google Cloud), in active development."
+  },
+  {
+    "href": "projects/marquesina/",
+    "badge": "● Live site",
+    "image": "",
+    "alt": "",
+    "tag": "Website · Landing page",
+    "title": "Landing page · Audiovisual portfolio",
+    "description": "Netflix-style landing page for an audiovisual marketing creative: billboard hero, video catalog with a built-in player, animated hover and full SEO (Open Graph + structured data). Design, frontend and deployment end to end."
+  },
+  {
+    "href": "projects/festo/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Automation",
+    "title": "Festo · Automatic birthday wishes",
+    "description": "Every morning it checks whose birthday it is and sends a greeting with a personalized image over chat, automatically. Nobody on the team has to remember."
+  },
+  {
+    "href": "projects/pulso/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Surveys",
+    "title": "Pulso · Offline-first surveys",
+    "description": "Run satisfaction surveys anywhere, even with no signal. Responses are saved locally and sync automatically the moment the connection returns. Offline-first PWA."
+  },
+  {
+    "href": "projects/totem/",
+    "badge": "● Showcase",
+    "image": "",
+    "alt": "",
+    "tag": "Digital signage",
+    "title": "Totem · Control your billboard screen",
+    "description": "A remote control for digital billboards: change content instantly from your phone, stream Facebook videos and show live weather."
+  },
+  {
+    "href": "projects/web-studio/",
+    "badge": "● Demo",
+    "image": "../assets/previews/web-studio.jpg",
+    "alt": "Web Studio",
+    "tag": "AI & Video Editor",
+    "title": "Web Studio",
+    "description": "Explore the original AI-assisted timeline, media library, monitor and inspector with a fictional sample project."
+  },
+  {
+    "href": "projects/distrito/",
+    "badge": "● Demo",
+    "image": "../assets/previews/distrito.jpg",
+    "alt": "Distrito",
+    "tag": "3D experience",
+    "title": "Distrito",
+    "description": "Explore the original 3D room, animated pets and controls with fictional player data."
+  },
+  {
+    "href": "projects/ruta-clara/",
+    "badge": "● Demo",
+    "image": "../assets/previews/ruta-clara.jpg",
+    "alt": "Ruta Clara",
+    "tag": "Logistics and maps",
+    "title": "Ruta Clara",
+    "description": "Explore the original maps, street routes, orders, loading and reports with fictional operations."
+  },
+  {
+    "href": "projects/ourway/",
+    "badge": "● Demo",
+    "image": "../assets/previews/ourway.jpg",
+    "alt": "Ourway",
+    "tag": "3D travel atlas",
+    "title": "Ourway",
+    "description": "Explore the original orbital scene, planets, textures and navigation. The sample trip contains no private photos or locations. Private album connections are disabled."
+  },
+  {
+    "href": "projects/radar/",
+    "badge": "● Demo",
+    "image": "../assets/previews/radar.jpg",
+    "alt": "Radar",
+    "tag": "Commercial analytics",
+    "title": "Radar",
+    "description": "Explore the original navigation and panels with fictional customers, quotes and monthly series. Modules without sample data remain empty. No ERP or company database is connected."
+  },
+  {
+    "href": "projects/inferencia/",
+    "badge": "● Showcase",
+    "image": "../assets/web-dev-eyes.svg",
+    "alt": "Inferencia eficiente",
+    "tag": "AI research",
+    "title": "Inferencia eficiente",
+    "description": "Applied research breaking the 4 GB VRAM wall on consumer GPUs: INT4/INT3/INT2 quantization, GPTQ and low-rank residual patches to run 7B models in ~2.4 GB."
+  },
+  {
+    "href": "projects/juego-construccion/",
+    "badge": "● Playable Demo",
+    "image": "../assets/previews/juego-construccion.jpg",
+    "alt": "Obra Maestra MN",
+    "tag": "Video Game · Unity & WebGL",
+    "title": "Obra Maestra MN",
+    "description": "2D resource-gathering and construction platformer. Built with Unity, compiled to WebGL/WASM and optimized for seamless mobile and desktop web play."
+  }
+]

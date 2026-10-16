@@ -1,0 +1,48 @@
+"""Añade showcases sin modificar los frontends ni sus estilos originales."""
+from pathlib import Path
+from html import escape
+import re
+
+ROOT = Path(__file__).resolve().parents[1]
+PROJECTS = [
+    ('web-studio','Web Studio','#8B5FC7','Editor de video','Video, audio y texto, en una misma línea de tiempo.','Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas. El proyecto de ejemplo usa material ficticio.', [('Línea de tiempo','Selecciona, corta y duplica clips desde los controles del editor.'),('Inspector','Ajusta propiedades y explora los modos simple y avanzado.'),('Proyecto de ejemplo','Reproduce y edita una secuencia de demostración en memoria.')]),
+    ('distrito','Distrito','#BD4076','Experiencia 3D','Una mascota y un mundo que puedes explorar.','El frontend original conserva sus modelos 3D, su habitación, animaciones y controles. La demostración utiliza un perfil y progreso ficticios.', [('Mundo 3D','Gira la cámara y acércate a la mascota con los controles originales.'),('Interacción','Explora la habitación y los controles originales de cuidado.'),('Identidad propia','Recursos visuales de Web Dev-Eyes y datos de ejemplo.')]),
+    ('ruta-clara','Ruta Clara','#115E59','Logística y mapas','Rutas sobre calles, con una operación de ejemplo.','Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.', [('Calles y giros','Recorridos sobre la red vial, considerando sentidos y costos por giro.'),('Comparar rutas','Selecciona origen y destino para comparar derecha primero, rápida y corta.'),('Plan del día','Explora unidades, paradas, carga y reportes con datos de demostración.')]),
+    ('vitrina','Vitrina','#B45309','Comercio electrónico','El catálogo completo, listo para explorar.','La interfaz original mantiene su navegación, fotografías, categorías, búsqueda y carrito. Los productos y las cuentas de la demo son ficticios.', [('Catálogo','Busca artículos y recorre las categorías del diseño original.'),('Carrito','Explora fichas y agrega productos a un carrito local de ejemplo.'),('Recursos propios','Fotografías de producto con marcas retiradas o sustituidas por Web Dev-Eyes.')]),
+]
+
+for lang in ('es','en'):
+    en = lang == 'en'
+    base = ROOT / ('en/projects' if en else 'proyectos')
+    rel = '../../../' if en else '../../'
+    for slug,name,color,kind,title,description,features in PROJECTS:
+        folder=base/slug;folder.mkdir(parents=True,exist_ok=True)
+        launch='Launch demo' if en else 'Iniciar demo'
+        back='Back to projects' if en else 'Volver a los proyectos'
+        privacy='Frontend demo · fictional data · no connected company services.' if en else 'Demo del frontend · datos ficticios · sin servicios empresariales conectados.'
+        if en:
+            title={'web-studio':'Video, audio and text on one timeline.','distrito':'A pet and a 3D world to explore.','ruta-clara':'Street routes with fictional operations.','vitrina':'Explore the complete storefront.'}[slug]
+            description={'web-studio':'Explore the original editor, media library, program monitor, inspector and timeline with a fictional sample project.','distrito':'The original frontend retains its 3D models, room, animations and controls with a fictional player profile.','ruta-clara':'Explore maps, compare street routes and review orders, loading and reports. The original route engine uses a public road network and fictional locations.','vitrina':'The original storefront keeps its navigation, photographs, categories, search and cart with fictional products and accounts.'}[slug]
+            features={'web-studio':[('Timeline','Select, cut and duplicate clips with the original editor controls.'),('Inspector','Explore clip properties and the simple and advanced modes.'),('Sample project','Play and edit a sample sequence in memory.')],'distrito':[('3D world','Rotate the camera and zoom in on the pet.'),('Interaction','Explore the original room and pet care controls.'),('Own identity','Web Dev-Eyes assets and fictional player data.')],'ruta-clara':[('Street routing','Routes follow the road network and account for turn costs.'),('Compare routes','Choose an origin and destination to compare three routes.'),('Daily plan','Explore vehicles, stops, loading and reports with fictional data.')],'vitrina':[('Catalog','Search items and explore the original categories.'),('Cart','Open product details and add items to a local sample cart.'),('Own assets','Product photos with trademarks removed or replaced with Web Dev-Eyes.')]}[slug]
+        html=f'''<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{name} · Web Dev-Eyes</title><meta name="description" content="{escape(description,quote=True)}"><link rel="icon" href="{rel}assets/web-dev-eyes.svg"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"><link rel="stylesheet" href="{rel}assets/showcase-original.css"><style>:root{{--primary:{color};--secondary:{color};--accent:{color};--grad:linear-gradient(120deg,{color},color-mix(in srgb,{color} 70%,white));--grad-soft:linear-gradient(120deg,{color},color-mix(in srgb,{color} 60%,black));--bg:#F7F8FC;--fg:#1E1B4B;--muted:#5b5b7a;--font-head:'Sora',sans-serif;--font-body:'Inter',sans-serif}}.hero .btn-primary{{min-height:60px;padding:18px 26px}}</style></head><body>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="{rel}assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>{name}</div><div class="nav-links"><a href="#que-hace">{'Explore' if en else 'Qué hace'}</a><a class="nav-cta" href="{rel}demos/{slug}/" target="_blank" rel="noopener">▶ {launch}</a><a href="{rel}{'proyectos' if en else 'en/projects'}/{slug}/">{'ES' if en else 'EN'}</a></div></div></nav>
+<header class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">{kind if not en else name}</span><h1>{title}</h1><p class="lead">{description}</p><div class="btn-row"><a class="btn btn-primary" href="{rel}demos/{slug}/" target="_blank" rel="noopener">▶ {launch}</a><a class="btn btn-ghost" href="#que-hace">{'Explore' if en else 'Ver qué hace'}</a></div><p style="color:var(--muted);font-size:.85rem;margin-top:20px">{privacy}</p></div><div class="mock"><img src="{rel}assets/previews/{slug}.jpg" alt="{name} · {'original interface' if en else 'interfaz original'}" style="width:100%;height:auto;display:block"></div></div></header>
+<section id="que-hace"><div class="wrap"><div class="sec-head"><span class="eyebrow">{name}</span><h2>{'Explore the app' if en else 'Explora la aplicación'}</h2></div><div class="features">'''
+        html=html.replace('<div class="features">','<div class="bento">')
+        html+=''.join(f'<div class="cell{ " wide" if i == 0 else "" }"><div class="ic"><img src="{rel}assets/web-dev-eyes.svg" alt="" width="32" height="32"></div><h3>{heading}</h3><p>{text}</p></div>' for i,(heading,text) in enumerate(features))
+        html+=f'''</div></div></section><section><div class="wrap"><div class="cta-card"><h2>{'Try the interface' if en else 'Prueba la interfaz'}</h2><p>{privacy}</p><div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="{rel}demos/{slug}/" target="_blank" rel="noopener">▶ {launch}</a></div></div></div></section><footer><div class="wrap"><div class="brand">Web Dev-Eyes · {name}</div><a class="back" href="{rel}{'en/' if en else ''}">← {back}</a></div></footer></body></html>'''
+        (folder/'index.html').write_text(html,encoding='utf-8')
+    home=ROOT/('en/index.html' if en else 'index.html');s=home.read_text(encoding='utf-8')
+    s=re.sub(r'\s*<!-- original-demo-additions -->.*?<!-- /original-demo-additions -->','',s,flags=re.S)
+    cards=[]
+    for slug,name,_,kind,_,description,_ in PROJECTS[:3]:
+        if en:
+            kind={'web-studio':'Video editor','distrito':'3D experience','ruta-clara':'Logistics and maps'}[slug]
+            description={'web-studio':'Explore the original timeline, media library, monitor and inspector with a fictional sample project.','distrito':'Explore the original 3D room, animated pets and controls with fictional player data.','ruta-clara':'Explore the original maps, street routes, orders, loading and reports with fictional operations.'}[slug]
+        href=('projects/' if en else 'proyectos/')+slug+'/'
+        cards.append(f'<a class="card" href="{href}"><span class="live">● Demo</span><div class="preview"><img src="{"../" if en else ""}assets/previews/{slug}.jpg" alt="{name}" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div><div class="card-body"><span class="tag">{kind}</span><h3>{name}</h3><p>{description}</p><span class="go">{"View showcase" if en else "Ver showcase"} →</span></div></a>')
+    addition='\n<!-- original-demo-additions --><div class="cat-title">'+('Interactive demos' if en else 'Showcases y demos interactivas')+'</div><div class="grid">'+''.join(cards)+'</div><!-- /original-demo-additions -->\n'
+    marker='  <section id="skills"';idx=s.index(marker);end=s.rfind('    </div>',0,idx);s=s[:end]+addition+s[end:]
+    s=s.replace('CORA ·','Nexo ·').replace('href="demos/vitrina/"','href="proyectos/vitrina/"').replace('href="../demos/vitrina/"','href="projects/vitrina/"')
+    home.write_text(s,encoding='utf-8')
+print('Four showcases updated; original application frontends unchanged.')

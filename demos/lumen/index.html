@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head><meta http-equiv="Content-Security-Policy" content="connect-src 'self'; object-src 'none'; form-action 'none'">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Lumen — Análisis contable y de ventas con IA para tu empresa." />
+  <meta name="theme-color" content="#eef1f7" />
+  
+  <link rel="icon" href="../../assets/web-dev-eyes.svg">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <title>Lumen</title>
+  <script type="module" crossorigin src="./assets/index-OsalgYSO.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CE402qvQ.css">
+</head>
+
+<body>
+  <!-- Login Overlay -->
+  <div id="login-overlay" class="login-overlay">
+    <div class="login-card glass-card">
+      <div class="login-brand">
+        <div class="mn-logo mn-logo-lg">
+          <svg viewBox="0 0 60 60" width="64" height="64">
+            <circle cx="30" cy="30" r="28" fill="none" stroke="var(--color-primary)" stroke-width="3.5"/>
+            <text x="30" y="26" text-anchor="middle" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="800" font-size="18">
+              <tspan fill="var(--color-primary)">L</tspan><tspan fill="#7c5cff">u</tspan>
+            </text>
+            <text x="30" y="42" text-anchor="middle" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="600" font-size="8" fill="var(--color-primary)" letter-spacing="2">IA</text>
+          </svg>
+        </div>
+        <h2>Lumen</h2>
+        <p>Análisis contable y de ventas con inteligencia artificial</p>
+      </div>
+      <form id="login-form" class="login-form">
+        <div class="login-field">
+          <label for="login-user">Usuario</label>
+          <input type="text" id="login-user" autocomplete="username" required />
+        </div>
+        <div class="login-field">
+          <label for="login-pass">Contrasena</label>
+          <input type="password" id="login-pass" autocomplete="current-password" required />
+        </div>
+        <div id="login-error" class="login-error"></div>
+        <button type="submit" class="login-btn">Iniciar Sesion</button>
+      </form>
+      <p class="login-demo-hint">Sin cuenta? La app funciona en modo demo.</p>
+      <button id="login-skip" class="login-skip-btn">Continuar sin cuenta</button>
+    </div>
+  </div>
+
+  <!-- Main Menu (shown after login, before entering a module) -->
+  <div id="main-menu" class="main-menu" hidden>
+    <div class="main-menu-inner">
+      <div class="main-menu-header">
+        <div class="welcome-orb">
+          <div class="orb-glow"></div>
+          <svg viewBox="0 0 80 80" width="72" height="72">
+            <circle cx="40" cy="40" r="36" fill="none" stroke="var(--color-primary)" stroke-width="3"/>
+            <text x="40" y="35" text-anchor="middle" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="800" font-size="24">
+              <tspan fill="var(--color-primary)">L</tspan><tspan fill="#7c5cff">u</tspan>
+            </text>
+            <text x="40" y="54" text-anchor="middle" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="var(--color-primary)" letter-spacing="3">IA</text>
+          </svg>
+        </div>
+        <h2 class="main-menu-title">Lumen</h2>
+        <p class="main-menu-subtitle">Selecciona un módulo para comenzar</p>
+      </div>
+      <div class="main-menu-grid">
+        <!-- Balance General -->
+        <!-- Balance General -->
+        <div class="menu-card glass-card" data-module="balance-general" aria-label="Balance General" role="button" tabindex="0">
+          <div class="menu-card-icon gradient-primary">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="18" rx="2"/>
+              <line x1="2" y1="9" x2="22" y2="9"/>
+              <line x1="12" y1="9" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <h3 class="menu-card-title">Balance General</h3>
+          <p class="menu-card-desc">Activo, pasivo y capital. Verifica si el balance cuadra.</p>
+        </div>
+        <!-- Estado de Resultados -->
+        <div class="menu-card glass-card" data-module="estado-resultados" aria-label="Estado de Resultados" role="button" tabindex="0">
+          <div class="menu-card-icon gradient-success">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3 class="menu-card-title">Estado de Resultados</h3>
+          <p class="menu-card-desc">Ventas, costos, gastos y utilidad neta del periodo.</p>
+        </div>
+        <!-- Catalogo de Cuentas -->
+        <div class="menu-card glass-card" data-module="catalogo-cuentas" aria-label="Catalogo de Cuentas" role="button" tabindex="0">
+          <div class="menu-card-icon gradient-warning">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+              <line x1="8" y1="7" x2="16" y2="7"/>
+              <line x1="8" y1="11" x2="14" y2="11"/>
+            </svg>
+          </div>
+          <h3 class="menu-card-title">Catalogo de Cuentas</h3>
+          <p class="menu-card-desc">Consulta el catalogo contable completo de la empresa.</p>
+        </div>
+        <!-- Balanza -->
+        <div class="menu-card glass-card" data-module="balanza" aria-label="Balanza" role="button" tabindex="0">
+          <div class="menu-card-icon gradient-warning">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="2" x2="12" y2="6"/>
+              <line x1="12" y1="18" x2="12" y2="22"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M5 5l4.5 7h-9L5 5z"/>
+              <path d="M19 5l4.5 7h-9L19 5z"/>
+            </svg>
+          </div>
+          <h3 class="menu-card-title">Balanza</h3>
+          <p class="menu-card-desc">Balanza de comprobacion con movimientos del periodo.</p>
+        </div>
+        <!-- Reporte de Lento Movimiento (en construcción - paso 1: esqueleto) -->
+        <div class="menu-card glass-card" data-module="lento-movimiento" aria-label="Reporte de Lento Movimiento" role="button" tabindex="0">
+          <div class="menu-card-icon gradient-accent">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 7 12 12 15 14"/>
+            </svg>
+          </div>
+          <h3 class="menu-card-title">Reporte de Lento Movimiento</h3>
+          <p class="menu-card-desc">Articulos con poca o nula rotacion en el periodo.</p>
+        </div>
+        <!-- Flujo de Efectivo -->
+        <div class="menu-card glass-card" data-module="flujo-efectivo" aria-label="Flujo de Efectivo" role="button" tabindex="0">
+          <div class="menu-card-icon gradient-primary">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+              <line x1="1" y1="10" x2="23" y2="10"/>
+              <polyline points="7 15 9 17 13 13"/>
+            </svg>
+          </div>
+          <h3 class="menu-card-title">Flujo de Efectivo</h3>
+          <p class="menu-card-desc">Entradas, salidas y saldo de cuentas bancarias por sucursal.</p>
+        </div>
+        <!-- Chat con IA (hero a todo el ancho) -->
+        <div class="menu-card menu-card-hero glass-card" data-module="chat-ia" aria-label="Chat con IA" role="button" tabindex="0">
+          <div class="menu-card-icon gradient-accent">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div class="menu-card-hero-text">
+            <h3 class="menu-card-title">Chat con IA</h3>
+            <p class="menu-card-desc">Pregunta lo que necesites con lenguaje natural —escribiendo o por voz.</p>
+          </div>
+        </div>
+      </div>
+      <button id="main-menu-logout" class="menu-logout-btn" aria-label="Cerrar sesion">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Cerrar Sesion
+      </button>
+    </div>
+  </div>
+
+  <!-- Report View (dedicated full-screen for Balance, EdoRes, Catalogo) -->
+  <div id="report-view" class="report-view" hidden>
+    <div class="report-header">
+      <button id="report-back" class="report-back-btn" aria-label="Volver al menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+      </button>
+      <h2 id="report-title" class="report-title">Reporte</h2>
+      <button id="report-export-excel" class="export-excel-btn" aria-label="Exportar a Excel">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        Exportar Excel
+      </button>
+    </div>
+    <div id="report-summary" class="report-summary"></div>
+    <div id="report-table-container" class="report-table-container">
+      <div class="report-loading">
+        <div class="loading-shimmer" style="height:40px;width:100%;border-radius:8px;margin-bottom:8px"></div>
+        <div class="loading-shimmer" style="height:400px;width:100%;border-radius:8px"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="app">
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    <!-- Sidebar -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 36 36" width="32" height="32">
+            <circle cx="18" cy="18" r="16" fill="none" stroke="var(--color-primary)" stroke-width="2.5"/>
+            <text x="18" y="20" text-anchor="middle" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="800" font-size="13">
+              <tspan fill="var(--color-primary)">L</tspan><tspan fill="#7c5cff">u</tspan>
+            </text>
+          </svg>
+        </div>
+        <span class="brand-name">Lumen</span>
+        <button id="sidebar-close" class="icon-btn mobile-only" aria-label="Cerrar sidebar" style="margin-left: auto;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <!-- New Chat Button -->
+        <button id="new-chat-btn" class="nav-item new-chat-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          <span>Nueva conversacion</span>
+        </button>
+
+        <div class="nav-divider"></div>
+
+        <!-- Conversation List -->
+        <div id="conversations-list" class="conversations-list"></div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="connection-status">
+          <span class="status-dot"></span>
+          <span>Motor Demo</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <button id="back-to-menu" class="icon-btn" aria-label="Volver al menu" title="Volver al menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+          </button>
+          <button id="sidebar-toggle" class="icon-btn" aria-label="Toggle sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </div>
+        <h1 class="header-title" style="position:absolute;left:50%;transform:translateX(-50%);font-size:1.5rem;white-space:nowrap">Lumen</h1>
+        <div class="header-right">
+          <button id="theme-toggle" class="icon-btn" aria-label="Cambiar tema" title="Modo Dia / Noche">
+            <svg id="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+            <svg id="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+          </button>
+          <div class="tts-toggle-wrapper">
+            <label class="tts-toggle" title="Activar/Desactivar Voz">
+              <input type="checkbox" id="tts-toggle-checkbox" checked>
+              <span class="tts-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <path class="sound-wave" d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                  <path class="sound-wave" d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                </svg>
+              </span>
+            </label>
+          </div>
+          <div class="header-time" id="header-time"></div>
+        </div>
+      </header>
+
+      <!-- Chat Area -->
+      <div id="chat-view" class="chat-view">
+        <!-- Chat Messages (scrollable) -->
+        <div id="chat-messages" class="chat-messages">
+          <!-- Welcome State -->
+          <div id="welcome-section" class="welcome-section">
+            <div class="welcome-content">
+              <div class="welcome-orb">
+                <div class="orb-glow"></div>
+                <svg viewBox="0 0 80 80" width="80" height="80">
+                  <circle cx="40" cy="40" r="36" fill="none" stroke="var(--color-primary)" stroke-width="3"/>
+                  <text x="40" y="35" text-anchor="middle" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="800" font-size="24">
+                    <tspan fill="var(--color-primary)">L</tspan><tspan fill="#7c5cff">u</tspan>
+                  </text>
+                  <text x="40" y="54" text-anchor="middle" dominant-baseline="central" font-family="Inter, sans-serif" font-weight="600" font-size="11" fill="var(--color-primary)" letter-spacing="3">IA</text>
+                </svg>
+              </div>
+              <h2>Hola, soy Lumen 👋</h2>
+              <p>Pregúntame por tus ventas, contabilidad y métricas en lenguaje natural —escribiendo o por voz— y te respondo con KPIs, gráfica y tabla.</p>
+              <div class="quick-actions">
+                <button class="quick-btn" data-prompt="Dame un resumen de ventas por sucursal del ultimo mes">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="20" x2="18" y2="10" />
+                    <line x1="12" y1="20" x2="12" y2="4" />
+                    <line x1="6" y1="20" x2="6" y2="14" />
+                  </svg>
+                  Ventas por Sucursal
+                </button>
+                <button class="quick-btn" data-prompt="Top 10 departamentos con mas venta">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                  </svg>
+                  Top Departamentos
+                </button>
+                <button class="quick-btn" data-prompt="Top 10 proveedores con mayor volumen de venta">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="3" width="15" height="13" />
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                  </svg>
+                  Top Proveedores
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Input Section (fixed bottom) -->
+        <section id="input-section" class="input-section">
+          <div class="input-panel glass-card">
+            <div class="input-actions-row">
+              <div class="voice-visual-compact">
+                <button id="mic-btn" class="mic-btn-small" aria-label="Iniciar grabación de voz">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                    <line x1="8" y1="23" x2="16" y2="23" />
+                  </svg>
+                </button>
+                <canvas id="waveform-canvas" class="waveform-canvas-small" width="200" height="40"></canvas>
+              </div>
+
+              <button id="voice-loop-btn" class="voice-loop-btn" title="Chat de voz continuo" aria-label="Activar chat de voz continuo">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="17 1 21 5 17 9"/>
+                  <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+                  <polyline points="7 23 3 19 7 15"/>
+                  <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+                </svg>
+              </button>
+
+              <div class="voice-status-compact">
+                <div id="voice-transcript" class="transcript-compact">
+                  <span class="transcript-placeholder">Voz desactivada</span>
+                </div>
+                <div id="tts-indicator" class="tts-indicator-compact" hidden>
+                  <div class="tts-dots"><span></span><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-input-wrapper">
+              <input type="text" id="text-input" class="text-input" placeholder="Escribe tu pregunta..."
+                autocomplete="off" />
+              <button id="text-send-btn" class="icon-btn send-btn" aria-label="Enviar texto">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+</body>
+
+</html>
