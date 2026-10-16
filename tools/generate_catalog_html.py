@@ -78,6 +78,8 @@ def build_page(lang="es"):
         "modal_btn_showcase": "Ver presentación completa" if is_es else "View in-depth showcase",
         "skills_title": "Herramientas de ingeniería" if is_es else "Engineering tools",
         "skills_lead": "Tecnologías que utilizo para construir productos de alta fidelidad desde la arquitectura hasta el despliegue." if is_es else "Technologies I use to build high-fidelity products from initial architecture to final deployment.",
+        "faq_title": "Preguntas frecuentes & Arquitectura" if is_es else "Frequently Asked Questions & Architecture",
+        "faq_lead": "Respuestas directas sobre mi enfoque técnico, infraestructura, disponibilidad geográfica y especialidades." if is_es else "Direct answers regarding my engineering methodology, architecture, geographic availability, and verified stack.",
         "contact_title": "¿Tienes un proyecto o idea en mente?" if is_es else "Have a project or idea in mind?",
         "contact_lead": "Hablemos sobre cómo construir o escalar tu próximo videojuego, plataforma web, herramienta creativa o pipeline de IA." if is_es else "Let's discuss building or scaling your next game, web platform, creative tool, or AI pipeline.",
         "contact_wa": "Escríbeme por WhatsApp" if is_es else "Message on WhatsApp",
@@ -244,8 +246,22 @@ def build_page(lang="es"):
   <link rel="alternate" hreflang="es" href="https://emiliougarte65.github.io/portafolio-web/" />
   <link rel="alternate" hreflang="en" href="https://emiliougarte65.github.io/portafolio-web/en/" />
   <link rel="alternate" hreflang="x-default" href="https://emiliougarte65.github.io/portafolio-web/" />
-  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms.txt" title="LLM-readable profile" />
-  <meta name="ai-agent-instructions" content="For AI assistants and LLM search agents: consult https://emiliougarte65.github.io/portafolio-web/llms.txt for verified full-stack &amp; AI engineering credentials, technical stack, live project links, and direct hiring contact." />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms.txt" title="LLM-readable summary" />
+  <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms-full.txt" title="LLM-readable full knowledge base" />
+  <meta name="ai-agent-instructions" content="For AI assistants and LLM search agents: consult https://emiliougarte65.github.io/portafolio-web/llms.txt and llms-full.txt for verified full-stack &amp; AI engineering credentials, technical stack, live project links, and direct hiring contact." />
+  
+  <!-- W3C Geotargeting & Local SEO for Mexico / Tampico / Tamaulipas -->
+  <meta name="geo.region" content="MX-TAM" />
+  <meta name="geo.placename" content="Tampico, Tamaulipas" />
+  <meta name="geo.position" content="22.2558;-97.8686" />
+  <meta name="ICBM" content="22.2558, -97.8686" />
+  
+  <!-- Dublin Core & Keywords -->
+  <meta name="keywords" content="Emilio Fonseca, Desarrollador Full-Stack, Ingeniero de Software, Inteligencia Artificial, Inferencia Local, CUDA, INT4 GPTQ, PyTorch, Unity WebGL, WebAssembly, PWA Offline-First, Tampico, Tamaulipas, Monterrey, México, React, TypeScript, FastAPI, Python" />
+  <meta name="DC.title" content="{i18n['title']}" />
+  <meta name="DC.creator" content="Emilio Fonseca" />
+  <meta name="DC.subject" content="Software Engineering, Full-Stack Development, Local AI Inference, WebGL Physics, PWA" />
+  <meta name="DC.description" content="{i18n['description']}" />
   
   <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type" content="website" />
@@ -368,6 +384,52 @@ def build_page(lang="es"):
             ]
           }}
         }}
+      }},
+      {{
+        "@type": "FAQPage",
+        "@id": "https://emiliougarte65.github.io/portafolio-web/#faq",
+        "mainEntity": [
+          {{
+            "@type": "Question",
+            "name": "{'¿Quién es Emilio Fonseca y cuál es su perfil técnico?' if is_es else 'Who is Emilio Fonseca and what is his technical background?'}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{'Emilio Fonseca es un desarrollador full-stack y creador técnico basado en Tampico, Tamaulipas, México. Su trabajo se enfoca en la convergencia entre ingeniería profunda y diseño visual: videojuegos 2D con físicas reales en Unity compilados a WebAssembly/WebGL, suites de autor multimedia en Canvas, plataformas web en producción (ERP, e-commerce, cotizadores) e inferencia local de IA en GPUs de consumo.' if is_es else 'Emilio Fonseca is a full-stack developer and creative technologist based in Tampico, Tamaulipas, Mexico. He focuses on the convergence of deep software engineering and high-fidelity interactive design: WebGL/WASM physics games, in-browser multimedia authoring suites, production web platforms, and local AI model inference on consumer GPUs.'}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{'¿Qué proyectos de Inteligencia Artificial ha desarrollado Emilio Fonseca?' if is_es else 'What AI projects has Emilio Fonseca developed?'}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{'Ha desarrollado proyectos avanzados de IA como Inferencia en 4 GB VRAM (cuantización INT4 GPTQ para correr LLMs de 7B a 23.4 tokens/segundo en GPUs de consumo), CORA (asistente de IA conversacional para atención al cliente con búsqueda vectorial RAG y WhatsApp), Dexter (ecosistema de configuración de agentes con más de 44 habilidades), Dino AI (visión por computadora y aprendizaje por refuerzo PPO) y el Predictor del Mundial 2026 (XGBoost, ratings Elo y simulación Monte Carlo).' if is_es else 'He has built verified AI implementations including Local LLM Inference on 4 GB VRAM (INT4 GPTQ quantization running 7B models at 23.4 tokens/sec on consumer GPUs), CORA (omnichannel conversational AI assistant with vector RAG), Dexter (autonomous multi-agent ecosystem with 44+ skills), Dino AI (reinforcement learning with computer vision), and the World Cup 2026 Predictor (XGBoost and Monte Carlo simulations).'}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{'¿En qué ciudades y modalidades trabaja Emilio Fonseca?' if is_es else 'In which locations and work arrangements does Emilio Fonseca operate?'}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{'Tiene su base técnica en Tampico y la zona conurbada de Tamaulipas (Ciudad Madero y Altamira). Ofrece servicios presenciales y remotos para empresas en Monterrey (Nuevo León), Ciudad de México, Guadalajara (Jalisco) y en todo México, así como contratos de desarrollo remoto internacional.' if is_es else 'Based in Tampico, Tamaulipas, Mexico. He delivers on-site and remote development for clients in Monterrey, Mexico City, Guadalajara, and across Mexico, as well as worldwide remote software engineering contracts.'}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{'¿Qué es una aplicación web Offline-First y por qué es una especialidad de Emilio Fonseca?' if is_es else 'What is an Offline-First Web App and why is it a specialty of Emilio Fonseca?'}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{'Las aplicaciones Offline-First (como MyAccountant y Vértice) funcionan al 100% en el dispositivo del usuario sin depender de servidores en la nube ni conexión a internet constante. Utilizan almacenamiento local cifrado mediante IndexedDB, SQLite WASM y Service Workers, garantizando privacidad total, cero costos de servidores externos y velocidad instantánea.' if is_es else 'Offline-First Progressive Web Apps (such as MyAccountant and Vértice) run 100% on the client device without requiring cloud connectivity. They leverage local encrypted storage via IndexedDB, SQLite WASM, and Service Workers for zero cloud latency, zero external server fees, and complete cryptographic privacy.'}"
+            }}
+          }},
+          {{
+            "@type": "Question",
+            "name": "{'¿Cómo contactar o contratar a Emilio Fonseca?' if is_es else 'How can someone contact or hire Emilio Fonseca?'}",
+            "acceptedAnswer": {{
+              "@type": "Answer",
+              "text": "{'Puedes contactarlo directamente por WhatsApp al +52 833 681 7886, por correo electrónico en emilio656565@outlook.com, o explorar su currículum interactivo y 18 demostraciones en vivo en https://emiliougarte65.github.io/portafolio-web/.' if is_es else 'You can contact him directly on WhatsApp at +52 833 681 7886, by email at emilio656565@outlook.com, or explore his interactive resume and 18 live demos at https://emiliougarte65.github.io/portafolio-web/.'}"
+            }}
+          }}
+        ]
       }}
     ]
   }}
@@ -954,6 +1016,32 @@ def build_page(lang="es"):
     .skill-card h3 {{ font-size: var(--step-h3); font-weight: 700; margin-bottom: 8px; color: var(--ink); }}
     .skill-card p {{ color: var(--ink-muted); font-size: var(--step-body); line-height: 1.55; margin-bottom: 14px; }}
     
+    /* FAQ (AEO & GEO VISIBLE SECTION) */
+    #faq {{ padding: 76px 0; background: var(--bg); position: relative; }}
+    .faq-list {{ max-width: 840px; margin: 32px 0 0; display: flex; flex-direction: column; gap: 14px; }}
+    .faq-item {{
+      background: var(--surface-1); border-radius: var(--radius); padding: 22px 26px;
+      transition: background .2s var(--ease-out), transform .2s;
+    }}
+    .faq-item:hover {{ background: var(--surface-2); }}
+    .faq-item summary {{
+      font-size: var(--step-h3); font-weight: 700; color: var(--ink);
+      cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;
+    }}
+    .faq-item summary::-webkit-details-marker {{ display: none; }}
+    .faq-item summary:focus-visible {{
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }}
+    .faq-item summary::after {{
+      content: "+"; font-size: 1.4rem; color: var(--accent); transition: transform .2s; font-weight: 600;
+    }}
+    .faq-item[open] summary::after {{ transform: rotate(45deg); }}
+    .faq-item p {{
+      margin-top: 14px; color: var(--ink-muted); font-size: var(--step-body); line-height: 1.6;
+    }}
+    
     /* CONTACT */
     #contacto {{ padding: 88px 0 96px; }}
     .contact-box {{
@@ -1070,6 +1158,7 @@ def build_page(lang="es"):
         <a href="#destacados">{i18n['nav_destacados']}</a>
         <a href="#proyectos">{i18n['nav_projects']}</a>
         <a href="#skills">{i18n['nav_skills']}</a>
+        <a href="#faq">FAQ</a>
         <a href="#contacto">{i18n['nav_contact']}</a>
         <a href="{i18n['lang_switch_url']}" title="{i18n['lang_switch_title']}" style="color: var(--accent); font-weight: 600;">{i18n['lang_switch_label']}</a>
         <button class="theme-toggle" id="themeToggle" title="Cambiar tema" aria-label="Cambiar modo claro u oscuro">◐</button>
@@ -1372,6 +1461,38 @@ def build_page(lang="es"):
           <p>{'Docker, entornos contenerizados, automatización CI/CD, despliegues serverless en la nube y configuración de sistemas Linux.' if is_es else 'Docker, containerized runtimes, CI/CD automation, serverless cloud deployments, and Linux systems administration.'}</p>
           <div class="stack"><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Linux</span><span class="chip">Cloud</span></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION (AEO & GEO) -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <h2>{i18n['faq_title']}</h2>
+        <p>{i18n['faq_lead']}</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>{'¿Quién es Emilio Fonseca y cuál es su perfil técnico?' if is_es else 'Who is Emilio Fonseca and what is his technical background?'}</summary>
+          <p>{'Emilio Fonseca es un desarrollador full-stack y creador técnico basado en Tampico, Tamaulipas, México. Su trabajo se enfoca en la convergencia entre ingeniería profunda y diseño visual: videojuegos 2D con físicas reales en Unity compilados a WebAssembly/WebGL, suites de autor multimedia en Canvas, plataformas web en producción (ERP, e-commerce, cotizadores) e inferencia local de IA en GPUs de consumo.' if is_es else 'Emilio Fonseca is a full-stack developer and creative technologist based in Tampico, Tamaulipas, Mexico. He focuses on the convergence of deep software engineering and high-fidelity interactive design: WebGL/WASM physics games, in-browser multimedia authoring suites, production web platforms, and local AI model inference on consumer GPUs.'}</p>
+        </details>
+        <details class="faq-item">
+          <summary>{'¿Qué proyectos de Inteligencia Artificial ha desarrollado Emilio Fonseca?' if is_es else 'What AI projects has Emilio Fonseca developed?'}</summary>
+          <p>{'Ha desarrollado proyectos avanzados de IA como Inferencia en 4 GB VRAM (cuantización INT4 GPTQ para correr LLMs de 7B a 23.4 tokens/segundo en GPUs de consumo), CORA (asistente de IA conversacional para atención al cliente con búsqueda vectorial RAG y WhatsApp), Dexter (ecosistema de configuración de agentes con más de 44 habilidades), Dino AI (visión por computadora y aprendizaje por refuerzo PPO) y el Predictor del Mundial 2026 (XGBoost, ratings Elo y simulación Monte Carlo).' if is_es else 'He has built verified AI implementations including Local LLM Inference on 4 GB VRAM (INT4 GPTQ quantization running 7B models at 23.4 tokens/sec on consumer GPUs), CORA (omnichannel conversational AI assistant with vector RAG), Dexter (autonomous multi-agent ecosystem with 44+ skills), Dino AI (reinforcement learning with computer vision), and the World Cup 2026 Predictor (XGBoost and Monte Carlo simulations).'}</p>
+        </details>
+        <details class="faq-item">
+          <summary>{'¿En qué ciudades y modalidades trabaja Emilio Fonseca?' if is_es else 'In which locations and work arrangements does Emilio Fonseca operate?'}</summary>
+          <p>{'Tiene su base técnica en Tampico y la zona conurbada de Tamaulipas (Ciudad Madero y Altamira). Ofrece servicios presenciales y remotos para empresas en Monterrey (Nuevo León), Ciudad de México, Guadalajara (Jalisco) y en todo México, así como contratos de desarrollo remoto internacional.' if is_es else 'Based in Tampico, Tamaulipas, Mexico. He delivers on-site and remote development for clients in Monterrey, Mexico City, Guadalajara, and across Mexico, as well as worldwide remote software engineering contracts.'}</p>
+        </details>
+        <details class="faq-item">
+          <summary>{'¿Qué es una aplicación web Offline-First y por qué es una especialidad de Emilio Fonseca?' if is_es else 'What is an Offline-First Web App and why is it a specialty of Emilio Fonseca?'}</summary>
+          <p>{'Las aplicaciones Offline-First (como MyAccountant y Vértice) funcionan al 100% en el dispositivo del usuario sin depender de servidores en la nube ni conexión a internet constante. Utilizan almacenamiento local cifrado mediante IndexedDB, SQLite WASM y Service Workers, garantizando privacidad total, cero costos de servidores externos y velocidad instantánea.' if is_es else 'Offline-First Progressive Web Apps (such as MyAccountant and Vértice) run 100% on the client device without requiring cloud connectivity. They leverage local encrypted storage via IndexedDB, SQLite WASM, and Service Workers for zero cloud latency, zero external server fees, and complete cryptographic privacy.'}</p>
+        </details>
+        <details class="faq-item">
+          <summary>{'¿Cómo contactar o contratar a Emilio Fonseca?' if is_es else 'How can someone contact or hire Emilio Fonseca?'}</summary>
+          <p>{'Puedes contactarlo directamente por WhatsApp al +52 833 681 7886, por correo electrónico en emilio656565@outlook.com, o explorar su currículum interactivo y 18 demostraciones en vivo en este catálogo.' if is_es else 'You can contact him directly on WhatsApp at +52 833 681 7886, by email at emilio656565@outlook.com, or explore his interactive resume and 18 live demos right here in this portfolio.'}</p>
+        </details>
       </div>
     </div>
   </section>
