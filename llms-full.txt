@@ -121,10 +121,16 @@
 - **Live Demo**: https://emiliougarte65.github.io/portafolio-web/demos/radar/
 - **Description**: Real-time KPI telemetry monitoring system for executive sales, inventory movement, and team quotas.
 
-#### 15. Distrito (Urban Interactive Experience)
-- **Role**: Frontend / 3D Developer
-- **Stack**: Three.js, WebGL, 3D Assets.
-- **Description**: 3D interactive urban model exploration interface.
+#### 15. Distrito (AI Sales Gamification PWA)
+- **Role**: Full-Stack Developer, 3D Developer & Data/ML Engineer
+- **Stack**: Python, SQLite, Docker, Three.js, Blender, PWA (service worker, offline queue), RFM scoring, predictive modeling, Playwright.
+- **Showcase**: https://emiliougarte65.github.io/portafolio-web/proyectos/distrito/ (3D frontend only, fictional data, no company services connected)
+- **Description**: Mobile sales gamification platform for in-store sales reps: rotating daily missions, points and coins, levels and leagues, a leaderboard that rewards in-app customer follow-up (not just sales), a card album, surprise buckets, prizes and a rewards shop.
+- **3D pet**: Blender-made character rendered with Three.js; feeding with timed effects, bathing by scrubbing with a finger with soaps that leave skin effects, a decoratable room with multiple items of the same type, collision detection and automatic placement, and stickers.
+- **Customer reactivation (read-only ERP)**: detects lapsed customers against their own purchase frequency, ranks them with an RFM model calibrated against top customers, excludes segments that do not apply, assigns unowned customers in turns to the specialist for that customer type, and tracks quotes about to expire. A predictive model, retrained nightly, estimates each customer's probability of buying or requesting a quote in the next 30 days.
+- **Prospecting**: public sources (INEGI business directory, Google Maps, public tenders, news), deduplicated against the customer base by phone, tax ID and normalized name, plus alternate-number lookup.
+- **Management & rules**: manager dashboards (logins, follow-up, read-only store board, manager leaderboards, results funnel, CSV export); anti-cheat economy (one payout per quote, one per customer per week, non-retroactive rule cutoffs, assistant accounts sharing their rep's work list).
+- **Engineering**: offline-first action queue with idempotency keys, versioned service worker, push notifications, magic-link and WhatsApp sign-in, email; separate QA and production environments, over a thousand automated tests, Playwright screenshots, a browsable project map, and development orchestrated with several AI agents in parallel.
 
 #### 16. Nexo (Automated WhatsApp CRM & Customer Care)
 - **Role**: Backend & Integration Engineer

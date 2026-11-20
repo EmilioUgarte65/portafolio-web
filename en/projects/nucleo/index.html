@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Núcleo — Your business on one screen</title>
-<meta name="description" content="Núcleo: management system (ERP) with no servers to maintain. Scheduling, resources and operations in real time, with calendar sync." />
+<meta name="description" content="Núcleo: a serverless ERP for an events business. Appointments synced both ways with Google Calendar, PDF quotes, events, suppliers, expenses and." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%232563EB'/%3E%3Ctext x='50' y='72' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
   --bg: #F8FAFC; --fg: #0F172A; --muted: #56627a;
   --font-head: 'Plus Jakarta Sans', system-ui, sans-serif; --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
-.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento{grid-template-columns:1fr}}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -33,16 +33,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Núcleo · Your business in one screen, React, TypeScript, Node.js, PostgreSQL, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Núcleo · Your business in one screen, React, Vite, Firebase, Firestore, Cloud Functions, Express, Google Calendar API, OAuth 2.0, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Núcleo · Your business in one screen · Emilio Fonseca" />
-  <meta property="og:description" content="Organizes your schedule, resources and day-to-day operations in one real-time place, synced with your calendar so no appointment slips through." />
+  <meta property="og:description" content="Serverless ERP for an events business: appointments synced both ways with Google Calendar, PDF quotes, suppliers, expenses and reports." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/nucleo/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/nucleo.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Núcleo · Your business in one screen · Emilio Fonseca" />
-  <meta name="twitter:description" content="Organizes your schedule, resources and day-to-day operations in one real-time place, synced with your calendar so no appointment slips through." />
+  <meta name="twitter:description" content="Serverless ERP for an events business: appointments synced both ways with Google Calendar, PDF quotes, suppliers, expenses and reports." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/nucleo.jpg" />
   <script type="application/ld+json">
 {
@@ -69,13 +69,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/nucleo/#software",
       "name": "Núcleo · Your business in one screen",
-      "description": "Organizes your schedule, resources and day-to-day operations in one real-time place, synced with your calendar so no appointment slips through.",
+      "description": "Serverless ERP for an events business: appointments synced both ways with Google Calendar, PDF quotes, suppliers, expenses and reports.",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/nucleo/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/nucleo.jpg",
       "applicationCategory": "Web Apps & ERP",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "React, TypeScript, Node.js, PostgreSQL, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "React, Vite, Firebase, Firestore, Cloud Functions, Express, Google Calendar API, OAuth 2.0, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -98,16 +98,13 @@
   <!-- SEO-GEO-AEO-END -->
 </head>
 <body>
-<nav><div class="wrap">
-  <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Núcleo</div>
-  <div class="nav-links"><a href="#que-hace">What it does</a><a class="nav-cta" href="../../../demos/nucleo/" target="_blank" rel="noopener">▶ View demo</a><a href="../../../proyectos/nucleo/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
-</div></nav>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Núcleo</div><div class="nav-links"><a href="#que-es">What it is</a><a href="#como-se-usa">How it works</a><a href="#que-hace">Features</a><a href="#ingenieria">Engineering</a><a class="nav-cta" href="../../../demos/nucleo/" target="_blank" rel="noopener">▶ View demo</a><a href="../../../proyectos/nucleo/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div></div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="eyebrow">Management system (ERP)</span>
-    <h1>Your entire business operation, <span class="grad">on a single screen</span>.</h1>
-    <p class="lead">Núcleo organizes your schedule, your resources and your day-to-day in real time. It syncs both ways with your calendar and you don't need any servers of your own to maintain.</p>
+    <span class="eyebrow">Management system (ERP) for events</span>
+    <h1>Your whole events operation, <span class="grad">on one screen</span>.</h1>
+    <p class="lead">Núcleo is an ERP (a system that brings a business’s areas together in one place) for an events business: client appointments, quotes, packages, suppliers, events with their to-do list, expenses and reports. Appointments sync both ways with Google Calendar, everything updates in real time and there are no servers of your own to maintain.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="../../../demos/nucleo/" target="_blank" rel="noopener">▶ View interactive demo</a>
       <a class="btn btn-ghost" href="#que-hace">See what it does</a>
@@ -151,53 +148,109 @@
   </div>
 </div></header>
 
-<section id="que-hace"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">What it does</span><h2>Your whole business, in order</h2><p>Stop jumping between apps, spreadsheets and messages. Núcleo brings it all into one place.</p></div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What it is and why it matters</h2></div>
   <div class="bento">
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
-      <h3>Synced scheduling</h3>
-      <p>Book appointments and events that show up instantly in your calendar, and any change there comes back into Núcleo. Two-way sync, no duplicates.</p>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+      <h3>What is an ERP?</h3>
+      <p>A system that puts in one place what usually lives in separate tools: the calendar, sales, suppliers, expenses and reports. The whole team works on the same information.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 7l-8-4-8 4 8 4 8-4zM4 7v10l8 4 8-4V7"/></svg></div>
-      <h3>Resource management</h3>
-      <p>Assign people, spaces and equipment, and see occupancy in real time.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>In an events business, appointments live in a calendar, quotes in loose documents, payments in chat messages and expenses in spreadsheets. Knowing which event is paid, what is missing and which supplier confirmed takes time and causes mistakes.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <h3>Live operations</h3>
-      <p>Everyone on the team sees the same information, updated to the second.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01"/></svg></div>
-      <h3>Multi-user</h3>
-      <p>Everyone with their own access and permissions, working at the same time.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 19V5M4 19h16M8 14l3-3 3 2 4-5"/></svg></div>
-      <h3>Dashboards</h3>
-      <p>Your operational metrics in plain sight, with no reports to build by hand.</p>
-    </div>
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
-      <h3>No servers to maintain</h3>
-      <p>It runs on cloud infrastructure that manages itself: no servers of your own, no manual updates and no maintenance costs.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>Núcleo follows each event from the first appointment to the last payment. The schedule also shows up in the team’s calendar, quotes come out as PDFs and the dashboard shows at a glance what has been collected and what is pending.</p>
     </div>
   </div>
 </div></section>
 
+<section id="como-se-usa" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Step by step</span><h2>From first contact to the event</h2></div>
+  <div class="flow">
+    <div class="step"><h4>Book the visit</h4><p>Log the client’s visit and the appointment appears in Google Calendar on its own. If someone moves it there, it changes in Núcleo too.</p></div>
+    <div class="step"><h4>Quote</h4><p>Build the quote from a base package, extra items and payment terms, and download it as a PDF to send.</p></div>
+    <div class="step"><h4>Plan the event</h4><p>Once confirmed, the event gets its checklist of tasks and its assigned suppliers.</p></div>
+    <div class="step"><h4>Collect and control</h4><p>The dashboard shows collected income, pending payments and upcoming events, and expenses are logged by category.</p></div>
+  </div>
+</div></section>
 
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Features</span><h2>Your whole business, organized</h2><p>Stop jumping between apps, sheets and messages: Núcleo brings it all together.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <h3>Two-way calendar sync</h3>
+      <p>Creating, moving or deleting an appointment in Núcleo creates, moves or deletes it in Google Calendar. And when the change is made in the calendar, Google notifies Núcleo and it pulls the change back, with no duplicates.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
+      <h3>PDF quotes</h3>
+      <p>Client details, package, line items and payment terms in a document ready to send.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 7l-8-4-8 4 8 4 8-4zM4 7v10l8 4 8-4V7M12 11v10"/></svg></div>
+      <h3>Packages</h3>
+      <p>A catalog of service packages used as the starting point for each quote.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 6h11M10 12h11M10 18h11M3 6l1 1 2-2M3 12l1 1 2-2M3 18l1 1 2-2"/></svg></div>
+      <h3>Events with a checklist</h3>
+      <p>Each event has its record, its status and a to-do list the team ticks off until the big day.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+      <h3>Suppliers</h3>
+      <p>A supplier directory to assign them to each event.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <h3>Expenses by category</h3>
+      <p>Suppliers, decoration, maintenance, supplies, staff and more, with filters and the category with the highest spend.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Today’s dashboard</h3>
+      <p>On sign-in you see collected income, pending payments, active events and the month’s summary, with upcoming events and payments to follow up.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3>Cash-flow reports</h3>
+      <p>Income versus expenses, month by month.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+      <h3>Multi-user</h3>
+      <p>Everyone signs in with their own account; only administrators can touch business data.</p>
+    </div>
+  </div>
+</div></section>
 
-<section><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>Modern and maintenance-free</h2></div>
+<section id="arquitectura" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">How it is built</span><h2>Modern and maintenance-free</h2><p>Serverless architecture: the cloud runs the code only when it is needed.</p></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>Serverless architecture</h4><p>No servers of your own; it scales only when needed.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Real time</h4><p>Changes appear instantly across every device.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Calendar sync</h4><p>Two-way integration with your calendar.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Access and permissions</h4><p>Each user only sees and does what they're meant to.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Cross-platform</h4><p>Works from the browser, on desktop or mobile.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Protected data</h4><p>Your information travels and is stored securely.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Serverless on Firebase</h4><p>Serverless means no servers of your own: the backend runs as Cloud Functions on Firebase (Google’s cloud platform), functions that start when a request arrives and scale on their own.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>React 18 and Vite</h4><p>React frontend with validated forms (React Hook Form and Zod) and lightweight global state with Zustand. It is deployed on Firebase Hosting and set up as a PWA (an app you can install from the browser).</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Real-time Firestore</h4><p>Firestore is a NoSQL database (it stores documents instead of tables) that notifies every screen when something changes, so everyone sees the same data within a second.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Appointment triggers</h4><p>When an appointment is created, changed or deleted, a trigger (code that runs on its own when the database changes) mirrors it in Google Calendar. It only reacts to changes in date, time, title or client, so it never loops.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Calendar webhook</h4><p>Núcleo subscribes to changes in the main calendar: Google calls a webhook (an address that receives automatic notifications) and Núcleo downloads the events that changed.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Express API</h4><p>Quotes and the Google connection go through an API (the door the frontend uses to request data from the server) built with Express and deployed as a Cloud Function.</p></div></div>
+  </div>
+</div></section>
+
+<section id="ingenieria"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Security</span><h2>Everyone sees only what is theirs</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Google OAuth 2.0</h4><p>Sign-in and calendar access use OAuth 2.0, the standard Google uses to authorize an app without sharing your password with it.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Deny by default</h4><p>Firestore rules deny anything not explicitly allowed. Business collections can only be read and written by administrators.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>No self-promotion</h4><p>A user can create and edit their profile, but cannot grant themselves the administrator role.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Rate limiting</h4><p>The API limits how many requests it accepts in a time window to curb abuse.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Secrets out of the code</h4><p>OAuth credentials are stored as Firebase secrets, never in the code.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Verified notifications</h4><p>Every notification coming from Google is checked against an internal token before it is processed.</p></div></div>
   </div>
 </div></section>
 

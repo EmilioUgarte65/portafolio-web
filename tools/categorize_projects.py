@@ -17,7 +17,7 @@ categories_es = {
     "pulso": {"cat": "web", "name": "Web Apps & ERP", "stack": ["React", "PWA", "Offline-First", "Service Workers"]},
     "totem": {"cat": "hardware", "name": "3D, Videojuegos & Hardware", "stack": ["React Native", "Firebase", "Kiosco"]},
     "web-studio": {"cat": "web", "name": "Web Apps & ERP", "stack": ["JavaScript", "HTML5 Canvas", "Media API", "Video Editor"]},
-    "distrito": {"cat": "hardware", "name": "3D, Videojuegos & Hardware", "stack": ["Three.js", "WebGL", "Modelos 3D", "Animaciones"]},
+    "distrito": {"cat": "hardware", "name": "3D, Videojuegos & Hardware", "stack": ["Three.js", "Python", "PWA Offline", "SQLite", "RFM", "Machine Learning", "Blender", "Docker", "Playwright"]},
     "ruta-clara": {"cat": "auto", "name": "Automatización & BI", "stack": ["JavaScript", "Leaflet", "GeoJSON", "Algoritmos de Ruta"]},
     "ourway": {"cat": "hardware", "name": "3D, Videojuegos & Hardware", "stack": ["Three.js", "WebGL", "Shaders", "Atlas 3D"]},
     "radar": {"cat": "auto", "name": "Automatización & BI", "stack": ["Chart.js", "JavaScript", "Analytics", "BI Dashboards"]},

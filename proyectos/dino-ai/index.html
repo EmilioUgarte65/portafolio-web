@@ -19,7 +19,7 @@
 }
 .cell:hover { border-color: var(--secondary); }
 .mock svg { width: 100%; height: auto; display: block; }
-</style>
+#que-es .bento,#what .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento,#what .bento{grid-template-columns:1fr}}.note-mini{text-align:center;color:var(--muted);font-size:.88rem;max-width:760px;margin:22px auto 0}.kpi{font-family:var(--font-head);font-weight:800;font-size:2.1rem;line-height:1;margin-bottom:10px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -36,16 +36,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Dino AI · Una IA que aprende sola, Python, PPO, Reinforcement Learning, OpenCV, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Dino AI · Una IA que aprende sola, Python, DQN, Stable-Baselines3, Gymnasium, OpenCV, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Dino AI · Una IA que aprende sola · Emilio Fonseca" />
-  <meta property="og:description" content="Una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de Chrome: mira la pantalla como lo haría una persona y mejora con cada intento." />
+  <meta property="og:description" content="Una IA que aprende sola a jugar al dinosaurio de Chrome: ve la pantalla con OpenCV y decide cuándo saltar con aprendizaje por refuerzo (DQN)." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/proyectos/dino-ai/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dino AI · Una IA que aprende sola · Emilio Fonseca" />
-  <meta name="twitter:description" content="Una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de Chrome: mira la pantalla como lo haría una persona y mejora con cada intento." />
+  <meta name="twitter:description" content="Una IA que aprende sola a jugar al dinosaurio de Chrome: ve la pantalla con OpenCV y decide cuándo saltar con aprendizaje por refuerzo (DQN)." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <script type="application/ld+json">
 {
@@ -72,13 +72,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/proyectos/dino-ai/#software",
       "name": "Dino AI · Una IA que aprende sola",
-      "description": "Una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de Chrome: mira la pantalla como lo haría una persona y mejora con cada intento.",
+      "description": "Una IA que aprende sola a jugar al dinosaurio de Chrome: ve la pantalla con OpenCV y decide cuándo saltar con aprendizaje por refuerzo (DQN).",
       "url": "https://emiliougarte65.github.io/portafolio-web/proyectos/dino-ai/",
       "image": "https://emiliougarte65.github.io/portafolio-web/og-cover.png",
       "applicationCategory": "IA & Machine Learning",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "es-MX",
-      "keywords": "Python, PPO, Reinforcement Learning, OpenCV, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Python, DQN, Stable-Baselines3, Gymnasium, OpenCV, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -103,22 +103,22 @@
 <body>
 <nav><div class="wrap">
   <div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Dino AI</div>
-  <div class="nav-links"><a href="#que-hace">Qué hace</a><a class="nav-cta" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">Ver código</a><a href="../../en/projects/dino-ai/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
+  <div class="nav-links"><a href="#que-es">Qué es</a><a href="#que-hace">Cómo funciona</a><a href="#ingenieria">Ingeniería</a><a class="nav-cta" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">Ver código</a><a href="../../en/projects/dino-ai/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <span class="eyebrow">Inteligencia artificial · Aprendizaje por refuerzo</span>
     <h1>Una IA que <span class="grad">aprende sola</span> a jugar.</h1>
-    <p class="lead">Nadie le programó las reglas. Mira la pantalla como lo haría una persona, detecta los obstáculos y descubre —por ensayo y recompensa— el momento exacto de saltar en el juego del dinosaurio de Chrome. Cada intento la hace mejor.</p>
+    <p class="lead">Nadie le programó cuándo saltar. Mira la pantalla como lo haría una persona, la resume en cuatro números sobre el obstáculo más cercano y descubre, por aprendizaje por refuerzo (ensayo y error con premios y castigos), el momento exacto de saltar en el juego del dinosaurio de Chrome.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">Ver en GitHub</a>
       <a class="btn btn-ghost" href="#que-hace">Cómo funciona</a>
     </div>
     <div class="stat-row">
-      <div class="stat"><div class="n">PPO</div><div class="l">Aprendizaje por refuerzo</div></div>
-      <div class="stat"><div class="n">Visión</div><div class="l">Detecta obstáculos en pantalla</div></div>
-      <div class="stat"><div class="n">Auto</div><div class="l">Mejora sola con cada intento</div></div>
+      <div class="stat"><div class="n">DQN</div><div class="l">Aprendizaje por refuerzo profundo</div></div>
+      <div class="stat"><div class="n">800k</div><div class="l">Pasos de entrenamiento</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">Enfoques: IA contra reglas</div></div>
     </div>
   </div>
   <div class="mock" aria-hidden="true">
@@ -153,51 +153,84 @@
   </div>
 </div></header>
 
-<section id="que-hace"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Qué hace</span><h2>Aprende a jugar igual que una persona: mirando</h2><p>Sin trucos ni acceso al código del juego. Solo la pantalla, los ojos (visión por computadora) y la experiencia.</p></div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">En palabras simples</span><h2>¿Qué es y para qué sirve?</h2></div>
   <div class="bento">
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <h3>Ve la pantalla</h3>
-      <p>Captura el juego en tiempo real y, con visión por computadora (OpenCV), detecta dónde está el dinosaurio y los obstáculos que se acercan.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div>
+      <h3>¿Qué es el aprendizaje por refuerzo?</h3>
+      <p>Una forma de entrenar IA sin darle las respuestas correctas. Un agente actúa, recibe un premio o un castigo y, tras miles de intentos, aprende qué hacer en cada situación para juntar el mayor premio posible. Así aprende una persona a andar en bicicleta: cayéndose.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <h3>Decide en milisegundos</h3>
-      <p>En cada instante elige una acción —saltar o seguir— buscando esquivar lo que viene. Reacciona más rápido de lo que parpadeas.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>El problema</h3>
+      <p>El juego solo ofrece píxeles, y saltar a tiempo depende de la distancia, del tamaño del obstáculo y de una velocidad que aumenta sin parar. Una regla fija («salta a tantos píxeles») funciona a una velocidad y falla a otra.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg></div>
-      <h3>Aprende por recompensa</h3>
-      <p>Cada vez que sobrevive un poco más, recibe una recompensa. El algoritmo PPO ajusta su "instinto" para repetir lo que funciona y evitar lo que la mata.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-      <h3>Mejora con cada intento</h3>
-      <p>Empieza torpe y termina experta. Episodio tras episodio su puntaje sube — la curva de aprendizaje lo demuestra.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-      <h3>Dos enfoques</h3>
-      <p>Una red neuronal entrenada que aprende sola, y una versión por reglas fijas. Ideal para comparar la IA contra un script tradicional.</p>
-    </div>
-    <div class="cell wide">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6"/></svg></div>
-      <h3>Visualiza lo que "ve"</h3>
-      <p>Un modo de depuración muestra exactamente la región del juego que la IA está analizando y los obstáculos que detecta, dibujados en pantalla. Transparencia total sobre su razonamiento.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>La solución</h3>
+      <p>Visión por computadora para convertir la pantalla en datos, y una red neuronal que aprende a partir de 800,000 pasos de juego cuándo saltar. Además, un script de reglas fijas para comparar la IA contra la programación tradicional.</p>
     </div>
   </div>
 </div></section>
 
-
-
-<section id="stack"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Tecnología</h2></div>
-  <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>Aprendizaje por refuerzo</h4><p>PPO con Stable-Baselines3 y un entorno Gymnasium a la medida (observación, acciones y recompensa).</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Visión por computadora</h4><p>OpenCV + captura de pantalla para detectar obstáculos por imagen, sin leer la memoria del juego.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Redes neuronales</h4><p>PyTorch entrena la política que decide cada acción; el modelo se guarda y se reutiliza.</p></div></div>
+<section id="que-hace" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Paso a paso</span><h2>Así juega y aprende</h2><p>Un ciclo que se repite sin parar mientras corre el juego, sin acceso al código ni a la memoria del juego.</p></div>
+  <div class="flow">
+    <div class="step"><h4>Captura</h4><p>Toma una región de 600 × 190 píxeles de la pantalla en tiempo real, justo donde corre el dinosaurio.</p></div>
+    <div class="step"><h4>Ve</h4><p>OpenCV (una librería de visión por computadora) pasa la imagen a blanco y negro y ubica el obstáculo más cercano: dónde empieza, dónde termina y qué tan alto llega.</p></div>
+    <div class="step"><h4>Decide</h4><p>La red neuronal recibe las últimas 4 observaciones para deducir la velocidad y elige: no hacer nada o saltar. Si salta, el programa presiona la barra espaciadora.</p></div>
+    <div class="step"><h4>Aprende</h4><p>Gana +1 por cada instante que sobrevive y −500 si choca. Al detectar la pantalla de fin de juego, reinicia la partida y vuelve a intentarlo.</p></div>
   </div>
+</div></section>
+
+<section id="capacidades"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Capacidades</span><h2>Aprende a jugar igual que una persona: mirando</h2><p>Sin trucos ni acceso al código del juego. Solo la pantalla, los ojos (visión por computadora) y la experiencia.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Juega sin leer el juego por dentro</h3>
+      <p>Todo lo que sabe sale de la imagen. Recorre columna por columna la franja frente al dinosaurio y resume lo que ve en cuatro números: la distancia al inicio y al final del obstáculo, y su altura máxima y mínima. Si el camino está libre, recibe valores «seguros».</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Deduce la velocidad</h3>
+      <p>Una sola imagen no dice qué tan rápido viene el cactus. Por eso apila las últimas 4 observaciones: 16 números en total.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+      <h3>Sabe cuándo perdió</h3>
+      <p>Reconoce la pantalla de GAME OVER comparándola con una imagen de referencia (template matching) al 80% de coincidencia.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <h3>Dos enfoques para comparar</h3>
+      <p>La red entrenada contra un script de reglas que salta cuando un píxel oscuro cruza una línea frente al dinosaurio y que se adapta si cambia el color del fondo.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg></div>
+      <h3>Entrenamiento que no se pierde</h3>
+      <p>Guarda un punto de control cada 10,000 pasos, guarda al presionar la tecla q y hace un guardado de emergencia si algo falla.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3>Visualiza lo que «ve»</h3>
+      <p>Un modo de depuración muestra en una ventana la imagen en blanco y negro que la IA está analizando, con los obstáculos que detecta. Sirve para calibrar la región de captura en cada monitor y da transparencia total sobre lo que percibe.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="ingenieria" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Cómo está construido</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>DQN (Deep Q-Network)</h4><p>Una red neuronal estima el «valor Q» de cada acción: cuánto premio futuro espera si salta o si no hace nada, y elige la mayor. Implementada con Stable-Baselines3 y una política MLP (una red de capas totalmente conectadas).</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Entorno Gymnasium a la medida</h4><p>Gymnasium es el estándar para definir entornos de aprendizaje por refuerzo. Aquí: 2 acciones, una observación de 4 enteros y la recompensa de +1 por paso y −500 al chocar.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Memoria de experiencias</h4><p>Un buffer de repetición (replay buffer) de 100,000 pasos guarda jugadas pasadas para volver a aprender de ellas. Tasa de aprendizaje: 0.0005.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Exploración controlada</h4><p>Al principio actúa casi al azar para descubrir el juego; durante el primer 10% del entrenamiento la exploración baja del 100% al 1%.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>800,000 pasos, solo en CPU</h4><p>Entrenado con PyTorch en el procesador (Intel Core i7-13700HX), sin tarjeta gráfica. La documentación estima unas 17 horas para un entrenamiento completo.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Captura y control</h4><p>mss captura la pantalla, OpenCV la procesa, pyautogui presiona la tecla de salto y pynput escucha el teclado para detener y guardar.</p></div></div>
+  </div>
+  <p class="note-mini">Proyecto integrador universitario de la materia de Automatización y Robótica, hecho en equipo y documentado con manual de instalación y uso. Limitación conocida: las coordenadas están calibradas para una pantalla de 1920 × 1200 y Chrome en modo oscuro; en otra pantalla hay que ajustar la región de captura.</p>
 </div></section>
 
 <section id="ver"><div class="wrap">

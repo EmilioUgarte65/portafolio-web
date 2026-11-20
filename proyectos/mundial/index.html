@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mundial 2026 · Web Dev-Eyes</title><meta name="description" content="Frontend original del proyecto de predicción del Mundial: cuadro de eliminatorias, grupos, favoritos, estadísticas y validación. Conserva el conjunto."><link rel="icon" href="../../assets/web-dev-eyes.svg"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"><link rel="stylesheet" href="../../assets/showcase-original.css"><style>:root{--primary:#A37C30;--secondary:#A37C30;--accent:#A37C30;--grad:linear-gradient(120deg,#A37C30,color-mix(in srgb,#A37C30 70%,white));--grad-soft:linear-gradient(120deg,#A37C30,color-mix(in srgb,#A37C30 60%,black));--bg:#F7F8FC;--fg:#1E1B4B;--muted:#5b5b7a;--font-head:'Sora',sans-serif;--font-body:'Inter',sans-serif}.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mundial 2026 · Web Dev-Eyes</title><meta name="description" content="Frontend original del proyecto de predicción del Mundial: cuadro de eliminatorias, grupos, favoritos, estadísticas y validación. Conserva el conjunto."><link rel="icon" href="../../assets/web-dev-eyes.svg"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"><link rel="stylesheet" href="../../assets/showcase-original.css"><style>:root{--primary:#A37C30;--secondary:#A37C30;--accent:#A37C30;--grad:linear-gradient(120deg,#A37C30,color-mix(in srgb,#A37C30 70%,white));--grad-soft:linear-gradient(120deg,#A37C30,color-mix(in srgb,#A37C30 60%,black));--bg:#F7F8FC;--fg:#1E1B4B;--muted:#5b5b7a;--font-head:'Sora',sans-serif;--font-body:'Inter',sans-serif}.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento,#what .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento,#what .bento{grid-template-columns:1fr}}.note-mini{text-align:center;color:var(--muted);font-size:.88rem;max-width:760px;margin:22px auto 0}.kpi{font-family:var(--font-head);font-weight:800;font-size:2.1rem;line-height:1;margin-bottom:10px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -15,16 +15,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Mundial 2026 · Predicción con IA, Python, FastAPI, Monte Carlo, Scikit-Learn, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Mundial 2026 · Predicción con IA, Python, XGBoost, Elo, Monte Carlo, scikit-learn, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Mundial 2026 · Predicción con IA · Emilio Fonseca" />
-  <meta property="og:description" content="Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBoost, modela el minuto de cada gol y simula las eliminatorias con Monte Carlo (sobre 49k+ partidos de historia). Web estilo Mundial con bracket, grupos, favoritos y detalle por partido." />
+  <meta property="og:description" content="Predicción del Mundial 2026 con Elo, Dixon-Coles y XGBoost sobre 49k+ partidos históricos, y 10,000 simulaciones Monte Carlo del torneo." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/proyectos/mundial/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/mundial.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Mundial 2026 · Predicción con IA · Emilio Fonseca" />
-  <meta name="twitter:description" content="Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBoost, modela el minuto de cada gol y simula las eliminatorias con Monte Carlo (sobre 49k+ partidos de historia). Web estilo Mundial con bracket, grupos, favoritos y detalle por partido." />
+  <meta name="twitter:description" content="Predicción del Mundial 2026 con Elo, Dixon-Coles y XGBoost sobre 49k+ partidos históricos, y 10,000 simulaciones Monte Carlo del torneo." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/mundial.jpg" />
   <script type="application/ld+json">
 {
@@ -51,13 +51,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/proyectos/mundial/#software",
       "name": "Mundial 2026 · Predicción con IA",
-      "description": "Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBoost, modela el minuto de cada gol y simula las eliminatorias con Monte Carlo (sobre 49k+ partidos de historia). Web estilo Mundial con bracket, grupos, favoritos y detalle por partido.",
+      "description": "Predicción del Mundial 2026 con Elo, Dixon-Coles y XGBoost sobre 49k+ partidos históricos, y 10,000 simulaciones Monte Carlo del torneo.",
       "url": "https://emiliougarte65.github.io/portafolio-web/proyectos/mundial/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/mundial.jpg",
       "applicationCategory": "IA & Machine Learning",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "es-MX",
-      "keywords": "Python, FastAPI, Monte Carlo, Scikit-Learn, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Python, XGBoost, Elo, Monte Carlo, scikit-learn, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -78,7 +78,165 @@
 }
   </script>
   <!-- SEO-GEO-AEO-END -->
-</head><body>
-<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>Mundial 2026</div><div class="nav-links"><a href="#que-hace">Qué hace</a><a class="nav-cta" href="../../demos/mundial/" target="_blank" rel="noopener">▶ Iniciar demo</a><a href="../../en/projects/mundial/">EN</a></div></div></nav>
-<header class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">Machine learning deportivo</span><h1>Predicción, simulación y un cuadro para explorar.</h1><p class="lead">Frontend original del proyecto de predicción del Mundial: cuadro de eliminatorias, grupos, favoritos, estadísticas y validación. Conserva el conjunto público de resultados del propio proyecto y su fecha de corte.</p><div class="btn-row"><a class="btn btn-primary" href="../../demos/mundial/" target="_blank" rel="noopener">▶ Iniciar demo</a><a class="btn btn-ghost" href="#que-hace">Ver qué hace</a></div><p style="color:var(--muted);font-size:.85rem;margin-top:20px">Demo del frontend · datos ficticios · sin servicios empresariales conectados.</p></div><div class="mock"><img src="../../assets/previews/mundial.jpg" alt="Mundial 2026 · interfaz original" style="width:100%;height:auto;display:block"></div></div></header>
-<section id="que-hace"><div class="wrap"><div class="sec-head"><span class="eyebrow">Mundial 2026</span><h2>Explora la aplicación</h2></div><div class="bento"><div class="cell wide"><div class="ic"><img src="../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div><h3>Cuadro interactivo</h3><p>Abre partidos y cambia entre los modelos disponibles.</p></div><div class="cell"><div class="ic"><img src="../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div><h3>Datos deportivos</h3><p>Explora grupos, equipos, estadísticas y probabilidades.</p></div><div class="cell"><div class="ic"><img src="../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div><h3>Validación</h3><p>Consulta los resultados de evaluación incluidos en el proyecto; no son predicciones actualizadas en vivo.</p></div></div></div></section><section><div class="wrap"><div class="cta-card"><h2>Prueba la interfaz</h2><p>Demo del frontend · datos ficticios · sin servicios empresariales conectados.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="../../demos/mundial/" target="_blank" rel="noopener">▶ Iniciar demo</a></div></div></div></section><footer><div class="wrap"><div class="brand">Web Dev-Eyes · Mundial 2026</div><a class="back" href="../../">← Volver a los proyectos</a></div></footer></body></html>
+</head>
+<body>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>Mundial 2026</div><div class="nav-links"><a href="#que-es">Qué es</a><a href="#modelos">Modelos</a><a href="#resultados">Resultados</a><a href="#que-hace">La app</a><a class="nav-cta" href="../../demos/mundial/" target="_blank" rel="noopener">▶ Iniciar demo</a><a href="../../en/projects/mundial/">EN</a></div></div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">Machine learning deportivo</span>
+    <h1>Predecir un Mundial <span class="grad">con probabilidades, no con corazonadas</span>.</h1>
+    <p class="lead">Un modelo de machine learning (aprendizaje automático: programas que aprenden patrones a partir de datos) estima cada partido del Mundial 2026 con más de 49,000 partidos internacionales de historia y simula el torneo completo 10,000 veces. La web muestra el cuadro de eliminatorias, los grupos, los favoritos y una validación honesta contra los resultados reales.</p>
+    <div class="btn-row"><a class="btn btn-primary" href="../../demos/mundial/" target="_blank" rel="noopener">▶ Iniciar demo</a><a class="btn btn-ghost" href="#que-hace">Ver qué hace</a></div>
+    <div class="stat-row">
+      <div class="stat"><div class="n">49k+</div><div class="l">Partidos históricos</div></div>
+      <div class="stat"><div class="n">10,000</div><div class="l">Simulaciones del torneo</div></div>
+      <div class="stat"><div class="n">60.8%</div><div class="l">Ganadores acertados en 2026</div></div>
+    </div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:20px">Demo del frontend con el conjunto público de datos del proyecto · corte al 9 de julio de 2026 · no se actualiza en vivo.</p>
+  </div>
+  <div class="mock"><img src="../../assets/previews/mundial.jpg" alt="Mundial 2026 · interfaz original" style="width:100%;height:auto;display:block"></div>
+</div></header>
+
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">En palabras simples</span><h2>¿Qué es y para qué sirve?</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z"/></svg></div>
+      <h3>¿Qué predice?</h3>
+      <p>Para cada partido: la probabilidad de victoria, empate o derrota, los goles esperados y en qué minutos es más probable que caigan. Para el torneo: la probabilidad de que cada selección llegue a cada fase y sea campeona.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>El problema</h3>
+      <p>En el futbol caen pocos goles y el azar pesa mucho. Decir «gana tal equipo» esconde la incertidumbre, y una predicción solo vale si se puede comparar contra una referencia simple y contra lo que de verdad pasó.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>La solución</h3>
+      <p>Combinar varios modelos, simular miles de torneos para convertir cada partido en probabilidades de avance y medir el acierto partido por partido, usando solo la información que existía antes de cada juego.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="como" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Paso a paso</span><h2>De los datos al cuadro de eliminatorias</h2><p>Un solo comando entrena los modelos, simula el torneo y genera los datos que lee la web.</p></div>
+  <div class="flow">
+    <div class="step"><h4>Datos</h4><p>Resultados internacionales, goleadores y tandas de penales de un conjunto público, con los nombres históricos de las selecciones normalizados.</p></div>
+    <div class="step"><h4>Fuerza de cada selección</h4><p>Un rating Elo dinámico y una medida de ataque y defensa para cada equipo, con más peso a los partidos recientes.</p></div>
+    <div class="step"><h4>Modelos</h4><p>XGBoost, un modelo estadístico de marcadores y Elo estiman cada partido; un ensamble los combina.</p></div>
+    <div class="step"><h4>Simulación</h4><p>Monte Carlo juega el torneo 10,000 veces sobre el cuadro oficial: marcadores, minutos de gol, prórroga y penales.</p></div>
+  </div>
+</div></section>
+
+<section id="modelos"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Los modelos</span><h2>Cuatro formas de mirar un partido</h2><p>Cada modelo se puede elegir en la app para armar su propio cuadro y comparar.</p></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+      <h3>Elo</h3>
+      <p>Un puntaje de fuerza que sube al ganar y baja al perder, más cuando el rival es fuerte. Aquí además pesa el margen de goles, la localía y la importancia del torneo.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Estadístico (Dixon-Coles)</h3>
+      <p>Modela los goles de cada equipo con una distribución de Poisson (la que describe cuántas veces ocurre un evento raro, como un gol) y corrige los marcadores bajos, como 0-0 y 1-0.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 3v4M12 7l-6 5M12 7l6 5M6 12v4M18 12v4"/><circle cx="12" cy="3" r="1.5"/><circle cx="6" cy="17.5" r="1.5"/><circle cx="18" cy="17.5" r="1.5"/></svg></div>
+      <h3>XGBoost</h3>
+      <p>Muchos árboles de decisión pequeños, cada uno corrigiendo los errores de los anteriores (gradient boosting). Un clasificador estima victoria, empate o derrota, y dos regresores estiman los goles de cada lado. Usa como variables el Elo, el ataque y la defensa, la forma reciente, si se juega en campo neutral, el peso del torneo y la geografía (altitud y viajes).</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></div>
+      <h3>Ensamble</h3>
+      <p>Combina Elo, el modelo estadístico y XGBoost con pesos ajustados en un conjunto de desarrollo.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="16" cy="16" r="1"/></svg></div>
+      <h3>Simulación Monte Carlo</h3>
+      <p>Monte Carlo significa repetir un sorteo al azar miles de veces para ver qué tan seguido pasa cada cosa. Se sortean marcadores a partir de los goles esperados; en eliminatoria, los empates se resuelven con prórroga y penales según el Elo, y los 8 mejores terceros se acomodan respetando las reglas oficiales del cuadro.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Minutos de gol</h3>
+      <p>Los minutos se toman de la distribución real de miles de goles históricos: los goles tardíos son más probables.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="resultados" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Validación</span><h2>Qué tan bien predice</h2><p>En futbol hay tres resultados posibles, así que adivinar al azar acierta cerca del 33%. Todas las cifras salen del conjunto público incluido en la demo.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="kpi">58.0%</div>
+      <h3>653 partidos de 15 Mundiales</h3>
+      <p>Backtest walk-forward (cada partido se predice solo con información anterior a él) de 1970 a 2026. El ensamble acierta el 58.0% contra el 57.3% del Elo solo, y baja la log-loss de 0.957 a 0.949. La log-loss castiga estar muy seguro y equivocarse: más baja es mejor.</p>
+    </div>
+    <div class="cell wide">
+      <div class="kpi">60.8%</div>
+      <h3>97 partidos del Mundial 2026</h3>
+      <p>Predicciones hechas antes de cada partido y comparadas con el resultado real: el modelo acertó al ganador en 59 de 97 partidos.</p>
+    </div>
+    <div class="cell wide">
+      <div class="kpi">0.78 pts</div>
+      <h3>Minutos de gol bien calibrados</h3>
+      <p>Por tramos de 15 minutos, la proporción prevista de goles se separa en promedio 0.78 puntos porcentuales de la real, medida sobre 2,826 goles.</p>
+    </div>
+    <div class="cell wide">
+      <div class="kpi">Fuera</div>
+      <h3>Lo que no sumó, no entró</h3>
+      <p>Los penales y el historial entre los dos equipos se probaron como variables y se descartaron porque no mejoraban el acierto. Los datos que solo existen para 2026 (lesiones, ventaja de anfitrión) se aplican como ajuste a partidos futuros, nunca al entrenamiento.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">La aplicación</span><h2>Explora el torneo</h2><p>Una web estilo Mundial que lee los datos generados por el modelo.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></div>
+      <h3>Cuadro interactivo</h3>
+      <p>El camino al título con el escenario más probable. Al abrir un partido se ve la probabilidad de avanzar, el marcador previsto, la línea de tiempo de goles y un mapa de calor de cuándo es más probable que anote cada equipo.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></div>
+      <h3>Elige el modelo</h3>
+      <p>Arma el cuadro con el ensamble, XGBoost, el modelo estadístico, Elo o una versión entrenada solo con 2026.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <h3>Grupos</h3>
+      <p>Posiciones con resultados reales: clasifican los dos primeros de cada uno de los 12 grupos y los 8 mejores terceros.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+      <h3>Favoritos</h3>
+      <p>La probabilidad de cada selección de llegar a cada fase y de ser campeona.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Estadísticas</h3>
+      <p>Líderes del torneo en goles, asistencias, tiros, distancia y vallas invictas.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>Validación a la vista</h3>
+      <p>Cada predicción hecha antes del partido junto al resultado real, con aciertos y fallos marcados. No son predicciones actualizadas en vivo: la demo conserva su fecha de corte.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="ingenieria" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Cómo está construido</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Python científico</h4><p>pandas, NumPy, SciPy, scikit-learn y XGBoost; probado desde Python 3.11.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Un pipeline reproducible</h4><p>Un script entrena, simula y escribe JSON; la web es estática y no necesita servidor propio.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Recolectores separados</h4><p>Las APIs de datos solo se llaman en scripts de recolección que guardan en caché; el entrenamiento lee archivos locales y no gasta cuota.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Sin fuga de datos</h4><p>La fuga de datos es entrenar con información que no se tendría antes del partido. Por eso la validación es walk-forward y los ajustes de 2026 solo tocan partidos futuros.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Ablaciones y experimentos</h4><p>Scripts dedicados prueban variables, señales y pesos uno por uno; lo que no mejora la validación se queda como información, no como predictor.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Frontend sin frameworks</h4><p>HTML, CSS y JavaScript puros con tema oscuro; cuadro oficial de 48 selecciones, de la ronda de 32 a la final.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><div class="cta-card"><h2>Prueba la interfaz</h2><p>Demo del frontend con el conjunto público del proyecto y su fecha de corte · sin servicios empresariales conectados.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="../../demos/mundial/" target="_blank" rel="noopener">▶ Iniciar demo</a></div></div></div></section><footer><div class="wrap"><div class="brand">Web Dev-Eyes · Mundial 2026</div><a class="back" href="../../">← Volver a los proyectos</a></div></footer></body></html>

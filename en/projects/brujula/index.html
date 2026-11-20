@@ -17,6 +17,7 @@
   --font-head: 'Plus Jakarta Sans', system-ui, sans-serif; --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 .mock svg { width: 100%; height: auto; display: block; }
+#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:900px){#que-es .bento{grid-template-columns:1fr}}
 </style>
 
   <!-- SEO-GEO-AEO-START -->
@@ -34,16 +35,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Brújula · Your numbers on WhatsApp, Python, FastAPI, BI, WhatsApp API, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Brújula · Your numbers on WhatsApp, Python, pandas, SQL Server, WhatsApp Cloud API, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Brújula · Your numbers on WhatsApp · Emilio Fonseca" />
-  <meta property="og:description" content="Conversational business intelligence system connecting enterprise ERPs with WhatsApp to query real-time sales, profit margins, inventory, and executive KPIs." />
+  <meta property="og:description" content="BI over WhatsApp: each rep gets their sales, goal and quotes twice a day, and the manager gets the team's daily close." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/brujula/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Brújula · Your numbers on WhatsApp · Emilio Fonseca" />
-  <meta name="twitter:description" content="Conversational business intelligence system connecting enterprise ERPs with WhatsApp to query real-time sales, profit margins, inventory, and executive KPIs." />
+  <meta name="twitter:description" content="BI over WhatsApp: each rep gets their sales, goal and quotes twice a day, and the manager gets the team's daily close." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <script type="application/ld+json">
 {
@@ -70,13 +71,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/brujula/#software",
       "name": "Brújula · Your numbers on WhatsApp",
-      "description": "Conversational business intelligence system connecting enterprise ERPs with WhatsApp to query real-time sales, profit margins, inventory, and executive KPIs.",
+      "description": "BI over WhatsApp: each rep gets their sales, goal and quotes twice a day, and the manager gets the team's daily close.",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/brujula/",
       "image": "https://emiliougarte65.github.io/portafolio-web/og-cover.png",
       "applicationCategory": "Automation & BI",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "Python, FastAPI, BI, WhatsApp API, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Python, pandas, SQL Server, WhatsApp Cloud API, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -101,14 +102,14 @@
 <body>
 <nav><div class="wrap">
   <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Brújula</div>
-  <div class="nav-links"><a href="#que-hace">What it does</a><a class="nav-cta" href="https://wa.me/528331273591?text=Hi%2C%20I%27m%20interested%20in%20Br%C3%BAjula" target="_blank" rel="noopener">Get in touch</a><a href="../../../proyectos/brujula/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
+  <div class="nav-links"><a href="#que-es">What it is</a><a href="#como-funciona">How it works</a><a href="#que-hace">What it does</a><a href="#ingenieria">Engineering</a><a class="nav-cta" href="https://wa.me/528331273591?text=Hi%2C%20I%27m%20interested%20in%20Br%C3%BAjula" target="_blank" rel="noopener">Get in touch</a><a href="../../../proyectos/brujula/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <span class="eyebrow">Business Intelligence over WhatsApp</span>
     <h1>Your numbers <span class="grad">arrive on their own</span>, on WhatsApp.</h1>
-    <p class="lead">Every morning and every afternoon, your sales team gets their progress on WhatsApp: their sales, their target and how far along they are. At end of day, the manager receives a consolidated report of the whole team. No one has to log into a system.</p>
+    <p class="lead">Brújula is a BI (Business Intelligence: turning sales data into information for decisions) system that works over WhatsApp. Every morning and afternoon, each rep gets where they stand: their sales, goal, progress and quotes to follow up. At the end of the day, the manager receives a summary of the whole team. Nobody has to log into a system.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#que-hace">See how it works</a>
       <a class="btn btn-ghost" href="https://wa.me/528331273591?text=Hi%2C%20I%27m%20interested%20in%20Br%C3%BAjula" target="_blank" rel="noopener">Get in touch</a>
@@ -158,53 +159,89 @@
   </div>
 </div></header>
 
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What is it and what is it for?</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>What is a KPI?</h3>
+      <p>A KPI (Key Performance Indicator) is a number that tells you whether things are going well: today's sales, percentage of the goal, or quotes still waiting for follow-up.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>The numbers live in the ERP (the sales and inventory system) and in reports someone builds by hand, screenshots and forwards. They arrive late, each in its own format, and a rep on the sales floor has no time to open a system.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>Brújula queries the ERP at set times, builds each person's summary and sends it to their WhatsApp. The same data, in the same format, for everyone, every day.</p>
+    </div>
+  </div>
+</div></section>
+<section id="como-funciona" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Step by step</span><h2>How a report arrives</h2><p>Nobody requests or builds it: it runs on its own at the scheduled time.</p></div>
+  <div class="flow">
+    <div class="step"><h4>Query</h4><p>At the scheduled time it reads each rep's sales, goals and quotes from the ERP with read-only queries.</p></div>
+    <div class="step"><h4>Build</h4><p>It computes progress and comparisons, and renders the message or an image with each person's table.</p></div>
+    <div class="step"><h4>Send</h4><p>It delivers it through the official WhatsApp API (the interface for programs) to each rep, with only their own numbers.</p></div>
+    <div class="step"><h4>Consolidate</h4><p>At the end of the day, the manager receives the team summary: ranking, totals and trend.</p></div>
+  </div>
+</div></section>
 <section id="que-hace"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">What it does</span><h2>Your team informed, without lifting a finger</h2><p>Sales information reaches whoever needs it, right where they already spend the day: WhatsApp.</p></div>
+  <div class="sec-head"><span class="eyebrow">What it does</span><h2>Your team informed, effortlessly</h2><p>Sales information reaches whoever needs it, where they already spend their day: WhatsApp.</p></div>
   <div class="bento">
     <div class="cell wide">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
       <h3>Arrives on its own, twice a day</h3>
-      <p>In the morning and in the afternoon, every rep gets their summary on WhatsApp without asking. They start and end the day knowing exactly where they stand.</p>
+      <p>Morning and afternoon, every rep gets their summary on WhatsApp without asking. They start and end the day knowing where they stand.</p>
     </div>
     <div class="cell">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <h3>Their numbers, not everyone's</h3>
-      <p>Every message is personalized: their sales, their target and their progress percentage. No one sees data that isn't theirs.</p>
+      <p>Each message is personal: their sales, their goal and their progress. Nobody sees data that is not theirs.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg></div>
-      <h3>Report to the manager</h3>
-      <p>At end of day, the manager gets a consolidated view: team ranking, totals and trend. Everything at a glance.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Manager report</h3>
+      <p>At closing, a summary with the team ranking, totals and trend, at a glance.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg></div>
-      <h3>On the WhatsApp Business API</h3>
-      <p>It uses the WhatsApp your team already has in their pocket. Nothing to install, nothing new to learn.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+      <h3>On WhatsApp</h3>
+      <p>Uses the WhatsApp your team already carries. Nothing to install or learn.</p>
     </div>
     <div class="cell">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
       <h3>Scheduled and automatic</h3>
-      <p>It goes out at the time you define and runs on its own, every day. Set it once and forget about it.</p>
+      <p>Sent at the defined time and runs by itself every day. Once set up, it needs no attention.</p>
     </div>
     <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
-      <h3>Zero data entry, zero copy-paste</h3>
-      <p>The numbers come straight from your sales data source. No one builds reports by hand or forwards screenshots: repetitive work is gone.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg></div>
+      <h3>No data entry, no copy-paste</h3>
+      <p>Numbers come straight from the sales data source. Nobody builds reports by hand or forwards screenshots.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+      <h3>Quotes to follow up</h3>
+      <p>Each rep receives a table of their recent quotes —folio, customer, amount and next appointment date— as an image that reads well on a phone, so they know whom to call today.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+      <h3>Questions over chat</h3>
+      <p>The idea evolved into an assistant that management can ask on WhatsApp "how are we doing this month?" and it answers with ERP figures, comparisons and the Excel or PDF on request. It only answers authorized numbers.</p>
     </div>
   </div>
 </div></section>
-
-
-
-<section><div class="wrap">
+<section id="ingenieria" class="alt"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>Simple outside, solid inside</h2></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>WhatsApp Business API</h4><p>Official, reliable messaging over the channel your team already uses.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Scheduled delivery</h4><p>Automated jobs at the exact time you set, every day.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Per-person personalization</h4><p>Each rep receives only their own KPIs and targets.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Consolidated report</h4><p>Ranking, totals and team trend, ready for the manager.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Secure by design</h4><p>Credentials and sensitive data are never exposed.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Frictionless</h4><p>Zero installs for the team: everything happens inside WhatsApp.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Python and pandas</h4><p>Python scripts read the ERP with SQLAlchemy and pyodbc (the SQL Server connector) and process data with pandas, a library for working with tables.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Read-only</h4><p>ERP queries only read: Brújula never changes sales data.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Tables rendered as images</h4><p>With matplotlib, each person's table is drawn as an image, with text wrapped to read well on a phone.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>WhatsApp Cloud API</h4><p>The image is uploaded to Meta's official API and sent to each rep's number. Outside the 24-hour window, approved templates are used.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Scheduled sends</h4><p>An internal scheduler, or Windows Task Scheduler, triggers each send on time, every day.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Secure by design</h4><p>Credentials and the WhatsApp token live in environment variables, outside the code. Each rep only receives their own data, based on the rep catalog.</p></div></div>
   </div>
 </div></section>
 

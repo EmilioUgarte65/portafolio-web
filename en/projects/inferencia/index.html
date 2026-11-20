@@ -57,7 +57,7 @@
     }
     .metric-val { font-size: 1.85rem; font-weight: 800; font-family: var(--font-head); color: #F8FAFC; }
     .metric-lbl { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
-  </style>
+  #que-es .bento,#what .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento,#what .bento{grid-template-columns:1fr}}.note-mini{text-align:center;color:var(--muted);font-size:.88rem;max-width:760px;margin:22px auto 0}.kpi{font-family:var(--font-head);font-weight:800;font-size:2.1rem;line-height:1;margin-bottom:10px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}.step,.spec{background:var(--card-bg);border-color:var(--border)}.step p,.spec p{color:var(--muted)}.alt{background:#111A2E;border-color:var(--border)}.sec-head p{color:var(--muted)}.btn-ghost{background:transparent}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -74,16 +74,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Inferencia eficiente, PyTorch, GPTQ, INT4/INT3/INT2, CUDA, HuggingFace, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Inferencia eficiente, Python, PyTorch, CUDA, GPTQ, Ollama, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Inferencia eficiente · Emilio Fonseca" />
-  <meta property="og:description" content="Applied research breaking the 4 GB VRAM wall on consumer GPUs: INT4/INT3/INT2 quantization, GPTQ and low-rank residual patches to run 7B models in ~2.4 GB." />
+  <meta property="og:description" content="An LLM quantization lab for 4 GB GPUs: GPTQ makes INT4 and INT3 near-lossless and breaks the INT2 wall (from 2,588× down to 12.45×)." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/inferencia/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Inferencia eficiente · Emilio Fonseca" />
-  <meta name="twitter:description" content="Applied research breaking the 4 GB VRAM wall on consumer GPUs: INT4/INT3/INT2 quantization, GPTQ and low-rank residual patches to run 7B models in ~2.4 GB." />
+  <meta name="twitter:description" content="An LLM quantization lab for 4 GB GPUs: GPTQ makes INT4 and INT3 near-lossless and breaks the INT2 wall (from 2,588× down to 12.45×)." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <script type="application/ld+json">
 {
@@ -110,13 +110,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/inferencia/#software",
       "name": "Inferencia eficiente",
-      "description": "Applied research breaking the 4 GB VRAM wall on consumer GPUs: INT4/INT3/INT2 quantization, GPTQ and low-rank residual patches to run 7B models in ~2.4 GB.",
+      "description": "An LLM quantization lab for 4 GB GPUs: GPTQ makes INT4 and INT3 near-lossless and breaks the INT2 wall (from 2,588× down to 12.45×).",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/inferencia/",
       "image": "https://emiliougarte65.github.io/portafolio-web/og-cover.png",
       "applicationCategory": "AI & Machine Learning",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "PyTorch, GPTQ, INT4/INT3/INT2, CUDA, HuggingFace, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Python, PyTorch, CUDA, GPTQ, Ollama, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -146,8 +146,10 @@
         Efficient Inference
       </div>
       <div class="nav-links">
+        <a href="#what">What it is</a>
         <a href="#findings">Findings</a>
         <a href="#results">Results</a>
+        <a href="#engineering">Engineering</a>
         <a class="nav-cta" href="#results">Scoreboard</a>
         <a href="../../../proyectos/inferencia/">ES</a>
       </div>
@@ -159,7 +161,7 @@
       <div>
         <span class="eyebrow" style="color:var(--secondary)">AI Research &amp; Benchmarking</span>
         <h1>Breaking the VRAM wall: <span class="grad">powerful models with less compute</span>.</h1>
-        <p class="lead">Applied research on running dense language models (LLMs) on budget consumer hardware (4 GB VRAM GPU). Combining extreme quantization (INT4/INT3/INT2), Hessian-weighted compensation (GPTQ), non-uniform quantization (Lloyd-Max), and low-rank residual error patches.</p>
+        <p class="lead">An applied research lab for running LLMs (large language models, the AI that generates text) on a laptop GPU with 4 GB of VRAM, the graphics card's memory. The core tool is quantization: storing each model weight with fewer bits so it takes less space, while measuring how much quality is lost at every step.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="#results">View Scoreboard</a>
           <a class="btn btn-ghost" href="../../../en/" style="color:#CBD5E1;border-color:var(--border)">← Back to portfolio</a>
@@ -169,26 +171,26 @@
 
       <div class="mock">
         <div class="metric-card" style="box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px">
             <span class="stat-badge badge-purple">Constrained Hardware (4 GB)</span>
             <span style="font-family:var(--font-mono);font-size:0.75rem;color:var(--muted)">RTX 3050 · 2026</span>
           </div>
           <h3 style="font-size:1.1rem;margin-bottom:16px">The Core Objective</h3>
           <p style="font-size:0.85rem;color:var(--muted);line-height:1.5">
-            A standard 7B model in FP16 weighs ~14 GB and spills over into system RAM/PCIe, causing severe latency degradation. Compressing to ~2.7 bits reduces it to <b>~2.4 GB</b>, fitting fully within a budget 4 GB GPU.
+            A 7B model (7 billion parameters) in FP16 weighs ~14 GB: it doesn't fit in 4 GB, spills into system RAM over the PCIe bus, and speed collapses. At ~2.7 bits per weight it would take <b>~2.4 GB</b> and fit entirely on the GPU. That is the target; this is what the lab has already measured:
           </p>
-          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);display:flex;gap:20px">
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:20px">
             <div>
               <div style="font-size:1.2rem;font-weight:700;color:#4ADE80">1.01× PPL</div>
-              <div style="font-size:0.75rem;color:var(--muted)">Lossless INT4</div>
+              <div style="font-size:0.75rem;color:var(--muted)">INT4 with GPTQ</div>
             </div>
             <div>
               <div style="font-size:1.2rem;font-weight:700;color:#60A5FA">1.15× PPL</div>
-              <div style="font-size:0.75rem;color:var(--muted)">Recovered INT3</div>
+              <div style="font-size:0.75rem;color:var(--muted)">INT3 with GPTQ</div>
             </div>
             <div>
-              <div style="font-size:1.2rem;font-weight:700;color:#C084FC">~2.7 bits</div>
-              <div style="font-size:0.75rem;color:var(--muted)">INT2 + Low-Rank Patch</div>
+              <div style="font-size:1.2rem;font-weight:700;color:#C084FC">12.45× PPL</div>
+              <div style="font-size:0.75rem;color:var(--muted)">INT2 (was 2,588×)</div>
             </div>
           </div>
         </div>
@@ -203,75 +205,136 @@
         <div class="metric-card">
           <span class="stat-badge badge-green">Baseline (1B)</span>
           <div class="metric-val">129.6 <span style="font-size:1rem;color:var(--muted)">tok/s</span></div>
-          <div class="metric-lbl">Gemma 1B 100% on GPU (Ollama)</div>
+          <div class="metric-lbl">Gemma 3 1B, 100% on GPU (Ollama)</div>
         </div>
         <div class="metric-card">
           <span class="stat-badge badge-green">Baseline (3B)</span>
           <div class="metric-val">82.6 <span style="font-size:1rem;color:var(--muted)">tok/s</span></div>
-          <div class="metric-lbl">Llama 3.2 100% on GPU (Ollama)</div>
+          <div class="metric-lbl">Llama 3.2 3B, 100% on GPU (Ollama)</div>
         </div>
         <div class="metric-card">
-          <span class="stat-badge badge-blue">Theoretical Compression</span>
-          <div class="metric-val">5.8× <span style="font-size:1rem;color:var(--muted)">reduction</span></div>
-          <div class="metric-lbl">From FP16 (16 bits) to ~2.7 effective bits</div>
+          <span class="stat-badge badge-blue">7B at 2 bits</span>
+          <div class="metric-val">21.8 <span style="font-size:1rem;color:var(--muted)">tok/s</span></div>
+          <div class="metric-lbl">Qwen2.5 7B (q2_K) fits in 4 GB, but naive quantization loses quality</div>
         </div>
         <div class="metric-card">
-          <span class="stat-badge badge-purple">Wall Broken</span>
-          <div class="metric-val">12.45× <span style="font-size:1rem;color:var(--muted)">PPL</span></div>
-          <div class="metric-lbl">Pure 2-bit with clipped error GPTQ</div>
+          <span class="stat-badge badge-purple">The wall (27B)</span>
+          <div class="metric-val">1.1 <span style="font-size:1rem;color:var(--muted)">tok/s</span></div>
+          <div class="metric-lbl">Gemma 3 27B doesn't fit and spills into RAM</div>
+        </div>
+      </div>
+      <p class="note-mini">tok/s = tokens per second; a token is a piece of a word. Measured through the Ollama API on the same laptop.</p>
+    </div>
+  </section>
+
+  <section id="what" style="padding: 40px 0 60px;">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--secondary)">In plain words</span>
+        <h2>What it is and why it matters</h2>
+      </div>
+      <div class="bento">
+        <div class="cell">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <h3>What is quantization?</h3>
+          <p>A model is a huge list of numbers called weights. Each one normally takes 16 bits (FP16). Quantizing means rounding them to fewer levels: 4 bits allow 16 possible values (INT4) and 2 bits only 4 (INT2). It's like reducing the colors of a photo: much smaller, but go too far and it shows.</p>
+        </div>
+        <div class="cell">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+          <h3>The problem: the 4 GB wall</h3>
+          <p>Somewhere between 3B and 7B parameters there is a wall: the model no longer fits in VRAM and every token has to cross the PCIe bus from system RAM. On this laptop a 3B model generates 82.6 tokens per second; a 27B model that doesn't fit, 1.1.</p>
+        </div>
+        <div class="cell">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M9 3h6M10 3v6L4 19a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-10V3"/></svg></div>
+          <h3>How it attacks it</h3>
+          <p>Using a small lab model (GPT-2, 124 million parameters), each technique is tested on its own, its quality is measured, and the ones that add up are stacked. The goal: 4-bit quality at a 2-bit size.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Key findings -->
-  <section id="findings" style="padding: 40px 0;">
+  <section id="method" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--secondary)">Step by step</span>
+        <h2>How the research works</h2>
+        <p>Every idea goes through the same testbed, so the numbers can be compared.</p>
+      </div>
+      <div class="flow">
+        <div class="step"><h4>Measure the baseline</h4><p>A benchmark calls the Ollama API (a program that runs LLMs on your own machine) and logs tokens per second, load time, and whether the model runs on the GPU or the CPU.</p></div>
+        <div class="step"><h4>Quantize</h4><p>Each technique lives in its own PyTorch script with CUDA (NVIDIA's GPU computing platform): uniform, Lloyd-Max, GPTQ, rotations and patches.</p></div>
+        <div class="step"><h4>Measure quality</h4><p>Quality is measured with perplexity (PPL), how "surprised" the model is by a text: lower is better. It's reported as a ratio against the original (1.00× = no loss), with separate calibration and evaluation texts.</p></div>
+        <div class="step"><h4>Stack and validate</h4><p>Techniques that add up are combined. Key results are re-run (the 12.45× was validated twice) and tried on larger models.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lab Findings -->
+  <section id="findings" style="padding: 60px 0 40px;">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow" style="color:var(--secondary)">Methodology &amp; Findings</span>
-        <h2>4 Core Experimental Discoveries</h2>
+        <h2>What the lab notebook uncovered</h2>
       </div>
 
       <div class="bento">
         <div class="cell wide">
-          <span class="stat-badge badge-blue">Finding 1 · Hessian Quantization</span>
-          <h3>GPTQ Solves INT4 and INT3 Completely</h3>
-          <p>Naive uniform quantization collapses catastrophically. By minimizing activation error <span class="code-pill">‖(W−Q)X‖²</span> using Hessian <span class="code-pill">H = XXᵀ</span> and column-by-column compensation, <b>INT4 reaches 1.01×</b> (indistinguishable from FP32) and <b>INT3 reaches 1.15×</b>, allowing 7B models in ~2.6 GB.</p>
+          <span class="stat-badge badge-blue">Finding 1 · Naive quantization</span>
+          <h3>Careless rounding wrecks the model</h3>
+          <p>The first 4-bit attempt made perplexity <b>32,870 times</b> worse. There were two bugs: GPT-2 stores its weights transposed (Conv1D layers), so they were quantized along the wrong axis, and sensitive layers were touched (the embeddings, which turn words into numbers, and the output layer). With both fixes together, INT4 dropped to <b>1.14×</b>.</p>
         </div>
 
         <div class="cell">
-          <span class="stat-badge badge-purple">Finding 2 · The INT2 Wall</span>
-          <h3>Why 2-bit Diverges</h3>
-          <p>At 2 bits, classic GPTQ diverges (22,820× error) because the feedback loop amplifies error residuals. Introducing <b>error-feedback clipping at ±2.5σ</b> stabilizes the loop, jumping from 288× to <b>12.45×</b> at pure 2 bits.</p>
+          <span class="stat-badge badge-purple">Finding 2 · Lloyd-Max</span>
+          <h3>Put the levels where the weights are</h3>
+          <p>Lloyd-Max is a non-uniform quantizer (1-D k-means): it places the levels where real weights cluster instead of at equal spacing. INT3 went from <b>546× to 1.95×</b>.</p>
         </div>
 
         <div class="cell">
-          <span class="stat-badge badge-green">Finding 3 · Orthogonal Stacking</span>
-          <h3>Low-Rank Residual Patches (HADA-LR)</h3>
-          <p>Correcting quantization residuals in activation space with a low-rank approximation drops error drastically: <b>rank-16 reaches 1.54× at 2.67 bits</b> and <b>rank-32 reaches 1.14× at 3.33 bits</b>.</p>
+          <span class="stat-badge badge-green">Finding 3 · GPTQ</span>
+          <h3>GPTQ solves INT4 and INT3</h3>
+          <p>GPTQ uses the Hessian matrix <span class="code-pill">H = XXᵀ</span>, computed from calibration text, to know which errors matter most, and compensates column by column. INT4 reaches <b>1.01×</b> and INT3 <b>1.15×</b>: a 7B model at 3 bits would weigh ~2.6–3 GB.</p>
+        </div>
+
+        <div class="cell">
+          <span class="stat-badge badge-purple">Finding 4 · The INT2 wall</span>
+          <h3>Damping the error breaks the wall</h3>
+          <p>At 2 bits, GPTQ diverges (22,820×): compensation amplifies the error instead of cancelling it. Clipping that feedback at ±2.5σ (standard deviations) stabilizes it: from 288×, the best previous attempt, to <b>12.45×</b> at clean 2 bits. The idea came from a swarm of 40 AI agents testing methods in parallel.</p>
+        </div>
+
+        <div class="cell">
+          <span class="stat-badge badge-blue">Finding 5 · Low-rank patch</span>
+          <h3>Fixing the error with a few directions</h3>
+          <p>The error GPTQ leaves behind is concentrated in a few output directions. A low-rank patch (a small correction made of r directions) recovers it: rank 8 gives <b>2.32×</b> at 2.33 bits; rank 16, <b>1.54×</b> at 2.67 bits; rank 32, <b>1.14×</b> at 3.33 bits.</p>
+        </div>
+
+        <div class="cell wide">
+          <span class="stat-badge badge-green">Negative results, documented</span>
+          <h3>What failed is written down too</h3>
+          <p>Protecting the largest 1–10% of weights barely moved INT2 (2,362× → 1,635×). Streaming weights from the SSD to run a 70B model took 35 seconds per token. And the family of low-rank corrections learned on calibration text, tested on new text with a larger model (Qwen 0.5B), did not generalize. That's why the 7B in ~2.4 GB is still a projection, not a result.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Scoreboard -->
+  <!-- Quantitative Scoreboard -->
   <section id="results" style="padding: 60px 0;">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow" style="color:var(--secondary)">Experimental Scoreboard</span>
         <h2>Quantitative Results (Perplexity Ratio vs. FP32)</h2>
-        <p style="color:var(--muted)">Evaluated on laboratory model (GPT-2, base PPL = 3.013). Lower is better (1.00× = identical to unquantized FP32 baseline).</p>
+        <p style="color:var(--muted)">Evaluated on a lab model (GPT-2, base PPL = 3.013). Lower is better (1.00× = identical to the original unquantized model).</p>
       </div>
 
       <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;overflow-x:auto;">
         <table class="tabla-lab">
           <thead>
             <tr>
-              <th>Target Precision</th>
+              <th>Precision</th>
               <th>Uniform Quantization</th>
-              <th>Lloyd-Max (Non-uniform)</th>
+              <th>Lloyd-Max (Non-Uniform)</th>
               <th>GPTQ (Hessian)</th>
-              <th>GPTQ + Low-Rank Patch</th>
+              <th>Best result</th>
               <th>Verdict</th>
             </tr>
           </thead>
@@ -281,7 +344,7 @@
               <td>1.14×</td>
               <td>1.03×</td>
               <td class="highlight-cell">1.01×</td>
-              <td class="highlight-cell">1.01×</td>
+              <td class="highlight-cell">1.01× (GPTQ)</td>
               <td><span class="stat-badge badge-green">Solved (Lossless)</span></td>
             </tr>
             <tr>
@@ -289,31 +352,66 @@
               <td>546× (broken)</td>
               <td>1.95×</td>
               <td class="highlight-cell">1.15×</td>
-              <td class="highlight-cell">1.05×</td>
-              <td><span class="stat-badge badge-green">Solved (Production)</span></td>
+              <td class="highlight-cell">1.15× (GPTQ)</td>
+              <td><span class="stat-badge badge-green">Solved</span></td>
             </tr>
             <tr>
               <td style="color:var(--fg);font-weight:700">Pure INT2 (2 bits)</td>
               <td>2,588× (unusable)</td>
               <td>508×</td>
-              <td>12.45× (damped)</td>
-              <td class="highlight-cell">2.32× (rank-8)</td>
-              <td><span class="stat-badge badge-blue">Frontier Passed</span></td>
+              <td>22,820× (diverges)</td>
+              <td class="highlight-cell">12.45× (GPTQ + clipping)</td>
+              <td><span class="stat-badge badge-blue">Wall broken, still lossy</span></td>
             </tr>
             <tr>
-              <td style="color:var(--fg);font-weight:700">Hybrid (~2.67 bits)</td>
+              <td style="color:var(--fg);font-weight:700">INT2 + patch (2.33–3.33 bits)</td>
               <td>—</td>
               <td>—</td>
               <td>—</td>
-              <td class="highlight-cell">1.54× (rank-16)</td>
-              <td><span class="stat-badge badge-purple">Sweet Spot (VRAM / Quality)</span></td>
+              <td class="highlight-cell">2.32× · 1.54× · 1.14× (rank 8 · 16 · 32)</td>
+              <td><span class="stat-badge badge-purple">Needs validation on new text</span></td>
             </tr>
           </tbody>
         </table>
       </div>
 
       <div style="margin-top:24px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:12px;padding:16px 20px;font-size:0.875rem;color:#CBD5E1">
-        💡 <b>Technical Takeaway:</b> By stacking Hessian compensation with low-rank activation residual corrections, a 7B parameter model drops from 14 GB down to <b>~2.4 GB</b>, fitting fully on a 4 GB GPU without PCIe latency penalties.
+        <b>Honest takeaway:</b> with GPTQ, INT4 and INT3 are practically lossless, so a 7B model at 3 bits (~2.6–3 GB) would already fit in 4 GB. At 2 bits the wall was broken (from 2,588× to 12.45×), but there is still a loss. The <b>~2.4 GB at ~2.7 bits</b> projection depends on the low-rank patch, which has not yet been validated on new text with a 7B model.
+      </div>
+    </div>
+  </section>
+
+  <section id="other" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--secondary)">Beyond quantization</span>
+        <h2>Other levers that were measured</h2>
+        <p>Besides compressing weights, the research measured other ways to speed up inference (the moment an already-trained model generates answers).</p>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="dot"></span><div><h4>Tree speculative decoding</h4><p>A small model drafts several tokens and the large one checks them in a single pass: <b>1.8–2.75×</b> faster, with the same quality.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>2-bit kernel</h4><p>A kernel is the program that runs inside the GPU. The 2-bit one ran <b>4.0×</b> faster than FP16, at 53% of the hardware's theoretical limit.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>E8 lattice vs. ternary</h4><p>Quantizing weights in groups of 8 with the E8 lattice gave <b>4.51×</b> less reconstruction error than ternary at the same bit budget, on a real 7B model. It's a quantizer-quality proxy, not perplexity.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>The right model for each task</h4><p>On simple tasks, small models nearly tie the 27B one and answer <b>70–100×</b> faster. Routing by task is the cheapest lever.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>Dropped: entropy compression</h4><p>Compressing weights with entropy coding (rANS) saves space, but decoding was <b>8.74×</b> slower.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>Dropped: a home-grown compression law</h4><p>An original idea (the "cone operator") promised huge factors, but on new text it fell to ~1×. It was documented and abandoned.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="engineering">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow" style="color:var(--secondary)">Under the hood</span>
+        <h2>How it's built</h2>
+      </div>
+      <div class="specs">
+        <div class="spec"><span class="dot"></span><div><h4>Modest hardware, on purpose</h4><p>A laptop with a 4 GB RTX 3050 (Ampere architecture), an Intel i5-12450H and ~32 GB of RAM. Everything is measured on the machine where the wall is real.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>PyTorch, CUDA and Transformers</h4><p>PyTorch 2.6 with CUDA 12.4 and the Hugging Face Transformers library to load models and measure perplexity.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>One script per technique</h4><p>The base lab, Lloyd-Max, GPTQ, rotations and the GPTQ + patch stack each live in separate, reproducible scripts.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>Ollama testbed</h4><p>PowerShell and Python scripts against the Ollama HTTP API; they log tokens per second, load time and processor to CSV.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>A swarm of AI agents</h4><p>40 AI agents explored ideas in parallel, each with its own method and result; a later blind review re-checked the speed-up figures.</p></div></div>
+        <div class="spec"><span class="dot"></span><div><h4>A notebook with caveats</h4><p>Numbered findings, negative results and warnings: for instance, 2-bit GPTQ is numerically sensitive (24× on GPU vs. 12.45× on CPU).</p></div></div>
       </div>
     </div>
   </section>
@@ -322,8 +420,8 @@
   <section style="padding: 20px 0 80px;">
     <div class="wrap">
       <div class="cta-card" style="background:var(--card-bg);border:1px solid var(--border);">
-        <h2>Engineering Applied to Efficiency</h2>
-        <p style="color:var(--muted)">From theoretical mathematics (Cholesky, orthogonal rotations, SVD) to high-speed execution on real consumer hardware.</p>
+        <h2>Engineering applied to efficiency</h2>
+        <p style="color:var(--muted)">From the math (Hessians, Cholesky factorization, orthogonal rotations, lattices) to measurements on real hardware, with the negative results in plain sight.</p>
         <div class="btn-row" style="justify-content:center">
           <a class="btn btn-primary" href="../../../en/#contact">Contact</a>
           <a class="btn btn-ghost" href="../../../en/" style="color:#CBD5E1;border-color:var(--border)">Back to projects</a>

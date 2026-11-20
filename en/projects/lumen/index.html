@@ -16,7 +16,7 @@
   --bg: #F5F8FF; --fg: #1C315A; --muted: #5a6b8c;
   --font-head: 'Fira Sans', system-ui, sans-serif; --font-body: 'Fira Sans', system-ui, sans-serif;
 }
-.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento,#what .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento,#what .bento{grid-template-columns:1fr}}.note-mini{text-align:center;color:var(--muted);font-size:.88rem;max-width:760px;margin:22px auto 0}.kpi{font-family:var(--font-head);font-weight:800;font-size:2.1rem;line-height:1;margin-bottom:10px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -33,16 +33,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Lumen · Ask your numbers, React, FastAPI, NL-to-SQL, PostgreSQL, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Lumen · Ask your numbers, Node.js, Express, NL-to-SQL, SQL Server, Chart.js, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Lumen · Ask your numbers · Emilio Fonseca" />
-  <meta property="og:description" content="Ask about your sales or finances in plain language — typing or speaking — and get a clear answer instantly, no spreadsheets required. Charts, tables and natural-language reporting over your ERP data." />
+  <meta property="og:description" content="Conversational BI: voice or text questions that an LLM turns into read-only SQL, runs and narrates, with dashboards and Excel export." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/lumen/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/lumen.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Lumen · Ask your numbers · Emilio Fonseca" />
-  <meta name="twitter:description" content="Ask about your sales or finances in plain language — typing or speaking — and get a clear answer instantly, no spreadsheets required. Charts, tables and natural-language reporting over your ERP data." />
+  <meta name="twitter:description" content="Conversational BI: voice or text questions that an LLM turns into read-only SQL, runs and narrates, with dashboards and Excel export." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/lumen.jpg" />
   <script type="application/ld+json">
 {
@@ -69,13 +69,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/lumen/#software",
       "name": "Lumen · Ask your numbers",
-      "description": "Ask about your sales or finances in plain language — typing or speaking — and get a clear answer instantly, no spreadsheets required. Charts, tables and natural-language reporting over your ERP data.",
+      "description": "Conversational BI: voice or text questions that an LLM turns into read-only SQL, runs and narrates, with dashboards and Excel export.",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/lumen/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/lumen.jpg",
       "applicationCategory": "AI & Machine Learning",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "React, FastAPI, NL-to-SQL, PostgreSQL, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Node.js, Express, NL-to-SQL, SQL Server, Chart.js, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -100,23 +100,24 @@
 <body>
 <nav><div class="wrap">
   <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Lumen</div>
-  <div class="nav-links"><a href="#que-hace">What it does</a><a class="nav-cta" href="../../../demos/lumen/">▶ View demo</a><a href="../../../proyectos/lumen/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
+  <div class="nav-links"><a href="#que-es">What it is</a><a href="#como">How it works</a><a href="#que-hace">What it does</a><a href="#ingenieria">Engineering</a><a class="nav-cta" href="../../../demos/lumen/">▶ View demo</a><a href="../../../proyectos/lumen/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <span class="eyebrow">Conversational business intelligence</span>
     <h1>Ask your numbers and <span class="grad">get the answer</span>, in plain language.</h1>
-    <p class="lead">Lumen connects to your data and lets anyone ask about their sales, finances or inventory —by typing or speaking— with no need to know spreadsheets or technical queries.</p>
+    <p class="lead">Lumen is a BI platform (business intelligence: reports and dashboards for data-driven decisions) you use by talking to it. Ask about sales, accounting or inventory by typing or speaking; an LLM turns the question into a database query, runs it read-only and explains the result.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="../../../demos/lumen/">▶ View interactive demo</a>
       <a class="btn btn-ghost" href="#que-hace">See what it does</a>
     </div>
     <div class="stat-row">
       <div class="stat"><div class="n">Voice &amp; text</div><div class="l">Ask the way you speak</div></div>
-      <div class="stat"><div class="n">Seconds</div><div class="l">From question to report</div></div>
-      <div class="stat"><div class="n">Excel</div><div class="l">Export in one click</div></div>
+      <div class="stat"><div class="n">2 passes</div><div class="l">AI query and narration</div></div>
+      <div class="stat"><div class="n">Excel</div><div class="l">And PowerPoint, in one click</div></div>
     </div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:20px">The demo runs in demo mode, with sample answers and no connection to real data.</p>
   </div>
   <div class="mock" aria-hidden="true">
     <svg viewBox="0 0 560 392" xmlns="http://www.w3.org/2000/svg">
@@ -153,13 +154,44 @@
   </div>
 </div></header>
 
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What it is and why it matters</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 17l6-6-6-6M12 19h8"/></svg></div>
+      <h3>What is NL-to-SQL?</h3>
+      <p>Natural Language to SQL: translating a plain-language question ("how much did we sell this month?") into SQL, the language used to query databases. It's done by an LLM (large language model) that knows the structure of the tables.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>A company's information lives in its ERP (the sales, inventory and accounting system), and every new report needs someone who knows SQL and dozens of tables. Questions wait days for someone to build the query.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>Anyone asks in their own words. The AI writes the query, the server checks that it only reads data and runs it, and the AI reads the results back to explain them with concrete figures, charts and a table.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="como" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Step by step</span><h2>How it answers a question</h2><p>A two-pass flow: the AI first builds the query, then explains the real data.</p></div>
+  <div class="flow">
+    <div class="step"><h4>Ask</h4><p>By text or by voice. Dictation uses the browser's speech recognition and, when that's not available, Whisper on the server, with a filter that discards phrases Whisper invents during silence, like "thanks for watching".</p></div>
+    <div class="step"><h4>First pass</h4><p>The LLM answers in fixed sections: the SQL query, the chart configuration and, when needed, the parameters of an accounting query.</p></div>
+    <div class="step"><h4>Safe execution</h4><p>The server wraps the query inside a consolidated sales view (a CTE: a named query that can be reused), only allows SELECT and WITH, and applies a timeout and caching.</p></div>
+    <div class="step"><h4>Second pass</h4><p>The real rows go back to the LLM, which writes the narrative with figures, comparisons and findings (data storytelling), and a neural voice reads it aloud.</p></div>
+  </div>
+</div></section>
+
 <section id="que-hace"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">What it does</span><h2>From a question to a decision</h2><p>All your business intelligence, just a conversation away.</p></div>
   <div class="bento">
     <div class="cell wide">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
       <h3>Ask in natural language</h3>
-      <p>Type or speak the way you would to a colleague: “how are sales going?”, “compare this quarter with last quarter”. Lumen understands the intent.</p>
+      <p>Type or speak the way you would to a colleague: "how are sales going?", "compare this quarter with last quarter". Lumen understands the intent and keeps track of the conversation.</p>
     </div>
     <div class="cell">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 17l6-6-6-6M12 19h8"/></svg></div>
@@ -174,32 +206,35 @@
     <div class="cell">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
       <h3>Financial statements</h3>
-      <p>Balance sheet, income statement and trial balance, with filters by period and breakdown by branch.</p>
+      <p>Balance sheet, income statement, trial balance, chart of accounts and cash flow, with period filters and period-over-period comparison.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 1v22M5 8l7-7 7 7"/></svg></div>
-      <h3>Export to Excel and PowerPoint</h3>
-      <p>Take any report into an Excel sheet or a PowerPoint presentation, ready to share, in a single click.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Interactive dashboards</h3>
+      <p>Key indicators, bar, line or pie charts, and tables you can sort with a click on any column.</p>
     </div>
-    <div class="cell wide">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M4 15v5h16v-5"/></svg></div>
+      <h3>Export to Excel and PowerPoint</h3>
+      <p>Take any report into a formatted Excel sheet or a presentation with a title slide, indicators, charts and narrative.</p>
+    </div>
+    <div class="cell">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg></div>
       <h3>By voice too</h3>
-      <p>Ask your question out loud, perfect for when you're on the move. Lumen answers with the figure and the context you need.</p>
+      <p>Ask your question out loud and hear the answer: perfect for when you're on the move.</p>
     </div>
   </div>
 </div></section>
 
-
-
-<section><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>Serious technology, no hassle</h2></div>
+<section id="ingenieria" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>How it's built</h2></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>Generative AI</h4><p>Language understanding and clear answer generation.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Connected to your ERP</h4><p>It connects to your ERP data —Microsoft Dynamics 365 Business Central— through a secure layer.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Built-in voice</h4><p>It recognizes spoken questions and answers on the spot.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Export</h4><p>Filterable reports to Excel and PowerPoint in one click, ready to share.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Multi-branch</h4><p>Breakdown, period comparison and percentages by unit.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Secure by design</h4><p>Your credentials and sensitive data are never exposed.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Node.js, Express and Vite</h4><p>A Node.js 20 server with Express 5; a JavaScript-module frontend bundled with Vite, with charts in Chart.js. It installs as a PWA (an app from the browser).</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Read-only connection to the ERP</h4><p>It reads a Microsoft Dynamics 365 Business Central ERP on SQL Server. A validator only lets SELECT and WITH through and blocks any command that writes or deletes.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>The AI key stays on the server</h4><p>The browser never talks to the AI provider directly: the server builds the instructions with the data schema and keeps the API key.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Layered security</h4><p>Sessions with JWT (a signed token that expires), passwords hashed with bcrypt, secure headers with Helmet, request rate limits and validation of every input with Zod.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Fast and observable</h4><p>Query caching with Redis, a timeout per query, compression, logging with Pino and errors reported to Sentry.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Tested and containerized</h4><p>Vitest tests for the SQL validator, the AI response parser and the voice filter; deployment with Docker.</p></div></div>
   </div>
 </div></section>
 

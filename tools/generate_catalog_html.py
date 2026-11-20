@@ -135,6 +135,9 @@ def build_page(lang="es"):
         elif slug in ["mundial", "nexo", "lumen", "nucleo", "vertice", "vitrina", "myaccountant", "pulso", "totem", "web-studio", "ruta-clara", "ourway", "radar"]:
             demo_url = f"{root_prefix}demos/{slug}/"
             
+        if slug == "myaccountant":   # la app real (pedido de Emilio, 19-nov-2026)
+            demo_url = "https://myaccountant-emilio.firebaseapp.com/"
+            
         badge_label = "Demo en vivo" if is_live_demo else "Showcase"
         if not is_es:
             badge_label = "Live demo" if is_live_demo else "Showcase"
@@ -173,8 +176,10 @@ def build_page(lang="es"):
             card_action_btn_text = i18n["modal_btn_play"]
         elif slug == "marquesina":
             card_action_btn_text = "Ver sitio en vivo" if is_es else "Visit live site"
+        elif slug == "myaccountant":
+            card_action_btn_text = "Abrir la app" if is_es else "Open the app"
         card_action_href = demo_url if is_live_demo else showcase_url
-        card_target_attr = 'target="_blank" rel="noopener"' if (slug in ["juego-construccion", "cora", "marquesina"]) else ""
+        card_target_attr = 'target="_blank" rel="noopener"' if (slug in ["juego-construccion", "cora", "marquesina", "myaccountant"]) else ""
         
         card_html = f'''
         <div class="card catalog-item" data-slug="{slug}" data-category="{cat_key}" data-live="{str(is_live_demo).lower()}" data-search="{search_terms}" onclick="openProjectModal('{slug}')" tabindex="0" role="button" aria-label="Ver ficha técnica de {title_escaped}">

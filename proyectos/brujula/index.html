@@ -17,6 +17,7 @@
   --font-head: 'Plus Jakarta Sans', system-ui, sans-serif; --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
 .mock svg { width: 100%; height: auto; display: block; }
+#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:900px){#que-es .bento{grid-template-columns:1fr}}
 </style>
 
   <!-- SEO-GEO-AEO-START -->
@@ -34,16 +35,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Brújula · Tus números por WhatsApp, Python, FastAPI, BI, WhatsApp API, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Brújula · Tus números por WhatsApp, Python, pandas, SQL Server, WhatsApp Cloud API, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Brújula · Tus números por WhatsApp · Emilio Fonseca" />
-  <meta property="og:description" content="Sistema de inteligencia de negocios conversacional que conecta el ERP empresarial con WhatsApp para consultar ventas, márgenes, inventarios y KPIs ejecutivos en tiempo real." />
+  <meta property="og:description" content="BI por WhatsApp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/proyectos/brujula/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Brújula · Tus números por WhatsApp · Emilio Fonseca" />
-  <meta name="twitter:description" content="Sistema de inteligencia de negocios conversacional que conecta el ERP empresarial con WhatsApp para consultar ventas, márgenes, inventarios y KPIs ejecutivos en tiempo real." />
+  <meta name="twitter:description" content="BI por WhatsApp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <script type="application/ld+json">
 {
@@ -70,13 +71,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/proyectos/brujula/#software",
       "name": "Brújula · Tus números por WhatsApp",
-      "description": "Sistema de inteligencia de negocios conversacional que conecta el ERP empresarial con WhatsApp para consultar ventas, márgenes, inventarios y KPIs ejecutivos en tiempo real.",
+      "description": "BI por WhatsApp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo.",
       "url": "https://emiliougarte65.github.io/portafolio-web/proyectos/brujula/",
       "image": "https://emiliougarte65.github.io/portafolio-web/og-cover.png",
       "applicationCategory": "Automatización & BI",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "es-MX",
-      "keywords": "Python, FastAPI, BI, WhatsApp API, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Python, pandas, SQL Server, WhatsApp Cloud API, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -101,14 +102,14 @@
 <body>
 <nav><div class="wrap">
   <div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Brújula</div>
-  <div class="nav-links"><a href="#que-hace">Qué hace</a><a class="nav-cta" href="https://wa.me/528331273591?text=Hola%2C%20me%20interesa%20Br%C3%BAjula" target="_blank" rel="noopener">Contactar</a><a href="../../en/projects/brujula/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
+  <div class="nav-links"><a href="#que-es">Qué es</a><a href="#como-funciona">Cómo funciona</a><a href="#que-hace">Qué hace</a><a href="#ingenieria">Ingeniería</a><a class="nav-cta" href="https://wa.me/528331273591?text=Hola%2C%20me%20interesa%20Br%C3%BAjula" target="_blank" rel="noopener">Contactar</a><a href="../../en/projects/brujula/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <span class="eyebrow">Business Intelligence por WhatsApp</span>
     <h1>Tus números <span class="grad">llegan solos</span>, por WhatsApp.</h1>
-    <p class="lead">Cada mañana y cada tarde, tu equipo de ventas recibe en WhatsApp cómo va: sus ventas, su meta y su avance. Al cierre del día, el administrador recibe un reporte consolidado de todo el equipo. Nadie tiene que entrar a un sistema.</p>
+    <p class="lead">Brújula es un sistema de BI (Business Intelligence, inteligencia de negocios: convertir datos de ventas en información para decidir) que trabaja por WhatsApp. Cada mañana y cada tarde, cada vendedor recibe cómo va: sus ventas, su meta, su avance y sus cotizaciones por seguir. Al cierre del día, el administrador recibe el consolidado de todo el equipo. Nadie tiene que entrar a un sistema.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="#que-hace">Ver cómo funciona</a>
       <a class="btn btn-ghost" href="https://wa.me/528331273591?text=Hola%2C%20me%20interesa%20Br%C3%BAjula" target="_blank" rel="noopener">Contactar</a>
@@ -167,53 +168,89 @@
   </div>
 </div></header>
 
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">En palabras simples</span><h2>¿Qué es y para qué sirve?</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>¿Qué es un KPI?</h3>
+      <p>KPI (Key Performance Indicator, indicador clave de desempeño) es un número que dice si vas bien: las ventas del día, el porcentaje de la meta o las cotizaciones que faltan por seguir.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>El problema</h3>
+      <p>Los números viven en el ERP (el sistema de ventas e inventario) y en reportes que alguien arma a mano, copia en capturas de pantalla y reenvía. Llegan tarde, cada uno con su formato, y el vendedor en piso no tiene tiempo de abrir un sistema.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>La solución</h3>
+      <p>Brújula consulta el ERP a horas fijas, arma el resumen de cada persona y se lo manda a su WhatsApp. El mismo dato, con el mismo formato, para todos y todos los días.</p>
+    </div>
+  </div>
+</div></section>
+<section id="como-funciona" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Paso a paso</span><h2>Así llega un reporte</h2><p>Nadie lo pide ni lo arma: corre solo a la hora programada.</p></div>
+  <div class="flow">
+    <div class="step"><h4>Consulta</h4><p>A la hora programada lee del ERP las ventas, las metas y las cotizaciones de cada vendedor, con consultas de solo lectura.</p></div>
+    <div class="step"><h4>Arma</h4><p>Calcula el avance y los comparativos, y genera el mensaje o la imagen con la tabla de cada persona.</p></div>
+    <div class="step"><h4>Envía</h4><p>Lo manda por la API oficial de WhatsApp (la conexión para programas) a cada vendedor, solo con sus propios números.</p></div>
+    <div class="step"><h4>Consolida</h4><p>Al cierre del día, el administrador recibe el consolidado del equipo: ranking, totales y tendencia.</p></div>
+  </div>
+</div></section>
 <section id="que-hace"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Qué hace</span><h2>Tu equipo informado, sin mover un dedo</h2><p>La información de ventas llega a quien la necesita, en el lugar donde ya pasa el día: WhatsApp.</p></div>
   <div class="bento">
     <div class="cell wide">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
       <h3>Llega solo, dos veces al día</h3>
-      <p>En la mañana y en la tarde, cada vendedor recibe su resumen en WhatsApp sin pedirlo. Empiezan y cierran el día sabiendo exactamente cómo van.</p>
+      <p>En la mañana y en la tarde, cada vendedor recibe su resumen en WhatsApp sin pedirlo. Empieza y cierra el día sabiendo cómo va.</p>
     </div>
     <div class="cell">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
       <h3>Sus números, no los de todos</h3>
-      <p>Cada mensaje es personalizado: sus ventas, su meta y su porcentaje de avance. Nadie ve datos que no le tocan.</p>
+      <p>Cada mensaje es personal: sus ventas, su meta y su avance. Nadie ve datos que no le tocan.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg></div>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
       <h3>Reporte al administrador</h3>
-      <p>Al cierre del día, el administrador recibe un consolidado: ranking del equipo, totales y tendencia. Todo de un vistazo.</p>
+      <p>Al cierre, un consolidado con ranking del equipo, totales y tendencia, de un vistazo.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg></div>
-      <h3>Sobre WhatsApp Business API</h3>
-      <p>Usa el WhatsApp que tu equipo ya tiene en el bolsillo. Nada que instalar, nada nuevo que aprender.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+      <h3>Sobre WhatsApp</h3>
+      <p>Usa el WhatsApp que el equipo ya tiene en el bolsillo. Nada que instalar ni que aprender.</p>
     </div>
     <div class="cell">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
       <h3>Programado y automático</h3>
-      <p>Se envía a la hora que tú definas y corre solo, todos los días. Una vez configurado, te olvidas de él.</p>
+      <p>Se envía a la hora definida y corre solo todos los días. Una vez configurado, no requiere atención.</p>
     </div>
     <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></div>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg></div>
       <h3>Cero capturas, cero copiar y pegar</h3>
-      <p>Los números salen directo de tu fuente de datos de ventas. Nadie arma reportes a mano ni reenvía capturas de pantalla: se acabó el trabajo repetitivo.</p>
+      <p>Los números salen directo de la fuente de datos de ventas. Nadie arma reportes a mano ni reenvía capturas de pantalla.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+      <h3>Cotizaciones por seguir</h3>
+      <p>A cada asesor le llega la tabla de sus cotizaciones recientes —folio, cliente, monto y fecha de la próxima cita— como imagen legible en el celular, para saber a quién llamar hoy.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+      <h3>Preguntas por chat</h3>
+      <p>La idea evolucionó a un asistente al que la dirección le pregunta por WhatsApp «¿cómo vamos este mes?» y responde con cifras del ERP, comparativos y el Excel o el PDF si lo pide. Solo responde a teléfonos autorizados.</p>
     </div>
   </div>
 </div></section>
-
-
-
-<section><div class="wrap">
+<section id="ingenieria" class="alt"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Simple por fuera, sólido por dentro</h2></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>WhatsApp Business API</h4><p>Mensajería oficial y confiable, sobre el canal que tu equipo ya usa.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Envíos programados</h4><p>Tareas automáticas a la hora exacta que definas, todos los días.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Personalización por persona</h4><p>Cada vendedor recibe únicamente sus propios indicadores y metas.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Reporte consolidado</h4><p>Ranking, totales y tendencia del equipo, listos para el administrador.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Seguro por diseño</h4><p>Las credenciales y los datos sensibles nunca quedan expuestos.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Sin fricción</h4><p>Cero instalaciones para el equipo: todo sucede dentro de WhatsApp.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Python y pandas</h4><p>Scripts en Python que leen el ERP con SQLAlchemy y pyodbc (el conector a SQL Server) y procesan los datos con pandas, una librería para trabajar con tablas.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Solo lectura</h4><p>Las consultas al ERP son de lectura: Brújula nunca modifica datos de ventas.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Tablas convertidas en imagen</h4><p>Con matplotlib, la tabla de cada persona se dibuja como imagen, con el texto ajustado para leerse bien en un teléfono.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>WhatsApp Cloud API</h4><p>La imagen se sube a la API oficial de Meta y se envía al número de cada vendedor. Fuera de la ventana de 24 horas se usan plantillas aprobadas.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Envíos programados</h4><p>Un programador interno, o el Programador de tareas de Windows, dispara cada envío a su hora, todos los días.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Seguro por diseño</h4><p>Credenciales y token de WhatsApp en variables de entorno, fuera del código. Cada vendedor recibe solo lo suyo, según el catálogo de asesores.</p></div></div>
   </div>
 </div></section>
 

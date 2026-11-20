@@ -218,6 +218,8 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
       .bubble { opacity: 1; transform: none; }
     }
+  
+    .cta-card .btn-ghost{background:transparent}#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:900px){#que-es .bento{grid-template-columns:1fr}}
   </style>
 
   <!-- SEO-GEO-AEO-START -->
@@ -235,16 +237,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="CORA · Conversational AI Assistant, Python, FastAPI, OpenAI / Claude, Vector RAG, ui-ux-pro-max, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="CORA · Conversational AI Assistant, Node.js, LLMs (OpenAI / Claude), SQL Server, WhatsApp API, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="CORA · Conversational AI Assistant · Emilio Fonseca" />
-  <meta property="og:description" content="Smart assistant with AI-Native UI that serves customers across messaging channels: understands text, voice notes, and images, searches vector catalogs, and provides 24/7 expert sales recommendations." />
+  <meta property="og:description" content="AI assistant on WhatsApp: understands text, voice and images, quotes real ERP prices as a PDF and hands off to a person when needed." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/cora/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/cora.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="CORA · Conversational AI Assistant · Emilio Fonseca" />
-  <meta name="twitter:description" content="Smart assistant with AI-Native UI that serves customers across messaging channels: understands text, voice notes, and images, searches vector catalogs, and provides 24/7 expert sales recommendations." />
+  <meta name="twitter:description" content="AI assistant on WhatsApp: understands text, voice and images, quotes real ERP prices as a PDF and hands off to a person when needed." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/cora.jpg" />
   <script type="application/ld+json">
 {
@@ -271,13 +273,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/cora/#software",
       "name": "CORA · Conversational AI Assistant",
-      "description": "Smart assistant with AI-Native UI that serves customers across messaging channels: understands text, voice notes, and images, searches vector catalogs, and provides 24/7 expert sales recommendations.",
+      "description": "AI assistant on WhatsApp: understands text, voice and images, quotes real ERP prices as a PDF and hands off to a person when needed.",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/cora/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/cora.jpg",
       "applicationCategory": "AI & Machine Learning",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "Python, FastAPI, OpenAI / Claude, Vector RAG, ui-ux-pro-max, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Node.js, LLMs (OpenAI / Claude), SQL Server, WhatsApp API, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -300,7 +302,7 @@
   <!-- SEO-GEO-AEO-END -->
 </head>
 <body>
-  <nav>
+<nav>
     <div class="wrap" style="display: flex; align-items: center; justify-content: space-between;">
       <a href="../../../en/" style="font-size: 0.88rem; color: var(--color-primary); font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">&larr; Back to portfolio</a>
       <div class="brand"><span class="orb"></span> CORA</div>
@@ -311,13 +313,12 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero">
+<header class="hero">
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow"><span style="width:7px;height:7px;border-radius:50%;background:var(--color-accent);display:inline-block"></span> Conversational AI assistant</span>
         <h1>Customer service that <span class="grad">understands, replies and resolves</span> — 24/7.</h1>
-        <p class="lead">CORA is the AI-powered assistant that serves your customers over <strong>WhatsApp</strong>. It understands text, voice notes and images, searches your catalog and advises like a true expert. It is the brain that brings conversations to life.</p>
+        <p class="lead">CORA is an artificial intelligence (AI) assistant that serves a retail chain's customers over <strong>WhatsApp</strong>. It understands text, voice notes and images, searches the real catalog, gives each customer the price that applies to them, builds the PDF quote and hands the case to a person when needed.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="#capacidades">See what it does
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -340,7 +341,7 @@
           </div>
           <div class="chat-body">
             <div class="bubble out b1">Hi, I'm looking for a concrete accelerator 🧱</div>
-            <div class="bubble in b2">Hi there! Of course 👍 I have the <strong>Fester Festermix Accelerator 4 L</strong> in stock. Want me to share the price and availability?</div>
+            <div class="bubble in b2">Hi there! Of course 👍 I have the <strong>4 L concrete accelerator</strong> in stock. Want me to share the price and availability?</div>
             <div class="bubble out b3">
               <div class="voice-note">
                 <span class="play"><svg width="11" height="11" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
@@ -356,90 +357,109 @@
     </div>
   </header>
 
-  <!-- CAPACIDADES (BENTO) -->
-  <section id="capacidades">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Capabilities</span>
-        <h2>Everything CORA can do</h2>
-        <p>A single assistant that handles the entire customer conversation, from start to finish.</p>
-      </div>
-      <div class="bento">
-        <div class="cell wide">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
-          <h3>Natural conversation</h3>
-          <p>Chats with your customers in everyday language, understands the intent behind every message and keeps the thread of the conversation without sounding robotic.</p>
-          <div class="demo"><span class="pill">Natural language</span><span class="pill">Continuous context</span><span class="pill">Friendly tone</span></div>
-        </div>
-        <div class="cell">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg></div>
-          <h3>Understands voice notes</h3>
-          <p>Transcribes the audio messages customers send and responds as if it had listened to them.</p>
-        </div>
-        <div class="cell">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
-          <h3>Reads images</h3>
-          <p>Receives photos of products or problems and interprets them to give a better recommendation.</p>
-        </div>
-        <div class="cell">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
-          <h3>Smart search</h3>
-          <p>Finds the right product even when the customer misspells it, uses synonyms or colloquial terms.</p>
-          <div class="demo"><span class="pill">Synonyms</span><span class="pill">Typo-tolerant</span></div>
-        </div>
-        <div class="cell">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></div>
-          <h3>Expert advice</h3>
-          <p>Advises like a home-improvement specialist: which product to use, how to apply it and which add-ons to take.</p>
-        </div>
-        <div class="cell wide">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-          <h3>Escalates to a human when needed</h3>
-          <p>CORA knows its limits: when a conversation calls for human judgment —a customer onboarding, a negotiation or a special case— it hands it off to a team member without friction.</p>
-          <div class="demo"><span class="pill">Conversation memory</span><span class="pill">Smart handoff</span><span class="pill">No lost context</span></div>
-        </div>
-      </div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What is it and what is it for?</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+      <h3>What is a conversational assistant?</h3>
+      <p>A program that chats the way a person would. Under the hood it uses a large language model (LLM, the technology behind ChatGPT or Claude) that understands what the customer writes and decides which tool to use: look up a product, check a price or build a quote.</p>
     </div>
-  </section>
-
-  <!-- FLUJO -->
-  <section id="flujo" class="alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">How it works</span>
-        <h2>From a message to a closed sale</h2>
-        <p>Four steps that happen in seconds, automatically.</p>
-      </div>
-      <div class="flow">
-        <div class="step"><h4>Receives</h4><p>The customer writes, sends an audio or a photo through their favorite messaging channel.</p></div>
-        <div class="step"><h4>Understands</h4><p>CORA interprets the message no matter the format and grasps what they really need.</p></div>
-        <div class="step"><h4>Resolves</h4><p>Searches the catalog, answers technical questions and suggests products and add-ons.</p></div>
-        <div class="step"><h4>Follows up</h4><p>Follows up, remembers the conversation and hands off to an advisor when required.</p></div>
-      </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>A retail chain with thousands of products gets WhatsApp questions at all hours. Answering price and stock by hand is slow, the price depends on who is asking and, after hours, many conversations go unanswered.</p>
     </div>
-  </section>
-
-  <!-- SPECS -->
-  <section id="specs">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Under the hood</span>
-        <h2>Built with modern technology</h2>
-        <p>A solid, secure foundation, ready to grow.</p>
-      </div>
-      <div class="specs">
-        <div class="spec"><span class="dot"></span><div><h4>Generative AI</h4><p>State-of-the-art language models for understanding and response.</p></div></div>
-        <div class="spec"><span class="dot"></span><div><h4>Multimodal</h4><p>Processes text, voice and image within a single conversation.</p></div></div>
-        <div class="spec"><span class="dot"></span><div><h4>Integrable</h4><p>Connects to catalogs and business systems via API; integrates into a WhatsApp platform as its AI brain.</p></div></div>
-        <div class="spec"><span class="dot"></span><div><h4>Contextual memory</h4><p>Remembers the conversation and clears inactive sessions automatically.</p></div></div>
-        <div class="spec"><span class="dot"></span><div><h4>Secure by design</h4><p>Credentials and sensitive data kept out of the code, in environment variables.</p></div></div>
-        <div class="spec"><span class="dot"></span><div><h4>Scalable</h4><p>Designed to handle many conversations in parallel, without losing the context of each one.</p></div></div>
-      </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>CORA answers right away with real data from the ERP (the company's sales and inventory system): it recognizes the customer by phone number, applies their price list, checks stock and closes with a PDF quote. Anything that needs human judgment goes to the right team.</p>
     </div>
-  </section>
+  </div>
+</div></section>
+<section id="flujo" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">How it is used</span><h2>How CORA handles a message</h2><p>The customer just writes on WhatsApp; everything else happens in seconds, with nobody stepping in.</p></div>
+  <div class="flow">
+    <div class="step"><h4>Listens to the whole thing</h4><p>Waits a few seconds in case the customer keeps typing and merges their messages. Voice notes are transcribed; photos are analyzed.</p></div>
+    <div class="step"><h4>Recognizes the customer</h4><p>Looks up the phone number in the ERP and pulls their name, tax ID (RFC) and price list without asking anything.</p></div>
+    <div class="step"><h4>Uses its tools</h4><p>The model decides what to do: find the product, check price and stock, add to cart or quote. It loops until it has the answer, with a cap on rounds.</p></div>
+    <div class="step"><h4>Replies like a person</h4><p>Sends the answer in parts, with "typing…" and natural pauses. When the case calls for it, it escalates to someone on the team.</p></div>
+  </div>
+</div></section>
+<section id="capacidades"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Capabilities</span><h2>Everything CORA can do</h2><p>One assistant that covers the customer conversation from start to finish.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+      <h3>Natural conversation</h3>
+      <p>Talks in everyday language, understands the intent behind each message and keeps the thread without sounding robotic. Each agent has clear rules on tone, pricing and when not to promise something.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4"/></svg></div>
+      <h3>Understands voice notes</h3>
+      <p>Transcribes audio with Whisper (a speech-to-text model) and answers as if it had listened.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <h3>Reads images</h3>
+      <p>Interprets photos of products or of a problem on site to give a better recommendation.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+      <h3>Typo-tolerant search</h3>
+      <p>Finds products by code, keyword, synonyms or by how the word sounds, even when misspelled. It also searches by meaning with embeddings (numeric representations of text).</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+      <h3>The right price</h3>
+      <p>Applies the price that matches the customer's tax ID and price group, and checks stock at their preferred store.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+      <h3>PDF quotes</h3>
+      <p>Generates the quote in the official format, with folio number, QR code and payment link, and records it in the ERP.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+      <h3>Proactive follow-up</h3>
+      <p>Schedules reminders and reactivations during business hours, and honors a block list for anyone who does not want messages.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Hands off to a human when needed</h3>
+      <p>Picks one of 14 reasons (credit, invoice, complaint, outside delivery area…) and each reason reaches the team that should handle it. When a person takes over the chat from the CRM (the system where the team sees and serves customers), CORA goes quiet; the pause expires on its own and, when the case is closed, CORA resumes.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <h3>Memory across conversations</h3>
+      <p>Keeps summaries of previous chats to pick up where the customer left off, without asking them to repeat everything. Idle sessions are cleaned up automatically.</p>
+    </div>
+  </div>
+</div></section>
+<section id="agentes" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Specialized agents</span><h2>A team of agents behind a single voice</h2><p>CORA is the general agent, but five situations have their own agent, with its own prompt (the model's instructions) and its own set of tools.</p></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Returns, invoicing, complaints, delivery and credit</h4><p>Each agent knows its policy and only has the tools for its topic. The complaints agent cannot quote because it does not have that tool: a constraint that enforces itself beats a well-written instruction.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Keyword routing, no extra cost</h4><p>The agent is chosen from the words in the message, without another model call: asking the LLM what each message is about would cost time and money on every message.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Continuity across turns</h4><p>The agent that takes a conversation keeps it while it is active, so the customer never has to repeat their case.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Same-turn handoff</h4><p>If an invoicing chat turns into a return, the agent passes the conversation and the receiving agent answers in the same reply. A cap prevents ping-pong loops.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Invisible to the customer</h4><p>For the customer it is one conversation with one person: no agent introduces itself again or says "transferring you".</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Management agent</h4><p>Only for authorized phone numbers: answers sales, margins and comparisons with ERP figures, and sends the Excel or PDF on request. For any other number, that agent does not exist.</p></div></div>
+  </div>
+</div></section>
+<section id="specs"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>How it is built</h2><p>A solid, tested foundation ready to grow.</p></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Node.js and WhatsApp</h4><p>Node.js server with Express. It connects to WhatsApp through whatsapp-web.js or the official API (application programming interface) via a provider that reports every message with a webhook (an automatic call from one system to another).</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>LLM with tools</h4><p>Function calling: the model asks to run system functions and the code executes them. The AI provider (OpenAI, Claude or Gemini) is chosen at startup.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>SQL Server and ERP</h4><p>Its own database for history, carts and cases, plus read access to the ERP through stored procedures. The only thing it writes to the ERP is the quote.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>PDFs and scheduled jobs</h4><p>Quotes are rendered with Puppeteer (an automated browser) from an HTML template. node-cron jobs refresh stock, send follow-ups and schedule reactivations; PM2 keeps the process alive.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Predictive models</h4><p>Logistic regression models, validated forward in time (tested on data later than the training data), estimate which quotes will close and which customers are at risk. They are recomputed every night.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Secure and tested</h4><p>Credentials live in environment variables, outside the code. A test mode redirects every outgoing message to a test phone, and automated conversation suites check search, addresses, agents and flows.</p></div></div>
+  </div>
+</div></section>
 
-  <!-- CTA -->
-  <section id="contacto">
+<section id="contacto">
     <div class="wrap">
       <div class="cta-card">
         <h2>Want to see CORA in action?</h2>
@@ -452,7 +472,7 @@
     </div>
   </section>
 
-  <footer>
+<footer>
     <div class="wrap">
       <div class="brand"><span class="orb"></span> CORA</div>
       © <span id="y"></span> CORA · Conversational AI Assistant

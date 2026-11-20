@@ -50,6 +50,14 @@
     }
     .metric-val { font-size: 1.85rem; font-weight: 800; font-family: var(--font-head); color: #F8FAFC; }
     .metric-lbl { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+    .alt { background: #111B30; border-color: var(--border); }
+    .sec-head p { color: var(--muted); }
+    .step, .spec { background: var(--card-bg); border-color: var(--border); color: var(--fg); }
+    .step p, .spec p { color: var(--muted); }
+    .cta-card p { color: var(--muted); }
+    .btn-ghost { background: transparent; }
+    #que-es .bento { grid-template-columns: repeat(3, 1fr); }
+    @media (max-width: 880px) { #que-es .bento { grid-template-columns: 1fr; } }
   </style>
 
   <!-- SEO-GEO-AEO-START -->
@@ -67,16 +75,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Obra Maestra MN, Unity, C#, WebGL, WASM, 2D Platformer, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Obra Maestra MN, Unity 6, C#, WebGL, WebAssembly, Supabase, PWA, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Obra Maestra MN · Emilio Fonseca" />
-  <meta property="og:description" content="Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador." />
+  <meta property="og:description" content="Plataformas 2D en Unity compilado a WebGL: junta material en orden de obra, abre sobres de acabados y termina tu casa. PWA con ranking." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/proyectos/juego-construccion/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/juego-construccion.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Obra Maestra MN · Emilio Fonseca" />
-  <meta name="twitter:description" content="Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador." />
+  <meta name="twitter:description" content="Plataformas 2D en Unity compilado a WebGL: junta material en orden de obra, abre sobres de acabados y termina tu casa. PWA con ranking." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/juego-construccion.jpg" />
   <script type="application/ld+json">
 {
@@ -103,13 +111,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/proyectos/juego-construccion/#software",
       "name": "Obra Maestra MN",
-      "description": "Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador.",
+      "description": "Plataformas 2D en Unity compilado a WebGL: junta material en orden de obra, abre sobres de acabados y termina tu casa. PWA con ranking.",
       "url": "https://emiliougarte65.github.io/portafolio-web/proyectos/juego-construccion/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/juego-construccion.jpg",
       "applicationCategory": "3D, Videojuegos & Hardware",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "es-MX",
-      "keywords": "Unity, C#, WebGL, WASM, 2D Platformer, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Unity 6, C#, WebGL, WebAssembly, Supabase, PWA, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -132,154 +140,108 @@
   <!-- SEO-GEO-AEO-END -->
 </head>
 <body>
-  <nav>
-    <div class="wrap">
-      <div class="brand">
-        <span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>
-        Obra Maestra MN
-      </div>
-      <div class="nav-links">
-        <a href="#mecanicas">Mecánicas</a>
-        <a href="#tecnologia">Tecnología</a>
-        <a class="nav-cta" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">▶ Jugar ahora</a>
-        <a href="../../en/projects/juego-construccion/">EN</a>
-      </div>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>Obra Maestra MN</div><div class="nav-links"><a href="#que-es">Qué es</a><a href="#que-hace">Mecánicas</a><a href="#ingenieria">Tecnología</a><a class="nav-cta" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">▶ Jugar ahora</a><a href="../../en/projects/juego-construccion/">EN</a></div></div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow" style="color:var(--secondary)">Videojuego WebGL · Unity 2D</span>
+    <h1>Recorre la obra, junta el material <span class="grad">y termina tu casa</span>.</h1>
+    <p class="lead">Un juego de plataformas en 2D con arte estilo pixel, hecho en Unity y C#. Se compila para la web con WebGL (gráficos acelerados en el navegador) y WebAssembly (código compilado que corre casi a velocidad nativa), así que se juega desde un enlace en el celular o la PC, sin tienda de apps, y se instala como PWA (una app que se instala desde el navegador).</p>
+    <div class="btn-row"><a class="btn btn-primary" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">▶ Jugar ahora (En vivo en Netlify)</a><a class="btn btn-ghost" href="#que-hace" style="color:#CBD5E1;border-color:var(--border)">Ver mecánicas</a></div>
+    <div class="stat-row"><div class="stat"><div class="n">2D</div><div class="l">Plataformas estilo pixel</div></div><div class="stat"><div class="n">Web</div><div class="l">Sin descargas</div></div><div class="stat"><div class="n">Nube</div><div class="l">Cuentas y ranking</div></div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:20px">Juego completo disponible públicamente · Sin descargas · Juega gratis desde móvil o PC</p>
+  </div>
+  <div class="mock"><div class="game-banner"><img src="../../assets/previews/juego-construccion.jpg" alt="Obra Maestra MN · Captura de juego"></div></div>
+</div></header>
+
+<section style="padding: 20px 0 60px;"><div class="wrap">
+    <div class="metric-grid">
+      <div class="metric-card"><span class="stat-badge badge-green">Motor y lenguaje</span><div class="metric-val">Unity 6 <span style="font-size:1rem;color:var(--muted)">· C#</span></div><div class="metric-lbl">Compilado a WebAssembly (WASM) para el navegador</div></div>
+      <div class="metric-card"><span class="stat-badge badge-orange">Arranque en celular</span><div class="metric-val">&lt; 20 MiB <span style="font-size:1rem;color:var(--muted)">Brotli</span></div><div class="metric-lbl">Texturas reducidas solo en web y carga diferida</div></div>
+      <div class="metric-card"><span class="stat-badge badge-yellow">Compatibilidad</span><div class="metric-val">PWA <span style="font-size:1rem;color:var(--muted)">+ Móvil</span></div><div class="metric-lbl">Se instala desde el navegador en Android e iPhone</div></div>
+      <div class="metric-card"><span class="stat-badge badge-green">Calidad</span><div class="metric-val">700+ <span style="font-size:1rem;color:var(--muted)">pruebas</span></div><div class="metric-lbl">Pruebas automáticas EditMode y PlayMode</div></div>
     </div>
-  </nav>
+</div></section>
 
-  <header class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow" style="color:var(--secondary)">Videojuego WebGL · Unity 2D</span>
-        <h1>Construye tu casa: <span class="grad">recolecta material, cuela y levanta muros</span>.</h1>
-        <p class="lead">Un videojuego de simulación y construcción 2D desarrollado en Unity y C#, compilado para la web con WebGL y WebAssembly. Diseñado con optimización móvil extrema, soporte para pantalla táctil, orientación vertical/horizontal automática y arquitectura PWA.</p>
-        <div class="btn-row">
-          <a class="btn btn-primary" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">▶ Jugar ahora (En vivo en Netlify)</a>
-          <a class="btn btn-ghost" href="#mecanicas" style="color:#CBD5E1;border-color:var(--border)">Ver mecánicas</a>
-        </div>
-        <p style="color:var(--muted);font-size:.85rem;margin-top:20px">Juego completo disponible públicamente · Sin descargas · Juega gratis desde móvil o PC</p>
-      </div>
-
-      <div class="mock">
-        <div class="game-banner">
-          <img src="../../assets/previews/juego-construccion.jpg" alt="Obra Maestra MN · Captura de juego">
-        </div>
-      </div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">En palabras simples</span><h2>¿Qué es y para qué sirve?</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <span class="stat-badge badge-orange">Qué es</span>
+      <h3>Un plataformas con una obra dentro</h3>
+      <p>Saltas, trepas y esquivas enemigos por un edificio en obra negra mientras juntas material y dinero. Está pensado para una sesión corta, de unos minutos, y también para jugarse con calma en la web.</p>
     </div>
-  </header>
-
-  <!-- Métricas y especificaciones -->
-  <section style="padding: 20px 0 60px;">
-    <div class="wrap">
-      <div class="metric-grid">
-        <div class="metric-card">
-          <span class="stat-badge badge-green">Compilador &amp; Motor</span>
-          <div class="metric-val">Unity 2D <span style="font-size:1rem;color:var(--muted)">· C#</span></div>
-          <div class="metric-lbl">Exportado a WebAssembly (WASM) nativo</div>
-        </div>
-        <div class="metric-card">
-          <span class="stat-badge badge-orange">Carga ultraligera</span>
-          <div class="metric-val">&lt; 100 KB <span style="font-size:1rem;color:var(--muted)">inicio</span></div>
-          <div class="metric-lbl">Pantalla de arranque inline con compresión Brotli</div>
-        </div>
-        <div class="metric-card">
-          <span class="stat-badge badge-yellow">Compatibilidad</span>
-          <div class="metric-val">PWA <span style="font-size:1rem;color:var(--muted)">+ Móvil</span></div>
-          <div class="metric-lbl">Instalable en iOS y Android con orientación adaptable</div>
-        </div>
-        <div class="metric-card">
-          <span class="stat-badge badge-green">Disponibilidad</span>
-          <div class="metric-val">Netlify <span style="font-size:1rem;color:var(--muted)">en vivo</span></div>
-          <div class="metric-lbl">Despliegue con encabezados Brotli optimizados</div>
-        </div>
-      </div>
+    <div class="cell">
+      <span class="stat-badge badge-yellow">El problema</span>
+      <h3>Que un catálogo se quiera tocar</h3>
+      <p>Materiales y acabados de construcción son difíciles de volver memorables. Quien tiene unos minutos no descarga una app ni espera a que cargue algo pesado.</p>
     </div>
-  </section>
-
-  <!-- Mecánicas y características -->
-  <section id="mecanicas" style="padding: 40px 0;">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow" style="color:var(--secondary)">Jugabilidad &amp; Dinámica</span>
-        <h2>Mecánicas de juego de extremo a extremo</h2>
-      </div>
-
-      <div class="bento">
-        <div class="cell wide">
-          <span class="stat-badge badge-orange">Construcción física y simulación</span>
-          <h3>Ciclo de obra: Materiales, coladas y avance</h3>
-          <p>El jugador recolecta y gestiona suministros reales de construcción (cemento, grava, arena, varilla y block). Mediante estaciones de mezclado y colocación, prepara la revoltura y vierte las coladas para ver crecer su proyecto arquitectónico paso a paso.</p>
-        </div>
-
-        <div class="cell">
-          <span class="stat-badge badge-green">Controles y adaptabilidad</span>
-          <h3>Móvil primero &amp; Giro de pantalla</h3>
-          <p>Diseñado con controles táctiles integrados en pantalla. Soporta orientación tanto vertical como horizontal de forma nativa sin reiniciar el estado de la partida.</p>
-        </div>
-
-        <div class="cell">
-          <span class="stat-badge badge-yellow">Cuentas y guardado</span>
-          <h3>Persistencia y ranking con Supabase</h3>
-          <p>Soporte para inicio de sesión, progreso en la nube y recuperación de cuenta sin fricciones mediante tokens seguros y autenticación integrada.</p>
-        </div>
-      </div>
+    <div class="cell">
+      <span class="stat-badge badge-green">La solución</span>
+      <h3>Jugar para diseñar un espacio</h3>
+      <p>El plataformas es la forma de ganarse el material. Con el dinero se abren sobres de acabados (pisos, pinturas, diseños de muro) y se termina una casa que se puede enseñar y comparar.</p>
     </div>
-  </section>
+  </div>
+</div></section>
 
-  <!-- Despliegue y arquitectura técnica -->
-  <section id="tecnologia" style="padding: 50px 0 80px;">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow" style="color:var(--secondary)">Ingeniería</span>
-        <h2>Optimización WebGL para distribución masiva</h2>
-      </div>
+<section id="un-dia" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Paso a paso</span><h2>Así es una partida</h2></div>
+  <div class="flow">
+    <div class="step"><h4>Entra por un enlace</h4><p>Se abre desde una liga o un código QR y se juega como invitado; la cuenta es opcional.</p></div>
+    <div class="step"><h4>Recorre el nivel</h4><p>Salta, trepa escaleras y andamios, esquiva las cubetas y junta el material en el orden de obra: grava, varilla y cemento.</p></div>
+    <div class="step"><h4>Cobra el premio</h4><p>Al final, una ruleta multiplica la recompensa. Con el dinero abres sobres de acabados y cartas del álbum.</p></div>
+    <div class="step"><h4>Termina tu casa</h4><p>Coloca el material por etapas y decórala con los acabados; publícala y compárala en el ranking.</p></div>
+  </div>
+</div></section>
 
-      <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:16px;padding:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
-        <div>
-          <h3 style="color:#FB923C;margin-bottom:8px">Compresión Brotli (.br)</h3>
-          <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">
-            La compilación WebGL completa de Unity se distribuye comprimida con Brotli y servida mediante reglas <code style="color:#F8FAFC">_headers</code> personalizadas en Netlify para acelerar la descarga en conexiones móviles lentas.
-          </p>
-        </div>
-        <div>
-          <h3 style="color:#4ADE80;margin-bottom:8px">Service Worker y Caché PWA</h3>
-          <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">
-            Equipado con un Service Worker que precachea los binarios WASM y recursos gráficos para permitir aperturas instantáneas una vez instalado en el celular.
-          </p>
-        </div>
-        <div>
-          <h3 style="color:#FACC15;margin-bottom:8px">Audio y sprites dinámicos</h3>
-          <p style="color:var(--muted);font-size:0.9rem;line-height:1.6">
-            Spritesheets compactados mediante herramientas automáticas de recorte y audio web interactivo que responde a las acciones de picado, mezcla y vaciado.
-          </p>
-        </div>
-      </div>
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Jugabilidad y dinámica</span><h2>Mecánicas de juego de extremo a extremo</h2><p>Cada sistema está escrito y probado por separado, del generador de niveles a la economía del juego.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <span class="stat-badge badge-orange">Generación procedural</span>
+      <h3>Niveles que se arman solos</h3>
+      <p>Cada nivel es el corte de un edificio en obra: drenaje, cimentación, plantas, estructura y azotea. Se genera a partir de una semilla, así que siempre es distinto pero se puede repetir igual, y un validador comprueba que se pueda terminar o lo vuelve a intentar.</p>
     </div>
-  </section>
-
-  <!-- CTA para jugar -->
-  <section style="padding: 0 0 80px;">
-    <div class="wrap">
-      <div class="cta-card" style="background:linear-gradient(135deg,#1E293B,#0F172A);border:1px solid var(--border);">
-        <h2 style="font-size:2rem;margin-bottom:12px">¿Listo para construir?</h2>
-        <p style="color:var(--muted);max-width:560px;margin:0 auto 24px">
-          Prueba el juego completo ahora mismo. No requiere instalación de tiendas ni configuraciones especiales.
-        </p>
-        <div class="btn-row" style="justify-content:center">
-          <a class="btn btn-primary" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener" style="font-size:1.05rem;padding:16px 32px">
-            ▶ Jugar Obra Maestra MN
-          </a>
-          <a class="btn btn-ghost" href="../../" style="color:#CBD5E1;border-color:var(--border)">Volver a los proyectos</a>
-        </div>
-      </div>
+    <div class="cell">
+      <span class="stat-badge badge-yellow">Orden constructivo</span>
+      <h3>La receta de la obra</h3>
+      <p>El juego sigue el orden real de construcción: poner cemento donde va varilla se rechaza y cuesta el bono. Una colada limpia duplica el material.</p>
     </div>
-  </section>
-
-  <footer>
-    <div class="wrap">
-      <div class="brand">Web Dev-Eyes · Obra Maestra MN</div>
-      <a class="back" href="../../" style="color:var(--muted)">← Volver a los proyectos</a>
+    <div class="cell">
+      <span class="stat-badge badge-green">Colección</span>
+      <h3>Cartas y sobres</h3>
+      <p>Álbum de cartas coleccionables y sobres con rarezas. Las cartas repetidas se gastan en pintar la casa, ponerle piso o hacer el jardín.</p>
     </div>
-  </footer>
-</body>
-</html>
+    <div class="cell wide">
+      <span class="stat-badge badge-yellow">Comunidad</span>
+      <h3>Casas y ranking de otros jugadores</h3>
+      <p>Se pueden ver las casas de otros jugadores y sus puntuaciones, dar «me gusta» y publicar la propia. Cada cuenta tiene un apodo único; los invitados solo miran.</p>
+    </div>
+    <div class="cell">
+      <span class="stat-badge badge-green">Cuentas</span>
+      <h3>Guardado sin fricción</h3>
+      <p>Juega como invitado o crea cuenta con correo y contraseña o con enlace mágico (un enlace de acceso, sin contraseña). Crear la cuenta no borra el avance.</p>
+    </div>
+    <div class="cell">
+      <span class="stat-badge badge-orange">Móvil primero</span>
+      <h3>Hecho para el pulgar</h3>
+      <p>Controles táctiles multitáctiles con áreas de toque ampliadas. Al bloquear el teléfono o cambiar de app, el juego se pausa y guarda solo.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="ingenieria" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Ingeniería</span><h2>Optimización WebGL para jugarse desde un enlace</h2><p>En un juego que se comparte por enlace, el tiempo de carga decide si alguien se queda a jugar.</p></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Unity 6 con render 2D (URP)</h4><p>URP es el sistema de render ligero de Unity. La lógica (generador, receta, ruleta) vive en clases de C# sin dependencias del motor, para probarla por separado.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Generador idéntico a su prototipo</h4><p>El generador se diseñó primero en Python y se portó a C#. Una prueba de «huella» (FNV, una suma de verificación rápida) comprueba que los dos producen el mismo nivel, bit a bit.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Pruebas EditMode y PlayMode</h4><p>Más de 700 pruebas: unas validan reglas y generador sobre mil niveles; otras abren el juego y verifican que el jugador aparece, no atraviesa el suelo y la cámara lo sigue.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Compresión Brotli y carga diferida</h4><p>El build se sirve comprimido con Brotli (un formato de compresión muy eficiente) con cabeceras propias. Las texturas se reducen solo en la versión web: el arranque en celular bajó de 25.4 a 19.6 MiB.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>PWA y guardado que no se pierde</h4><p>Un service worker (la parte que guarda el juego en el teléfono) acelera las aperturas. El avance se guarda en JSON y en IndexedDB (la base de datos del navegador), también al ocultar la pestaña.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Ranking validado en el servidor</h4><p>Cuentas y ranking en Supabase (base de datos Postgres en la nube con autenticación). Los puntajes entran solo por funciones RPC (llamadas a procedimientos del servidor) que validan topes y que el récord nunca baje.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><div class="cta-card" style="background:linear-gradient(135deg,#1E293B,#0F172A);border:1px solid var(--border);"><h2>¿Listo para construir?</h2><p>Prueba el juego completo ahora mismo. No requiere instalación de tiendas ni configuraciones especiales.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener" style="font-size:1.05rem;padding:16px 32px">▶ Jugar Obra Maestra MN</a><a class="btn btn-ghost" href="../../" style="color:#CBD5E1;border-color:var(--border)">Volver a los proyectos</a></div></div></div></section>
+<footer><div class="wrap"><div class="brand">Web Dev-Eyes · Obra Maestra MN</div><a class="back" href="../../">← Volver a los proyectos</a></div></footer>
+</body></html>

@@ -127,28 +127,28 @@
     "kind": "city",
     "stack": [
       "Python",
+      "Three.js",
       "SQLite",
-      "PWA",
-      "APIs"
+      "PWA"
     ],
     "summary": [
-      "Gamificación que convierte actividades y objetivos de un equipo en misiones y progreso.",
-      "Gamification that turns team activities and goals into missions and progress."
+      "Gamificación de ventas con IA: una PWA con misiones, ligas, mascota 3D y premios que, conectada al ERP en solo lectura, le dice a cada asesor a qué clientes llamar hoy.",
+      "AI sales gamification: a PWA with missions, leagues, a 3D pet and rewards that, connected read-only to the ERP, tells each rep which customers to call today."
     ],
     "problem": [
-      "Dar seguimiento a objetivos resulta más claro cuando cada actividad tiene una consecuencia visible.",
-      "Goals become easier to follow when each activity has a visible consequence."
+      "Los asesores de tienda suelen medirse solo por lo que venden, y el seguimiento a clientes que dejaron de comprar o a cotizaciones abiertas se queda sin hacer.",
+      "Store reps are usually measured only by what they sell, so follow-up with lapsed customers and open quotes tends to slip."
     ],
     "solution": [
       [
-        "Construí reglas para misiones, puntos y progresión.",
-        "Separé el motor del juego, la persistencia y la interfaz.",
-        "Diseñé una experiencia instalable y adaptable al teléfono."
+        "Diseñé un juego móvil con misiones diarias, puntos, ligas, álbum de cartas, botes sorpresa, tienda de recompensas y una mascota 3D hecha en Blender que se alimenta, se baña y vive en un cuarto decorable.",
+        "Conecté el ERP en modo solo lectura para detectar clientes que dejaron de comprar según su propia frecuencia, priorizarlos con un modelo RFM y un modelo predictivo reentrenado cada noche, y repartir los clientes sin asesor al especialista por turnos.",
+        "Añadí prospección con fuentes públicas, paneles para jefes y gerencia, reglas anti-trampa, modo sin internet con cola idempotente, y un servidor en Python con SQLite en Docker con ambiente QA y más de mil pruebas automáticas."
       ],
       [
-        "Built rules for missions, points and progression.",
-        "Separated the game engine, persistence and interface.",
-        "Designed an installable experience that adapts to phones."
+        "Designed a mobile game with daily missions, points, leagues, a card album, surprise buckets, a rewards shop and a Blender-made 3D pet that is fed, bathed and lives in a room you can decorate.",
+        "Connected the ERP in read-only mode to detect customers who stopped buying based on their own purchase frequency, rank them with an RFM model and a nightly retrained predictive model, and assign unowned customers to specialists in turns.",
+        "Added public-source prospecting, manager dashboards, anti-cheat rules, offline mode with an idempotent queue, and a Python and SQLite server in Docker with a QA environment and over a thousand automated tests."
       ]
     ],
     "featured": true,

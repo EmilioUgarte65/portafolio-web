@@ -16,7 +16,8 @@
   --bg: #FFF8F3; --fg: #431F1C; --muted: #79534B; --soft: #F8E7DC; --border: #EAD8CC;
   --font-head: 'Plus Jakarta Sans', system-ui, sans-serif; --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
 }
-.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:900px){#que-es .bento{grid-template-columns:1fr}}
+</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -33,16 +34,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Nexo · Tu asistente por WhatsApp, Python, FastAPI, WhatsApp Cloud API, Docker, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Nexo · Tu asistente por WhatsApp, Node.js, React, Socket.IO, SQL Server, WhatsApp Cloud API, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Nexo · Tu asistente por WhatsApp · Emilio Fonseca" />
-  <meta property="og:description" content="Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. También como plataforma centralizada multi-agente." />
+  <meta property="og:description" content="CRM de WhatsApp para todo el equipo: bandeja compartida, IA activable por chat, agentes y flujos sin programar, y conexión al ERP." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/proyectos/nexo/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/nexo.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Nexo · Tu asistente por WhatsApp · Emilio Fonseca" />
-  <meta name="twitter:description" content="Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. También como plataforma centralizada multi-agente." />
+  <meta name="twitter:description" content="CRM de WhatsApp para todo el equipo: bandeja compartida, IA activable por chat, agentes y flujos sin programar, y conexión al ERP." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/nexo.jpg" />
   <script type="application/ld+json">
 {
@@ -69,13 +70,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/proyectos/nexo/#software",
       "name": "Nexo · Tu asistente por WhatsApp",
-      "description": "Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. También como plataforma centralizada multi-agente.",
+      "description": "CRM de WhatsApp para todo el equipo: bandeja compartida, IA activable por chat, agentes y flujos sin programar, y conexión al ERP.",
       "url": "https://emiliougarte65.github.io/portafolio-web/proyectos/nexo/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/nexo.jpg",
       "applicationCategory": "Automatización & BI",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "es-MX",
-      "keywords": "Python, FastAPI, WhatsApp Cloud API, Docker, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Node.js, React, Socket.IO, SQL Server, WhatsApp Cloud API, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -100,14 +101,14 @@
 <body>
 <nav><div class="wrap">
   <div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Nexo</div>
-  <div class="nav-links"><a href="#que-hace">Qué hace</a><a class="nav-cta" href="../../demos/nexo/">▶ Iniciar demo</a><a href="../../en/projects/nexo/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
+  <div class="nav-links"><a href="#que-es">Qué es</a><a href="#como-se-usa">Cómo se usa</a><a href="#que-hace">Qué hace</a><a href="#ingenieria">Ingeniería</a><a class="nav-cta" href="../../demos/nexo/">▶ Iniciar demo</a><a href="../../en/projects/nexo/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <span class="eyebrow">CRM de WhatsApp + ERP</span>
     <h1>El CRM de WhatsApp que <span class="grad">vende por ti</span>, conectado a tu ERP.</h1>
-    <p class="lead">Nexo centraliza la atención de todos tus asesores en WhatsApp, con un asistente de IA que enciendes o apagas por conversación. Verifica precios reales, envía cotizaciones y facturas, y trae e inserta datos directo en tu ERP — Microsoft Dynamics 365 Business Central.</p>
+    <p class="lead">Nexo es un CRM (sistema para gestionar clientes y conversaciones) para atender WhatsApp con todo el equipo desde una sola bandeja. Tiene un asistente de IA que se enciende o se apaga por conversación, agentes y flujos que se configuran sin programar, y conexión directa al ERP (Microsoft Dynamics 365 Business Central) para precios, cotizaciones y facturas.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="../../demos/nexo/">▶ Iniciar demo</a>
       <a class="btn btn-ghost" href="#que-hace">Ver qué hace</a>
@@ -131,7 +132,7 @@
       <g font-family="Plus Jakarta Sans"><circle cx="30" cy="112" r="11" fill="#cfe6df"/><rect x="48" y="104" width="74" height="6" rx="3" fill="#9bbdb4"/><rect x="48" y="116" width="46" height="5" rx="2" fill="#c2d6d0"/>
         <circle cx="30" cy="154" r="11" fill="#cfe6df"/><rect x="48" y="146" width="64" height="6" rx="3" fill="#9bbdb4"/><rect x="48" y="158" width="52" height="5" rx="2" fill="#c2d6d0"/>
         <circle cx="30" cy="196" r="11" fill="#cfe6df"/><rect x="48" y="188" width="70" height="6" rx="3" fill="#9bbdb4"/></g>
-      <text x="14" y="240" font-size="9" fill="#7a958d" font-family="Plus Jakarta Sans">48 asesores conectados</text>
+      <text x="14" y="240" font-size="9" fill="#7a958d" font-family="Plus Jakarta Sans">Asesores conectados</text>
       <!-- chat -->
       <rect x="150" y="36" width="250" height="356" fill="#e9f2ee"/>
       <rect x="166" y="52" width="150" height="26" rx="9" fill="#fff"/><rect x="176" y="61" width="120" height="6" rx="3" fill="#cdd9d4"/>
@@ -160,53 +161,109 @@
   </div>
 </div></header>
 
-<section id="que-hace"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Qué hace</span><h2>Tu fuerza de ventas en WhatsApp, ordenada</h2><p>Cada asesor atiende por su WhatsApp, pero todo vive conectado a tu ERP y a un cerebro de IA.</p></div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">En palabras simples</span><h2>¿Qué es y para qué sirve?</h2></div>
   <div class="bento">
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-      <h3>Multi-agente centralizado</h3>
-      <p>Cada asesor conecta su propio número de WhatsApp y atiende desde una app de escritorio; todo se administra desde un panel central, con la cartera de cada quien aislada (comisiones intactas).</p>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>¿Qué es un CRM?</h3>
+      <p>CRM (Customer Relationship Management, gestión de la relación con clientes) es el lugar donde vive todo lo que pasa con cada cliente: conversaciones, datos de contacto, oportunidades de venta y seguimientos.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2a3 3 0 0 0-3 3 3 3 0 0 0-3 3 3 3 0 0 0 0 6 3 3 0 0 0 3 3 3 3 0 0 0 6 0 3 3 0 0 0 3-3 3 3 0 0 0 0-6 3 3 0 0 0-3-3 3 3 0 0 0-3-3z"/></svg></div>
-      <h3>Bot activable por chat</h3>
-      <p>Enciende o apaga el asistente de IA en cada conversación. El asesor decide cuándo entra la IA y cuándo atiende él.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>El problema</h3>
+      <p>Cuando cada vendedor atiende WhatsApp desde su propio teléfono, no hay historial compartido, nadie sabe quién respondió, los precios se dan de memoria y la dirección no ve cuántas conversaciones terminan en venta.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>La solución</h3>
+      <p>Nexo junta los chats en una bandeja compartida, liga cada contacto con su ficha del ERP (el sistema de ventas e inventario) y deja que la IA conteste lo repetitivo. El vendedor decide en qué chat entra la IA y en cuál atiende él.</p>
+    </div>
+  </div>
+</div></section>
+<section id="como-se-usa" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Paso a paso</span><h2>Así se atiende una conversación</h2></div>
+  <div class="flow">
+    <div class="step"><h4>Llega el mensaje</h4><p>Por WhatsApp o por el widget del sitio web. Aparece al instante en la bandeja y se asigna a un asesor, a mano o según la carga de cada quien.</p></div>
+    <div class="step"><h4>Responde la IA o el asesor</h4><p>Si el agente de IA está encendido en ese chat, contesta con el conocimiento y las herramientas de la empresa; si no, el asesor responde con respuestas rápidas.</p></div>
+    <div class="step"><h4>Consulta el ERP</h4><p>Identifica al cliente, calcula su precio por RFC (la clave fiscal) y grupo de precio, revisa existencias y envía la cotización o la factura en PDF.</p></div>
+    <div class="step"><h4>Cierra y mide</h4><p>Se resuelve la conversación, la oportunidad avanza en el pipeline (el embudo de ventas por etapas) y los reportes muestran tiempos de respuesta y conversiones.</p></div>
+  </div>
+</div></section>
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Qué hace</span><h2>Tu fuerza de ventas en WhatsApp, ordenada</h2><p>Cada asesor atiende por WhatsApp, pero todo vive conectado al ERP y a un cerebro de IA.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Multi-agente centralizado</h3>
+      <p>Cada asesor conecta su propio número de WhatsApp y atiende desde una bandeja compartida o una app de escritorio. Asignación, estados, prioridad, notas internas y acciones en lote, con la cartera de cada quien aislada (comisiones intactas).</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2a7 7 0 0 0-4 12.7V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.3A7 7 0 0 0 12 2z"/><path d="M9 21h6"/></svg></div>
+      <h3>IA activable por chat</h3>
+      <p>Se enciende o se apaga el asistente en cada conversación. El asesor decide cuándo entra la IA y cuándo atiende él.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div>
+      <h3>Verificación de precios</h3>
+      <p>Precio correcto según el cliente, por RFC y grupo de precio, al instante.</p>
     </div>
     <div class="cell wide">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></svg></div>
-      <h3>Conectado a tu ERP en vivo</h3>
-      <p>Consulta precios y existencias reales por sucursal, identifica al cliente y trae e inserta datos directo en <strong>Microsoft Dynamics 365 Business Central</strong>, mediante web services oficiales.</p>
+      <h3>Conectado al ERP en vivo</h3>
+      <p>Consulta precios y existencias por sucursal, identifica al cliente y trae e inserta datos en <strong>Microsoft Dynamics 365 Business Central</strong> mediante sus web services oficiales.</p>
     </div>
     <div class="cell">
       <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
       <h3>Cotizaciones y facturas</h3>
-      <p>Genera y envía cotizaciones y facturas en PDF por el chat, con el formato oficial y el precio correcto.</p>
+      <p>Genera y envía por el chat cotizaciones y facturas en PDF, con el formato oficial y el precio correcto.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 12V8H6a2 2 0 0 1 0-4h12v4M4 6v12a2 2 0 0 0 2 2h14v-4"/><circle cx="16" cy="14" r="1"/></svg></div>
-      <h3>Verificación de precios</h3>
-      <p>Precio correcto según el cliente (por RFC y grupo de precio), al instante y sin errores.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <h3>Audios, imágenes y fotos</h3>
+      <p>Escucha notas de voz, entiende las fotos que mandan los clientes y envía fotos de producto por SKU (el código de cada artículo).</p>
     </div>
     <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/><path d="M12 2a3 3 0 0 0-3 3v3"/></svg></div>
-      <h3>Multimodal: audios, imágenes y fotos</h3>
-      <p>Escucha notas de voz, reconoce imágenes que mandan los clientes y envía fotos de productos por SKU. Atiende como lo haría tu mejor asesor, las 24 horas.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 6h10M6 8l5 8M18 8l-5 8"/></svg></div>
+      <h3>Agentes y flujos sin programar</h3>
+      <p>Un agente orquestador reparte cada conversación entre sub-agentes especialistas. Los flujos se dibujan arrastrando bloques: disparador, mensaje, pedir un dato, condición, herramienta, IA, transferir y fin.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+      <h3>Conocimiento con RAG</h3>
+      <p>RAG (generación aumentada con recuperación): se suben documentos de la empresa y el agente busca en ellos antes de responder, para contestar con información real y no de memoria.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div>
+      <h3>Campañas</h3>
+      <p>Envíos masivos con plantillas aprobadas de WhatsApp, con límite de velocidad y seguimiento de enviados, entregados y leídos.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Pipeline y reportes</h3>
+      <p>Tablero kanban de oportunidades y reportes de BI (inteligencia de negocios): conversiones, tiempos y desempeño por agente.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <h3>Monitoreo y evals</h3>
+      <p>Cada respuesta de la IA queda trazada, y las evals (pruebas automáticas del agente) revisan su calidad antes de publicarlo.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <h3>Conexiones de datos</h3>
+      <p>REST, SQL Server, MySQL, PostgreSQL o Google Sheets, con consultas parametrizadas de solo lectura.</p>
     </div>
   </div>
 </div></section>
-
-
-
-<section><div class="wrap">
+<section id="ingenieria" class="alt"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Pensado para producción</h2></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>WhatsApp Business API oficial</h4><p>Listo para conectar por la API oficial de Meta; arquitectura modular y multi-sesión.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Integración con Business Central</h4><p>Consulta y escritura en Microsoft Dynamics 365 Business Central vía web services oficiales.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Cerebro de IA</h4><p>Reusa el asistente CORA: lenguaje natural, audios e imágenes.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>App de escritorio</h4><p>Cliente para los asesores con notificaciones nativas e historial completo.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Aislamiento por asesor</h4><p>Cada cliente pertenece al asesor que lo capturó; sin fugas entre carteras.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Seguro por diseño</h4><p>Credenciales fuera del código y consultas al ERP con permisos mínimos.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Tiempo real en un solo proceso</h4><p>Node.js con Express y Socket.IO (WebSocket: una conexión abierta para que los mensajes aparezcan al instante). Un solo proceso sirve la app, la API (la interfaz para programas) y el WebSocket.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>App web instalable</h4><p>PWA (app web que se instala como app) hecha con React, Vite y Tailwind; el editor de flujos usa React Flow.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Multiempresa y roles</h4><p>Todo va separado por organización: cada empresa ve solo lo suyo, con verificación de propiedad en cada recurso. Sesión con JWT (un token firmado), contraseñas con bcrypt y roles de administrador, supervisor y agente.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>IA intercambiable y con barandales</h4><p>OpenAI, Gemini o Claude, con la llave de cada empresa guardada cifrada (AES-256-GCM). Ruteo entre un modelo económico y uno potente, y filtros que bloquean groserías y ocultan datos personales. Reusa a CORA como cerebro.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>WhatsApp oficial</h4><p>Listo para la API oficial de Meta (WhatsApp Cloud API) o un proveedor, con webhook (aviso automático de cada mensaje) que responde al instante. El módulo de WhatsApp es intercambiable.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>ERP y escritorio</h4><p>Integración con Business Central por web services oficiales y permisos mínimos. App de escritorio en Electron con notificaciones nativas e historial local; cada cliente pertenece al asesor que lo capturó.</p></div></div>
   </div>
 </div></section>
 

@@ -25,6 +25,8 @@
       min-height: 52px;
       padding: 14px 24px;
     }
+  
+    #que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:900px){#que-es .bento{grid-template-columns:1fr}}
   </style>
 
   <!-- SEO-GEO-AEO-START -->
@@ -42,16 +44,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Festo · Automatic birthday wishes, Python, Automated Backend, PostgreSQL, B2B ERP, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Festo · Automatic birthday wishes, Node.js, Docker, Baileys, React, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Festo · Automatic birthday wishes · Emilio Fonseca" />
-  <meta property="og:description" content="Every morning it checks whose birthday it is and sends a greeting with a personalized image over chat, automatically. Nobody on the team has to remember." />
+  <meta property="og:description" content="Every morning it checks whose birthday it is and sends a WhatsApp greeting with a card. Retries at midday without duplicates." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/festo/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/festo.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Festo · Automatic birthday wishes · Emilio Fonseca" />
-  <meta name="twitter:description" content="Every morning it checks whose birthday it is and sends a greeting with a personalized image over chat, automatically. Nobody on the team has to remember." />
+  <meta name="twitter:description" content="Every morning it checks whose birthday it is and sends a WhatsApp greeting with a card. Retries at midday without duplicates." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/festo.jpg" />
   <script type="application/ld+json">
 {
@@ -78,13 +80,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/festo/#software",
       "name": "Festo · Automatic birthday wishes",
-      "description": "Every morning it checks whose birthday it is and sends a greeting with a personalized image over chat, automatically. Nobody on the team has to remember.",
+      "description": "Every morning it checks whose birthday it is and sends a WhatsApp greeting with a card. Retries at midday without duplicates.",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/festo/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/festo.jpg",
       "applicationCategory": "Automation & BI",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "Python, Automated Backend, PostgreSQL, B2B ERP, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Node.js, Docker, Baileys, React, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -107,30 +109,31 @@
   <!-- SEO-GEO-AEO-END -->
 </head>
 <body>
-  <nav>
+<nav>
     <div class="wrap">
       <div class="brand">
         <span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>
         Festo
       </div>
       <div class="nav-links">
-        <a href="#que-hace">How it works</a>
+        <a href="#que-es">What it is</a><a href="#como-funciona">How it works</a><a href="#que-hace">What it does</a><a href="#ingenieria">Engineering</a>
         <a class="nav-cta" href="../../../en/#contact">Contact</a>
         <a href="../../../proyectos/festo/">ES</a>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
+<header class="hero">
     <div class="wrap hero-grid">
       <div>
         <span class="eyebrow">Automation &amp; Integrations</span>
         <h1>Chat celebrations, <span class="grad">without manual work</span>.</h1>
-        <p class="lead">Festo is a background Node.js service that checks database records every morning, identifies employees with birthdays, dynamically generates a personalized card, and dispatches it via chat on schedule. No reminders or manual tasks required from the team.</p>
+        <p class="lead">Festo is an unattended Node.js service: it runs on its own, with nobody starting it. Every morning it checks the team directory, finds whose birthday it is and sends them a WhatsApp greeting with their name and a celebration card. If something fails, it retries at midday without sending duplicates.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="#que-hace">How it works</a>
           <a class="btn btn-ghost" href="../../../en/">← Back to portfolio</a>
         </div>
+    <div class="stat-row"><div class="stat"><div class="n">Daily</div><div class="l">Automatic check</div></div><div class="stat"><div class="n">2 attempts</div><div class="l">Morning and midday</div></div><div class="stat"><div class="n">Docker</div><div class="l">Two containers</div></div></div>
         <p style="color:var(--muted);font-size:.85rem;margin-top:20px">Background automation · Node.js · Scheduled execution</p>
       </div>
       <div class="mock">
@@ -139,33 +142,98 @@
     </div>
   </header>
 
-  <section id="que-hace">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow">Festo</span>
-        <h2>End-to-end automated workflow</h2>
-      </div>
-      <div class="bento">
-        <div class="cell wide">
-          <div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div>
-          <h3>Daily database detection</h3>
-          <p>A scheduled morning process queries employee records, matching the current date with birthdays.</p>
-        </div>
-        <div class="cell">
-          <div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div>
-          <h3>Dynamic card rendering</h3>
-          <p>Renders a personalized greeting card image at runtime, overlaying the employee's name onto the celebration template.</p>
-        </div>
-        <div class="cell">
-          <div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div>
-          <h3>Chat API delivery</h3>
-          <p>Connects to the messaging API (WhatsApp / Chat) to deliver the card and message promptly.</p>
-        </div>
-      </div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What is it and what is it for?</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>What is unattended automation?</h3>
+      <p>A program that does a repetitive task on its own, at the set time, without anyone starting it, and keeps a record of what it did.</p>
     </div>
-  </section>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>Greeting each team member depends on someone remembering, checking the list and sending the message. On a large team, someone always gets left out.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>Festo reads the directory HR already maintains (an Excel sheet), finds today's birthdays and sends the message with the card, with nobody involved.</p>
+    </div>
+  </div>
+</div></section>
+<section id="como-funciona" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Step by step</span><h2>A morning with Festo</h2></div>
+  <div class="flow">
+    <div class="step"><h4>Check</h4><p>At 9:00 it reads the directory (name, mobile, birth date and role) and filters today's birthdays using the correct time zone.</p></div>
+    <div class="step"><h4>Personalize</h4><p>It builds the message with the person's name and the celebration card.</p></div>
+    <div class="step"><h4>Send</h4><p>It waits until WhatsApp is connected and sends the greetings one by one, pausing between sends.</p></div>
+    <div class="step"><h4>Log and retry</h4><p>Each send goes into a log. At midday it checks again and only messages whoever was missed.</p></div>
+  </div>
+</div></section>
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">What it does</span><h2>An end-to-end automated flow</h2><p>From the team list to the delivered message, with no manual steps.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <h3>Daily detection</h3>
+      <p>A job scheduled first thing in the morning checks the directory and finds the dates that match today. It accepts Excel dates or DD/MM/YYYY, and phone numbers with or without country code.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
+      <h3>Personalized card</h3>
+      <p>The message carries the person's name and a celebration card.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg></div>
+      <h3>Messaging dispatch</h3>
+      <p>Connects to WhatsApp to deliver the message and the card on time.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>No duplicates</h3>
+      <p>Keeps track of who was already greeted today, so nobody gets the message twice.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg></div>
+      <h3>Automatic retry</h3>
+      <p>If WhatsApp was not connected in the morning, the midday check completes the pending sends.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></div>
+      <h3>Send log</h3>
+      <p>Every send is stored in a JSONL file (one record per line), easy to review and audit.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/></svg></div>
+      <h3>Test mode</h3>
+      <p>It can send everything to a test phone and run immediately, without waiting for 9:00.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <h3>Web panel for manual use</h3>
+      <p>A React app to upload the Excel file, see upcoming birthdays, add people, preview the card with the name (drawn on canvas, the browser's drawing surface) and send messages by hand.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg></div>
+      <h3>Linked with a QR code</h3>
+      <p>It connects by scanning a QR code from WhatsApp, like WhatsApp Web. The session is saved and survives server restarts.</p>
+    </div>
+  </div>
+</div></section>
+<section id="ingenieria" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>How it is built</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Two Docker containers</h4><p>One container for the WhatsApp server and one for the birthday bot. They share a data folder with the directory, template, session and log. Docker makes it run the same on any server.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>WhatsApp server with Baileys</h4><p>Baileys is a library that speaks the WhatsApp Web protocol. The server exposes a small REST API (a web interface for programs): status, QR code, send text and send image.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Node.js bot</h4><p>Uses node-cron for fixed-time jobs (morning check and midday retry) with an explicit time zone, so it does not depend on the server clock.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Excel directory</h4><p>Reads the sheet with the xlsx library, so HR keeps the list in the tool it already uses, without entering data into another system.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>React + Vite panel</h4><p>The manual web app shares the same WhatsApp server and draws the personalized card in the browser.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Personal data protected</h4><p>The WhatsApp session and the directory are never committed to the repository: a new install simply scans the QR again.</p></div></div>
+  </div>
+</div></section>
 
-  <section>
+<section>
     <div class="wrap">
       <div class="cta-card">
         <h2>A frictionless administrative process</h2>
@@ -178,7 +246,7 @@
     </div>
   </section>
 
-  <footer>
+<footer>
     <div class="wrap">
       <div class="brand">Web Dev-Eyes · Festo</div>
       <a class="back" href="../../../en/">← Back to projects</a>

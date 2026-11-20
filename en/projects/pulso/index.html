@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pulso — Surveys that work without internet</title>
-<meta name="description" content="Pulso: app for running field satisfaction surveys, with or without signal. Answers save themselves and sync as soon as the connection comes back." />
+<meta name="description" content="Pulso: an offline-first kiosk PWA for customer satisfaction surveys. Answers are saved with no signal, sync on their own and reach a real-time dashboard." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230369A1'/%3E%3Ctext x='50' y='72' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
   --radius: 22px;
 }
 h1,h2,h3,h4 { letter-spacing: 0; }
-.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento{grid-template-columns:1fr}}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -35,16 +35,16 @@ h1,h2,h3,h4 { letter-spacing: 0; }
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Pulso · Offline-first surveys, React, PWA, Offline-First, Service Workers, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Pulso · Offline-first surveys, React, TypeScript, Dexie (IndexedDB), PWA, Express, Prisma, SQL Server, Socket.io, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Pulso · Offline-first surveys · Emilio Fonseca" />
-  <meta property="og:description" content="Run satisfaction surveys anywhere, even with no signal. Responses are saved locally and sync automatically the moment the connection returns. Offline-first PWA." />
+  <meta property="og:description" content="Kiosk-mode satisfaction surveys that work with no signal: saved on the device, synced automatically and shown on a real-time dashboard." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/pulso/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/pulso.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pulso · Offline-first surveys · Emilio Fonseca" />
-  <meta name="twitter:description" content="Run satisfaction surveys anywhere, even with no signal. Responses are saved locally and sync automatically the moment the connection returns. Offline-first PWA." />
+  <meta name="twitter:description" content="Kiosk-mode satisfaction surveys that work with no signal: saved on the device, synced automatically and shown on a real-time dashboard." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/pulso.jpg" />
   <script type="application/ld+json">
 {
@@ -71,13 +71,13 @@ h1,h2,h3,h4 { letter-spacing: 0; }
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/pulso/#software",
       "name": "Pulso · Offline-first surveys",
-      "description": "Run satisfaction surveys anywhere, even with no signal. Responses are saved locally and sync automatically the moment the connection returns. Offline-first PWA.",
+      "description": "Kiosk-mode satisfaction surveys that work with no signal: saved on the device, synced automatically and shown on a real-time dashboard.",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/pulso/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/pulso.jpg",
       "applicationCategory": "Web Apps & ERP",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "React, PWA, Offline-First, Service Workers, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "React, TypeScript, Dexie (IndexedDB), PWA, Express, Prisma, SQL Server, Socket.io, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -100,25 +100,18 @@ h1,h2,h3,h4 { letter-spacing: 0; }
   <!-- SEO-GEO-AEO-END -->
 </head>
 <body>
-<nav><div class="wrap">
-  <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Pulso</div>
-  <div class="nav-links"><a href="#que-hace">What it does</a><a class="nav-cta" href="../../../demos/pulso/" target="_blank" rel="noopener">▶ View demo</a><a href="../../../proyectos/pulso/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
-</div></nav>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Pulso</div><div class="nav-links"><a href="#que-es">What it is</a><a href="#como-se-usa">How it works</a><a href="#que-hace">Features</a><a href="#ingenieria">Engineering</a><a class="nav-cta" href="../../../demos/pulso/" target="_blank" rel="noopener">▶ View demo</a><a href="../../../proyectos/pulso/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div></div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="eyebrow">Satisfaction surveys</span>
+    <span class="eyebrow">Customer satisfaction surveys</span>
     <h1>Surveys that work <span class="grad">anywhere, signal or not</span>.</h1>
-    <p class="lead">Pulso lets your team run surveys on the sales floor, on the road, or in areas with no internet. Answers are saved on the device and sync by themselves the moment the connection returns.</p>
+    <p class="lead">Pulso is a PWA (an app you install from the browser) for measuring customer satisfaction at each branch. A tablet in kiosk mode asks questions with smiley faces, options or text; answers are saved on the device and sync on their own when the connection returns. At the office, a dashboard shows results in real time and exports them to Excel and PowerPoint.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="../../../demos/pulso/" target="_blank" rel="noopener">▶ View interactive demo</a>
       <a class="btn btn-ghost" href="#que-hace">See what it does</a>
     </div>
-    <div class="stat-row">
-      <div class="stat"><div class="n">No signal</div><div class="l">Always captures</div></div>
-      <div class="stat"><div class="n">Auto-sync</div><div class="l">On reconnect</div></div>
-      <div class="stat"><div class="n">On the phone</div><div class="l">Installs as an app</div></div>
-    </div>
+    <div class="stat-row"><div class="stat"><div class="n">No signal</div><div class="l">Always captures</div></div><div class="stat"><div class="n">Auto-sync</div><div class="l">On reconnect</div></div><div class="stat"><div class="n">Kiosk</div><div class="l">On a tablet or iPad</div></div></div>
   </div>
   <div class="mock" style="background:transparent;border:0;box-shadow:none" aria-hidden="true">
     <svg viewBox="0 0 560 392" xmlns="http://www.w3.org/2000/svg">
@@ -160,53 +153,109 @@ h1,h2,h3,h4 { letter-spacing: 0; }
   </div>
 </div></header>
 
-<section id="que-hace"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">What it does</span><h2>Measure satisfaction with no excuses</h2><p>Built for the real world: field, route, and branches with poor signal.</p></div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What it is and why it matters</h2></div>
   <div class="bento">
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/><path d="M12 8v4l3 2" stroke="#fff"/></svg></div>
-      <h3>Captures without internet</h3>
-      <p>Every answer is saved instantly on the phone or tablet. Your staff never have to wait for signal to keep surveying.</p>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+      <h3>What is it?</h3>
+      <p>A survey system with two sides: the kiosk screen, which customers answer on their way out, and the admin panel, where questions are set up and results are read.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/></svg></div>
-      <h3>Automatic sync</h3>
-      <p>When the connection returns, everything pending uploads on its own, with no one having to remember.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>Nobody types up paper surveys and almost nobody answers survey links. If the survey depends on the internet, every network drop is a lost opinion, and results arrive late.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg></div>
-      <h3>Ratings</h3>
-      <p>Stars, options and comments; easy to answer in seconds.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
-      <h3>Installs as an app</h3>
-      <p>It sits on the phone like any other app, without going through any store.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 4-6"/></svg></div>
-      <h3>Results in one place</h3>
-      <p>Every answer arrives at the same place to be analyzed.</p>
-    </div>
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01"/></svg></div>
-      <h3>Built for your staff</h3>
-      <p>A simple, fast interface so anyone on the team can run surveys with no training: tap, rate, and done.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>A question in plain sight, answered with one tap and never lost even without a network. If the rating is bad, it asks what to improve; if satisfaction drops below target, it alerts the office.</p>
     </div>
   </div>
 </div></section>
 
+<section id="como-se-usa" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Step by step</span><h2>How a survey works</h2></div>
+  <div class="flow">
+    <div class="step"><h4>The customer rates</h4><p>Tap a face, pick an option or write a comment. Open questions can be skipped.</p></div>
+    <div class="step"><h4>Follow-up</h4><p>If the rating is bad, a follow-up question appears, such as “What can we improve?”.</p></div>
+    <div class="step"><h4>Saved and sent</h4><p>When finished, the whole survey is saved on the device and sent as a single batch. If the customer walks away halfway, it resets and is discarded.</p></div>
+    <div class="step"><h4>The office sees it</h4><p>The dashboard updates live. If the index drops below target an alert arrives, and reports export to Excel or PowerPoint.</p></div>
+  </div>
+</div></section>
 
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Features</span><h2>Measure satisfaction, no excuses</h2><p>Built for branches with poor signal and for anyone to use without training.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+      <h3>Offline capture</h3>
+      <p>Every answer is saved on the tablet instantly. Staff never wait for a signal to keep surveying.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div>
+      <h3>Three question types</h3>
+      <p>Smiley faces with editable labels, multiple choice and open text.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="8" r="3"/><path d="M6 9v6M18 11c0 4-6 3-9 6"/></svg></div>
+      <h3>Follow-up questions</h3>
+      <p>They show up or not depending on the rating the customer gave.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+      <h3>Kiosk mode</h3>
+      <p>Resets itself after a while without use, with extra time on text questions. The timer does not run on the first question, so it never resets when nobody has started.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Schedules and caps</h3>
+      <p>Time slots with a survey cap; once full it shows a thank-you message, different from the “outside hours” message.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+      <h3>Surveys per branch</h3>
+      <p>Questions grouped into surveys and ordered by drag and drop.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Real-time dashboard</h3>
+      <p>Metrics, trends and satisfaction index by branch and by question, with filterable open comments.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+      <h3>Excel and PowerPoint</h3>
+      <p>Filtered data in .xlsx and a presentation with charts in .pptx.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+      <h3>Alerts</h3>
+      <p>Push notifications (alerts that arrive even when the app is closed) when satisfaction falls below target.</p>
+    </div>
+  </div>
+</div></section>
 
-<section><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>Reliable on the worst internet</h2></div>
+<section id="arquitectura" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">How it is built</span><h2>A PWA with its own server</h2><p>One project with the kiosk app, the dashboard and the API.</p></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>Offline-first</h4><p>Designed to work locally first and then sync.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Installable app (PWA)</h4><p>No stores or complicated installs.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Secure sync</h4><p>Answers travel protected to the hub.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Lightweight</h4><p>Works well even on modest devices.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Flexible forms</h4><p>Stars, multiple choice and text, tailored to you.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>No data loss</h4><p>Nothing is lost even if the app closes or the battery dies.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>React 18, TypeScript and Tailwind</h4><p>React interface with TypeScript (JavaScript with types) and Tailwind CSS styling, bundled with Vite.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Express 5 API</h4><p>A REST API (the door the app uses to request data from the server, organized around resources) with routes for votes, questions, branches, surveys, metrics, users and audit, written in TypeScript.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Prisma and SQL Server</h4><p>Prisma is an ORM: a layer that translates code into database queries. The data lives in SQL Server.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Real time with Socket.io</h4><p>Socket.io keeps an open connection with the dashboard so new votes appear without reloading the page.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Older iPads</h4><p>A compatibility plugin builds a version for Safari 12, so tablets that no longer get updates stay useful.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Isolated QA</h4><p>A QA (testing) environment with its own database in Docker, fully separated from production.</p></div></div>
+  </div>
+</div></section>
+
+<section id="ingenieria"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Offline and security</span><h2>Reliable on the worst internet</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Offline-first with IndexedDB</h4><p>Offline-first means the app works on the device first. With Dexie, a layer on top of IndexedDB (the browser’s built-in database), every vote is saved as “pending” before it tries to send.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Retries and cleanup</h4><p>With no network it retries on the next cycle; after several failures the vote is flagged for review. Synced votes are removed from the device after a week.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Batch sending</h4><p>The whole survey travels in a single request, so no loose answers are left from a half-finished survey.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>JWT with refresh</h4><p>Access uses JWT (a signed token that proves who you are): a short-lived access token and another one to renew it. Passwords are stored hashed with bcrypt.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Two roles</h4><p>Administrator, with the full panel, and branch, with the kiosk screen and its own dashboard.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Audit log</h4><p>Every action in the system is recorded: who did what and when.</p></div></div>
   </div>
 </div></section>
 

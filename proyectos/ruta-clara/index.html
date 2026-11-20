@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ruta Clara · Web Dev-Eyes</title><meta name="description" content="Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones."><link rel="icon" href="../../assets/web-dev-eyes.svg"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"><link rel="stylesheet" href="../../assets/showcase-original.css"><style>:root{--primary:#115E59;--secondary:#115E59;--accent:#115E59;--grad:linear-gradient(120deg,#115E59,color-mix(in srgb,#115E59 70%,white));--grad-soft:linear-gradient(120deg,#115E59,color-mix(in srgb,#115E59 60%,black));--bg:#F7F8FC;--fg:#1E1B4B;--muted:#5b5b7a;--font-head:'Sora',sans-serif;--font-body:'Inter',sans-serif}.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Ruta Clara — Rutas de entrega sobre calles reales</title><meta name="description" content="Planeación de entregas: rutas calle por calle con costo por giro, restricciones por unidad, optimizador de flota, plan de carga, GPS del chofer y."><link rel="icon" href="../../assets/web-dev-eyes.svg"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"><link rel="stylesheet" href="../../assets/showcase-original.css"><style>:root{--primary:#115E59;--secondary:#115E59;--accent:#115E59;--grad:linear-gradient(120deg,#115E59,color-mix(in srgb,#115E59 70%,white));--grad-soft:linear-gradient(120deg,#115E59,color-mix(in srgb,#115E59 60%,black));--bg:#F7F8FC;--fg:#1E1B4B;--muted:#5b5b7a;--font-head:'Sora',sans-serif;--font-body:'Inter',sans-serif}.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:900px){#que-es .bento{grid-template-columns:1fr}}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -15,16 +15,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Ruta Clara, JavaScript, Leaflet, GeoJSON, Algoritmos de Ruta, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Ruta Clara, Node.js, React, MapLibre, OpenStreetMap, Grafos / Graphs, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Ruta Clara · Emilio Fonseca" />
-  <meta property="og:description" content="Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias." />
+  <meta property="og:description" content="Rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, GPS del chofer y seguimiento al cliente." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/proyectos/ruta-clara/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/ruta-clara.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Ruta Clara · Emilio Fonseca" />
-  <meta name="twitter:description" content="Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias." />
+  <meta name="twitter:description" content="Rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, GPS del chofer y seguimiento al cliente." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/ruta-clara.jpg" />
   <script type="application/ld+json">
 {
@@ -51,13 +51,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/proyectos/ruta-clara/#software",
       "name": "Ruta Clara",
-      "description": "Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.",
+      "description": "Rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, GPS del chofer y seguimiento al cliente.",
       "url": "https://emiliougarte65.github.io/portafolio-web/proyectos/ruta-clara/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/ruta-clara.jpg",
       "applicationCategory": "Automatización & BI",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "es-MX",
-      "keywords": "JavaScript, Leaflet, GeoJSON, Algoritmos de Ruta, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Node.js, React, MapLibre, OpenStreetMap, Grafos / Graphs, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -79,6 +79,112 @@
   </script>
   <!-- SEO-GEO-AEO-END -->
 </head><body>
-<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>Ruta Clara</div><div class="nav-links"><a href="#que-hace">Qué hace</a><a class="nav-cta" href="../../demos/ruta-clara/" target="_blank" rel="noopener">▶ Iniciar demo</a><a href="../../en/projects/ruta-clara/">EN</a></div></div></nav>
-<header class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">Logística y mapas</span><h1>Rutas sobre calles, con una operación de ejemplo.</h1><p class="lead">Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias.</p><div class="btn-row"><a class="btn btn-primary" href="../../demos/ruta-clara/" target="_blank" rel="noopener">▶ Iniciar demo</a><a class="btn btn-ghost" href="#que-hace">Ver qué hace</a></div><p style="color:var(--muted);font-size:.85rem;margin-top:20px">Demo del frontend · datos ficticios · sin servicios empresariales conectados.</p></div><div class="mock"><img src="../../assets/previews/ruta-clara.jpg" alt="Ruta Clara · interfaz original" style="width:100%;height:auto;display:block"></div></div></header>
-<section id="que-hace"><div class="wrap"><div class="sec-head"><span class="eyebrow">Ruta Clara</span><h2>Explora la aplicación</h2></div><div class="bento"><div class="cell wide"><div class="ic"><img src="../../assets/web-dev-eyes.svg" alt="" width="32" height="32"></div><h3>Calles y giros</h3><p>Recorridos sobre la red vial, considerando sentidos y costos por giro.</p></div><div class="cell"><div class="ic"><img src="../../assets/web-dev-eyes.svg" alt="" width="32" height="32"></div><h3>Comparar rutas</h3><p>Selecciona origen y destino para comparar derecha primero, rápida y corta.</p></div><div class="cell"><div class="ic"><img src="../../assets/web-dev-eyes.svg" alt="" width="32" height="32"></div><h3>Plan del día</h3><p>Explora unidades, paradas, carga y reportes con datos de demostración.</p></div></div></div></section><section><div class="wrap"><div class="cta-card"><h2>Prueba la interfaz</h2><p>Demo del frontend · datos ficticios · sin servicios empresariales conectados.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="../../demos/ruta-clara/" target="_blank" rel="noopener">▶ Iniciar demo</a></div></div></div></section><footer><div class="wrap"><div class="brand">Web Dev-Eyes · Ruta Clara</div><a class="back" href="../../">← Volver a los proyectos</a></div></footer></body></html>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>Ruta Clara</div><div class="nav-links"><a href="#que-es">Qué es</a><a href="#como-se-usa">Cómo se usa</a><a href="#que-hace">Capacidades</a><a href="#ingenieria">Ingeniería</a><a class="nav-cta" href="../../demos/ruta-clara/" target="_blank" rel="noopener">▶ Iniciar demo</a><a href="../../en/projects/ruta-clara/">EN</a></div></div></nav>
+
+<header class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">Ruta Clara · Logística y mapas</span><h1>Rutas de entrega sobre calles reales, <span class="grad">pensadas para camiones</span>.</h1><p class="lead">Ruta Clara planea las entregas a domicilio de una empresa con varias unidades y almacenes. Calcula recorridos calle por calle con la regla de girar a la derecha, respeta qué vehículo puede entrar a cada zona, arma el plan de carga del almacén y compara el resultado contra la forma actual de repartir. Usa mapas libres (OpenStreetMap) y algoritmos propios, sin APIs (servicios para programas) de pago.</p><div class="btn-row"><a class="btn btn-primary" href="../../demos/ruta-clara/" target="_blank" rel="noopener">▶ Iniciar demo</a><a class="btn btn-ghost" href="#que-hace">Ver qué hace</a></div>
+    <div class="stat-row"><div class="stat"><div class="n">Giros</div><div class="l">Costo por cada vuelta</div></div><div class="stat"><div class="n">Flota</div><div class="l">Varios almacenes y vueltas</div></div><div class="stat"><div class="n">Libre</div><div class="l">Mapas de OpenStreetMap</div></div></div><p style="color:var(--muted);font-size:.85rem;margin-top:20px">Demo del frontend · datos ficticios · sin servicios empresariales conectados.</p></div><div class="mock"><img src="../../assets/previews/ruta-clara.jpg" alt="Ruta Clara · interfaz original" style="width:100%;height:auto;display:block"></div></div></header>
+
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">En palabras simples</span><h2>¿Qué es y para qué sirve?</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+      <h3>¿Qué es el ruteo de vehículos?</h3>
+      <p>Decidir qué unidad lleva cada pedido, en qué orden y por qué calles, respetando capacidad, horarios y permisos. En la literatura técnica se llama VRP (Vehicle Routing Problem, problema de ruteo de vehículos).</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>El problema</h3>
+      <p>Un GPS común busca la ruta más rápida para un auto, no para un camión cargado: no sabe que dar vuelta a la izquierda cruzando el tráfico es lento y riesgoso, ni que un tráiler no puede entrar a ciertas calles. Y el orden de las paradas se decide a ojo.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>La solución</h3>
+      <p>Ruta Clara convierte la ciudad en un grafo (una red de tramos de calle y cruces) donde cada giro cuesta distinto según la unidad, y un optimizador reparte los pedidos entre la flota. Cada plan se compara contra «como se hace hoy» con las mismas métricas.</p>
+    </div>
+  </div>
+</div></section>
+<section id="como-se-usa" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Paso a paso</span><h2>Así es un día de reparto</h2></div>
+  <div class="flow">
+    <div class="step"><h4>Despacho planea</h4><p>Carga los pedidos del día, exportados del ERP (el sistema de ventas), y presiona planear.</p></div>
+    <div class="step"><h4>El optimizador decide</h4><p>Asigna pedidos a unidades y viajes, y compara tres escenarios: como se hace hoy, optimizado sin regla y Ruta Clara.</p></div>
+    <div class="step"><h4>Almacén carga</h4><p>Recibe el plan de carga de cada viaje: lo último en entregarse va al fondo, con una lista para palomear.</p></div>
+    <div class="step"><h4>El chofer entrega</h4><p>Navega con GPS dentro de la app y cierra cada entrega con foto y nombre de quien recibe. El cliente sigue su pedido con un enlace.</p></div>
+  </div>
+</div></section>
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Capacidades</span><h2>De la calle al plan de carga</h2><p>Algoritmos propios sobre mapas libres, sin APIs de pago.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M9 3L3 6v15l6-3 6 3 6-3V3l-6 3z"/><path d="M9 3v15M15 6v15"/></svg></div>
+      <h3>Calles, sentidos y giros</h3>
+      <p>Los recorridos respetan el sentido de cada calle, la velocidad, los límites de peso y altura, y los giros prohibidos. La regla de girar a la derecha se puede ajustar: cada vuelta a la izquierda o en U tiene su propio costo según la unidad.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7 6h10M6 8l5 8M18 8l-5 8"/></svg></div>
+      <h3>Tres estrategias</h3>
+      <p>Compara la ruta Ruta Clara contra «más rápida» (como un GPS común, sin considerar giros) y «más corta».</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/></svg></div>
+      <h3>Restricciones por unidad</h3>
+      <p>Qué vehículo puede entrar a cada lugar: zonas con permiso y calles prohibidas para carga pesada.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+      <h3>Optimizador de flota</h3>
+      <p>Varios almacenes, varias vueltas por unidad, capacidad, horarios y permisos, en un mismo plan.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
+      <h3>Plan de carga</h3>
+      <p>Orden de subida y ubicación de cada pedido en la caja de la unidad.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.5 9a9 9 0 0 1 14.9-3.4L23 10M1 14l4.6 4.4A9 9 0 0 0 20.5 15"/></svg></div>
+      <h3>Traslados sugeridos</h3>
+      <p>Los traslados entre tiendas se acomodan donde sobra espacio en un viaje que ya va para allá; si hoy no conviene, quedan para otro día.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 21V10l9-7 9 7v11z"/><path d="M8 21v-6h8v6"/></svg></div>
+      <h3>Sin regreso en vacío</h3>
+      <p>Al terminar un viaje, la unidad va directo al almacén de su siguiente carga, con salidas escalonadas según los andenes.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 11l19-9-9 19-2-8z"/></svg></div>
+      <h3>GPS del chofer</h3>
+      <p>Navegación paso a paso dentro de la app: voz en español, vibración en cada giro, velocímetro con el límite de la calle, recálculo automático respetando el sentido de la unidad y cola sin conexión para cerrar entregas sin señal.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3h-3zM18 18h3v3h-3z"/></svg></div>
+      <h3>Seguimiento para el cliente</h3>
+      <p>Cada pedido tiene un enlace con un código que no se puede adivinar. Sin cuenta ni app, el cliente ve el estado, la hora estimada calculada en vivo y, al final, la foto de evidencia. El enlace caduca y se puede revocar.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l10 5-10 5L2 7z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <h3>Perfiles de reglas</h3>
+      <p>Equilibrado, ahorro máximo, puntualidad primero o seguridad, y cada regla se ajusta aparte. Antes de guardar se simula el día: si el resultado empeora, se muestra la comparación y se pide confirmación.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <h3>Un rol para cada quien</h3>
+      <p>Administrador (flota, almacenes, zonas y costos), despacho (pedidos, planes y mapa en vivo), almacén (plan de carga), chofer (sus paradas) y cliente, sin cuenta.</p>
+    </div>
+  </div>
+</div></section>
+<section id="ingenieria" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Cómo está construido</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Grafo vial desde OpenStreetMap</h4><p>Las calles se descargan del mapa libre OpenStreetMap y se convierten en tramos con sentido, velocidad, límites de peso y altura, y giros prohibidos.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Dijkstra por aristas</h4><p>Dijkstra es el algoritmo clásico de camino más corto. Aquí recorre tramos en lugar de cruces, para que cada giro (derecha, izquierda o vuelta en U) tenga su propio costo en tiempo y diésel.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Metaheurísticas para la flota</h4><p>El plan inicial se construye con Regret-2 y se mejora con ALNS (búsqueda adaptativa que destruye y repara partes de la solución), recocido simulado y 2-opt.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Cálculo en paralelo</h4><p>Las matrices de tiempos entre todos los puntos del día se calculan con workers (hilos en paralelo). En la demo, el motor original corre en un Web Worker del navegador sobre una red vial pública.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Node.js, React y MapLibre</h4><p>API en Node.js y app en React con MapLibre (mapas vectoriales). Sin base de datos ni APIs de pago; se publica con Docker y HTTPS.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Barandales de seguridad</h4><p>Inicio de sesión con roles validados en cada petición, consentimiento del chofer antes de compartir su ubicación y límites de velocidad solo oficiales, nunca estimados. El algoritmo tiene pruebas automáticas.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><div class="cta-card"><h2>Prueba la interfaz</h2><p>Demo del frontend · datos ficticios · sin servicios empresariales conectados.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="../../demos/ruta-clara/" target="_blank" rel="noopener">▶ Iniciar demo</a></div></div></div></section>
+
+<footer><div class="wrap"><div class="brand">Web Dev-Eyes · Ruta Clara</div><a class="back" href="../../">← Volver a los proyectos</a></div></footer></body></html>

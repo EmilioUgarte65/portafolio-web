@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MyAccountant · Web Dev-Eyes</title><meta name="description" content="Explore the original budget, accounts, transactions and pet with fictional test data. Cloud accounts are disconnected."><link rel="icon" href="../../../assets/web-dev-eyes.svg"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"><link rel="stylesheet" href="../../../assets/showcase-original.css"><style>:root{--primary:#437D72;--secondary:#437D72;--accent:#437D72;--grad:linear-gradient(120deg,#437D72,color-mix(in srgb,#437D72 70%,white));--grad-soft:linear-gradient(120deg,#437D72,color-mix(in srgb,#437D72 60%,black));--bg:#F7F8FC;--fg:#1E1B4B;--muted:#5b5b7a;--font-head:'Sora',sans-serif;--font-body:'Inter',sans-serif}.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MyAccountant — Personal finance by pay period</title><meta name="description" content="MyAccountant: a personal finance PWA that organizes your money by pay period, in 50/30/20 envelopes, with a daily limit, reminders and 3D pets that grow." /><link rel="icon" href="../../../assets/web-dev-eyes.svg"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap"><link rel="stylesheet" href="../../../assets/showcase-original.css"><style>:root{--primary:#437D72;--secondary:#437D72;--accent:#437D72;--grad:linear-gradient(120deg,#437D72,color-mix(in srgb,#437D72 70%,white));--grad-soft:linear-gradient(120deg,#437D72,color-mix(in srgb,#437D72 60%,black));--bg:#F7F8FC;--fg:#1E1B4B;--muted:#5b5b7a;--font-head:'Sora',sans-serif;--font-body:'Inter',sans-serif}.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento{grid-template-columns:1fr}}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -15,16 +15,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="MyAccountant · Your money, in order, React, PWA, IndexedDB, Finanzas, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="MyAccountant · Your money, in order, React, Vite, Firebase, Firestore, Cloud Functions, PWA, Capacitor, Three.js, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="MyAccountant · Your money, in order · Emilio Fonseca" />
-  <meta property="og:description" content="Personal finance and accounting system with 100% offline-first architecture. Zero external servers and zero cloud: encrypted local storage in IndexedDB, automated monthly balance sheets, and private expense tracking." />
+  <meta property="og:description" content="Personal finance PWA by pay period: 50/30/20 envelopes, a daily limit with a reserve, bills, reminders and 3D pets that grow with your savings." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/myaccountant/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/myaccountant.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="MyAccountant · Your money, in order · Emilio Fonseca" />
-  <meta name="twitter:description" content="Personal finance and accounting system with 100% offline-first architecture. Zero external servers and zero cloud: encrypted local storage in IndexedDB, automated monthly balance sheets, and private expense tracking." />
+  <meta name="twitter:description" content="Personal finance PWA by pay period: 50/30/20 envelopes, a daily limit with a reserve, bills, reminders and 3D pets that grow with your savings." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/myaccountant.jpg" />
   <script type="application/ld+json">
 {
@@ -51,13 +51,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/myaccountant/#software",
       "name": "MyAccountant · Your money, in order",
-      "description": "Personal finance and accounting system with 100% offline-first architecture. Zero external servers and zero cloud: encrypted local storage in IndexedDB, automated monthly balance sheets, and private expense tracking.",
+      "description": "Personal finance PWA by pay period: 50/30/20 envelopes, a daily limit with a reserve, bills, reminders and 3D pets that grow with your savings.",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/myaccountant/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/myaccountant.jpg",
       "applicationCategory": "Web Apps & ERP",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "React, PWA, IndexedDB, Finanzas, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "React, Vite, Firebase, Firestore, Cloud Functions, PWA, Capacitor, Three.js, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -79,6 +79,126 @@
   </script>
   <!-- SEO-GEO-AEO-END -->
 </head><body>
-<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>MyAccountant</div><div class="nav-links"><a href="#que-hace">Explore</a><a class="nav-cta" href="https://emiliougarte65.github.io/web-dev-eyes-personal-demos/myaccountant/" target="_blank" rel="noopener">▶ Launch demo</a><a href="../../../proyectos/myaccountant/">ES</a></div></div></nav>
-<header class="hero"><div class="wrap hero-grid"><div><span class="eyebrow">Personal finance</span><h1>Your finances in the original interface.</h1><p class="lead">Explore the original budget, accounts, transactions and pet with fictional test data. Cloud accounts are disconnected.</p><div class="btn-row"><a class="btn btn-primary" href="https://emiliougarte65.github.io/web-dev-eyes-personal-demos/myaccountant/" target="_blank" rel="noopener">▶ Launch demo</a><a class="btn btn-ghost" href="#que-hace">Explore</a></div><p style="color:var(--muted);font-size:.85rem;margin-top:20px">Frontend demo · fictional data · no connected company services.</p></div><div class="mock"><img src="../../../assets/previews/myaccountant.jpg" alt="MyAccountant · original interface" style="width:100%;height:auto;display:block"></div></div></header>
-<section id="que-hace"><div class="wrap"><div class="sec-head"><span class="eyebrow">MyAccountant</span><h2>Explore the project</h2></div><div class="bento"><div class="cell wide"><div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div><h3>Budget</h3><p>Review sample fortnightly income, expenses and savings.</p></div><div class="cell"><div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div><h3>Accounts and transactions</h3><p>Explore the original views and try local changes.</p></div><div class="cell"><div class="ic"><img src="../../../assets/web-dev-eyes.svg" width="32" height="32" alt=""></div><h3>Pet</h3><p>The original illustrations and pet care experience are preserved.</p></div></div></div></section><section><div class="wrap"><div class="cta-card"><h2>Explore the original interface</h2><p>Frontend demo · fictional data · no connected company services.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="https://emiliougarte65.github.io/web-dev-eyes-personal-demos/myaccountant/" target="_blank" rel="noopener">▶ Launch demo</a></div></div></div></section><footer><div class="wrap"><div class="brand">Web Dev-Eyes · MyAccountant</div><a class="back" href="../../../en/">← Back to projects</a></div></footer></body></html>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span>MyAccountant</div><div class="nav-links"><a href="#que-es">What it is</a><a href="#como-se-usa">How it works</a><a href="#que-hace">Features</a><a href="#ingenieria">Engineering</a><a class="nav-cta" href="https://emiliougarte65.github.io/web-dev-eyes-personal-demos/myaccountant/" target="_blank" rel="noopener">▶ Launch demo</a><a href="../../../proyectos/myaccountant/">ES</a></div></div></nav>
+
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">MyAccountant · Personal finance</span>
+    <h1>Your money every payday, <span class="grad">clear and under control</span>.</h1>
+    <p class="lead">MyAccountant is a personal accountant on your phone. It is a PWA (an app you install from the browser that works like a phone app) that organizes your money by pay period, splits it into needs, wants and savings envelopes, and tells you how much you can spend today. To make saving feel good, your savings goals unlock 3D pets that grow and need care.</p>
+    <div class="btn-row"><a class="btn btn-primary" href="https://myaccountant-emilio.firebaseapp.com/" target="_blank" rel="noopener">Open the app</a><a class="btn btn-ghost" href="https://emiliougarte65.github.io/web-dev-eyes-personal-demos/myaccountant/" target="_blank" rel="noopener">▶ Launch demo</a></div>
+    <div class="stat-row"><div class="stat"><div class="n">Paydays</div><div class="l">Weekly, twice a month or monthly</div></div><div class="stat"><div class="n">50/30/20</div><div class="l">Automatic envelopes</div></div><div class="stat"><div class="n">Offline</div><div class="l">Opens with no signal</div></div></div>
+    <p style="color:var(--muted);font-size:.85rem;margin-top:20px">Published personal project · the demo uses fictional data and does not connect to real accounts.</p>
+  </div>
+  <div class="mock"><img src="../../../assets/previews/myaccountant.jpg" alt="MyAccountant · original interface" style="width:100%;height:auto;display:block"></div>
+</div></header>
+
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What it is and why it matters</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+      <h3>What is it?</h3>
+      <p>A personal finance app: you log what you earn and what you spend, and it does the math for you. It runs in the browser, installs on your phone and is also packaged as an Android app.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>Most of us know how much we get paid, but not how much is left halfway to the next payday. Bills, credit cards and installment purchases get lost in scattered notes, and savings become “whatever is left”.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>It splits each paycheck into envelopes, sets bills aside before they are forgotten and turns what remains into a daily limit. Spend less one day and the difference goes into a reserve; overspend and the limit for the remaining days adjusts on its own.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="como-se-usa" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Step by step</span><h2>How MyAccountant works</h2></div>
+  <div class="flow">
+    <div class="step"><h4>Set up your pay</h4><p>In Settings you enter how much you earn and how often you get paid: weekly, twice a month or monthly. The 50/30/20 rule is the default and can be changed.</p></div>
+    <div class="step"><h4>Log it</h4><p>The + button records expenses and income in seconds. With automatic logging, purchases land on their own in a “To confirm” inbox.</p></div>
+    <div class="step"><h4>Check your day</h4><p>Home shows what is left, today’s limit, your envelopes, charts and tips from the accountant.</p></div>
+    <div class="step"><h4>Save and care</h4><p>Reaching savings goals lets you adopt 3D pets, and savings earn coins to buy them accessories.</p></div>
+  </div>
+</div></section>
+
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Features</span><h2>Everything your pocket accountant does</h2><p>Each screen answers one concrete question: how much do I have, how much do I owe and how much can I spend.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20M16 15h.01"/></svg></div>
+      <h3>Budget by pay period and envelopes</h3>
+      <p>Money is organized by the period you get paid in. Each income is split into needs, wants and savings, and the app tells the cash in your wallet apart from the money sitting in your accounts.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 1l4 4-4 4M3 11V9a4 4 0 0 1 4-4h14M7 23l-4-4 4-4M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+      <h3>Bills and installments</h3>
+      <p>Rent, power, internet and subscriptions with their due day. Marking them as paid records the expense, and interest-free installment purchases keep count of the payments left.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+      <h3>Accounts, cards and debts</h3>
+      <p>Balances per account, cash withdrawals, card payments and debts, without counting the same money twice.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Daily limit with a reserve</h3>
+      <p>What is left after bills and savings is spread across the days until the next payday. What you do not spend does not raise tomorrow’s limit: it goes into a separate reserve.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2L3 14h9l-1 8 10-12h-9z"/></svg></div>
+      <h3>Automatic logging</h3>
+      <p>An iPhone Shortcut, or forwarding bank notifications on Android, sends each purchase to “To confirm”. The app suggests a category and account and warns you if it looks like you already logged it.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div>
+      <h3>Couple finances</h3>
+      <p>A shared household with pots, shared bills and joint goals. Personal data is never shared: only what each person chooses.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg></div>
+      <h3>3D pets that grow with your savings</h3>
+      <p>Three-dimensional (3D) pets you adopt by reaching savings goals. They grow over the days and you look after them like a virtual pet: food, baths, games and an accessory shop. A streak counts the days in a row you log something.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+      <h3>Statement and due-date reminders</h3>
+      <p>Push notifications (alerts that arrive even when the app is closed) before your cards’ statement or due date and before your bills.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+      <h3>Excel backup</h3>
+      <p>Export all your data to an .xlsx file, one sheet per data type, so you always have a copy outside the cloud.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="arquitectura" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">How it is built</span><h2>A web app that also lives on your phone</h2><p>One interface codebase for the web, Android and iPhone.</p></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>React 19 and Vite</h4><p>The interface is built with React (a library for building screens out of components) and bundled with Vite, which produces small, fast-loading files.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Firebase as the backend</h4><p>Firebase, Google’s cloud platform, provides sign-in (Authentication), the database (Firestore), hosting and Cloud Functions: functions that run in the cloud without a server of your own.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>PWA, Android and iPhone</h4><p>It installs from the browser as a PWA. Capacitor (a tool that wraps a web app inside a native app) also produces the Android version, and the iPhone build is compiled with Xcode.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Cloud functions</h4><p>A daily function sends statement and due-date reminders, and another one receives transactions from automatic logging. The reminder function is capped at one instance so it can never run in a loop.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Pets with Three.js</h4><p>The pets are rendered with Three.js and React Three Fiber (3D graphics in the browser). Models are cached the first time and then display offline.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Bilingual</h4><p>A custom language engine switches the whole app between Spanish and English. The first time it follows the phone’s language and then remembers it on each device.</p></div></div>
+  </div>
+</div></section>
+
+<section id="ingenieria"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Offline and security</span><h2>Your finances, for your eyes only</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Works offline</h4><p>The database keeps a persistent local copy in IndexedDB (the browser’s built-in database). What you log without signal shows up instantly and is uploaded when the connection returns.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Custom service worker</h4><p>The service worker is the part that stores the app on the phone so it opens without internet. This one is hand-written, not generated, so it can receive push notifications in the background.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Rules that check every field</h4><p>Firestore security rules let each user read and write only their own data, and they also check what is written: types, ranges, allowed fields and date formats. Everything else is denied.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>App Check</h4><p>App Check, with reCAPTCHA Enterprise, verifies that requests come from the real app and not from a script, which also prevents costs from fake traffic.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Fingerprint or face lock</h4><p>A local lock with Face ID, Touch ID or fingerprint uses WebAuthn (the browser standard for biometric sign-in). Someone who picks up your unlocked phone still cannot see your finances.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Loaded on demand</h4><p>The Excel library, which is heavy, is only downloaded when someone exports. Most visits never need it.</p></div></div>
+  </div>
+</div></section>
+
+<section><div class="wrap"><div class="cta-card"><h2>Try it</h2><p>Open the real app and create your account, or walk through the demo with fictional data and no sign-up.</p><div class="btn-row" style="justify-content:center"><a class="btn btn-primary" href="https://myaccountant-emilio.firebaseapp.com/" target="_blank" rel="noopener">Open the app</a><a class="btn btn-ghost" href="https://emiliougarte65.github.io/web-dev-eyes-personal-demos/myaccountant/" target="_blank" rel="noopener">▶ Launch demo</a></div></div></div></section>
+
+<footer><div class="wrap"><div class="brand">Web Dev-Eyes · MyAccountant</div><a class="back" href="../../../en/">← Back to projects</a></div></footer></body></html>

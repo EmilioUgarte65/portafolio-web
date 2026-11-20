@@ -6,7 +6,7 @@
     "alt": "",
     "tag": "Inteligencia artificial",
     "title": "Dino AI · Una IA que aprende sola",
-    "description": "Una inteligencia artificial que aprende, ella sola, a jugar el juego del dinosaurio de Chrome: mira la pantalla como lo haría una persona y mejora con cada intento."
+    "description": "Una IA que aprende sola a jugar al dinosaurio de Chrome: ve la pantalla con OpenCV y decide cuándo saltar con aprendizaje por refuerzo (DQN)."
   },
   {
     "href": "proyectos/mundial/",
@@ -15,7 +15,7 @@
     "alt": "",
     "tag": "Machine Learning · Simulación",
     "title": "Mundial 2026 · Predicción con IA",
-    "description": "Modelo de machine learning que predice el Mundial 2026: combina ratings Elo con regresores XGBoost, modela el minuto de cada gol y simula las eliminatorias con Monte Carlo (sobre 49k+ partidos de historia). Web estilo Mundial con bracket, grupos, favoritos y detalle por partido."
+    "description": "Predicción del Mundial 2026 con Elo, Dixon-Coles y XGBoost sobre 49k+ partidos históricos, y 10,000 simulaciones Monte Carlo del torneo."
   },
   {
     "href": "proyectos/dexter/",
@@ -24,7 +24,7 @@
     "alt": "",
     "tag": "Inteligencia artificial",
     "title": "Dexter · Asistentes de IA a tu medida",
-    "description": "Una colección de asistentes de inteligencia artificial que cualquiera puede instalar y combinar según lo que necesite, con más de 44 habilidades listas para usar."
+    "description": "Configurador de ecosistema para agentes de IA: memoria persistente, 46+ skills bajo demanda y servidores MCP en Claude Code, Cursor, Codex y más."
   },
   {
     "href": "proyectos/nexo/",
@@ -33,7 +33,7 @@
     "alt": "",
     "tag": "Atención al cliente",
     "title": "Nexo · Tu asistente por WhatsApp",
-    "description": "Atiende a tus clientes por WhatsApp las 24 horas con el API oficial de WhatsApp Business: entiende mensajes, notas de voz y fotos, y resuelve sin que intervenga nadie. También como plataforma centralizada multi-agente."
+    "description": "CRM de WhatsApp para todo el equipo: bandeja compartida, IA activable por chat, agentes y flujos sin programar, y conexión al ERP."
   },
   {
     "href": "proyectos/lumen/",
@@ -42,7 +42,7 @@
     "alt": "",
     "tag": "Reportes inteligentes",
     "title": "Lumen · Pregúntale a tus números",
-    "description": "Haz preguntas sobre tus ventas o finanzas en español —escribiendo o hablando— y recibe la respuesta clara al instante, sin pelearte con hojas de cálculo."
+    "description": "BI conversacional: preguntas por voz o texto que un LLM convierte en SQL de solo lectura, ejecuta y narra, con tableros y exportación a Excel."
   },
   {
     "href": "proyectos/brujula/",
@@ -51,7 +51,7 @@
     "alt": "",
     "tag": "BI por WhatsApp",
     "title": "Brújula · Tus números por WhatsApp",
-    "description": "Sistema de inteligencia de negocios conversacional que conecta el ERP empresarial con WhatsApp para consultar ventas, márgenes, inventarios y KPIs ejecutivos en tiempo real."
+    "description": "BI por WhatsApp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo."
   },
   {
     "href": "proyectos/nucleo/",
@@ -60,7 +60,7 @@
     "alt": "",
     "tag": "Gestión de negocio",
     "title": "Núcleo · Tu negocio en una pantalla",
-    "description": "Organiza la agenda, los recursos y la operación diaria de tu negocio en un solo lugar y en tiempo real, conectado con tu calendario para no perder ninguna cita."
+    "description": "ERP sin servidores para un negocio de eventos: citas sincronizadas en dos sentidos con Google Calendar, cotizaciones en PDF, proveedores, gastos y reportes."
   },
   {
     "href": "proyectos/vertice/",
@@ -69,7 +69,7 @@
     "alt": "",
     "tag": "App de gestión",
     "title": "Vértice · App a la medida",
-    "description": "Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro."
+    "description": "Gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor."
   },
   {
     "href": "proyectos/vitrina/",
@@ -78,7 +78,7 @@
     "alt": "",
     "tag": "Tienda en línea",
     "title": "Vitrina · Tu tienda en internet",
-    "description": "Tienda en línea completa y lista para vender: catálogo por categorías, carrito con ofertas, avisos de existencias y un buscador que encuentra el producto al momento."
+    "description": "Tienda en línea completa: catálogo por categorías, buscador al instante, reseñas, carrito con descuentos, checkout y precios y existencias desde el ERP."
   },
   {
     "href": "proyectos/myaccountant/",
@@ -87,7 +87,7 @@
     "alt": "",
     "tag": "App de finanzas personales",
     "title": "MyAccountant · Tus finanzas en orden",
-    "description": "Sistema de gestión financiera y contabilidad personal con arquitectura 100% offline-first. Cero servidores externos y cero nube: almacenamiento local cifrado en IndexedDB, balances mensuales automatizados y control de gastos privado."
+    "description": "PWA de finanzas personales por quincena: sobres 50/30/20, límite diario con reserva, gastos fijos, avisos y mascotas 3D que crecen con tu ahorro."
   },
   {
     "href": "proyectos/marquesina/",
@@ -96,7 +96,7 @@
     "alt": "",
     "tag": "Sitio web · Landing page",
     "title": "Landing page · Portafolio audiovisual",
-    "description": "Landing page estilo Netflix para una creativa de marketing audiovisual: hero tipo billboard, catálogo de videos con reproductor, hover animado y SEO completo (Open Graph + datos estructurados). Diseño, frontend y publicación de principio a fin."
+    "description": "Landing page y portafolio audiovisual en producción: portada tipo cartelera, filas de videos con vista previa, reproductor y SEO."
   },
   {
     "href": "proyectos/festo/",
@@ -105,7 +105,7 @@
     "alt": "",
     "tag": "Automatización",
     "title": "Festo · Felicita cumpleaños solo",
-    "description": "Cada mañana revisa quién cumple años y le envía una felicitación con una imagen personalizada por chat, automáticamente. Nadie del equipo tiene que acordarse."
+    "description": "Cada mañana revisa quién cumple años y le envía por WhatsApp una felicitación con tarjeta. Reintenta a mediodía sin duplicar."
   },
   {
     "href": "proyectos/pulso/",
@@ -114,7 +114,7 @@
     "alt": "",
     "tag": "Encuestas",
     "title": "Pulso · Encuestas sin internet",
-    "description": "Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión."
+    "description": "Encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real."
   },
   {
     "href": "proyectos/totem/",
@@ -123,7 +123,7 @@
     "alt": "",
     "tag": "Pantallas digitales",
     "title": "Totem · Controla tu pantalla espectacular",
-    "description": "Control remoto para pantallas espectaculares: cambia el contenido al instante desde el celular, transmite videos de Facebook y muestra el clima en tiempo real."
+    "description": "Cartelería digital: el tótem muestra un video según el clima con mensaje promocional; textos, horarios y videos se manejan desde el celular."
   },
   {
     "href": "proyectos/web-studio/",
@@ -132,16 +132,16 @@
     "alt": "Web Studio",
     "tag": "IA & Video Editor",
     "title": "Web Studio",
-    "description": "Explora el editor original: biblioteca de medios, monitor de programa, inspector y edición por pistas asistida por IA. El proyecto de ejemplo usa material ficticio."
+    "description": "Editor de video local con IA: le cuentas la idea y arma una línea de tiempo multipista editable; exporta a MP4, Premiere o DaVinci."
   },
   {
     "href": "proyectos/distrito/",
     "badge": "● Demo",
     "image": "assets/previews/distrito.jpg",
     "alt": "Distrito",
-    "tag": "Experiencia 3D",
+    "tag": "Gamificación de ventas con IA",
     "title": "Distrito",
-    "description": "El frontend original conserva sus modelos 3D, su habitación, animaciones y controles."
+    "description": "PWA de gamificación de ventas para asesores: misiones, ligas, mascota 3D y premios, con clientes priorizados por RFM y un modelo predictivo sobre el ERP."
   },
   {
     "href": "proyectos/ruta-clara/",
@@ -150,7 +150,7 @@
     "alt": "Ruta Clara",
     "tag": "Logística y mapas",
     "title": "Ruta Clara",
-    "description": "Explora el mapa, compara recorridos y consulta pedidos, carga y reportes. El motor de rutas original calcula sobre una red vial pública, con ubicaciones y unidades ficticias."
+    "description": "Rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, GPS del chofer y seguimiento al cliente."
   },
   {
     "href": "proyectos/ourway/",
@@ -159,7 +159,7 @@
     "alt": "Ourway",
     "tag": "Atlas y viajes 3D",
     "title": "Ourway",
-    "description": "La escena orbital, los planetas, las texturas y la navegación son los originales. El viaje de ejemplo está vacío; no contiene fotografías, ubicaciones ni recuerdos personales. La conexión a álbumes privados no está habilitada."
+    "description": "Atlas privado de viajes: un globo 3D baja a un mapa donde la ruta se reconstruye sola con la ubicación y hora de tus fotos."
   },
   {
     "href": "proyectos/radar/",
@@ -168,7 +168,7 @@
     "alt": "Radar",
     "tag": "Analítica comercial",
     "title": "Radar",
-    "description": "Conserva la navegación y los paneles del tablero original, con clientes, cotizaciones y series mensuales inventados. Los módulos sin una muestra cargada permanecen vacíos; no se consulta ningún ERP ni base empresarial."
+    "description": "Analítica comercial: lee el ERP en una pasada, prioriza clientes y cotizaciones con una fórmula visible y busca en milisegundos."
   },
   {
     "href": "proyectos/inferencia/",
@@ -177,7 +177,7 @@
     "alt": "Inferencia eficiente",
     "tag": "Investigación en IA",
     "title": "Inferencia eficiente",
-    "description": "Investigación aplicada para romper el muro de 4 GB de VRAM en GPUs de consumo: cuantización INT4/INT3/INT2, GPTQ y parches residuales de bajo rango para correr modelos 7B en ~2.4 GB."
+    "description": "Laboratorio de cuantización de LLMs para GPUs de 4 GB: GPTQ deja INT4 e INT3 casi sin pérdida y rompe el muro de INT2 (de 2,588× a 12.45×)."
   },
   {
     "href": "proyectos/juego-construccion/",
@@ -186,7 +186,7 @@
     "alt": "Obra Maestra MN",
     "tag": "Videojuego · Unity & WebGL",
     "title": "Obra Maestra MN",
-    "description": "Videojuego 2D de recolección de materiales, coladas y construcción. Desarrollado en Unity, compilado a WebGL/WASM y optimizado para jugar en móviles y navegador."
+    "description": "Plataformas 2D en Unity compilado a WebGL: junta material en orden de obra, abre sobres de acabados y termina tu casa. PWA con ranking."
   },
   {
     "href": "proyectos/cora/",
@@ -195,6 +195,6 @@
     "alt": "CORA · Asistente de IA conversacional",
     "tag": "IA Conversacional · RAG",
     "title": "CORA · Asistente de IA conversacional",
-    "description": "Asistente inteligente con interfaz AI-Native que atiende clientes por mensajería: comprende texto, notas de voz e imágenes, consulta catálogos vectorizados y asesora con resolución de ventas 24/7."
+    "description": "Asistente de IA por WhatsApp: entiende texto, voz e imágenes, da el precio real del ERP, cotiza en PDF y escala a una persona cuando hace falta."
   }
 ]

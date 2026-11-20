@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Dino AI — An AI that learns to play on its own</title>
-<meta name="description" content="Dino AI: an artificial intelligence that learns, entirely on its own, to play Chrome's dinosaur game. It watches the screen, detects obstacles, and learns through reinforcement (PPO) when to jump." />
+<meta name="description" content="Dino AI: an artificial intelligence that learns, entirely on its own, to play Chrome's dinosaur game. It watches the screen, detects obstacles, and learns through reinforcement (DQN) when to jump." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230EA5A4'/%3E%3Ctext x='50' y='72' font-size='58' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +19,7 @@
 }
 .cell:hover { border-color: var(--secondary); }
 .mock svg { width: 100%; height: auto; display: block; }
-</style>
+#que-es .bento,#what .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento,#what .bento{grid-template-columns:1fr}}.note-mini{text-align:center;color:var(--muted);font-size:.88rem;max-width:760px;margin:22px auto 0}.kpi{font-family:var(--font-head);font-weight:800;font-size:2.1rem;line-height:1;margin-bottom:10px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -36,16 +36,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Dino AI · An AI that learns on its own, Python, PPO, Reinforcement Learning, OpenCV, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Dino AI · An AI that learns on its own, Python, DQN, Stable-Baselines3, Gymnasium, OpenCV, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Dino AI · An AI that learns on its own · Emilio Fonseca" />
-  <meta property="og:description" content="An AI that learns, all by itself, to play Chrome’s dinosaur game: it looks at the screen like a person would and gets better with every attempt. Reinforcement learning (PPO) + computer vision." />
+  <meta property="og:description" content="An AI that teaches itself Chrome's dinosaur game: it reads the screen with OpenCV and learns when to jump through reinforcement learning (DQN)." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/dino-ai/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dino AI · An AI that learns on its own · Emilio Fonseca" />
-  <meta name="twitter:description" content="An AI that learns, all by itself, to play Chrome’s dinosaur game: it looks at the screen like a person would and gets better with every attempt. Reinforcement learning (PPO) + computer vision." />
+  <meta name="twitter:description" content="An AI that teaches itself Chrome's dinosaur game: it reads the screen with OpenCV and learns when to jump through reinforcement learning (DQN)." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <script type="application/ld+json">
 {
@@ -72,13 +72,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/dino-ai/#software",
       "name": "Dino AI · An AI that learns on its own",
-      "description": "An AI that learns, all by itself, to play Chrome’s dinosaur game: it looks at the screen like a person would and gets better with every attempt. Reinforcement learning (PPO) + computer vision.",
+      "description": "An AI that teaches itself Chrome's dinosaur game: it reads the screen with OpenCV and learns when to jump through reinforcement learning (DQN).",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/dino-ai/",
       "image": "https://emiliougarte65.github.io/portafolio-web/og-cover.png",
       "applicationCategory": "AI & Machine Learning",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "Python, PPO, Reinforcement Learning, OpenCV, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Python, DQN, Stable-Baselines3, Gymnasium, OpenCV, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -103,22 +103,22 @@
 <body>
 <nav><div class="wrap">
   <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Dino AI</div>
-  <div class="nav-links"><a href="#que-hace">What it does</a><a class="nav-cta" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">View code</a><a href="../../../proyectos/dino-ai/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
+  <div class="nav-links"><a href="#que-es">What it is</a><a href="#que-hace">How it works</a><a href="#ingenieria">Engineering</a><a class="nav-cta" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">View code</a><a href="../../../proyectos/dino-ai/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <span class="eyebrow">Artificial intelligence · Reinforcement learning</span>
     <h1>An AI that <span class="grad">learns to play</span> on its own.</h1>
-    <p class="lead">No one programmed the rules into it. It watches the screen the way a person would, detects the obstacles, and discovers —through trial and reward— the exact moment to jump in Chrome's dinosaur game. Every attempt makes it better.</p>
+    <p class="lead">Nobody programmed it when to jump. It looks at the screen the way a person would, boils it down to four numbers about the nearest obstacle, and discovers through reinforcement learning (trial and error with rewards and penalties) the exact moment to jump in Chrome's dinosaur game.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">View on GitHub</a>
       <a class="btn btn-ghost" href="#que-hace">How it works</a>
     </div>
     <div class="stat-row">
-      <div class="stat"><div class="n">PPO</div><div class="l">Reinforcement learning</div></div>
-      <div class="stat"><div class="n">Vision</div><div class="l">Detects obstacles on screen</div></div>
-      <div class="stat"><div class="n">Self</div><div class="l">Improves on its own each attempt</div></div>
+      <div class="stat"><div class="n">DQN</div><div class="l">Deep reinforcement learning</div></div>
+      <div class="stat"><div class="n">800k</div><div class="l">Training steps</div></div>
+      <div class="stat"><div class="n">2</div><div class="l">Approaches: AI vs. rules</div></div>
     </div>
   </div>
   <div class="mock" aria-hidden="true">
@@ -153,57 +153,90 @@
   </div>
 </div></header>
 
-<section id="que-hace"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">What it does</span><h2>It learns to play like a person does: by watching</h2><p>No tricks, no access to the game's code. Just the screen, the eyes (computer vision) and experience.</p></div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What it is and why it matters</h2></div>
   <div class="bento">
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
-      <h3>It sees the screen</h3>
-      <p>It captures the game in real time and, with computer vision (OpenCV), detects where the dinosaur is and the obstacles coming toward it.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div>
+      <h3>What is reinforcement learning?</h3>
+      <p>A way to train AI without giving it the right answers. An agent acts, gets a reward or a penalty and, after thousands of attempts, learns what to do in each situation to collect the biggest reward. It's how a person learns to ride a bike: by falling.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <h3>It decides in milliseconds</h3>
-      <p>At every instant it chooses an action —jump or keep going— trying to dodge what's coming. It reacts faster than you blink.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>The game only offers pixels, and jumping on time depends on distance, obstacle size and a speed that keeps increasing. A fixed rule ("jump at this many pixels") works at one speed and fails at another.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg></div>
-      <h3>It learns through reward</h3>
-      <p>Each time it survives a little longer, it gets a reward. The PPO algorithm tunes its "instinct" to repeat what works and avoid what kills it.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
-      <h3>It improves with every attempt</h3>
-      <p>It starts clumsy and ends up expert. Episode after episode its score climbs — the learning curve proves it.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
-      <h3>Two approaches</h3>
-      <p>A trained neural network that learns on its own, and a fixed-rules version. Perfect for comparing the AI against a traditional script.</p>
-    </div>
-    <div class="cell wide">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.2 4.2l4.3 4.3M15.5 15.5l4.3 4.3M1 12h6M17 12h6"/></svg></div>
-      <h3>It visualizes what it "sees"</h3>
-      <p>A debug mode shows exactly the region of the game the AI is analyzing and the obstacles it detects, drawn on screen. Full transparency into its reasoning.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>Computer vision turns the screen into data, and a neural network learns from 800,000 game steps when to jump. A fixed-rule script is included too, to compare the AI against traditional programming.</p>
     </div>
   </div>
 </div></section>
 
-
-
-<section id="stack"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>Technology</h2></div>
-  <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>Reinforcement learning</h4><p>PPO with Stable-Baselines3 and a custom Gymnasium environment (observation, actions and reward).</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Computer vision</h4><p>OpenCV + screen capture to detect obstacles from the image, without reading the game's memory.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Neural networks</h4><p>PyTorch trains the policy that decides each action; the model is saved and reused.</p></div></div>
+<section id="que-hace" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Step by step</span><h2>How it plays and learns</h2><p>A loop that keeps running while the game is on, with no access to the game's code or memory.</p></div>
+  <div class="flow">
+    <div class="step"><h4>Capture</h4><p>Grabs a 600 × 190 pixel region of the screen in real time, right where the dinosaur runs.</p></div>
+    <div class="step"><h4>See</h4><p>OpenCV (a computer-vision library) turns the image black and white and locates the nearest obstacle: where it starts, where it ends and how tall it is.</p></div>
+    <div class="step"><h4>Decide</h4><p>The neural network receives the last 4 observations to infer speed and picks: do nothing or jump. To jump, the program presses the space bar.</p></div>
+    <div class="step"><h4>Learn</h4><p>It earns +1 for every moment it survives and −500 when it crashes. When it spots the game-over screen, it restarts the run and tries again.</p></div>
   </div>
+</div></section>
+
+<section id="capacidades"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Capabilities</span><h2>It learns to play like a person: by watching</h2><p>No tricks, no access to the game's code. Just the screen, eyes (computer vision) and experience.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <h3>Plays without reading the game's internals</h3>
+      <p>Everything it knows comes from the image. It scans the strip in front of the dinosaur column by column and sums it up in four numbers: the distance to the start and end of the obstacle, and its highest and lowest point. When the path is clear, it gets "safe" values.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Infers speed</h3>
+      <p>A single image can't tell how fast the cactus is coming. So it stacks the last 4 observations: 16 numbers in total.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+      <h3>Knows when it lost</h3>
+      <p>It recognizes the GAME OVER screen by comparing it against a reference image (template matching) at an 80% match.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+      <h3>Two approaches to compare</h3>
+      <p>The trained network vs. a rule-based script that jumps when a dark pixel crosses a line in front of the dinosaur and adapts if the background color changes.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><path d="M17 21v-8H7v8M7 3v5h8"/></svg></div>
+      <h3>Training that isn't lost</h3>
+      <p>It saves a checkpoint every 10,000 steps, saves when you press the q key, and makes an emergency save if anything fails.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+      <h3>Shows what it "sees"</h3>
+      <p>A debug mode opens a window with the black-and-white image the AI is analyzing and the obstacles it detects. It's used to calibrate the capture region on each monitor and gives full transparency into what it perceives.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="ingenieria" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>How it's built</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>DQN (Deep Q-Network)</h4><p>A neural network estimates the "Q value" of each action, how much future reward it expects if it jumps or does nothing, and picks the highest. Built with Stable-Baselines3 and an MLP policy (a network of fully connected layers).</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Custom Gymnasium environment</h4><p>Gymnasium is the standard for defining reinforcement-learning environments. Here: 2 actions, an observation of 4 integers, and a reward of +1 per step and −500 on a crash.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Experience memory</h4><p>A 100,000-step replay buffer stores past plays so it can learn from them again. Learning rate: 0.0005.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Controlled exploration</h4><p>At first it acts almost at random to discover the game; during the first 10% of training, exploration drops from 100% to 1%.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>800,000 steps, CPU only</h4><p>Trained with PyTorch on the processor (Intel Core i7-13700HX), with no graphics card. The documentation estimates about 17 hours for a full training run.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Capture and control</h4><p>mss captures the screen, OpenCV processes it, pyautogui presses the jump key and pynput listens to the keyboard to stop and save.</p></div></div>
+  </div>
+  <p class="note-mini">A university capstone project for an Automation and Robotics course, built as a team and documented with an installation and usage manual. Known limitation: coordinates are calibrated for a 1920 × 1200 screen and Chrome in dark mode; on another screen the capture region must be adjusted.</p>
 </div></section>
 
 <section id="ver"><div class="wrap">
   <div class="cta-card">
     <h2>Watch the AI play on its own</h2>
-    <p>All the code is open: the environment, the training, and the script that loads the model and plays autonomously.</p>
+    <p>All the code is open: the environment, the training and the script that loads the model and plays autonomously.</p>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn-primary" href="https://github.com/EmilioUgarte65/DinoGameRES" target="_blank" rel="noopener">View the code on GitHub</a>
       <a class="btn btn-ghost" href="../../../en/">More projects</a>

@@ -30,7 +30,7 @@
 .tier { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 @media (max-width: 760px){ .tier { grid-template-columns: 1fr; } }
 .tier .cell { margin: 0; }
-</style>
+#que-es .bento,#what .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento,#what .bento{grid-template-columns:1fr}}.note-mini{text-align:center;color:var(--muted);font-size:.88rem;max-width:760px;margin:22px auto 0}.kpi{font-family:var(--font-head);font-weight:800;font-size:2.1rem;line-height:1;margin-bottom:10px;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -47,16 +47,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Dexter · Custom AI assistants, Python, OpenAI / Claude, FastAPI, Multi-Agent, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Dexter · Custom AI assistants, Python, MCP, SQLite, Node.js, Go, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Dexter · Custom AI assistants · Emilio Fonseca" />
-  <meta property="og:description" content="A collection of AI assistants anyone can install and combine as needed, with 46+ ready-to-use skills, persistent memory and multi-agent support. Open source." />
+  <meta property="og:description" content="Ecosystem configurator for AI agents: persistent memory, 46+ on-demand skills and MCP servers for Claude Code, Cursor, Codex and more." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/en/projects/dexter/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Dexter · Custom AI assistants · Emilio Fonseca" />
-  <meta name="twitter:description" content="A collection of AI assistants anyone can install and combine as needed, with 46+ ready-to-use skills, persistent memory and multi-agent support. Open source." />
+  <meta name="twitter:description" content="Ecosystem configurator for AI agents: persistent memory, 46+ on-demand skills and MCP servers for Claude Code, Cursor, Codex and more." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <script type="application/ld+json">
 {
@@ -83,13 +83,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/en/projects/dexter/#software",
       "name": "Dexter · Custom AI assistants",
-      "description": "A collection of AI assistants anyone can install and combine as needed, with 46+ ready-to-use skills, persistent memory and multi-agent support. Open source.",
+      "description": "Ecosystem configurator for AI agents: persistent memory, 46+ on-demand skills and MCP servers for Claude Code, Cursor, Codex and more.",
       "url": "https://emiliougarte65.github.io/portafolio-web/en/projects/dexter/",
       "image": "https://emiliougarte65.github.io/portafolio-web/og-cover.png",
       "applicationCategory": "AI & Machine Learning",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "en-US",
-      "keywords": "Python, OpenAI / Claude, FastAPI, Multi-Agent, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "Python, MCP, SQLite, Node.js, Go, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -114,14 +114,14 @@
 <body>
 <nav><div class="wrap">
   <div class="brand"><span class="mk"><img src="../../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Dexter</div>
-  <div class="nav-links"><a href="#que-hace">What's included</a><a class="nav-cta" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">View on GitHub</a><a href="../../../proyectos/dexter/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
+  <div class="nav-links"><a href="#que-es">What it is</a><a href="#como">How it works</a><a href="#que-hace">What's included</a><a href="#stack">Engineering</a><a class="nav-cta" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">View on GitHub</a><a href="../../../proyectos/dexter/" title="Ver en español" style="color: var(--accent); font-weight: 700;">ES</a></div>
 </div></nav>
 
 <header class="hero"><div class="wrap">
   <div class="hero-single">
     <span class="eyebrow">Ecosystem configurator for AI agents</span>
     <h1>Turn your AI agent into <span class="grad">something far more capable</span>.</h1>
-    <p class="lead">Dexter installs —in one go— a complete skill system inside your agent: persistent memory, 46+ skills that load as you need them, automation, communications, and a structured workflow. You install it once and your agent becomes dramatically more powerful.</p>
+    <p class="lead">Dexter installs itself inside AI coding agents (assistants like Claude Code, Cursor or Codex that read and write code for you). With a single installer it adds persistent memory, 46+ skills (packaged abilities the agent loads only when it needs them), automation, communications and a structured workflow.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="https://github.com/EmilioUgarte65/Dexter" target="_blank" rel="noopener">View on GitHub</a>
       <a class="btn btn-ghost" href="#que-hace">What's included</a>
@@ -135,38 +135,89 @@
   </div></div></div>
 </div></header>
 
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">In plain words</span><h2>What it is and why it matters</h2></div>
+  <div class="bento">
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01M9 17h6"/></svg></div>
+      <h3>What is an AI agent?</h3>
+      <p>An LLM (large language model, the AI that understands and writes text) with tools: it can read files, run commands and edit code, step by step, until a task is done. Think of an assistant that doesn't just answer but acts.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>The problem</h3>
+      <p>Every session starts from scratch: the agent forgets decisions, conventions and bugs it already solved. Each tool is configured differently, and wiring in WhatsApp, a smart home or a security review has to be done piece by piece.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>The solution</h3>
+      <p>A "base brain" injected into each agent's configuration: a lightweight capability index, skills loaded on demand, memory across sessions, and an auditor that reviews any external code before it runs.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="como" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Step by step</span><h2>How it works</h2><p>Install it once; after that it grows with every session.</p></div>
+  <div class="flow">
+    <div class="step"><h4>Install</h4><p>An installer in Bash, PowerShell or a terminal UI detects which agent you use and backs up your current setup before touching anything.</p></div>
+    <div class="step"><h4>Inject</h4><p>It adds the base instructions and capability index, copies the skills, and configures MCP servers, hooks (automatic actions on agent events) and permissions.</p></div>
+    <div class="step"><h4>Load on demand</h4><p>Each skill bundle activates only when the conversation mentions its trigger keywords; only the index stays in context, so fewer tokens are spent.</p></div>
+    <div class="step"><h4>Remember and grow</h4><p>It saves decisions, bugs and discoveries to memory. If a skill is missing, it writes one, audits it and activates it without a restart.</p></div>
+  </div>
+</div></section>
+
 <section id="que-hace"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">What's included</span><h2>An agent with superpowers, ready in minutes</h2><p>Memory, automation, communications, and the ability to create its own skills. All inside the agent you already use.</p></div>
   <div class="bento">
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a4 4 0 0 1 4 4 4 4 0 0 1 1 7 3 3 0 0 1-1 6 4 4 0 0 1-8 0 3 3 0 0 1-1-6 4 4 0 0 1 1-7 4 4 0 0 1 4-4z"/></svg></div>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2a4 4 0 0 1 4 4 4 4 0 0 1 1 7 3 3 0 0 1-1 6 4 4 0 0 1-8 0 3 3 0 0 1-1-6 4 4 0 0 1 1-7 4 4 0 0 1 4-4z"/></svg></div>
       <h3>Persistent memory</h3>
-      <p>It remembers decisions, findings and agreements across sessions (Engram, on SQLite). Stop re-explaining the context to your agent every time.</p>
+      <p>It remembers decisions, findings and conventions across sessions (Engram, on SQLite). Stop re-explaining the context to your agent every time.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <h3>46+ skills on demand</h3>
-      <p>Skills that load only when needed — fast and without cluttering the context. From development to security.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+      <h3>46+ on-demand skills</h3>
+      <p>Skills that load only when needed, fast and without flooding the context. From development to security.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
-      <h3>WhatsApp auto-reply</h3>
-      <p>It works with a regular number, no business account required. To strangers it replies as your "persona," with your style and your rules.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg></div>
+      <h3>WhatsApp auto-responder</h3>
+      <p>Works with a regular number, no business account needed. Unknown contacts get answers from your "persona" in your style and rules, and voice notes get transcribed.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
       <h3>Home automation</h3>
-      <p>Control Philips Hue, Home Assistant and devices over MQTT directly from your agent.</p>
+      <p>Control Philips Hue, Home Assistant and devices over MQTT (a lightweight messaging protocol for IoT) straight from your agent.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/></svg></div>
-      <h3>It extends itself</h3>
-      <p>Need a new skill? Describe it and Dexter creates and activates it instantly, no restart required.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg></div>
+      <h3>Model router</h3>
+      <p>Checks which AI providers are responding (Anthropic, OpenAI, Google or local models with Ollama), picks the fastest and falls back to another if one fails.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Security auditor</h3>
+      <p>Before running an external or generated skill, it scans for data sent to outside servers, eval/exec, obfuscated code and prompt injection. It answers PASS, WARN or BLOCK.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M9 6h11M9 12h11M9 18h11M4 6h.01M4 12h.01M4 18h.01"/></svg></div>
+      <h3>SDD workflow</h3>
+      <p>Spec-Driven Development: for big changes, first a proposal, spec, design and tasks; then implement and verify against the spec.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+      <h3>Notifications and webhooks</h3>
+      <p>Sends each session's summary to Telegram, WhatsApp, Slack or Discord, and receives webhooks (HTTP callbacks from other services) to trigger actions.</p>
     </div>
     <div class="cell wide">
-      <div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
       <h3>Desktop automation + 112 ready-made flows</h3>
-      <p>Describe a task in natural language and Dexter takes screenshots, reasons about the screen, and runs clicks and keystrokes until it's done — saving the sequence as a reusable macro. Plus over 112 community flows (ClawFlows) ready to import.</p>
+      <p>Describe a task in natural language and Dexter takes screenshots, reasons about the screen, and runs clicks and keystrokes until it's done, saving the sequence as a reusable macro. Plus over 112 community flows (ClawFlows) ready to import.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div>
+      <h3>Self-extending, with a marketplace</h3>
+      <p>Need a new skill? Describe it and Dexter writes it, runs it through the auditor and activates it instantly, without a restart. It can also search and install community skills from its own marketplace.</p>
     </div>
   </div>
 </div></section>
@@ -180,14 +231,15 @@
   </div>
 </div></section>
 
-
-
 <section id="stack"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>Technology</h2></div>
+  <div class="sec-head"><span class="eyebrow">Under the hood</span><h2>How it's built</h2></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>Multi-agent</h4><p>Claude Code, OpenCode, Codex, Cursor, Gemini CLI and VS Code — the same ecosystem across all of them.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Local memory (Engram)</h4><p>SQLite + full-text search. It stores and retrieves context across sessions, on your machine.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Open source</h4><p>Open source under Apache 2.0, in active development and with automated tests.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Multi-agent</h4><p>Claude Code, OpenCode, Codex, Cursor, Gemini CLI and VS Code: one ecosystem across all of them.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>One strategy per agent</h4><p>Each agent stores its configuration differently, so the installer merges JSON, replaces files, writes TOML or appends as needed, always backing up first.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>MCP (Model Context Protocol)</h4><p>An open standard for connecting tools and data to an agent. Dexter configures the Engram memory and Context7 (up-to-date library docs) as MCP servers.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Local memory (Engram)</h4><p>SQLite with FTS5, SQLite's full-text search. It saves and retrieves context across sessions, on your machine.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Python, Node.js and Go</h4><p>Skills in Markdown with Python scripts; WhatsApp and Telegram servers in Node.js (WhatsApp through the Baileys library); a visual installer in Go with Bubbletea.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Open source and tested</h4><p>Open source under Apache 2.0, in active development, with pytest tests for the scripts and bats tests for the installer.</p></div></div>
   </div>
 </div></section>
 

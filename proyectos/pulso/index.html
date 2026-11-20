@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pulso — Encuestas que funcionan sin internet</title>
-<meta name="description" content="Pulso: app para levantar encuestas de satisfacción en campo, con o sin señal. Las respuestas se guardan solas y se sincronizan al volver la conexión." />
+<meta name="description" content="Pulso: PWA offline-first de encuestas de satisfacción en modo kiosco. Las respuestas se guardan sin señal, se sincronizan solas y llegan a un panel en." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230369A1'/%3E%3Ctext x='50' y='72' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
   --radius: 22px;
 }
 h1,h2,h3,h4 { letter-spacing: 0; }
-.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento{grid-template-columns:1fr}}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -35,16 +35,16 @@ h1,h2,h3,h4 { letter-spacing: 0; }
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Pulso · Encuestas sin internet, React, PWA, Offline-First, Service Workers, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Pulso · Encuestas sin internet, React, TypeScript, Dexie (IndexedDB), PWA, Express, Prisma, SQL Server, Socket.io, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Pulso · Encuestas sin internet · Emilio Fonseca" />
-  <meta property="og:description" content="Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión." />
+  <meta property="og:description" content="Encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/proyectos/pulso/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/pulso.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pulso · Encuestas sin internet · Emilio Fonseca" />
-  <meta name="twitter:description" content="Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión." />
+  <meta name="twitter:description" content="Encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/pulso.jpg" />
   <script type="application/ld+json">
 {
@@ -71,13 +71,13 @@ h1,h2,h3,h4 { letter-spacing: 0; }
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/proyectos/pulso/#software",
       "name": "Pulso · Encuestas sin internet",
-      "description": "Levanta encuestas de satisfacción en cualquier lugar, aunque no haya señal. Las respuestas se guardan solas y se envían automáticamente en cuanto vuelve la conexión.",
+      "description": "Encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real.",
       "url": "https://emiliougarte65.github.io/portafolio-web/proyectos/pulso/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/pulso.jpg",
       "applicationCategory": "Web Apps & ERP",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "es-MX",
-      "keywords": "React, PWA, Offline-First, Service Workers, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "React, TypeScript, Dexie (IndexedDB), PWA, Express, Prisma, SQL Server, Socket.io, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -100,25 +100,18 @@ h1,h2,h3,h4 { letter-spacing: 0; }
   <!-- SEO-GEO-AEO-END -->
 </head>
 <body>
-<nav><div class="wrap">
-  <div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Pulso</div>
-  <div class="nav-links"><a href="#que-hace">Qué hace</a><a class="nav-cta" href="../../demos/pulso/" target="_blank" rel="noopener">▶ Ver demo</a><a href="../../en/projects/pulso/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
-</div></nav>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Pulso</div><div class="nav-links"><a href="#que-es">Qué es</a><a href="#como-se-usa">Cómo se usa</a><a href="#que-hace">Capacidades</a><a href="#ingenieria">Ingeniería</a><a class="nav-cta" href="../../demos/pulso/" target="_blank" rel="noopener">▶ Ver demo</a><a href="../../en/projects/pulso/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div></div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
     <span class="eyebrow">Encuestas de satisfacción</span>
     <h1>Encuestas que funcionan <span class="grad">donde sea, haya o no señal</span>.</h1>
-    <p class="lead">Pulso deja que tu equipo levante encuestas en piso de venta, en ruta o en zonas sin internet. Las respuestas se guardan en el dispositivo y se sincronizan solas en cuanto vuelve la conexión.</p>
+    <p class="lead">Pulso es una PWA (app que se instala desde el navegador) para medir la satisfacción de los clientes en cada sucursal. Una tablet en modo kiosco hace preguntas con caritas, opciones o texto; las respuestas se guardan en el dispositivo y se sincronizan solas al volver la conexión. En la oficina, un panel muestra los resultados en tiempo real y los exporta a Excel y PowerPoint.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="../../demos/pulso/" target="_blank" rel="noopener">▶ Ver demo interactiva</a>
       <a class="btn btn-ghost" href="#que-hace">Ver qué hace</a>
     </div>
-    <div class="stat-row">
-      <div class="stat"><div class="n">Sin señal</div><div class="l">Captura siempre</div></div>
-      <div class="stat"><div class="n">Auto-sync</div><div class="l">Al reconectar</div></div>
-      <div class="stat"><div class="n">En el celular</div><div class="l">Se instala como app</div></div>
-    </div>
+    <div class="stat-row"><div class="stat"><div class="n">Sin señal</div><div class="l">Captura siempre</div></div><div class="stat"><div class="n">Auto-sync</div><div class="l">Al reconectar</div></div><div class="stat"><div class="n">Kiosco</div><div class="l">En tablet o iPad</div></div></div>
   </div>
   <div class="mock" style="background:transparent;border:0;box-shadow:none" aria-hidden="true">
     <svg viewBox="0 0 560 392" xmlns="http://www.w3.org/2000/svg">
@@ -160,53 +153,109 @@ h1,h2,h3,h4 { letter-spacing: 0; }
   </div>
 </div></header>
 
-<section id="que-hace"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Qué hace</span><h2>Mide la satisfacción sin pretextos</h2><p>Pensada para el mundo real: campo, ruta y sucursales con mala señal.</p></div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">En palabras simples</span><h2>¿Qué es y para qué sirve?</h2></div>
   <div class="bento">
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/><path d="M12 8v4l3 2" stroke="#fff"/></svg></div>
-      <h3>Captura sin internet</h3>
-      <p>Cada respuesta se guarda al momento en el teléfono o tablet. Tu personal nunca se queda esperando señal para seguir encuestando.</p>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+      <h3>¿Qué es?</h3>
+      <p>Un sistema de encuestas con dos caras: la pantalla de kiosco, que el cliente contesta al salir, y el panel de administración, donde se configuran las preguntas y se leen los resultados.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M21 12a9 9 0 1 1-3-6.7M21 3v6h-6"/></svg></div>
-      <h3>Sincronización automática</h3>
-      <p>Cuando vuelve la conexión, todo lo pendiente sube solo, sin que nadie tenga que acordarse.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>El problema</h3>
+      <p>Las encuestas en papel nadie las captura y las de enlace casi nadie las contesta. Si la encuesta depende de internet, cada caída de la red es una opinión perdida, y los resultados llegan tarde.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg></div>
-      <h3>Calificaciones</h3>
-      <p>Estrellas, opciones y comentarios; fáciles de responder en segundos.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
-      <h3>Se instala como app</h3>
-      <p>Va en el celular como una aplicación más, sin pasar por ninguna tienda.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 19V5M4 19h16M8 15l3-3 3 2 4-6"/></svg></div>
-      <h3>Resultados al centro</h3>
-      <p>Todas las respuestas llegan a un mismo lugar para analizarlas.</p>
-    </div>
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 7a4 4 0 1 0 0 .01"/></svg></div>
-      <h3>Pensada para tu personal</h3>
-      <p>Interfaz simple y rápida para que cualquiera del equipo levante encuestas sin capacitación: tocar, calificar y listo.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>La solución</h3>
+      <p>Una pregunta a la vista que se responde con un toque y no se pierde aunque no haya red. Si la calificación es mala, pregunta qué mejorar; si la satisfacción baja de la meta, avisa a la oficina.</p>
     </div>
   </div>
 </div></section>
 
+<section id="como-se-usa" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Paso a paso</span><h2>Así funciona una encuesta</h2></div>
+  <div class="flow">
+    <div class="step"><h4>El cliente califica</h4><p>Toca una carita, elige una opción o escribe un comentario. Las preguntas abiertas se pueden omitir.</p></div>
+    <div class="step"><h4>Seguimiento</h4><p>Si califica mal, aparece una pregunta de seguimiento como «¿Qué podemos mejorar?».</p></div>
+    <div class="step"><h4>Se guarda y se envía</h4><p>Al terminar, la encuesta completa se guarda en el dispositivo y se envía en un solo lote. Si el cliente se va a medias, se reinicia y se descarta.</p></div>
+    <div class="step"><h4>La oficina lo ve</h4><p>El panel se actualiza en vivo. Si el índice baja de la meta llega una alerta, y los reportes salen a Excel o PowerPoint.</p></div>
+  </div>
+</div></section>
 
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Capacidades</span><h2>Mide la satisfacción sin pretextos</h2><p>Pensada para sucursales con mala señal y para que cualquiera la use sin capacitación.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+      <h3>Captura sin internet</h3>
+      <p>Cada respuesta se guarda al momento en la tablet. El personal nunca se queda esperando señal para seguir encuestando.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/></svg></div>
+      <h3>Tres tipos de pregunta</h3>
+      <p>Caritas con etiquetas editables, opción múltiple y texto abierto.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="8" r="3"/><path d="M6 9v6M18 11c0 4-6 3-9 6"/></svg></div>
+      <h3>Preguntas de seguimiento</h3>
+      <p>Aparecen o no según la calificación que dio el cliente.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M11 18h2"/></svg></div>
+      <h3>Modo kiosco</h3>
+      <p>Se reinicia sola tras un rato sin uso, con más tiempo en las preguntas de texto. El contador no corre en la primera pregunta, para no reiniciar cuando nadie ha empezado.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Horarios y límites</h3>
+      <p>Franjas horarias con un límite de encuestas; al llenarse muestra un agradecimiento distinto al mensaje de «fuera de horario».</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div>
+      <h3>Encuestas por sucursal</h3>
+      <p>Preguntas agrupadas en encuestas y ordenadas arrastrando y soltando.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Panel en tiempo real</h3>
+      <p>Métricas, tendencias e índice de satisfacción por sucursal y por pregunta, con los comentarios abiertos filtrables.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+      <h3>Excel y PowerPoint</h3>
+      <p>Datos con filtros en .xlsx y una presentación con gráficas en .pptx.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+      <h3>Alertas</h3>
+      <p>Notificaciones push (avisos que llegan aunque la app esté cerrada) cuando la satisfacción cae por debajo de la meta.</p>
+    </div>
+  </div>
+</div></section>
 
-<section><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Confiable en el peor internet</h2></div>
+<section id="arquitectura" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Cómo está construido</span><h2>Una PWA con servidor propio</h2><p>Un solo proyecto con la app de kiosco, el panel y la API.</p></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>Offline-first</h4><p>Diseñada para trabajar primero local y luego sincronizar.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>App instalable (PWA)</h4><p>Sin tiendas ni instalaciones complicadas.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Sincronización segura</h4><p>Las respuestas viajan protegidas al concentrador.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Ligera</h4><p>Funciona bien hasta en equipos modestos.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Formularios flexibles</h4><p>Estrellas, opción múltiple y texto, a tu medida.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Sin pérdida de datos</h4><p>Nada se pierde aunque se cierre la app o se acabe la batería.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>React 18, TypeScript y Tailwind</h4><p>Interfaz en React con TypeScript (JavaScript con tipos) y estilos con Tailwind CSS, compilada con Vite.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>API con Express 5</h4><p>Una API REST (la puerta por la que la app le pide datos al servidor, organizada por recursos) con rutas para votos, preguntas, sucursales, encuestas, métricas, usuarios y auditoría, escrita en TypeScript.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Prisma y SQL Server</h4><p>Prisma es un ORM: una capa que traduce el código a consultas de base de datos. Los datos viven en SQL Server.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Tiempo real con Socket.io</h4><p>Socket.io mantiene una conexión abierta con el panel para que los votos nuevos aparezcan sin recargar la página.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>iPads antiguos</h4><p>Un plugin de compatibilidad genera una versión para Safari 12, así siguen sirviendo las tablets que ya no se actualizan.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>QA aislado</h4><p>Un ambiente QA (de pruebas) con su propia base de datos en Docker, separado por completo de producción.</p></div></div>
+  </div>
+</div></section>
+
+<section id="ingenieria"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Sin internet y seguridad</span><h2>Confiable en el peor internet</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Offline-first con IndexedDB</h4><p>Offline-first quiere decir que la app trabaja primero en el dispositivo. Con Dexie, una capa sobre IndexedDB (la base de datos interna del navegador), cada voto se guarda como «pendiente» antes de intentar enviarse.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Reintentos y limpieza</h4><p>Si no hay red, se reintenta en el siguiente ciclo; tras varios fallos, el voto queda marcado para revisión. Los ya sincronizados se borran del dispositivo después de una semana.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Envío por lote</h4><p>La encuesta completa viaja en una sola petición, así no quedan respuestas sueltas de una encuesta a medias.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>JWT con renovación</h4><p>El acceso usa JWT (un token firmado que demuestra quién eres): uno de acceso de corta duración y otro para renovarlo. Las contraseñas se guardan cifradas con bcrypt.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Dos roles</h4><p>Administrador, con el panel completo, y sucursal, con la pantalla de kiosco y su propio tablero.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Bitácora de auditoría</h4><p>Cada acción en el sistema queda registrada: quién hizo qué y cuándo.</p></div></div>
   </div>
 </div></section>
 

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Vértice — App de gestión a tu medida</title>
-<meta name="description" content="Vértice: aplicación de gestión hecha a la medida. Funciona sin internet, con acceso seguro y sincronización. Frontend ágil y backend robusto." />
+<meta name="description" content="Vértice: app full-stack y offline-first para gestión de obra. Presupuestos, cotizaciones por partida, avances con evidencia y solicitudes de pago." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%234F46E5'/%3E%3Ctext x='50' y='72' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,7 +16,7 @@
   --bg: #F7F8FC; --fg: #1E1B4B; --muted: #5b5b7a;
   --font-head: 'Sora', system-ui, sans-serif; --font-body: 'Inter', system-ui, sans-serif;
 }
-.hero .btn-primary{min-height:60px;padding:18px 26px}</style>
+.hero .btn-primary{min-height:60px;padding:18px 26px}#que-es .bento{grid-template-columns:repeat(3,1fr)}@media (max-width:880px){#que-es .bento{grid-template-columns:1fr}}</style>
 
   <!-- SEO-GEO-AEO-START -->
   <meta name="author" content="Emilio Fonseca" />
@@ -33,16 +33,16 @@
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  <meta name="keywords" content="Vértice · App a la medida, React, PWA, Offline-First, Tailwind, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
+  <meta name="keywords" content="Vértice · App a la medida, React, TypeScript, Dexie (IndexedDB), FastAPI, PostgreSQL, Alembic, JWT, Docker, Emilio Fonseca, Tampico, Tamaulipas, Monterrey, México, Desarrollador Full-Stack, IA" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
   <meta property="og:title" content="Vértice · App a la medida · Emilio Fonseca" />
-  <meta property="og:description" content="Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro." />
+  <meta property="og:description" content="Gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor." />
   <meta property="og:url" content="https://emiliougarte65.github.io/portafolio-web/proyectos/vertice/" />
   <meta property="og:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/vertice.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Vértice · App a la medida · Emilio Fonseca" />
-  <meta name="twitter:description" content="Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro." />
+  <meta name="twitter:description" content="Gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/assets/previews/vertice.jpg" />
   <script type="application/ld+json">
 {
@@ -69,13 +69,13 @@
       "@type": "SoftwareApplication",
       "@id": "https://emiliougarte65.github.io/portafolio-web/proyectos/vertice/#software",
       "name": "Vértice · App a la medida",
-      "description": "Aplicación hecha a la medida para administrar los procesos internos de un equipo. Sigue funcionando aunque no haya internet y protege el acceso con inicio de sesión seguro.",
+      "description": "Gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor.",
       "url": "https://emiliougarte65.github.io/portafolio-web/proyectos/vertice/",
       "image": "https://emiliougarte65.github.io/portafolio-web/assets/previews/vertice.jpg",
       "applicationCategory": "Web Apps & ERP",
       "operatingSystem": "Web Browser, WebGL, PWA, Cross-platform",
       "inLanguage": "es-MX",
-      "keywords": "React, PWA, Offline-First, Tailwind, Emilio Fonseca, Tampico, Tamaulipas, México",
+      "keywords": "React, TypeScript, Dexie (IndexedDB), FastAPI, PostgreSQL, Alembic, JWT, Docker, Emilio Fonseca, Tampico, Tamaulipas, México",
       "author": {
         "@type": "Person",
         "@id": "https://emiliougarte65.github.io/portafolio-web/#person",
@@ -98,25 +98,18 @@
   <!-- SEO-GEO-AEO-END -->
 </head>
 <body>
-<nav><div class="wrap">
-  <div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Vértice</div>
-  <div class="nav-links"><a href="#que-hace">Qué hace</a><a class="nav-cta" href="../../demos/vertice/" target="_blank" rel="noopener">▶ Ver demo</a><a href="../../en/projects/vertice/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div>
-</div></nav>
+<nav><div class="wrap"><div class="brand"><span class="mk"><img src="../../assets/web-dev-eyes.svg" alt="" style="width:100%;height:100%;object-fit:contain"></span> Vértice</div><div class="nav-links"><a href="#que-es">Qué es</a><a href="#como-se-usa">Cómo se usa</a><a href="#que-hace">Capacidades</a><a href="#ingenieria">Ingeniería</a><a class="nav-cta" href="../../demos/vertice/" target="_blank" rel="noopener">▶ Ver demo</a><a href="../../en/projects/vertice/" title="View in English" style="color: var(--accent); font-weight: 700;">EN</a></div></div></nav>
 
 <header class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="eyebrow">Aplicación de gestión a la medida</span>
-    <h1>El software interno que tu equipo <span class="grad">necesita, hecho a su medida</span>.</h1>
-    <p class="lead">Vértice digitaliza los procesos de tu operación en una sola aplicación: segura, rápida y que sigue funcionando aunque se caiga el internet. Cuando vuelve la señal, todo se sincroniza solo.</p>
+    <span class="eyebrow">Gestión de obra a la medida</span>
+    <h1>Presupuestos, avances y pagos de cada obra, <span class="grad">en una app que sigue sin señal</span>.</h1>
+    <p class="lead">Vértice es una aplicación full-stack (con interfaz y servidor propios) hecha a la medida para administrar proyectos de obra con proveedores externos. Cada proyecto tiene su presupuesto y sus cotizaciones por partida; el proveedor reporta su avance con fotos y pide su pago, y el administrador lo aprueba o lo rechaza. Es offline-first: trabaja primero en el dispositivo y sincroniza cuando vuelve la señal.</p>
     <div class="btn-row">
       <a class="btn btn-primary" href="../../demos/vertice/" target="_blank" rel="noopener">▶ Ver demo interactiva</a>
       <a class="btn btn-ghost" href="#que-hace">Ver qué hace</a>
     </div>
-    <div class="stat-row">
-      <div class="stat"><div class="n">Offline</div><div class="l">Funciona sin internet</div></div>
-      <div class="stat"><div class="n">Seguro</div><div class="l">Acceso por sesión</div></div>
-      <div class="stat"><div class="n">A medida</div><div class="l">Para tu proceso</div></div>
-    </div>
+    <div class="stat-row"><div class="stat"><div class="n">Offline</div><div class="l">Captura en la obra</div></div><div class="stat"><div class="n">2 roles</div><div class="l">Administrador y proveedor</div></div><div class="stat"><div class="n">A medida</div><div class="l">Reglas del proceso real</div></div></div>
   </div>
   <div class="mock" aria-hidden="true">
     <svg viewBox="0 0 560 392" xmlns="http://www.w3.org/2000/svg">
@@ -155,53 +148,109 @@
   </div>
 </div></header>
 
-<section id="que-hace"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Qué hace</span><h2>Tu proceso, en una app</h2><p>Reemplaza hojas de cálculo y formatos en papel por una herramienta hecha para tu manera de trabajar.</p></div>
+<section id="que-es"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">En palabras simples</span><h2>¿Qué es y para qué sirve?</h2></div>
   <div class="bento">
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/><path d="M8 16l2 2 4-4" stroke="#fff"/></svg></div>
-      <h3>Funciona sin internet</h3>
-      <p>Tu equipo sigue capturando y consultando aunque no haya señal. Cuando la conexión vuelve, todo lo pendiente se sincroniza automáticamente, sin perder nada.</p>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+      <h3>¿Qué es?</h3>
+      <p>Una app de gestión hecha para un proceso concreto: controlar cuánto se ha avanzado y cuánto se ha pagado en cada partida (cada concepto de trabajo) de una obra.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-      <h3>Acceso seguro</h3>
-      <p>Inicio de sesión con sesiones protegidas; cada usuario entra solo a lo suyo.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg></div>
+      <h3>El problema</h3>
+      <p>Los avances llegan por mensaje, las fotos se pierden en el chat y los pagos se apuntan en hojas de cálculo. Así es fácil pagar dos veces el mismo avance o pagar de más, y en la obra muchas veces no hay señal.</p>
     </div>
     <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
-      <h3>Carga de archivos</h3>
-      <p>Adjunta documentos e imágenes a cada registro, directo desde el celular.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M3 3v18h18M7 14l3-3 3 3 5-6"/></svg></div>
-      <h3>Reportes</h3>
-      <p>Convierte la captura diaria en tableros y reportes que se actualizan solos.</p>
-    </div>
-    <div class="cell">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 2l2 7h7l-5.5 4 2 7L12 17l-5.5 3 2-7L3 9h7z"/></svg></div>
-      <h3>Instalable (PWA)</h3>
-      <p>Se instala en el teléfono o la computadora como una app más, sin tiendas.</p>
-    </div>
-    <div class="cell wide">
-      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M12 20h9M3 20l9-9 3 3M14 7l3-3 3 3-3 3z"/></svg></div>
-      <h3>Hecha a tu medida</h3>
-      <p>No es un sistema genérico al que tienes que adaptarte: se construye alrededor de tu proceso real, con los campos, pasos y reglas que tu operación necesita.</p>
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>La solución</h3>
+      <p>Cada pago nace de un avance comprobado con evidencia y queda ligado a su partida. El sistema calcula lo pagado, lo disponible y el avance del proyecto, y no deja pasar solicitudes que rompan las reglas.</p>
     </div>
   </div>
 </div></section>
 
+<section id="como-se-usa" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Paso a paso</span><h2>Así fluye un pago</h2></div>
+  <div class="flow">
+    <div class="step"><h4>Arma el proyecto</h4><p>El administrador da de alta el proyecto con su presupuesto y le asigna proveedores.</p></div>
+    <div class="step"><h4>Cotiza por partida</h4><p>El proveedor registra su cotización dividida en partidas, con subtotal, IVA (el impuesto al valor agregado) y total.</p></div>
+    <div class="step"><h4>Reporta el avance</h4><p>Desde la obra, el proveedor indica el nuevo porcentaje de una partida y adjunta fotos o PDF, aunque no haya señal.</p></div>
+    <div class="step"><h4>Aprueba o rechaza</h4><p>Si el administrador aprueba, el avance y el saldo se actualizan solos; si rechaza, deja un comentario para que el proveedor corrija y reenvíe.</p></div>
+  </div>
+</div></section>
 
+<section id="que-hace"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Capacidades</span><h2>Tu proceso, en una app</h2><p>Reemplaza hojas de cálculo, chats y formatos en papel por una herramienta hecha para el proceso real.</p></div>
+  <div class="bento">
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+      <h3>Proyectos con presupuesto y avance</h3>
+      <p>Por proyecto: cuánto se ha gastado, cuánto queda, qué porcentaje del presupuesto se ha usado y el avance operativo promedio de sus cotizaciones.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg></div>
+      <h3>Cotizaciones por partida</h3>
+      <p>Cada partida tiene su monto autorizado; lo pagado y lo disponible se recalculan con cada aprobación.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg></div>
+      <h3>Evidencias</h3>
+      <p>Fotos (JPG, PNG, WEBP o HEIC) o PDF adjuntos a cada solicitud, tomados directo del celular.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h3>Solicitudes con reglas</h3>
+      <p>Solo un proveedor puede pedir un pago; el nuevo avance debe ser mayor al actual y no pasar del 100 %, y no puede haber dos solicitudes pendientes para la misma partida.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.2A8.4 8.4 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z"/></svg></div>
+      <h3>Rechazo con comentario</h3>
+      <p>El motivo queda en la solicitud y se borra cuando el proveedor la reenvía corregida.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <h3>Ventana de pagos</h3>
+      <p>Las solicitudes solo se procesan dentro del horario operativo de la semana. La interfaz lo avisa y el servidor lo hace cumplir.</p>
+    </div>
+    <div class="cell wide">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
+      <h3>Funciona sin señal</h3>
+      <p>Proyectos, cotizaciones y partidas se guardan en el dispositivo. Lo que se captura sin conexión espera en una cola y se envía solo al reconectar.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <h3>Roles</h3>
+      <p>Administrador y proveedor, cada uno con sus pantallas y sus permisos.</p>
+    </div>
+    <div class="cell">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg></div>
+      <h3>Instalable (PWA)</h3>
+      <p>Se instala en el teléfono o la computadora como una app más, sin pasar por una tienda de apps.</p>
+    </div>
+  </div>
+</div></section>
 
-<section><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Bajo el capó</span><h2>Ingeniería de extremo a extremo</h2></div>
+<section id="arquitectura" class="alt"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Cómo está construido</span><h2>Ingeniería de extremo a extremo</h2><p>Frontend y backend separados, unidos por una API (la puerta por la que la app le pide datos al servidor) con versiones.</p></div>
   <div class="specs">
-    <div class="spec"><span class="dot"></span><div><h4>Frontend ágil</h4><p>Interfaz rápida y fluida, pensada para usarse a diario.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Backend robusto</h4><p>Servicio confiable que ordena y protege la información.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Offline-first</h4><p>Guarda en el dispositivo y sincroniza al reconectar.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Autenticación segura</h4><p>Sesiones protegidas con expiración automática.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Contenedores</h4><p>Despliegue ordenado y reproducible en cualquier servidor.</p></div></div>
-    <div class="spec"><span class="dot"></span><div><h4>Escalable</h4><p>Crece contigo: más usuarios, más datos, sin rehacer todo.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>React 19 y TypeScript</h4><p>TypeScript agrega tipos a JavaScript para detectar errores antes de ejecutar. Las rutas van con React Router y el estado con Zustand.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Backend con FastAPI</h4><p>FastAPI es un framework de Python para construir APIs. Trabaja de forma asíncrona y valida cada dato que entra con Pydantic.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>PostgreSQL y migraciones</h4><p>La información vive en PostgreSQL 16. Los cambios de estructura se aplican con migraciones de Alembic: scripts versionados que actualizan la base sin perder datos.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Montos exactos</h4><p>Los importes se manejan como decimales exactos y no como números de punto flotante, para que los saldos no acumulen errores de redondeo.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Docker Compose</h4><p>Docker empaqueta cada parte en un contenedor que corre igual en cualquier servidor. Hay una configuración para desarrollo y otra para producción, con nginx sirviendo la interfaz.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Integración continua</h4><p>En cada cambio, GitHub Actions corre las migraciones y las pruebas del backend, y revisa los tipos del frontend.</p></div></div>
+  </div>
+</div></section>
+
+<section id="ingenieria"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Sin internet y seguridad</span><h2>Pensado para la obra</h2></div>
+  <div class="specs">
+    <div class="spec"><span class="dot"></span><div><h4>Offline-first con IndexedDB</h4><p>Con Dexie, una capa sobre IndexedDB (la base de datos interna del navegador), la app guarda copias locales de proyectos, cotizaciones, partidas y solicitudes.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Cola de sincronización</h4><p>Cada operación hecha sin señal se guarda con su destino y sus datos. Al volver la conexión se envía en orden, con un número limitado de reintentos.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Service worker con Workbox</h4><p>El service worker guarda la app en el teléfono para que abra sin internet; Workbox es la librería que lo genera.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>JWT con caducidad</h4><p>Al iniciar sesión, el servidor entrega un JWT (un token firmado que demuestra quién eres) que vence a las 8 horas. Las contraseñas se guardan cifradas con bcrypt.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Reglas en el servidor</h4><p>Los permisos por rol y la ventana de pagos se validan en el backend; la interfaz solo avisa. Si alguien intenta saltárselas, el servidor rechaza la petición.</p></div></div>
+    <div class="spec"><span class="dot"></span><div><h4>Archivos y fechas probados</h4><p>Cada evidencia se revisa por tipo y tamaño antes de guardarse. Las pruebas automáticas simulan fechas y horas para comprobar la ventana de pagos.</p></div></div>
   </div>
 </div></section>
 
