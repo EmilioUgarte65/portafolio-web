@@ -124,7 +124,6 @@
 #### 15. Distrito (Urban Interactive Experience)
 - **Role**: Frontend / 3D Developer
 - **Stack**: Three.js, WebGL, 3D Assets.
-- **Live Demo**: https://emiliougarte65.github.io/portafolio-web/demos/distrito/
 - **Description**: 3D interactive urban model exploration interface.
 
 #### 16. Nexo (Automated WhatsApp CRM & Customer Care)

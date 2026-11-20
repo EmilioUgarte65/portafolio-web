@@ -132,7 +132,7 @@ def build_page(lang="es"):
             demo_url = "https://emiliougarte65.github.io/cora-showcase/" if is_es else "https://emiliougarte65.github.io/cora-showcase/en/"
         elif slug == "marquesina":
             demo_url = "https://almacast.github.io/portafolio/"
-        elif slug in ["mundial", "nexo", "lumen", "nucleo", "vertice", "vitrina", "myaccountant", "pulso", "totem", "web-studio", "distrito", "ruta-clara", "ourway", "radar"]:
+        elif slug in ["mundial", "nexo", "lumen", "nucleo", "vertice", "vitrina", "myaccountant", "pulso", "totem", "web-studio", "ruta-clara", "ourway", "radar"]:
             demo_url = f"{root_prefix}demos/{slug}/"
             
         badge_label = "Demo en vivo" if is_live_demo else "Showcase"

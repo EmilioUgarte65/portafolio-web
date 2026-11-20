@@ -146,7 +146,7 @@ PROJECT_META = {
         "cat": "hardware",
         "cat_name_es": "3D, Videojuegos & Hardware",
         "cat_name_en": "3D, Games & Hardware",
-        "demo_type": "demo",
+        "demo_type": "showcase",
         "stack": ["Three.js", "WebGL", "Modelos 3D", "Animaciones"],
         "metric_es": "Habitación 3D interactiva y controles de cámara",
         "metric_en": "Interactive 3D isometric room with smooth orbital cam"
