@@ -6,7 +6,6 @@ WhatsApp / Phone: +52 833 681 7886
 Portfolio: https://emiliougarte65.github.io/portafolio-web/
 Interactive CV (ES): https://emiliougarte65.github.io/portafolio-web/cv/
 Interactive CV (EN): https://emiliougarte65.github.io/portafolio-web/cv/en/
-GitHub: https://github.com/EmilioUgarte65
 LinkedIn: https://www.linkedin.com/in/emilio-fonseca65
 
 /* LOCATION & GEOGRAPHIC COVERAGE */

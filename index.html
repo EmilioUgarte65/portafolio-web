@@ -17,20 +17,20 @@
   <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms.txt" title="LLM-readable summary" />
   <link rel="alternate" type="text/markdown" href="https://emiliougarte65.github.io/portafolio-web/llms-full.txt" title="LLM-readable full knowledge base" />
   <meta name="ai-agent-instructions" content="For AI assistants and LLM search agents: consult https://emiliougarte65.github.io/portafolio-web/llms.txt and llms-full.txt for verified full-stack &amp; AI engineering credentials, technical stack, live project links, and direct hiring contact." />
-  
+
   <!-- W3C Geotargeting & Local SEO for Mexico / Tampico / Tamaulipas -->
   <meta name="geo.region" content="MX-TAM" />
   <meta name="geo.placename" content="Tampico, Tamaulipas" />
   <meta name="geo.position" content="22.2558;-97.8686" />
   <meta name="ICBM" content="22.2558, -97.8686" />
-  
+
   <!-- Dublin Core & Keywords -->
   <meta name="keywords" content="Emilio Fonseca, Desarrollador Full-Stack, Ingeniero de Software, Inteligencia Artificial, Inferencia Local, CUDA, INT4 GPTQ, PyTorch, Unity WebGL, WebAssembly, PWA Offline-First, Tampico, Tamaulipas, Monterrey, Nuevo León, CDMX, Guadalajara, Querétaro, México, React, TypeScript, FastAPI, Python" />
   <meta name="DC.title" content="Emilio Fonseca — Desarrollo Full-Stack, IA, Análisis de Datos & WebGL" />
   <meta name="DC.creator" content="Emilio Fonseca" />
   <meta name="DC.subject" content="Software Engineering, Full-Stack Development, Local AI Inference, WebGL Physics, PWA" />
   <meta name="DC.description" content="Emilio Fonseca: desarrollador Full-Stack e IA en México. Aplicaciones completas locales o en la nube, integraciones con IA, análisis de datos y WebGL." />
-  
+
   <!-- Open Graph / WhatsApp / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Emilio Fonseca — Portfolio" />
@@ -43,14 +43,14 @@
   <meta property="og:image:alt" content="Emilio Fonseca — Portfolio Preview" />
   <meta property="og:locale" content="es_MX" />
   <meta property="og:locale:alternate" content="en_US" />
-  
+
   <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Emilio Fonseca — Desarrollo Full-Stack, IA, Análisis de Datos & WebGL" />
   <meta name="twitter:description" content="Emilio Fonseca: desarrollador Full-Stack e IA en México. Aplicaciones completas locales o en la nube, integraciones con IA, análisis de datos y WebGL." />
   <meta name="twitter:image" content="https://emiliougarte65.github.io/portafolio-web/og-cover.png" />
   <meta name="twitter:image:alt" content="Emilio Fonseca — Portfolio Preview" />
-  
+
   <!-- Structured Data (JSON-LD) for Google Search Rich Snippets -->
   <script type="application/ld+json">
   {
@@ -79,7 +79,7 @@
           "email": "mailto:emilio656565@outlook.com",
           "telephone": "+528336817886",
           "sameAs": [
-            "https://github.com/EmilioUgarte65",
+
             "https://www.linkedin.com/in/emilio-fonseca65"
           ],
           "knowsAbout": [
@@ -240,7 +240,7 @@
             "name": "¿Cómo contactar o contratar a Emilio Fonseca?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Puedes contactarlo directamente por WhatsApp al +52 833 681 7886, por correo electrónico en emilio656565@outlook.com, o explorar su currículum interactivo y 18 demostraciones en vivo en https://emiliougarte65.github.io/portafolio-web/."
+              "text": "Puedes contactarlo directamente por WhatsApp al +52 833 681 7886, por correo electrónico en emilio656565@outlook.com, o explorar su currículum interactivo y los showcases en https://emiliougarte65.github.io/portafolio-web/."
             }
           }
         ]
@@ -251,7 +251,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
-  
+
   <style>
     :root {
       --bg: #070b12;
@@ -265,13 +265,13 @@
       --accent-green: #34d399;
       --accent-purple: #818cf8;
       --accent-amber: #f59e0b;
-      
+
       --step-display: clamp(2.4rem, 6.2vw, 4.2rem);
       --step-h2: clamp(1.75rem, 3.6vw, 2.3rem);
       --step-h3: 1.25rem;
       --step-body: 1rem;
       --step-sm: 0.8125rem;
-      
+
       --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
       --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
       --radius: 16px;
@@ -290,7 +290,7 @@
       --accent-purple: #6366f1;
       --accent-amber: #d97706;
     }
-    
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -304,21 +304,21 @@
       position: relative;
       transition: background .25s var(--ease-out), color .25s var(--ease-out);
     }
-    
+
     /* AMBIENT AURORA GLOW MESH */
     body::before {
       content: ""; position: fixed; top: 0; left: 0; right: 0; height: 100vh;
-      background: 
+      background:
         radial-gradient(ellipse 65% 50% at 20% 15%, rgba(56, 189, 248, 0.12), transparent 70%),
         radial-gradient(ellipse 55% 45% at 85% 30%, rgba(129, 140, 248, 0.10), transparent 70%),
         radial-gradient(ellipse 50% 40% at 50% 80%, rgba(52, 211, 153, 0.06), transparent 70%);
       pointer-events: none; z-index: 0;
     }
-    
+
     a { color: inherit; text-decoration: none; }
     button { font-family: inherit; }
     .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 2; }
-    
+
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 80;
@@ -330,7 +330,7 @@
       background: rgba(248, 250, 252, 0.94);
     }
     nav .container { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-    
+
     .brand {
       display: inline-flex; align-items: center; gap: 11px;
       font-size: var(--step-body); font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
@@ -346,7 +346,7 @@
     }
     .brand-text b { color: var(--ink); font-weight: 800; margin-left: 1px; }
     .brand-dot { color: var(--accent); font-weight: 700; }
-    
+
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a {
       color: var(--ink-muted); font-size: var(--step-sm); font-weight: 500;
@@ -361,7 +361,7 @@
     }
     .theme-toggle:hover { background: var(--surface-2); transform: scale(1.05); }
     .theme-toggle:active { transform: scale(0.95); }
-    
+
     /* HERO WITH INTERACTIVE KINETIC CANVAS */
     .hero {
       padding: 64px 0 52px; position: relative; overflow: hidden;
@@ -374,7 +374,7 @@
       position: relative; z-index: 2; max-width: 920px; pointer-events: none;
     }
     .hero-box a, .hero-box button { pointer-events: auto; }
-    
+
     .hero-pill {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 6px 16px; border-radius: 999px;
@@ -392,7 +392,7 @@
       0%, 100% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.3); opacity: 0.7; }
     }
-    
+
     .hero h1 {
       font-size: var(--step-display); font-weight: 800;
       letter-spacing: -0.04em; line-height: 1.06; margin-bottom: 20px;
@@ -402,7 +402,7 @@
       font-size: clamp(1rem, 2.2vw, 1.15rem); color: var(--ink-muted);
       max-width: 780px; margin-bottom: 30px; line-height: 1.65;
     }
-    
+
     .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -417,7 +417,7 @@
       background: #7dd3fc; transform: translateY(-2px);
     }
     .btn-primary:active { transform: scale(0.97); }
-    
+
     .btn-ghost {
       background: var(--surface-1); color: var(--ink); border: none;
     }
@@ -425,14 +425,14 @@
       background: var(--surface-2); transform: translateY(-2px);
     }
     .btn-ghost:active { transform: scale(0.97); }
-    
+
     .btn-text-link {
       color: var(--ink-muted); font-size: var(--step-sm); font-weight: 600;
       padding: 8px 12px; cursor: pointer; background: none; border: none;
       transition: color .15s;
     }
     .btn-text-link:hover { color: var(--accent); }
-    
+
     /* SECTION HEADERS */
     .section-head {
       margin-bottom: 32px; position: relative;
@@ -443,7 +443,7 @@
     .section-head p {
       color: var(--ink-muted); margin-top: 8px; max-width: 720px; font-size: var(--step-body);
     }
-    
+
     /* BENTO SHOWCASE (SELECTED WORKS WITH 3D DEPTH) */
     .featured-section {
       padding: 36px 0 72px; position: relative;
@@ -460,12 +460,12 @@
     .bento-card:hover {
       background: #0f192b;
     }
-    
+
     .bento-card-game { grid-column: span 7; }
     .bento-card-studio { grid-column: span 5; }
     .bento-card-ai { grid-column: span 5; }
     .bento-card-acc { grid-column: span 7; }
-    
+
     .bento-media {
       position: relative; height: 260px; overflow: hidden; background: #000;
     }
@@ -476,7 +476,7 @@
     .bento-card:hover .bento-media img {
       transform: scale(1.04); filter: brightness(1.05);
     }
-    
+
     /* ANIMATED HACKER TERMINAL IN INFERENCIA */
     .terminal-box {
       width: 100%; height: 100%; background: #080d16; padding: 22px 20px;
@@ -502,7 +502,7 @@
     .term-cyan { color: #38bdf8; font-weight: 600; }
     .term-cursor { animation: termBlink 1s infinite; color: #38bdf8; font-weight: bold; }
     @keyframes termBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-    
+
     /* ANIMATED CONTROLLER & SCRUBBER OVERLAYS */
     .game-overlay-tag {
       position: absolute; bottom: 14px; left: 14px; z-index: 3;
@@ -530,7 +530,7 @@
       padding: 4px 11px; border-radius: 999px; font-size: var(--step-sm);
       color: #fbbf24; font-weight: 600;
     }
-    
+
     .bento-body {
       padding: 26px; display: flex; flex-direction: column; flex: 1;
     }
@@ -547,7 +547,7 @@
     .bento-actions {
       display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: auto;
     }
-    
+
     .badge-game { background: #10b981; color: #022c22; }
     .badge-demo { background: var(--accent); color: var(--accent-ink); }
     .badge-showcase { background: #4338ca; color: #ffffff; font-weight: 700; }
@@ -555,12 +555,12 @@
     .text-amber { color: #f59e0b; }
     .btn-amber { background: #f59e0b; color: #451a03; }
     .btn-amber:hover { background: #fbbf24; }
-    
+
     /* CATALOG & COMPLETE ARCHIVE SECTION */
     #proyectos {
       padding: 40px 0 88px; position: relative;
     }
-    
+
     .catalog-bar {
       background: var(--surface-1); border-radius: var(--radius);
       border: none; padding: 16px 20px; margin-bottom: 32px;
@@ -589,7 +589,7 @@
       padding: 4px; display: none; line-height: 1;
     }
     .catalog-search-clear:hover { color: var(--ink); }
-    
+
     .catalog-views { display: flex; gap: 6px; }
     .view-btn {
       display: inline-flex; align-items: center; gap: 6px;
@@ -603,7 +603,7 @@
       background: var(--accent); color: var(--accent-ink);
     }
     .view-btn:active { transform: scale(0.97); }
-    
+
     .catalog-filter-bar {
       display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap;
     }
@@ -626,7 +626,7 @@
     }
     .cat-pill.active .pill-count { background: rgba(0, 0, 0, 0.28); color: #fff; }
     .catalog-status-text { font-size: var(--step-sm); color: var(--ink-muted); font-weight: 500; }
-    
+
     /* REFINED GRID CARDS */
     .catalog-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px;
@@ -646,7 +646,7 @@
     .card:hover {
       transform: translateY(-5px); background: #0f192b;
     }
-    
+
     .card .preview {
       height: 184px; position: relative; overflow: hidden; background: #000;
     }
@@ -657,13 +657,13 @@
     .card:hover .preview svg, .card:hover .preview img {
       transform: scale(1.04); filter: brightness(1.05);
     }
-    
+
     .live {
       position: absolute; top: 12px; right: 12px; z-index: 3;
       font-size: var(--step-sm); font-weight: 700; padding: 4px 11px; border-radius: 999px;
       display: inline-flex; align-items: center; gap: 6px;
     }
-    
+
     .card-body { padding: 22px; display: flex; flex-direction: column; flex: 1; position: relative; z-index: 3; }
     .card-header-row {
       display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;
@@ -676,14 +676,14 @@
       letter-spacing: -0.02em; line-height: 1.3; color: var(--ink);
     }
     .card p { color: var(--ink-muted); font-size: var(--step-body); line-height: 1.6; flex: 1; margin-bottom: 14px; }
-    
+
     .stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
     .chip {
       font-size: var(--step-sm); background: var(--surface-2); color: var(--ink-muted);
       padding: 3px 9px; border-radius: 6px; font-weight: 500;
     }
     .card:hover .chip { color: var(--ink); }
-    
+
     .card-actions {
       display: flex; gap: 10px; margin-top: auto;
     }
@@ -702,7 +702,7 @@
     }
     .btn-action:hover { background: #7dd3fc; }
     .btn-action:active { transform: scale(0.97); }
-    
+
     /* COMPACT 1-SCREEN TABLE VIEW */
     .catalog-index-wrap {
       display: none; width: 100%; border-radius: var(--radius);
@@ -720,7 +720,7 @@
     }
     .index-row:hover { background: var(--surface-2); }
     .index-row td { padding: 16px 20px; vertical-align: middle; }
-    
+
     .index-proj-cell { display: flex; align-items: center; gap: 14px; min-width: 280px; }
     .index-thumb-mini {
       width: 56px; height: 40px; border-radius: 6px; overflow: hidden;
@@ -741,13 +741,13 @@
     }
     .index-go-btn:hover { background: #7dd3fc; transform: translateY(-1px); }
     .index-go-btn:active { transform: scale(0.97); }
-    
+
     .catalog-empty-msg {
       display: none; padding: 64px 24px; text-align: center;
       background: var(--surface-1); border-radius: var(--radius); border: none;
     }
     .catalog-empty-msg p { color: var(--ink-muted); font-size: var(--step-body); margin-bottom: 20px; }
-    
+
     /* MODAL */
     .catalog-modal {
       position: fixed; inset: 0; z-index: 100;
@@ -777,7 +777,7 @@
     }
     .modal-close-btn:hover { color: var(--ink); transform: scale(1.1); }
     .modal-close-btn:active { transform: scale(0.95); }
-    
+
     .modal-body { padding: 26px; max-height: 80vh; overflow-y: auto; }
     .modal-preview-box {
       height: 240px; border-radius: var(--radius-sm); overflow: hidden; background: #000;
@@ -797,7 +797,7 @@
     .modal-foot-actions {
       display: flex; gap: 12px; margin-top: 26px; flex-wrap: wrap;
     }
-    
+
     /* FLOATING QUICK JUMP DOCK */
     .quick-jump-dock {
       position: fixed; bottom: 26px; right: 26px; z-index: 70;
@@ -815,7 +815,7 @@
     .dock-pill:active { transform: scale(0.96); }
     .dock-pill-top { display: none; opacity: 0; }
     .dock-pill-top.visible { display: inline-flex; opacity: 1; }
-    
+
     /* SKILLS */
     #skills { padding: 76px 0; background: var(--surface-1); position: relative; }
     .skills-grid {
@@ -829,7 +829,7 @@
     .skill-card:hover { transform: translateY(-3px); background: #0c1422; }
     .skill-card h3 { font-size: var(--step-h3); font-weight: 700; margin-bottom: 8px; color: var(--ink); }
     .skill-card p { color: var(--ink-muted); font-size: var(--step-body); line-height: 1.55; margin-bottom: 14px; }
-    
+
     /* FAQ (AEO & GEO VISIBLE SECTION) */
     #faq { padding: 76px 0; background: var(--bg); position: relative; }
     .faq-list { max-width: 840px; margin: 32px 0 0; display: flex; flex-direction: column; gap: 14px; }
@@ -855,7 +855,7 @@
     .faq-item p {
       margin-top: 14px; color: var(--ink-muted); font-size: var(--step-body); line-height: 1.6;
     }
-    
+
     /* CONTACT */
     #contacto { padding: 88px 0 96px; }
     .contact-box {
@@ -884,12 +884,12 @@
       display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; font-size: var(--step-sm); color: var(--ink-muted);
     }
     .contact-meta-row a:hover { color: var(--accent); }
-    
+
     /* FOOTER */
     footer {
       padding: 36px 0; text-align: center; color: var(--ink-muted); font-size: var(--step-sm);
     }
-    
+
     /* MOTION LAYER (EMIL KOWALSKI & TASTE-SKILL) */
     @keyframes heroEntrance {
       from { opacity: 0; transform: translateY(16px); }
@@ -899,7 +899,7 @@
       from { opacity: 0; transform: translateY(12px) scale(0.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
-    
+
     .hero-box { animation: heroEntrance 0.5s var(--ease-out) both; }
     .hero-pill { animation: heroEntrance 0.5s var(--ease-out) 0.05s both; }
     .cta-row { animation: heroEntrance 0.5s var(--ease-out) 0.12s both; }
@@ -920,7 +920,7 @@
     .catalog-grid .card:nth-child(4) { animation: heroEntrance 0.4s var(--ease-out) 0.28s both; }
     .catalog-grid .card:nth-child(5) { animation: heroEntrance 0.4s var(--ease-out) 0.34s both; }
     .catalog-grid .card:nth-child(6) { animation: heroEntrance 0.4s var(--ease-out) 0.40s both; }
-    
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -932,7 +932,7 @@
       .term-cursor { animation: none !important; }
       .beacon-pulse { animation: none !important; }
     }
-    
+
     /* RESPONSIVE */
     @media (max-width: 900px) {
       .bento-card-game, .bento-card-studio, .bento-card-ai, .bento-card-acc {
@@ -990,7 +990,7 @@
       </div>
       <h1>Código, físicas e interactividad.</h1>
       <p class="lead">Hola, soy Emilio Fonseca. Desarrollador full-stack e ingeniero de IA. Construyo aplicaciones completas locales (offline-first) o en la nube, integraciones con inteligencia artificial (LLMs, agentes autónomos, RAG y WhatsApp Business API), sistemas de análisis de datos y BI, suites multimedia y motores de físicas en WebGL.</p>
-      
+
       <div class="cta-row">
         <a class="btn btn-primary" href="#destacados">Explorar obras destacadas</a>
         <a class="btn btn-ghost" href="#proyectos">Archivo completo (22)</a>
@@ -1006,7 +1006,7 @@
         <h2>Creatividad técnica y proyectos insignia</h2>
         <p>Muestra de versatilidad: aplicaciones completas en la nube o 100% locales, integraciones e inferencia de IA, análisis de datos, suites multimedia y físicas en el navegador.</p>
       </div>
-      
+
       <div class="bento-grid">
         <!-- 1. OBRA MAESTRA MN (Game & Physics) -->
         <article class="bento-card bento-card-game">
@@ -1020,7 +1020,7 @@
             <h3>Obra Maestra MN</h3>
             <p>Videojuego 2D con motor de físicas personalizado, recolección de materiales y coladas de concreto. Desarrollado en Unity con WebAssembly para jugar al instante en el navegador sin descargas.</p>
             <div class="bento-actions">
-              <a class="btn btn-primary" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">Jugar demo en navegador</a>
+
               <button type="button" class="btn btn-ghost" onclick="openProjectModal('juego-construccion')">Ficha técnica</button>
             </div>
           </div>
@@ -1040,7 +1040,7 @@
             <h3>Web Studio</h3>
             <p>Editor de video y composición multipista en el navegador con renderizado en Canvas WebGL y herramientas asistidas por IA generativa.</p>
             <div class="bento-actions">
-              <a class="btn btn-primary" href="demos/web-studio/">Probar editor demo</a>
+
               <button type="button" class="btn btn-ghost" onclick="openProjectModal('web-studio')">Ficha técnica</button>
             </div>
           </div>
@@ -1073,7 +1073,7 @@
             <h3>Inferencia en 4 GB VRAM</h3>
             <p>Ruptura de barreras de memoria: modelos LLM de 7B (Mistral) corriendo a 23.4 tokens/seg en GPUs de 4 GB con cuantización INT4 GPTQ.</p>
             <div class="bento-actions">
-              <a class="btn btn-primary" href="proyectos/inferencia/">Ver investigación y demo</a>
+              <a class="btn btn-primary" href="proyectos/inferencia/">Ver investigación</a>
               <button type="button" class="btn btn-ghost" onclick="openProjectModal('inferencia')">Ficha técnica</button>
             </div>
           </div>
@@ -1094,7 +1094,7 @@
             <h3>MyAccountant</h3>
             <p>Sistema de gestión financiera y contabilidad personal con arquitectura 100% offline-first. Cero servidores externos y cero nube: almacenamiento local cifrado en IndexedDB, balances mensuales automatizados y control de gastos privado.</p>
             <div class="bento-actions">
-              <a class="btn btn-primary btn-amber" href="demos/myaccountant/">Probar app demo</a>
+
               <button type="button" class="btn btn-ghost" onclick="openProjectModal('myaccountant')">Ficha técnica</button>
             </div>
           </div>
@@ -1137,10 +1137,7 @@
               <span>Todos</span>
               <span class="pill-count">22</span>
             </button>
-            <button type="button" class="cat-pill" data-filter="demos">
-              <span>Demos en vivo</span>
-              <span class="pill-count">18</span>
-            </button>
+
             <button type="button" class="cat-pill" data-filter="ia">
               <span>IA &amp; ML</span>
               <span class="pill-count">7</span>
@@ -1166,8 +1163,8 @@
 
       <!-- GRID CARDS -->
       <div class="catalog-grid" id="catalogGrid">
-        <div class="card catalog-item" data-slug="juego-construccion" data-category="hardware" data-live="true" data-search="obra maestra mn videojuego · unity & webgl 3d, videojuegos & hardware unity 6 c# webgl webassembly supabase pwa plataformas 2d en unity compilado a webgl: junta material en orden de obra, abre sobres de acabados y termina tu casa. pwa con ranking." onclick="openProjectModal('juego-construccion')" tabindex="0" role="button" aria-label="Ver ficha técnica de Obra Maestra MN">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo jugable</span>
+        <div class="card catalog-item" data-slug="juego-construccion" data-category="hardware" data-search="obra maestra mn videojuego · unity & webgl 3d, videojuegos & hardware unity 6 c# webgl webassembly supabase pwa plataformas 2d en unity compilado a webgl: junta material en orden de obra, abre sobres de acabados y termina tu casa. pwa con ranking." onclick="openProjectModal('juego-construccion')" tabindex="0" role="button" aria-label="Ver ficha técnica de Obra Maestra MN">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="lazy" width="320" height="200" />
           </div>
@@ -1179,17 +1176,15 @@
             <p>Plataformas 2D en Unity compilado a WebGL: junta material en orden de obra, abre sobres de acabados y termina tu casa. PWA con ranking.</p>
             <div class="stack"><span class="chip">Unity 6</span><span class="chip">C#</span><span class="chip">WebGL</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">
-                Jugar demo en navegador
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('juego-construccion')" aria-label="Abrir ficha técnica de Obra Maestra MN">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="web-studio" data-category="ia" data-live="true" data-search="web studio ia & video editor ia & machine learning python fastapi ffmpeg claude · codex javascript editor de video local con ia: le cuentas la idea y arma una línea de tiempo multipista editable; exporta a mp4, premiere o davinci." onclick="openProjectModal('web-studio')" tabindex="0" role="button" aria-label="Ver ficha técnica de Web Studio">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="web-studio" data-category="ia" data-search="web studio ia & video editor ia & machine learning python fastapi ffmpeg claude · codex javascript editor de video local con ia: le cuentas la idea y arma una línea de tiempo multipista editable; exporta a mp4, premiere o davinci." onclick="openProjectModal('web-studio')" tabindex="0" role="button" aria-label="Ver ficha técnica de Web Studio">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/web-studio.jpg" alt="Web Studio" loading="lazy" width="320" height="200" />
           </div>
@@ -1201,16 +1196,14 @@
             <p>Editor de video local con IA: le cuentas la idea y arma una línea de tiempo multipista editable; exporta a MP4, Premiere o DaVinci.</p>
             <div class="stack"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">FFmpeg</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/web-studio/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('web-studio')" aria-label="Abrir ficha técnica de Web Studio">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="inferencia" data-category="ia" data-live="false" data-search="inferencia eficiente investigación en ia ia & machine learning python pytorch cuda gptq ollama laboratorio de cuantización de llms para gpus de 4 gb: gptq deja int4 e int3 casi sin pérdida y rompe el muro de int2 (de 2,588× a 12.45×)." onclick="openProjectModal('inferencia')" tabindex="0" role="button" aria-label="Ver ficha técnica de Inferencia eficiente">
+<div class="card catalog-item" data-slug="inferencia" data-category="ia" data-search="inferencia eficiente investigación en ia ia & machine learning python pytorch cuda gptq ollama laboratorio de cuantización de llms para gpus de 4 gb: gptq deja int4 e int3 casi sin pérdida y rompe el muro de int2 (de 2,588× a 12.45×)." onclick="openProjectModal('inferencia')" tabindex="0" role="button" aria-label="Ver ficha técnica de Inferencia eficiente">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="320" height="168" fill="#0d1320"/><rect x="20" y="20" width="280" height="128" rx="10" fill="#151d2f"/><text x="36" y="46" font-size="11" fill="#38bdf8" font-family="system-ui, sans-serif" font-weight="700">CUDA / VRAM OPTIMIZER</text><text x="36" y="68" font-size="20" fill="#f8fafc" font-family="system-ui, sans-serif" font-weight="800">2.4 GB / 4.0 GB</text><rect x="36" y="82" width="248" height="10" rx="5" fill="#1b2540"/><rect x="36" y="82" width="148" height="10" rx="5" fill="#38bdf8"/><text x="36" y="112" font-size="9" fill="#94a3b8" font-family="system-ui, sans-serif">INT4 GPTQ + Low-Rank Quantization</text><text x="36" y="128" font-size="9" fill="#34d399" font-family="system-ui, sans-serif">23.4 tokens/sec &middot; Mistral-7B</text></svg>
@@ -1232,8 +1225,8 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="myaccountant" data-category="web" data-live="true" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react vite firebase firestore cloud functions pwa capacitor three.js pwa de finanzas personales por quincena: sobres 50/30/20, límite diario con reserva, gastos fijos, avisos y mascotas 3d que crecen con tu ahorro." onclick="openProjectModal('myaccountant')" tabindex="0" role="button" aria-label="Ver ficha técnica de MyAccountant · Tus finanzas en orden">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="myaccountant" data-category="web" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react vite firebase firestore cloud functions pwa capacitor three.js pwa de finanzas personales por quincena: sobres 50/30/20, límite diario con reserva, gastos fijos, avisos y mascotas 3d que crecen con tu ahorro." onclick="openProjectModal('myaccountant')" tabindex="0" role="button" aria-label="Ver ficha técnica de MyAccountant · Tus finanzas en orden">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/myaccountant.jpg" alt="MyAccountant · Tus finanzas en orden" loading="lazy" width="320" height="200" />
           </div>
@@ -1245,17 +1238,15 @@
             <p>PWA de finanzas personales por quincena: sobres 50/30/20, límite diario con reserva, gastos fijos, avisos y mascotas 3D que crecen con tu ahorro.</p>
             <div class="stack"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Firebase</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="https://myaccountant-emilio.firebaseapp.com/" target="_blank" rel="noopener">
-                Abrir la app
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('myaccountant')" aria-label="Abrir ficha técnica de MyAccountant · Tus finanzas en orden">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="cora" data-category="ia" data-live="true" data-search="cora · asistente de ia conversacional ia conversacional · rag ia & machine learning node.js llms (openai / claude) sql server whatsapp api asistente de ia por whatsapp: entiende texto, voz e imágenes, da el precio real del erp, cotiza en pdf y escala a una persona cuando hace falta." onclick="openProjectModal('cora')" tabindex="0" role="button" aria-label="Ver ficha técnica de CORA · Asistente de IA conversacional">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="cora" data-category="ia" data-search="cora · asistente de ia conversacional ia conversacional · rag ia & machine learning node.js llms (openai / claude) sql server whatsapp api asistente de ia por whatsapp: entiende texto, voz e imágenes, da el precio real del erp, cotiza en pdf y escala a una persona cuando hace falta." onclick="openProjectModal('cora')" tabindex="0" role="button" aria-label="Ver ficha técnica de CORA · Asistente de IA conversacional">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/cora.jpg" alt="CORA · Asistente de IA conversacional" loading="lazy" width="320" height="200" />
           </div>
@@ -1267,17 +1258,15 @@
             <p>Asistente de IA por WhatsApp: entiende texto, voz e imágenes, da el precio real del ERP, cotiza en PDF y escala a una persona cuando hace falta.</p>
             <div class="stack"><span class="chip">Node.js</span><span class="chip">LLMs (OpenAI / Claude)</span><span class="chip">SQL Server</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="https://emiliougarte65.github.io/cora-showcase/" target="_blank" rel="noopener">
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('cora')" aria-label="Abrir ficha técnica de CORA · Asistente de IA conversacional">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="ourway" data-category="hardware" data-live="true" data-search="ourway atlas y viajes 3d 3d, videojuegos & hardware react three.js maplibre gl firebase vite atlas privado de viajes: un globo 3d baja a un mapa donde la ruta se reconstruye sola con la ubicación y hora de tus fotos." onclick="openProjectModal('ourway')" tabindex="0" role="button" aria-label="Ver ficha técnica de Ourway">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="ourway" data-category="hardware" data-search="ourway atlas y viajes 3d 3d, videojuegos & hardware react three.js maplibre gl firebase vite atlas privado de viajes: un globo 3d baja a un mapa donde la ruta se reconstruye sola con la ubicación y hora de tus fotos." onclick="openProjectModal('ourway')" tabindex="0" role="button" aria-label="Ver ficha técnica de Ourway">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/ourway.jpg" alt="Ourway" loading="lazy" width="320" height="200" />
           </div>
@@ -1289,17 +1278,15 @@
             <p>Atlas privado de viajes: un globo 3D baja a un mapa donde la ruta se reconstruye sola con la ubicación y hora de tus fotos.</p>
             <div class="stack"><span class="chip">React</span><span class="chip">Three.js</span><span class="chip">MapLibre GL</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/ourway/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ourway')" aria-label="Abrir ficha técnica de Ourway">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="ruta-clara" data-category="auto" data-live="true" data-search="ruta clara logística y mapas automatización & bi node.js react maplibre openstreetmap grafos / graphs rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, gps del chofer y seguimiento al cliente." onclick="openProjectModal('ruta-clara')" tabindex="0" role="button" aria-label="Ver ficha técnica de Ruta Clara">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="ruta-clara" data-category="auto" data-search="ruta clara logística y mapas automatización & bi node.js react maplibre openstreetmap grafos / graphs rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, gps del chofer y seguimiento al cliente." onclick="openProjectModal('ruta-clara')" tabindex="0" role="button" aria-label="Ver ficha técnica de Ruta Clara">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/ruta-clara.jpg" alt="Ruta Clara" loading="lazy" width="320" height="200" />
           </div>
@@ -1311,17 +1298,15 @@
             <p>Rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, GPS del chofer y seguimiento al cliente.</p>
             <div class="stack"><span class="chip">Node.js</span><span class="chip">React</span><span class="chip">MapLibre</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/ruta-clara/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('ruta-clara')" aria-label="Abrir ficha técnica de Ruta Clara">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="radar" data-category="auto" data-live="true" data-search="radar analítica comercial automatización & bi python sqlite fts5 sql server javascript analítica comercial: lee el erp en una pasada, prioriza clientes y cotizaciones con una fórmula visible y busca en milisegundos." onclick="openProjectModal('radar')" tabindex="0" role="button" aria-label="Ver ficha técnica de Radar">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="radar" data-category="auto" data-search="radar analítica comercial automatización & bi python sqlite fts5 sql server javascript analítica comercial: lee el erp en una pasada, prioriza clientes y cotizaciones con una fórmula visible y busca en milisegundos." onclick="openProjectModal('radar')" tabindex="0" role="button" aria-label="Ver ficha técnica de Radar">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/radar.jpg" alt="Radar" loading="lazy" width="320" height="200" />
           </div>
@@ -1333,16 +1318,14 @@
             <p>Analítica comercial: lee el ERP en una pasada, prioriza clientes y cotizaciones con una fórmula visible y busca en milisegundos.</p>
             <div class="stack"><span class="chip">Python</span><span class="chip">SQLite FTS5</span><span class="chip">SQL Server</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/radar/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('radar')" aria-label="Abrir ficha técnica de Radar">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="distrito" data-category="hardware" data-live="false" data-search="distrito gamificación de ventas con ia 3d, videojuegos & hardware three.js python pwa offline sqlite rfm machine learning blender docker playwright pwa de gamificación de ventas para asesores: misiones, ligas, mascota 3d y premios, con clientes priorizados por rfm y un modelo predictivo sobre el erp." onclick="openProjectModal('distrito')" tabindex="0" role="button" aria-label="Ver ficha técnica de Distrito">
+<div class="card catalog-item" data-slug="distrito" data-category="hardware" data-search="distrito gamificación de ventas con ia 3d, videojuegos & hardware three.js python pwa offline sqlite rfm machine learning blender docker playwright pwa de gamificación de ventas para asesores: misiones, ligas, mascota 3d y premios, con clientes priorizados por rfm y un modelo predictivo sobre el erp." onclick="openProjectModal('distrito')" tabindex="0" role="button" aria-label="Ver ficha técnica de Distrito">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
             <img src="assets/previews/distrito.jpg" alt="Distrito" loading="lazy" width="320" height="200" />
@@ -1364,7 +1347,7 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="dino-ai" data-category="ia" data-live="false" data-search="dino ai · una ia que aprende sola inteligencia artificial ia & machine learning python dqn stable-baselines3 gymnasium opencv una ia que aprende sola a jugar al dinosaurio de chrome: ve la pantalla con opencv y decide cuándo saltar con aprendizaje por refuerzo (dqn)." onclick="openProjectModal('dino-ai')" tabindex="0" role="button" aria-label="Ver ficha técnica de Dino AI · Una IA que aprende sola">
+<div class="card catalog-item" data-slug="dino-ai" data-category="ia" data-search="dino ai · una ia que aprende sola inteligencia artificial ia & machine learning python dqn stable-baselines3 gymnasium opencv una ia que aprende sola a jugar al dinosaurio de chrome: ve la pantalla con opencv y decide cuándo saltar con aprendizaje por refuerzo (dqn)." onclick="openProjectModal('dino-ai')" tabindex="0" role="button" aria-label="Ver ficha técnica de Dino AI · Una IA que aprende sola">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -1400,8 +1383,8 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="mundial" data-category="ia" data-live="true" data-search="mundial 2026 · predicción con ia machine learning · simulación ia & machine learning python xgboost elo monte carlo scikit-learn predicción del mundial 2026 con elo, dixon-coles y xgboost sobre 49k+ partidos históricos, y 10,000 simulaciones monte carlo del torneo." onclick="openProjectModal('mundial')" tabindex="0" role="button" aria-label="Ver ficha técnica de Mundial 2026 · Predicción con IA">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="mundial" data-category="ia" data-search="mundial 2026 · predicción con ia machine learning · simulación ia & machine learning python xgboost elo monte carlo scikit-learn predicción del mundial 2026 con elo, dixon-coles y xgboost sobre 49k+ partidos históricos, y 10,000 simulaciones monte carlo del torneo." onclick="openProjectModal('mundial')" tabindex="0" role="button" aria-label="Ver ficha técnica de Mundial 2026 · Predicción con IA">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/mundial.jpg" alt="Mundial 2026 · Predicción con IA" loading="lazy" width="320" height="200" />
           </div>
@@ -1413,17 +1396,15 @@
             <p>Predicción del Mundial 2026 con Elo, Dixon-Coles y XGBoost sobre 49k+ partidos históricos, y 10,000 simulaciones Monte Carlo del torneo.</p>
             <div class="stack"><span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">Elo</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/mundial/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('mundial')" aria-label="Abrir ficha técnica de Mundial 2026 · Predicción con IA">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="dexter" data-category="ia" data-live="true" data-search="dexter · asistentes de ia a tu medida inteligencia artificial ia & machine learning python mcp sqlite node.js go configurador de ecosistema para agentes de ia: memoria persistente, 46+ skills bajo demanda y servidores mcp en claude code, cursor, codex y más." onclick="openProjectModal('dexter')" tabindex="0" role="button" aria-label="Ver ficha técnica de Dexter · Asistentes de IA a tu medida">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="dexter" data-category="ia" data-search="dexter · asistentes de ia a tu medida inteligencia artificial ia & machine learning python mcp sqlite node.js go configurador de ecosistema para agentes de ia: memoria persistente, 46+ skills bajo demanda y servidores mcp en claude code, cursor, codex y más." onclick="openProjectModal('dexter')" tabindex="0" role="button" aria-label="Ver ficha técnica de Dexter · Asistentes de IA a tu medida">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
@@ -1455,8 +1436,8 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="nucleo" data-category="web" data-live="true" data-search="núcleo · tu negocio en una pantalla gestión de negocio web apps & erp react vite firebase firestore cloud functions express google calendar api oauth 2.0 erp sin servidores para un negocio de eventos: citas sincronizadas en dos sentidos con google calendar, cotizaciones en pdf, proveedores, gastos y reportes." onclick="openProjectModal('nucleo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Núcleo · Tu negocio en una pantalla">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="nucleo" data-category="web" data-search="núcleo · tu negocio en una pantalla gestión de negocio web apps & erp react vite firebase firestore cloud functions express google calendar api oauth 2.0 erp sin servidores para un negocio de eventos: citas sincronizadas en dos sentidos con google calendar, cotizaciones en pdf, proveedores, gastos y reportes." onclick="openProjectModal('nucleo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Núcleo · Tu negocio en una pantalla">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/nucleo.jpg" alt="Núcleo · Tu negocio en una pantalla" loading="lazy" width="320" height="200" />
           </div>
@@ -1468,17 +1449,15 @@
             <p>ERP sin servidores para un negocio de eventos: citas sincronizadas en dos sentidos con Google Calendar, cotizaciones en PDF, proveedores, gastos y reportes.</p>
             <div class="stack"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Firebase</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/nucleo/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nucleo')" aria-label="Abrir ficha técnica de Núcleo · Tu negocio en una pantalla">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="lumen" data-category="ia" data-live="true" data-search="lumen · pregúntale a tus números reportes inteligentes ia & machine learning node.js express nl-to-sql sql server chart.js bi conversacional: preguntas por voz o texto que un llm convierte en sql de solo lectura, ejecuta y narra, con tableros y exportación a excel." onclick="openProjectModal('lumen')" tabindex="0" role="button" aria-label="Ver ficha técnica de Lumen · Pregúntale a tus números">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="lumen" data-category="ia" data-search="lumen · pregúntale a tus números reportes inteligentes ia & machine learning node.js express nl-to-sql sql server chart.js bi conversacional: preguntas por voz o texto que un llm convierte en sql de solo lectura, ejecuta y narra, con tableros y exportación a excel." onclick="openProjectModal('lumen')" tabindex="0" role="button" aria-label="Ver ficha técnica de Lumen · Pregúntale a tus números">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/lumen.jpg" alt="Lumen · Pregúntale a tus números" loading="lazy" width="320" height="200" />
           </div>
@@ -1490,17 +1469,15 @@
             <p>BI conversacional: preguntas por voz o texto que un LLM convierte en SQL de solo lectura, ejecuta y narra, con tableros y exportación a Excel.</p>
             <div class="stack"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">NL-to-SQL</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/lumen/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('lumen')" aria-label="Abrir ficha técnica de Lumen · Pregúntale a tus números">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="vertice" data-category="web" data-live="true" data-search="vértice · app a la medida app de gestión web apps & erp react typescript dexie (indexeddb) fastapi postgresql alembic jwt docker gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor." onclick="openProjectModal('vertice')" tabindex="0" role="button" aria-label="Ver ficha técnica de Vértice · App a la medida">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="vertice" data-category="web" data-search="vértice · app a la medida app de gestión web apps & erp react typescript dexie (indexeddb) fastapi postgresql alembic jwt docker gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor." onclick="openProjectModal('vertice')" tabindex="0" role="button" aria-label="Ver ficha técnica de Vértice · App a la medida">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/vertice.jpg" alt="Vértice · App a la medida" loading="lazy" width="320" height="200" />
           </div>
@@ -1512,17 +1489,15 @@
             <p>Gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor.</p>
             <div class="stack"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Dexie (IndexedDB)</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/vertice/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vertice')" aria-label="Abrir ficha técnica de Vértice · App a la medida">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="vitrina" data-category="web" data-live="true" data-search="vitrina · tu tienda en internet tienda en línea web apps & erp react vite express sql server jwt mercado pago pwa tienda en línea completa: catálogo por categorías, buscador al instante, reseñas, carrito con descuentos, checkout y precios y existencias desde el erp." onclick="openProjectModal('vitrina')" tabindex="0" role="button" aria-label="Ver ficha técnica de Vitrina · Tu tienda en internet">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="vitrina" data-category="web" data-search="vitrina · tu tienda en internet tienda en línea web apps & erp react vite express sql server jwt mercado pago pwa tienda en línea completa: catálogo por categorías, buscador al instante, reseñas, carrito con descuentos, checkout y precios y existencias desde el erp." onclick="openProjectModal('vitrina')" tabindex="0" role="button" aria-label="Ver ficha técnica de Vitrina · Tu tienda en internet">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/vitrina.jpg" alt="Vitrina · Tu tienda en internet" loading="lazy" width="320" height="200" />
           </div>
@@ -1534,17 +1509,15 @@
             <p>Tienda en línea completa: catálogo por categorías, buscador al instante, reseñas, carrito con descuentos, checkout y precios y existencias desde el ERP.</p>
             <div class="stack"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Express</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/vitrina/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('vitrina')" aria-label="Abrir ficha técnica de Vitrina · Tu tienda en internet">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="nexo" data-category="auto" data-live="true" data-search="nexo · tu asistente por whatsapp atención al cliente automatización & bi node.js react socket.io sql server whatsapp cloud api crm de whatsapp para todo el equipo: bandeja compartida, ia activable por chat, agentes y flujos sin programar, y conexión al erp." onclick="openProjectModal('nexo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Nexo · Tu asistente por WhatsApp">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="nexo" data-category="auto" data-search="nexo · tu asistente por whatsapp atención al cliente automatización & bi node.js react socket.io sql server whatsapp cloud api crm de whatsapp para todo el equipo: bandeja compartida, ia activable por chat, agentes y flujos sin programar, y conexión al erp." onclick="openProjectModal('nexo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Nexo · Tu asistente por WhatsApp">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/nexo.jpg" alt="Nexo · Tu asistente por WhatsApp" loading="lazy" width="320" height="200" />
           </div>
@@ -1556,17 +1529,15 @@
             <p>CRM de WhatsApp para todo el equipo: bandeja compartida, IA activable por chat, agentes y flujos sin programar, y conexión al ERP.</p>
             <div class="stack"><span class="chip">Node.js</span><span class="chip">React</span><span class="chip">Socket.IO</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/nexo/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('nexo')" aria-label="Abrir ficha técnica de Nexo · Tu asistente por WhatsApp">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="brujula" data-category="auto" data-live="true" data-search="brújula · tus números por whatsapp bi por whatsapp automatización & bi python pandas sql server whatsapp cloud api bi por whatsapp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo." onclick="openProjectModal('brujula')" tabindex="0" role="button" aria-label="Ver ficha técnica de Brújula · Tus números por WhatsApp">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="brujula" data-category="auto" data-search="brújula · tus números por whatsapp bi por whatsapp automatización & bi python pandas sql server whatsapp cloud api bi por whatsapp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo." onclick="openProjectModal('brujula')" tabindex="0" role="button" aria-label="Ver ficha técnica de Brújula · Tus números por WhatsApp">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <rect width="320" height="168" fill="#0d1320"/>
@@ -1608,7 +1579,7 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="festo" data-category="auto" data-live="false" data-search="festo · felicita cumpleaños solo automatización automatización & bi node.js docker baileys react cada mañana revisa quién cumple años y le envía por whatsapp una felicitación con tarjeta. reintenta a mediodía sin duplicar." onclick="openProjectModal('festo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Festo · Felicita cumpleaños solo">
+<div class="card catalog-item" data-slug="festo" data-category="auto" data-search="festo · felicita cumpleaños solo automatización automatización & bi node.js docker baileys react cada mañana revisa quién cumple años y le envía por whatsapp una felicitación con tarjeta. reintenta a mediodía sin duplicar." onclick="openProjectModal('festo')" tabindex="0" role="button" aria-label="Ver ficha técnica de Festo · Felicita cumpleaños solo">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
             <img src="assets/previews/festo.jpg" alt="Festo · Felicita cumpleaños solo" loading="lazy" width="320" height="200" />
@@ -1630,8 +1601,8 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="pulso" data-category="web" data-live="true" data-search="pulso · encuestas sin internet encuestas web apps & erp react typescript dexie (indexeddb) pwa express prisma sql server socket.io encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real." onclick="openProjectModal('pulso')" tabindex="0" role="button" aria-label="Ver ficha técnica de Pulso · Encuestas sin internet">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Demo en vivo</span>
+<div class="card catalog-item" data-slug="pulso" data-category="web" data-search="pulso · encuestas sin internet encuestas web apps & erp react typescript dexie (indexeddb) pwa express prisma sql server socket.io encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real." onclick="openProjectModal('pulso')" tabindex="0" role="button" aria-label="Ver ficha técnica de Pulso · Encuestas sin internet">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/pulso.jpg" alt="Pulso · Encuestas sin internet" loading="lazy" width="320" height="200" />
           </div>
@@ -1643,16 +1614,14 @@
             <p>Encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real.</p>
             <div class="stack"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Dexie (IndexedDB)</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="demos/pulso/" >
-                Probar demo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('pulso')" aria-label="Abrir ficha técnica de Pulso · Encuestas sin internet">
                 Ficha técnica
               </button>
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="totem" data-category="hardware" data-live="false" data-search="totem · controla tu pantalla espectacular pantallas digitales 3d, videojuegos & hardware electron react react native firebase openweathermap cartelería digital: el tótem muestra un video según el clima con mensaje promocional; textos, horarios y videos se manejan desde el celular." onclick="openProjectModal('totem')" tabindex="0" role="button" aria-label="Ver ficha técnica de Totem · Controla tu pantalla espectacular">
+<div class="card catalog-item" data-slug="totem" data-category="hardware" data-search="totem · controla tu pantalla espectacular pantallas digitales 3d, videojuegos & hardware electron react react native firebase openweathermap cartelería digital: el tótem muestra un video según el clima con mensaje promocional; textos, horarios y videos se manejan desde el celular." onclick="openProjectModal('totem')" tabindex="0" role="button" aria-label="Ver ficha técnica de Totem · Controla tu pantalla espectacular">
           <span class="live badge-showcase">Showcase</span>
           <div class="preview">
             <img src="assets/previews/totem.jpg" alt="Totem · Controla tu pantalla espectacular" loading="lazy" width="320" height="200" />
@@ -1674,8 +1643,8 @@
             </div>
           </div>
         </div>
-<div class="card catalog-item" data-slug="marquesina" data-category="hardware" data-live="true" data-search="landing page · portafolio audiovisual sitio web · landing page 3d, videojuegos & hardware html css javascript ffmpeg github pages landing page y portafolio audiovisual en producción: portada tipo cartelera, filas de videos con vista previa, reproductor y seo." onclick="openProjectModal('marquesina')" tabindex="0" role="button" aria-label="Ver ficha técnica de Landing page · Portafolio audiovisual">
-          <span class="live badge-demo"><span class="beacon-pulse"></span>Sitio en vivo</span>
+<div class="card catalog-item" data-slug="marquesina" data-category="hardware" data-search="landing page · portafolio audiovisual sitio web · landing page 3d, videojuegos & hardware html css javascript ffmpeg github pages landing page y portafolio audiovisual en producción: portada tipo cartelera, filas de videos con vista previa, reproductor y seo." onclick="openProjectModal('marquesina')" tabindex="0" role="button" aria-label="Ver ficha técnica de Landing page · Portafolio audiovisual">
+          <span class="live badge-demo"><span class="beacon-pulse"></span>Showcase</span>
           <div class="preview">
             <img src="assets/previews/marquesina.jpg" alt="Landing page · Portafolio audiovisual" loading="lazy" width="320" height="200" />
           </div>
@@ -1687,9 +1656,7 @@
             <p>Landing page y portafolio audiovisual en producción: portada tipo cartelera, filas de videos con vista previa, reproductor y SEO.</p>
             <div class="stack"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
             <div class="card-actions" onclick="event.stopPropagation()">
-              <a class="btn-micro btn-action" href="https://almacast.github.io/portafolio/" target="_blank" rel="noopener">
-                Ver sitio en vivo
-              </a>
+
               <button type="button" class="btn-micro btn-inspect" onclick="openProjectModal('marquesina')" aria-label="Abrir ficha técnica de Landing page · Portafolio audiovisual">
                 Ficha técnica
               </button>
@@ -1711,7 +1678,7 @@
             </tr>
           </thead>
           <tbody id="catalogIndexBody">
-            <tr class="index-row catalog-item" data-slug="juego-construccion" data-category="hardware" data-live="true" data-search="obra maestra mn videojuego · unity & webgl 3d, videojuegos & hardware unity 6 c# webgl webassembly supabase pwa plataformas 2d en unity compilado a webgl: junta material en orden de obra, abre sobres de acabados y termina tu casa. pwa con ranking." onclick="openProjectModal('juego-construccion')" tabindex="0" role="button" aria-label="Ver detalles de Obra Maestra MN">
+            <tr class="index-row catalog-item" data-slug="juego-construccion" data-category="hardware" data-search="obra maestra mn videojuego · unity & webgl 3d, videojuegos & hardware unity 6 c# webgl webassembly supabase pwa plataformas 2d en unity compilado a webgl: junta material en orden de obra, abre sobres de acabados y termina tu casa. pwa con ranking." onclick="openProjectModal('juego-construccion')" tabindex="0" role="button" aria-label="Ver detalles de Obra Maestra MN">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/juego-construccion.jpg" alt="Obra Maestra MN" loading="lazy" width="320" height="200" /></div>
@@ -1728,13 +1695,13 @@
             <div class="index-stack-wrap"><span class="chip">Unity 6</span><span class="chip">C#</span><span class="chip">WebGL</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo jugable</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="https://mnlaobramaestra.netlify.app/" target="_blank" rel="noopener">Jugar demo en navegador</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="web-studio" data-category="ia" data-live="true" data-search="web studio ia & video editor ia & machine learning python fastapi ffmpeg claude · codex javascript editor de video local con ia: le cuentas la idea y arma una línea de tiempo multipista editable; exporta a mp4, premiere o davinci." onclick="openProjectModal('web-studio')" tabindex="0" role="button" aria-label="Ver detalles de Web Studio">
+<tr class="index-row catalog-item" data-slug="web-studio" data-category="ia" data-search="web studio ia & video editor ia & machine learning python fastapi ffmpeg claude · codex javascript editor de video local con ia: le cuentas la idea y arma una línea de tiempo multipista editable; exporta a mp4, premiere o davinci." onclick="openProjectModal('web-studio')" tabindex="0" role="button" aria-label="Ver detalles de Web Studio">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/web-studio.jpg" alt="Web Studio" loading="lazy" width="320" height="200" /></div>
@@ -1751,13 +1718,13 @@
             <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">FFmpeg</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/web-studio/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="inferencia" data-category="ia" data-live="false" data-search="inferencia eficiente investigación en ia ia & machine learning python pytorch cuda gptq ollama laboratorio de cuantización de llms para gpus de 4 gb: gptq deja int4 e int3 casi sin pérdida y rompe el muro de int2 (de 2,588× a 12.45×)." onclick="openProjectModal('inferencia')" tabindex="0" role="button" aria-label="Ver detalles de Inferencia eficiente">
+<tr class="index-row catalog-item" data-slug="inferencia" data-category="ia" data-search="inferencia eficiente investigación en ia ia & machine learning python pytorch cuda gptq ollama laboratorio de cuantización de llms para gpus de 4 gb: gptq deja int4 e int3 casi sin pérdida y rompe el muro de int2 (de 2,588× a 12.45×)." onclick="openProjectModal('inferencia')" tabindex="0" role="button" aria-label="Ver detalles de Inferencia eficiente">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="320" height="168" fill="#0d1320"/><rect x="20" y="20" width="280" height="128" rx="10" fill="#151d2f"/><text x="36" y="46" font-size="11" fill="#38bdf8" font-family="system-ui, sans-serif" font-weight="700">CUDA / VRAM OPTIMIZER</text><text x="36" y="68" font-size="20" fill="#f8fafc" font-family="system-ui, sans-serif" font-weight="800">2.4 GB / 4.0 GB</text><rect x="36" y="82" width="248" height="10" rx="5" fill="#1b2540"/><rect x="36" y="82" width="148" height="10" rx="5" fill="#38bdf8"/><text x="36" y="112" font-size="9" fill="#94a3b8" font-family="system-ui, sans-serif">INT4 GPTQ + Low-Rank Quantization</text><text x="36" y="128" font-size="9" fill="#34d399" font-family="system-ui, sans-serif">23.4 tokens/sec &middot; Mistral-7B</text></svg></div>
@@ -1780,7 +1747,7 @@
             <a class="index-go-btn" href="proyectos/inferencia/" >Ver presentación</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="myaccountant" data-category="web" data-live="true" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react vite firebase firestore cloud functions pwa capacitor three.js pwa de finanzas personales por quincena: sobres 50/30/20, límite diario con reserva, gastos fijos, avisos y mascotas 3d que crecen con tu ahorro." onclick="openProjectModal('myaccountant')" tabindex="0" role="button" aria-label="Ver detalles de MyAccountant · Tus finanzas en orden">
+<tr class="index-row catalog-item" data-slug="myaccountant" data-category="web" data-search="myaccountant · tus finanzas en orden app de finanzas personales web apps & erp react vite firebase firestore cloud functions pwa capacitor three.js pwa de finanzas personales por quincena: sobres 50/30/20, límite diario con reserva, gastos fijos, avisos y mascotas 3d que crecen con tu ahorro." onclick="openProjectModal('myaccountant')" tabindex="0" role="button" aria-label="Ver detalles de MyAccountant · Tus finanzas en orden">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/myaccountant.jpg" alt="MyAccountant · Tus finanzas en orden" loading="lazy" width="320" height="200" /></div>
@@ -1797,13 +1764,13 @@
             <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Firebase</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="https://myaccountant-emilio.firebaseapp.com/" target="_blank" rel="noopener">Abrir la app</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="cora" data-category="ia" data-live="true" data-search="cora · asistente de ia conversacional ia conversacional · rag ia & machine learning node.js llms (openai / claude) sql server whatsapp api asistente de ia por whatsapp: entiende texto, voz e imágenes, da el precio real del erp, cotiza en pdf y escala a una persona cuando hace falta." onclick="openProjectModal('cora')" tabindex="0" role="button" aria-label="Ver detalles de CORA · Asistente de IA conversacional">
+<tr class="index-row catalog-item" data-slug="cora" data-category="ia" data-search="cora · asistente de ia conversacional ia conversacional · rag ia & machine learning node.js llms (openai / claude) sql server whatsapp api asistente de ia por whatsapp: entiende texto, voz e imágenes, da el precio real del erp, cotiza en pdf y escala a una persona cuando hace falta." onclick="openProjectModal('cora')" tabindex="0" role="button" aria-label="Ver detalles de CORA · Asistente de IA conversacional">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/cora.jpg" alt="CORA · Asistente de IA conversacional" loading="lazy" width="320" height="200" /></div>
@@ -1820,13 +1787,13 @@
             <div class="index-stack-wrap"><span class="chip">Node.js</span><span class="chip">LLMs (OpenAI / Claude)</span><span class="chip">SQL Server</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="https://emiliougarte65.github.io/cora-showcase/" target="_blank" rel="noopener">Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="ourway" data-category="hardware" data-live="true" data-search="ourway atlas y viajes 3d 3d, videojuegos & hardware react three.js maplibre gl firebase vite atlas privado de viajes: un globo 3d baja a un mapa donde la ruta se reconstruye sola con la ubicación y hora de tus fotos." onclick="openProjectModal('ourway')" tabindex="0" role="button" aria-label="Ver detalles de Ourway">
+<tr class="index-row catalog-item" data-slug="ourway" data-category="hardware" data-search="ourway atlas y viajes 3d 3d, videojuegos & hardware react three.js maplibre gl firebase vite atlas privado de viajes: un globo 3d baja a un mapa donde la ruta se reconstruye sola con la ubicación y hora de tus fotos." onclick="openProjectModal('ourway')" tabindex="0" role="button" aria-label="Ver detalles de Ourway">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/ourway.jpg" alt="Ourway" loading="lazy" width="320" height="200" /></div>
@@ -1843,13 +1810,13 @@
             <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">Three.js</span><span class="chip">MapLibre GL</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/ourway/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="ruta-clara" data-category="auto" data-live="true" data-search="ruta clara logística y mapas automatización & bi node.js react maplibre openstreetmap grafos / graphs rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, gps del chofer y seguimiento al cliente." onclick="openProjectModal('ruta-clara')" tabindex="0" role="button" aria-label="Ver detalles de Ruta Clara">
+<tr class="index-row catalog-item" data-slug="ruta-clara" data-category="auto" data-search="ruta clara logística y mapas automatización & bi node.js react maplibre openstreetmap grafos / graphs rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, gps del chofer y seguimiento al cliente." onclick="openProjectModal('ruta-clara')" tabindex="0" role="button" aria-label="Ver detalles de Ruta Clara">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/ruta-clara.jpg" alt="Ruta Clara" loading="lazy" width="320" height="200" /></div>
@@ -1866,13 +1833,13 @@
             <div class="index-stack-wrap"><span class="chip">Node.js</span><span class="chip">React</span><span class="chip">MapLibre</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/ruta-clara/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="radar" data-category="auto" data-live="true" data-search="radar analítica comercial automatización & bi python sqlite fts5 sql server javascript analítica comercial: lee el erp en una pasada, prioriza clientes y cotizaciones con una fórmula visible y busca en milisegundos." onclick="openProjectModal('radar')" tabindex="0" role="button" aria-label="Ver detalles de Radar">
+<tr class="index-row catalog-item" data-slug="radar" data-category="auto" data-search="radar analítica comercial automatización & bi python sqlite fts5 sql server javascript analítica comercial: lee el erp en una pasada, prioriza clientes y cotizaciones con una fórmula visible y busca en milisegundos." onclick="openProjectModal('radar')" tabindex="0" role="button" aria-label="Ver detalles de Radar">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/radar.jpg" alt="Radar" loading="lazy" width="320" height="200" /></div>
@@ -1889,13 +1856,13 @@
             <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">SQLite FTS5</span><span class="chip">SQL Server</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/radar/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="distrito" data-category="hardware" data-live="false" data-search="distrito gamificación de ventas con ia 3d, videojuegos & hardware three.js python pwa offline sqlite rfm machine learning blender docker playwright pwa de gamificación de ventas para asesores: misiones, ligas, mascota 3d y premios, con clientes priorizados por rfm y un modelo predictivo sobre el erp." onclick="openProjectModal('distrito')" tabindex="0" role="button" aria-label="Ver detalles de Distrito">
+<tr class="index-row catalog-item" data-slug="distrito" data-category="hardware" data-search="distrito gamificación de ventas con ia 3d, videojuegos & hardware three.js python pwa offline sqlite rfm machine learning blender docker playwright pwa de gamificación de ventas para asesores: misiones, ligas, mascota 3d y premios, con clientes priorizados por rfm y un modelo predictivo sobre el erp." onclick="openProjectModal('distrito')" tabindex="0" role="button" aria-label="Ver detalles de Distrito">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/distrito.jpg" alt="Distrito" loading="lazy" width="320" height="200" /></div>
@@ -1918,7 +1885,7 @@
             <a class="index-go-btn" href="proyectos/distrito/" >Ver presentación</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="dino-ai" data-category="ia" data-live="false" data-search="dino ai · una ia que aprende sola inteligencia artificial ia & machine learning python dqn stable-baselines3 gymnasium opencv una ia que aprende sola a jugar al dinosaurio de chrome: ve la pantalla con opencv y decide cuándo saltar con aprendizaje por refuerzo (dqn)." onclick="openProjectModal('dino-ai')" tabindex="0" role="button" aria-label="Ver detalles de Dino AI · Una IA que aprende sola">
+<tr class="index-row catalog-item" data-slug="dino-ai" data-category="ia" data-search="dino ai · una ia que aprende sola inteligencia artificial ia & machine learning python dqn stable-baselines3 gymnasium opencv una ia que aprende sola a jugar al dinosaurio de chrome: ve la pantalla con opencv y decide cuándo saltar con aprendizaje por refuerzo (dqn)." onclick="openProjectModal('dino-ai')" tabindex="0" role="button" aria-label="Ver detalles de Dino AI · Una IA que aprende sola">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -1955,7 +1922,7 @@
             <a class="index-go-btn" href="proyectos/dino-ai/" >Ver presentación</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="mundial" data-category="ia" data-live="true" data-search="mundial 2026 · predicción con ia machine learning · simulación ia & machine learning python xgboost elo monte carlo scikit-learn predicción del mundial 2026 con elo, dixon-coles y xgboost sobre 49k+ partidos históricos, y 10,000 simulaciones monte carlo del torneo." onclick="openProjectModal('mundial')" tabindex="0" role="button" aria-label="Ver detalles de Mundial 2026 · Predicción con IA">
+<tr class="index-row catalog-item" data-slug="mundial" data-category="ia" data-search="mundial 2026 · predicción con ia machine learning · simulación ia & machine learning python xgboost elo monte carlo scikit-learn predicción del mundial 2026 con elo, dixon-coles y xgboost sobre 49k+ partidos históricos, y 10,000 simulaciones monte carlo del torneo." onclick="openProjectModal('mundial')" tabindex="0" role="button" aria-label="Ver detalles de Mundial 2026 · Predicción con IA">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/mundial.jpg" alt="Mundial 2026 · Predicción con IA" loading="lazy" width="320" height="200" /></div>
@@ -1972,13 +1939,13 @@
             <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">XGBoost</span><span class="chip">Elo</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/mundial/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="dexter" data-category="ia" data-live="true" data-search="dexter · asistentes de ia a tu medida inteligencia artificial ia & machine learning python mcp sqlite node.js go configurador de ecosistema para agentes de ia: memoria persistente, 46+ skills bajo demanda y servidores mcp en claude code, cursor, codex y más." onclick="openProjectModal('dexter')" tabindex="0" role="button" aria-label="Ver detalles de Dexter · Asistentes de IA a tu medida">
+<tr class="index-row catalog-item" data-slug="dexter" data-category="ia" data-search="dexter · asistentes de ia a tu medida inteligencia artificial ia & machine learning python mcp sqlite node.js go configurador de ecosistema para agentes de ia: memoria persistente, 46+ skills bajo demanda y servidores mcp en claude code, cursor, codex y más." onclick="openProjectModal('dexter')" tabindex="0" role="button" aria-label="Ver detalles de Dexter · Asistentes de IA a tu medida">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -2006,13 +1973,13 @@
             <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">MCP</span><span class="chip">SQLite</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
             <a class="index-go-btn" href="proyectos/dexter/" >Probar demo</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="nucleo" data-category="web" data-live="true" data-search="núcleo · tu negocio en una pantalla gestión de negocio web apps & erp react vite firebase firestore cloud functions express google calendar api oauth 2.0 erp sin servidores para un negocio de eventos: citas sincronizadas en dos sentidos con google calendar, cotizaciones en pdf, proveedores, gastos y reportes." onclick="openProjectModal('nucleo')" tabindex="0" role="button" aria-label="Ver detalles de Núcleo · Tu negocio en una pantalla">
+<tr class="index-row catalog-item" data-slug="nucleo" data-category="web" data-search="núcleo · tu negocio en una pantalla gestión de negocio web apps & erp react vite firebase firestore cloud functions express google calendar api oauth 2.0 erp sin servidores para un negocio de eventos: citas sincronizadas en dos sentidos con google calendar, cotizaciones en pdf, proveedores, gastos y reportes." onclick="openProjectModal('nucleo')" tabindex="0" role="button" aria-label="Ver detalles de Núcleo · Tu negocio en una pantalla">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/nucleo.jpg" alt="Núcleo · Tu negocio en una pantalla" loading="lazy" width="320" height="200" /></div>
@@ -2029,13 +1996,13 @@
             <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Firebase</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/nucleo/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="lumen" data-category="ia" data-live="true" data-search="lumen · pregúntale a tus números reportes inteligentes ia & machine learning node.js express nl-to-sql sql server chart.js bi conversacional: preguntas por voz o texto que un llm convierte en sql de solo lectura, ejecuta y narra, con tableros y exportación a excel." onclick="openProjectModal('lumen')" tabindex="0" role="button" aria-label="Ver detalles de Lumen · Pregúntale a tus números">
+<tr class="index-row catalog-item" data-slug="lumen" data-category="ia" data-search="lumen · pregúntale a tus números reportes inteligentes ia & machine learning node.js express nl-to-sql sql server chart.js bi conversacional: preguntas por voz o texto que un llm convierte en sql de solo lectura, ejecuta y narra, con tableros y exportación a excel." onclick="openProjectModal('lumen')" tabindex="0" role="button" aria-label="Ver detalles de Lumen · Pregúntale a tus números">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/lumen.jpg" alt="Lumen · Pregúntale a tus números" loading="lazy" width="320" height="200" /></div>
@@ -2052,13 +2019,13 @@
             <div class="index-stack-wrap"><span class="chip">Node.js</span><span class="chip">Express</span><span class="chip">NL-to-SQL</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/lumen/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="vertice" data-category="web" data-live="true" data-search="vértice · app a la medida app de gestión web apps & erp react typescript dexie (indexeddb) fastapi postgresql alembic jwt docker gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor." onclick="openProjectModal('vertice')" tabindex="0" role="button" aria-label="Ver detalles de Vértice · App a la medida">
+<tr class="index-row catalog-item" data-slug="vertice" data-category="web" data-search="vértice · app a la medida app de gestión web apps & erp react typescript dexie (indexeddb) fastapi postgresql alembic jwt docker gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor." onclick="openProjectModal('vertice')" tabindex="0" role="button" aria-label="Ver detalles de Vértice · App a la medida">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/vertice.jpg" alt="Vértice · App a la medida" loading="lazy" width="320" height="200" /></div>
@@ -2075,13 +2042,13 @@
             <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Dexie (IndexedDB)</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/vertice/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="vitrina" data-category="web" data-live="true" data-search="vitrina · tu tienda en internet tienda en línea web apps & erp react vite express sql server jwt mercado pago pwa tienda en línea completa: catálogo por categorías, buscador al instante, reseñas, carrito con descuentos, checkout y precios y existencias desde el erp." onclick="openProjectModal('vitrina')" tabindex="0" role="button" aria-label="Ver detalles de Vitrina · Tu tienda en internet">
+<tr class="index-row catalog-item" data-slug="vitrina" data-category="web" data-search="vitrina · tu tienda en internet tienda en línea web apps & erp react vite express sql server jwt mercado pago pwa tienda en línea completa: catálogo por categorías, buscador al instante, reseñas, carrito con descuentos, checkout y precios y existencias desde el erp." onclick="openProjectModal('vitrina')" tabindex="0" role="button" aria-label="Ver detalles de Vitrina · Tu tienda en internet">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/vitrina.jpg" alt="Vitrina · Tu tienda en internet" loading="lazy" width="320" height="200" /></div>
@@ -2098,13 +2065,13 @@
             <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">Vite</span><span class="chip">Express</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/vitrina/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="nexo" data-category="auto" data-live="true" data-search="nexo · tu asistente por whatsapp atención al cliente automatización & bi node.js react socket.io sql server whatsapp cloud api crm de whatsapp para todo el equipo: bandeja compartida, ia activable por chat, agentes y flujos sin programar, y conexión al erp." onclick="openProjectModal('nexo')" tabindex="0" role="button" aria-label="Ver detalles de Nexo · Tu asistente por WhatsApp">
+<tr class="index-row catalog-item" data-slug="nexo" data-category="auto" data-search="nexo · tu asistente por whatsapp atención al cliente automatización & bi node.js react socket.io sql server whatsapp cloud api crm de whatsapp para todo el equipo: bandeja compartida, ia activable por chat, agentes y flujos sin programar, y conexión al erp." onclick="openProjectModal('nexo')" tabindex="0" role="button" aria-label="Ver detalles de Nexo · Tu asistente por WhatsApp">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/nexo.jpg" alt="Nexo · Tu asistente por WhatsApp" loading="lazy" width="320" height="200" /></div>
@@ -2121,13 +2088,13 @@
             <div class="index-stack-wrap"><span class="chip">Node.js</span><span class="chip">React</span><span class="chip">Socket.IO</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/nexo/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="brujula" data-category="auto" data-live="true" data-search="brújula · tus números por whatsapp bi por whatsapp automatización & bi python pandas sql server whatsapp cloud api bi por whatsapp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo." onclick="openProjectModal('brujula')" tabindex="0" role="button" aria-label="Ver detalles de Brújula · Tus números por WhatsApp">
+<tr class="index-row catalog-item" data-slug="brujula" data-category="auto" data-search="brújula · tus números por whatsapp bi por whatsapp automatización & bi python pandas sql server whatsapp cloud api bi por whatsapp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo." onclick="openProjectModal('brujula')" tabindex="0" role="button" aria-label="Ver detalles de Brújula · Tus números por WhatsApp">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><svg viewBox="0 0 320 168" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
@@ -2165,13 +2132,13 @@
             <div class="index-stack-wrap"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">SQL Server</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
             <a class="index-go-btn" href="proyectos/brujula/" >Probar demo</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="festo" data-category="auto" data-live="false" data-search="festo · felicita cumpleaños solo automatización automatización & bi node.js docker baileys react cada mañana revisa quién cumple años y le envía por whatsapp una felicitación con tarjeta. reintenta a mediodía sin duplicar." onclick="openProjectModal('festo')" tabindex="0" role="button" aria-label="Ver detalles de Festo · Felicita cumpleaños solo">
+<tr class="index-row catalog-item" data-slug="festo" data-category="auto" data-search="festo · felicita cumpleaños solo automatización automatización & bi node.js docker baileys react cada mañana revisa quién cumple años y le envía por whatsapp una felicitación con tarjeta. reintenta a mediodía sin duplicar." onclick="openProjectModal('festo')" tabindex="0" role="button" aria-label="Ver detalles de Festo · Felicita cumpleaños solo">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/festo.jpg" alt="Festo · Felicita cumpleaños solo" loading="lazy" width="320" height="200" /></div>
@@ -2194,7 +2161,7 @@
             <a class="index-go-btn" href="proyectos/festo/" >Ver presentación</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="pulso" data-category="web" data-live="true" data-search="pulso · encuestas sin internet encuestas web apps & erp react typescript dexie (indexeddb) pwa express prisma sql server socket.io encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real." onclick="openProjectModal('pulso')" tabindex="0" role="button" aria-label="Ver detalles de Pulso · Encuestas sin internet">
+<tr class="index-row catalog-item" data-slug="pulso" data-category="web" data-search="pulso · encuestas sin internet encuestas web apps & erp react typescript dexie (indexeddb) pwa express prisma sql server socket.io encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real." onclick="openProjectModal('pulso')" tabindex="0" role="button" aria-label="Ver detalles de Pulso · Encuestas sin internet">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/pulso.jpg" alt="Pulso · Encuestas sin internet" loading="lazy" width="320" height="200" /></div>
@@ -2211,13 +2178,13 @@
             <div class="index-stack-wrap"><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Dexie (IndexedDB)</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Demo en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="demos/pulso/" >Probar demo</a>
+
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="totem" data-category="hardware" data-live="false" data-search="totem · controla tu pantalla espectacular pantallas digitales 3d, videojuegos & hardware electron react react native firebase openweathermap cartelería digital: el tótem muestra un video según el clima con mensaje promocional; textos, horarios y videos se manejan desde el celular." onclick="openProjectModal('totem')" tabindex="0" role="button" aria-label="Ver detalles de Totem · Controla tu pantalla espectacular">
+<tr class="index-row catalog-item" data-slug="totem" data-category="hardware" data-search="totem · controla tu pantalla espectacular pantallas digitales 3d, videojuegos & hardware electron react react native firebase openweathermap cartelería digital: el tótem muestra un video según el clima con mensaje promocional; textos, horarios y videos se manejan desde el celular." onclick="openProjectModal('totem')" tabindex="0" role="button" aria-label="Ver detalles de Totem · Controla tu pantalla espectacular">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/totem.jpg" alt="Totem · Controla tu pantalla espectacular" loading="lazy" width="320" height="200" /></div>
@@ -2240,7 +2207,7 @@
             <a class="index-go-btn" href="proyectos/totem/" >Ver presentación</a>
           </td>
         </tr>
-<tr class="index-row catalog-item" data-slug="marquesina" data-category="hardware" data-live="true" data-search="landing page · portafolio audiovisual sitio web · landing page 3d, videojuegos & hardware html css javascript ffmpeg github pages landing page y portafolio audiovisual en producción: portada tipo cartelera, filas de videos con vista previa, reproductor y seo." onclick="openProjectModal('marquesina')" tabindex="0" role="button" aria-label="Ver detalles de Landing page · Portafolio audiovisual">
+<tr class="index-row catalog-item" data-slug="marquesina" data-category="hardware" data-search="landing page · portafolio audiovisual sitio web · landing page 3d, videojuegos & hardware html css javascript ffmpeg github pages landing page y portafolio audiovisual en producción: portada tipo cartelera, filas de videos con vista previa, reproductor y seo." onclick="openProjectModal('marquesina')" tabindex="0" role="button" aria-label="Ver detalles de Landing page · Portafolio audiovisual">
           <td class="col-project">
             <div class="index-proj-cell">
               <div class="index-thumb-mini"><img src="assets/previews/marquesina.jpg" alt="Landing page · Portafolio audiovisual" loading="lazy" width="320" height="200" /></div>
@@ -2257,10 +2224,10 @@
             <div class="index-stack-wrap"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span></div>
           </td>
           <td class="col-status">
-            <span class="live badge-demo">Sitio en vivo</span>
+            <span class="live badge-demo">Showcase</span>
           </td>
           <td class="col-action" onclick="event.stopPropagation()">
-            <a class="index-go-btn" href="https://almacast.github.io/portafolio/" target="_blank" rel="noopener">Ver sitio en vivo</a>
+
           </td>
         </tr>
           </tbody>
@@ -2286,7 +2253,7 @@
       <div class="modal-body">
         <div class="modal-preview-box" id="modalPreview"></div>
         <div class="modal-badge-row">
-          <span class="live" id="modalBadge">Demo</span>
+          <span class="live" id="modalBadge">Showcase</span>
           <span class="index-cat-badge" id="modalCat">Categoría</span>
         </div>
         <h3 class="modal-title" id="modalProjTitle">Título del proyecto</h3>
@@ -2295,7 +2262,7 @@
         <div class="modal-stack-label">Tecnologías utilizadas:</div>
         <div class="stack" id="modalStack"></div>
         <div class="modal-foot-actions">
-          <a class="btn btn-primary" id="modalDemoBtn" href="#" target="_blank" rel="noopener">Abrir demo en vivo</a>
+
           <a class="btn btn-ghost" id="modalShowcaseBtn" href="#">Ver presentación completa</a>
         </div>
       </div>
@@ -2385,7 +2352,7 @@
         </details>
         <details class="faq-item">
           <summary>¿Cómo contactar o contratar a Emilio Fonseca?</summary>
-          <p>Puedes contactarlo directamente por WhatsApp al +52 833 681 7886, por correo electrónico en emilio656565@outlook.com, o explorar su currículum interactivo y 18 demostraciones en vivo en este catálogo.</p>
+          <p>Puedes contactarlo directamente por WhatsApp al +52 833 681 7886, por correo electrónico en emilio656565@outlook.com, o explorar su currículum interactivo y los showcases en este catálogo.</p>
         </details>
       </div>
     </div>
@@ -2402,7 +2369,7 @@
           <a class="btn btn-ghost" href="cv/">CV Interactivo</a>
           <a class="btn btn-ghost" href="cv/Emilio-Fonseca-CV-ES.pdf" download>Descargar CV (PDF)</a>
           <a class="btn btn-ghost" href="https://www.linkedin.com/in/emilio-fonseca65" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn-ghost" href="https://github.com/EmilioUgarte65" target="_blank" rel="noopener">GitHub</a>
+
         </div>
         <div class="contact-coverage-banner">
           <svg viewBox="0 0 20 20" fill="currentColor" width="15" height="15" style="flex-shrink:0;color:var(--accent)" aria-hidden="true"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
@@ -2621,7 +2588,7 @@
     });
 
     // CATALOG FILTERING & LIVE SEARCH
-    var MODAL_DATA = {"juego-construccion": {"title": "Obra Maestra MN", "tag": "Videojuego · Unity & WebGL", "badge": "Demo jugable", "cat": "3D, Videojuegos & Hardware", "description": "Plataformas 2D en Unity compilado a WebGL: junta material en orden de obra, abre sobres de acabados y termina tu casa. PWA con ranking.", "metric": "Niveles procedurales validados · 700+ pruebas · arranque móvil < 20 MiB", "stack": ["Unity 6", "C#", "WebGL", "WebAssembly", "Supabase", "PWA"], "showcase_url": "proyectos/juego-construccion/", "demo_url": "https://mnlaobramaestra.netlify.app/", "is_live": true, "is_game": true}, "web-studio": {"title": "Web Studio", "tag": "IA & Video Editor", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Editor de video local con IA: le cuentas la idea y arma una línea de tiempo multipista editable; exporta a MP4, Premiere o DaVinci.", "metric": "Planes de edición JSON validados y crítico interno que revisa cada render", "stack": ["Python", "FastAPI", "FFmpeg", "Claude · Codex", "JavaScript"], "showcase_url": "proyectos/web-studio/", "demo_url": "demos/web-studio/", "is_live": true, "is_game": false}, "inferencia": {"title": "Inferencia eficiente", "tag": "Investigación en IA", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Laboratorio de cuantización de LLMs para GPUs de 4 GB: GPTQ deja INT4 e INT3 casi sin pérdida y rompe el muro de INT2 (de 2,588× a 12.45×).", "metric": "INT2 de 2,588× a 12.45× de pérdida en GPT-2 · INT4 a 1.01×", "stack": ["Python", "PyTorch", "CUDA", "GPTQ", "Ollama"], "showcase_url": "proyectos/inferencia/", "demo_url": "proyectos/inferencia/", "is_live": false, "is_game": false}, "myaccountant": {"title": "MyAccountant · Tus finanzas en orden", "tag": "App de finanzas personales", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "PWA de finanzas personales por quincena: sobres 50/30/20, límite diario con reserva, gastos fijos, avisos y mascotas 3D que crecen con tu ahorro.", "metric": "Web, Android y offline", "stack": ["React", "Vite", "Firebase", "Firestore", "Cloud Functions", "PWA", "Capacitor", "Three.js"], "showcase_url": "proyectos/myaccountant/", "demo_url": "https://myaccountant-emilio.firebaseapp.com/", "is_live": true, "is_game": false}, "cora": {"title": "CORA · Asistente de IA conversacional", "tag": "IA Conversacional · RAG", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Asistente de IA por WhatsApp: entiende texto, voz e imágenes, da el precio real del ERP, cotiza en PDF y escala a una persona cuando hace falta.", "metric": "Agentes especializados · cotiza con precios del ERP", "stack": ["Node.js", "LLMs (OpenAI / Claude)", "SQL Server", "WhatsApp API"], "showcase_url": "proyectos/cora/", "demo_url": "https://emiliougarte65.github.io/cora-showcase/", "is_live": true, "is_game": false}, "ourway": {"title": "Ourway", "tag": "Atlas y viajes 3D", "badge": "Demo en vivo", "cat": "3D, Videojuegos & Hardware", "description": "Atlas privado de viajes: un globo 3D baja a un mapa donde la ruta se reconstruye sola con la ubicación y hora de tus fotos.", "metric": "Recupera el GPS leyendo solo metadatos, sin subir fotos · película al ritmo de la música", "stack": ["React", "Three.js", "MapLibre GL", "Firebase", "Vite"], "showcase_url": "proyectos/ourway/", "demo_url": "demos/ourway/", "is_live": true, "is_game": false}, "ruta-clara": {"title": "Ruta Clara", "tag": "Logística y mapas", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "Rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, GPS del chofer y seguimiento al cliente.", "metric": "Dijkstra por aristas + optimizador de flota", "stack": ["Node.js", "React", "MapLibre", "OpenStreetMap", "Grafos / Graphs"], "showcase_url": "proyectos/ruta-clara/", "demo_url": "demos/ruta-clara/", "is_live": true, "is_game": false}, "radar": {"title": "Radar", "tag": "Analítica comercial", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "Analítica comercial: lee el ERP en una pasada, prioriza clientes y cotizaciones con una fórmula visible y busca en milisegundos.", "metric": "Prioridad explicable · búsqueda local en milisegundos", "stack": ["Python", "SQLite FTS5", "SQL Server", "JavaScript"], "showcase_url": "proyectos/radar/", "demo_url": "demos/radar/", "is_live": true, "is_game": false}, "distrito": {"title": "Distrito", "tag": "Gamificación de ventas con IA", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "PWA de gamificación de ventas para asesores: misiones, ligas, mascota 3D y premios, con clientes priorizados por RFM y un modelo predictivo sobre el ERP.", "metric": "Mascota 3D, misiones y ligas; clientes priorizados con RFM y un modelo predictivo", "stack": ["Three.js", "Python", "PWA Offline", "SQLite", "RFM", "Machine Learning", "Blender", "Docker", "Playwright"], "showcase_url": "proyectos/distrito/", "demo_url": "proyectos/distrito/", "is_live": false, "is_game": false}, "dino-ai": {"title": "Dino AI · Una IA que aprende sola", "tag": "Inteligencia artificial", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Una IA que aprende sola a jugar al dinosaurio de Chrome: ve la pantalla con OpenCV y decide cuándo saltar con aprendizaje por refuerzo (DQN).", "metric": "800,000 pasos de entrenamiento DQN, solo con CPU", "stack": ["Python", "DQN", "Stable-Baselines3", "Gymnasium", "OpenCV"], "showcase_url": "proyectos/dino-ai/", "demo_url": "proyectos/dino-ai/", "is_live": false, "is_game": false}, "mundial": {"title": "Mundial 2026 · Predicción con IA", "tag": "Machine Learning · Simulación", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Predicción del Mundial 2026 con Elo, Dixon-Coles y XGBoost sobre 49k+ partidos históricos, y 10,000 simulaciones Monte Carlo del torneo.", "metric": "60.8% de ganadores acertados en 97 partidos del Mundial 2026", "stack": ["Python", "XGBoost", "Elo", "Monte Carlo", "scikit-learn"], "showcase_url": "proyectos/mundial/", "demo_url": "demos/mundial/", "is_live": true, "is_game": false}, "dexter": {"title": "Dexter · Asistentes de IA a tu medida", "tag": "Inteligencia artificial", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "Configurador de ecosistema para agentes de IA: memoria persistente, 46+ skills bajo demanda y servidores MCP en Claude Code, Cursor, Codex y más.", "metric": "46+ skills · 6 agentes compatibles · memoria local", "stack": ["Python", "MCP", "SQLite", "Node.js", "Go"], "showcase_url": "proyectos/dexter/", "demo_url": "proyectos/dexter/", "is_live": true, "is_game": false}, "nucleo": {"title": "Núcleo · Tu negocio en una pantalla", "tag": "Gestión de negocio", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "ERP sin servidores para un negocio de eventos: citas sincronizadas en dos sentidos con Google Calendar, cotizaciones en PDF, proveedores, gastos y reportes.", "metric": "Calendario en 2 sentidos", "stack": ["React", "Vite", "Firebase", "Firestore", "Cloud Functions", "Express", "Google Calendar API", "OAuth 2.0"], "showcase_url": "proyectos/nucleo/", "demo_url": "demos/nucleo/", "is_live": true, "is_game": false}, "lumen": {"title": "Lumen · Pregúntale a tus números", "tag": "Reportes inteligentes", "badge": "Demo en vivo", "cat": "IA & Machine Learning", "description": "BI conversacional: preguntas por voz o texto que un LLM convierte en SQL de solo lectura, ejecuta y narra, con tableros y exportación a Excel.", "metric": "Dos pasadas de IA: SQL validado de solo lectura y narración con datos reales", "stack": ["Node.js", "Express", "NL-to-SQL", "SQL Server", "Chart.js"], "showcase_url": "proyectos/lumen/", "demo_url": "demos/lumen/", "is_live": true, "is_game": false}, "vertice": {"title": "Vértice · App a la medida", "tag": "App de gestión", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor.", "metric": "Captura sin señal", "stack": ["React", "TypeScript", "Dexie (IndexedDB)", "FastAPI", "PostgreSQL", "Alembic", "JWT", "Docker"], "showcase_url": "proyectos/vertice/", "demo_url": "demos/vertice/", "is_live": true, "is_game": false}, "vitrina": {"title": "Vitrina · Tu tienda en internet", "tag": "Tienda en línea", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Tienda en línea completa: catálogo por categorías, buscador al instante, reseñas, carrito con descuentos, checkout y precios y existencias desde el ERP.", "metric": "Catálogo sincronizado", "stack": ["React", "Vite", "Express", "SQL Server", "JWT", "Mercado Pago", "PWA"], "showcase_url": "proyectos/vitrina/", "demo_url": "demos/vitrina/", "is_live": true, "is_game": false}, "nexo": {"title": "Nexo · Tu asistente por WhatsApp", "tag": "Atención al cliente", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "CRM de WhatsApp para todo el equipo: bandeja compartida, IA activable por chat, agentes y flujos sin programar, y conexión al ERP.", "metric": "Bandeja multiagente · IA por chat · ERP en vivo", "stack": ["Node.js", "React", "Socket.IO", "SQL Server", "WhatsApp Cloud API"], "showcase_url": "proyectos/nexo/", "demo_url": "demos/nexo/", "is_live": true, "is_game": false}, "brujula": {"title": "Brújula · Tus números por WhatsApp", "tag": "BI por WhatsApp", "badge": "Demo en vivo", "cat": "Automatización & BI", "description": "BI por WhatsApp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo.", "metric": "Reportes programados desde el ERP · sin capturas", "stack": ["Python", "pandas", "SQL Server", "WhatsApp Cloud API"], "showcase_url": "proyectos/brujula/", "demo_url": "proyectos/brujula/", "is_live": true, "is_game": false}, "festo": {"title": "Festo · Felicita cumpleaños solo", "tag": "Automatización", "badge": "Showcase", "cat": "Automatización & BI", "description": "Cada mañana revisa quién cumple años y le envía por WhatsApp una felicitación con tarjeta. Reintenta a mediodía sin duplicar.", "metric": "Desatendido · reintento automático sin duplicados", "stack": ["Node.js", "Docker", "Baileys", "React"], "showcase_url": "proyectos/festo/", "demo_url": "proyectos/festo/", "is_live": false, "is_game": false}, "pulso": {"title": "Pulso · Encuestas sin internet", "tag": "Encuestas", "badge": "Demo en vivo", "cat": "Web Apps & ERP", "description": "Encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real.", "metric": "Sin señal, sin pérdidas", "stack": ["React", "TypeScript", "Dexie (IndexedDB)", "PWA", "Express", "Prisma", "SQL Server", "Socket.io"], "showcase_url": "proyectos/pulso/", "demo_url": "demos/pulso/", "is_live": true, "is_game": false}, "totem": {"title": "Totem · Controla tu pantalla espectacular", "tag": "Pantallas digitales", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "Cartelería digital: el tótem muestra un video según el clima con mensaje promocional; textos, horarios y videos se manejan desde el celular.", "metric": "Cambios en tiempo real con Firebase · descarga de videos con doble barrera", "stack": ["Electron", "React", "React Native", "Firebase", "OpenWeatherMap"], "showcase_url": "proyectos/totem/", "demo_url": "demos/totem/", "is_live": false, "is_game": false}, "marquesina": {"title": "Landing page · Portafolio audiovisual", "tag": "Sitio web · Landing page", "badge": "Sitio en vivo", "cat": "3D, Videojuegos & Hardware", "description": "Landing page y portafolio audiovisual en producción: portada tipo cartelera, filas de videos con vista previa, reproductor y SEO.", "metric": "Sin frameworks · videos optimizados con FFmpeg en dos calidades por pieza", "stack": ["HTML", "CSS", "JavaScript", "FFmpeg", "GitHub Pages"], "showcase_url": "proyectos/marquesina/", "demo_url": "https://almacast.github.io/portafolio/", "is_live": true, "is_game": false}};
+    var MODAL_DATA = {"juego-construccion": {"title": "Obra Maestra MN", "tag": "Videojuego · Unity & WebGL", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "Plataformas 2D en Unity compilado a WebGL: junta material en orden de obra, abre sobres de acabados y termina tu casa. PWA con ranking.", "metric": "Niveles procedurales validados · 700+ pruebas · arranque móvil \u003c 20 MiB", "stack": ["Unity 6", "C#", "WebGL", "WebAssembly", "Supabase", "PWA"], "showcase_url": "proyectos/juego-construccion/"}, "web-studio": {"title": "Web Studio", "tag": "IA & Video Editor", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Editor de video local con IA: le cuentas la idea y arma una línea de tiempo multipista editable; exporta a MP4, Premiere o DaVinci.", "metric": "Planes de edición JSON validados y crítico interno que revisa cada render", "stack": ["Python", "FastAPI", "FFmpeg", "Claude · Codex", "JavaScript"], "showcase_url": "proyectos/web-studio/"}, "inferencia": {"title": "Inferencia eficiente", "tag": "Investigación en IA", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Laboratorio de cuantización de LLMs para GPUs de 4 GB: GPTQ deja INT4 e INT3 casi sin pérdida y rompe el muro de INT2 (de 2,588× a 12.45×).", "metric": "INT2 de 2,588× a 12.45× de pérdida en GPT-2 · INT4 a 1.01×", "stack": ["Python", "PyTorch", "CUDA", "GPTQ", "Ollama"], "showcase_url": "proyectos/inferencia/"}, "myaccountant": {"title": "MyAccountant · Tus finanzas en orden", "tag": "App de finanzas personales", "badge": "Showcase", "cat": "Web Apps & ERP", "description": "PWA de finanzas personales por quincena: sobres 50/30/20, límite diario con reserva, gastos fijos, avisos y mascotas 3D que crecen con tu ahorro.", "metric": "Web, Android y offline", "stack": ["React", "Vite", "Firebase", "Firestore", "Cloud Functions", "PWA", "Capacitor", "Three.js"], "showcase_url": "proyectos/myaccountant/"}, "cora": {"title": "CORA · Asistente de IA conversacional", "tag": "IA Conversacional · RAG", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Asistente de IA por WhatsApp: entiende texto, voz e imágenes, da el precio real del ERP, cotiza en PDF y escala a una persona cuando hace falta.", "metric": "Agentes especializados · cotiza con precios del ERP", "stack": ["Node.js", "LLMs (OpenAI / Claude)", "SQL Server", "WhatsApp API"], "showcase_url": "proyectos/cora/"}, "ourway": {"title": "Ourway", "tag": "Atlas y viajes 3D", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "Atlas privado de viajes: un globo 3D baja a un mapa donde la ruta se reconstruye sola con la ubicación y hora de tus fotos.", "metric": "Recupera el GPS leyendo solo metadatos, sin subir fotos · película al ritmo de la música", "stack": ["React", "Three.js", "MapLibre GL", "Firebase", "Vite"], "showcase_url": "proyectos/ourway/"}, "ruta-clara": {"title": "Ruta Clara", "tag": "Logística y mapas", "badge": "Showcase", "cat": "Automatización & BI", "description": "Rutas de entrega calle por calle con costo por giro, restricciones por unidad, plan de carga, GPS del chofer y seguimiento al cliente.", "metric": "Dijkstra por aristas + optimizador de flota", "stack": ["Node.js", "React", "MapLibre", "OpenStreetMap", "Grafos / Graphs"], "showcase_url": "proyectos/ruta-clara/"}, "radar": {"title": "Radar", "tag": "Analítica comercial", "badge": "Showcase", "cat": "Automatización & BI", "description": "Analítica comercial: lee el ERP en una pasada, prioriza clientes y cotizaciones con una fórmula visible y busca en milisegundos.", "metric": "Prioridad explicable · búsqueda local en milisegundos", "stack": ["Python", "SQLite FTS5", "SQL Server", "JavaScript"], "showcase_url": "proyectos/radar/"}, "distrito": {"title": "Distrito", "tag": "Gamificación de ventas con IA", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "PWA de gamificación de ventas para asesores: misiones, ligas, mascota 3D y premios, con clientes priorizados por RFM y un modelo predictivo sobre el ERP.", "metric": "Mascota 3D, misiones y ligas; clientes priorizados con RFM y un modelo predictivo", "stack": ["Three.js", "Python", "PWA Offline", "SQLite", "RFM", "Machine Learning", "Blender", "Docker", "Playwright"], "showcase_url": "proyectos/distrito/"}, "dino-ai": {"title": "Dino AI · Una IA que aprende sola", "tag": "Inteligencia artificial", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Una IA que aprende sola a jugar al dinosaurio de Chrome: ve la pantalla con OpenCV y decide cuándo saltar con aprendizaje por refuerzo (DQN).", "metric": "800,000 pasos de entrenamiento DQN, solo con CPU", "stack": ["Python", "DQN", "Stable-Baselines3", "Gymnasium", "OpenCV"], "showcase_url": "proyectos/dino-ai/"}, "mundial": {"title": "Mundial 2026 · Predicción con IA", "tag": "Machine Learning · Simulación", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Predicción del Mundial 2026 con Elo, Dixon-Coles y XGBoost sobre 49k+ partidos históricos, y 10,000 simulaciones Monte Carlo del torneo.", "metric": "60.8% de ganadores acertados en 97 partidos del Mundial 2026", "stack": ["Python", "XGBoost", "Elo", "Monte Carlo", "scikit-learn"], "showcase_url": "proyectos/mundial/"}, "dexter": {"title": "Dexter · Asistentes de IA a tu medida", "tag": "Inteligencia artificial", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "Configurador de ecosistema para agentes de IA: memoria persistente, 46+ skills bajo demanda y servidores MCP en Claude Code, Cursor, Codex y más.", "metric": "46+ skills · 6 agentes compatibles · memoria local", "stack": ["Python", "MCP", "SQLite", "Node.js", "Go"], "showcase_url": "proyectos/dexter/"}, "nucleo": {"title": "Núcleo · Tu negocio en una pantalla", "tag": "Gestión de negocio", "badge": "Showcase", "cat": "Web Apps & ERP", "description": "ERP sin servidores para un negocio de eventos: citas sincronizadas en dos sentidos con Google Calendar, cotizaciones en PDF, proveedores, gastos y reportes.", "metric": "Calendario en 2 sentidos", "stack": ["React", "Vite", "Firebase", "Firestore", "Cloud Functions", "Express", "Google Calendar API", "OAuth 2.0"], "showcase_url": "proyectos/nucleo/"}, "lumen": {"title": "Lumen · Pregúntale a tus números", "tag": "Reportes inteligentes", "badge": "Showcase", "cat": "IA & Machine Learning", "description": "BI conversacional: preguntas por voz o texto que un LLM convierte en SQL de solo lectura, ejecuta y narra, con tableros y exportación a Excel.", "metric": "Dos pasadas de IA: SQL validado de solo lectura y narración con datos reales", "stack": ["Node.js", "Express", "NL-to-SQL", "SQL Server", "Chart.js"], "showcase_url": "proyectos/lumen/"}, "vertice": {"title": "Vértice · App a la medida", "tag": "App de gestión", "badge": "Showcase", "cat": "Web Apps & ERP", "description": "Gestión de obra full-stack y offline-first: presupuestos, cotizaciones por partida, avances con fotos y solicitudes de pago que validan reglas en el servidor.", "metric": "Captura sin señal", "stack": ["React", "TypeScript", "Dexie (IndexedDB)", "FastAPI", "PostgreSQL", "Alembic", "JWT", "Docker"], "showcase_url": "proyectos/vertice/"}, "vitrina": {"title": "Vitrina · Tu tienda en internet", "tag": "Tienda en línea", "badge": "Showcase", "cat": "Web Apps & ERP", "description": "Tienda en línea completa: catálogo por categorías, buscador al instante, reseñas, carrito con descuentos, checkout y precios y existencias desde el ERP.", "metric": "Catálogo sincronizado", "stack": ["React", "Vite", "Express", "SQL Server", "JWT", "Mercado Pago", "PWA"], "showcase_url": "proyectos/vitrina/"}, "nexo": {"title": "Nexo · Tu asistente por WhatsApp", "tag": "Atención al cliente", "badge": "Showcase", "cat": "Automatización & BI", "description": "CRM de WhatsApp para todo el equipo: bandeja compartida, IA activable por chat, agentes y flujos sin programar, y conexión al ERP.", "metric": "Bandeja multiagente · IA por chat · ERP en vivo", "stack": ["Node.js", "React", "Socket.IO", "SQL Server", "WhatsApp Cloud API"], "showcase_url": "proyectos/nexo/"}, "brujula": {"title": "Brújula · Tus números por WhatsApp", "tag": "BI por WhatsApp", "badge": "Showcase", "cat": "Automatización & BI", "description": "BI por WhatsApp: cada vendedor recibe sus ventas, meta y cotizaciones dos veces al día, y el administrador el cierre del equipo.", "metric": "Reportes programados desde el ERP · sin capturas", "stack": ["Python", "pandas", "SQL Server", "WhatsApp Cloud API"], "showcase_url": "proyectos/brujula/"}, "festo": {"title": "Festo · Felicita cumpleaños solo", "tag": "Automatización", "badge": "Showcase", "cat": "Automatización & BI", "description": "Cada mañana revisa quién cumple años y le envía por WhatsApp una felicitación con tarjeta. Reintenta a mediodía sin duplicar.", "metric": "Desatendido · reintento automático sin duplicados", "stack": ["Node.js", "Docker", "Baileys", "React"], "showcase_url": "proyectos/festo/"}, "pulso": {"title": "Pulso · Encuestas sin internet", "tag": "Encuestas", "badge": "Showcase", "cat": "Web Apps & ERP", "description": "Encuestas de satisfacción en modo kiosco que funcionan sin señal: se guardan en el dispositivo, se sincronizan solas y llegan a un panel en tiempo real.", "metric": "Sin señal, sin pérdidas", "stack": ["React", "TypeScript", "Dexie (IndexedDB)", "PWA", "Express", "Prisma", "SQL Server", "Socket.io"], "showcase_url": "proyectos/pulso/"}, "totem": {"title": "Totem · Controla tu pantalla espectacular", "tag": "Pantallas digitales", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "Cartelería digital: el tótem muestra un video según el clima con mensaje promocional; textos, horarios y videos se manejan desde el celular.", "metric": "Cambios en tiempo real con Firebase · descarga de videos con doble barrera", "stack": ["Electron", "React", "React Native", "Firebase", "OpenWeatherMap"], "showcase_url": "proyectos/totem/"}, "marquesina": {"title": "Landing page · Portafolio audiovisual", "tag": "Sitio web · Landing page", "badge": "Showcase", "cat": "3D, Videojuegos & Hardware", "description": "Landing page y portafolio audiovisual en producción: portada tipo cartelera, filas de videos con vista previa, reproductor y SEO.", "metric": "Sin frameworks · videos optimizados con FFmpeg en dos calidades por pieza", "stack": ["HTML", "CSS", "JavaScript", "FFmpeg", "GitHub Pages"], "showcase_url": "proyectos/marquesina/"}};
     var activeFilter = 'all';
     var activeSearch = '';
     var activeView = 'grid';
@@ -2646,11 +2613,11 @@
 
       gridItems.forEach(function(card) {
         var cat = card.getAttribute('data-category');
-        var isLive = card.getAttribute('data-live') === 'true';
+
         var searchStr = card.getAttribute('data-search') || '';
 
         var matchCat = (activeFilter === 'all') ||
-                       (activeFilter === 'demos' && isLive) ||
+
                        (activeFilter === cat);
         var matchSearch = (!query) || (searchStr.indexOf(query) !== -1);
 
@@ -2668,11 +2635,11 @@
 
       indexRows.forEach(function(row) {
         var cat = row.getAttribute('data-category');
-        var isLive = row.getAttribute('data-live') === 'true';
+
         var searchStr = row.getAttribute('data-search') || '';
 
         var matchCat = (activeFilter === 'all') ||
-                       (activeFilter === 'demos' && isLive) ||
+
                        (activeFilter === cat);
         var matchSearch = (!query) || (searchStr.indexOf(query) !== -1);
 
@@ -2768,7 +2735,7 @@
     var modalDesc = document.getElementById('modalDesc');
     var modalMetric = document.getElementById('modalMetric');
     var modalStack = document.getElementById('modalStack');
-    var modalDemoBtn = document.getElementById('modalDemoBtn');
+
     var modalShowcaseBtn = document.getElementById('modalShowcaseBtn');
 
     function openProjectModal(slug) {
@@ -2781,7 +2748,7 @@
       }
       if (modalBadge) {
         modalBadge.textContent = data.badge;
-        modalBadge.className = 'live ' + (data.is_live ? 'badge-demo' : 'badge-showcase');
+        modalBadge.className = 'live badge-showcase';
       }
       if (modalCat) modalCat.textContent = data.cat;
       if (modalProjTitle) modalProjTitle.textContent = data.title;
@@ -2792,16 +2759,6 @@
       }
       if (modalShowcaseBtn) {
         modalShowcaseBtn.href = data.showcase_url;
-      }
-      if (modalDemoBtn) {
-        if (data.is_live) {
-          modalDemoBtn.style.display = 'inline-flex';
-          modalDemoBtn.href = data.demo_url;
-          modalDemoBtn.textContent = data.is_game ? 'Jugar demo en navegador' : 'Abrir demo en vivo';
-          if (data.is_game) modalDemoBtn.target = '_blank';
-        } else {
-          modalDemoBtn.style.display = 'none';
-        }
       }
 
       if (modal) {
